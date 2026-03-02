@@ -69,6 +69,54 @@ body {
   color: #4ade80;
 }
 
+/* INTEROPERABILITY section: extra top spacing */
+.interoperability-section {
+  margin-top: 3rem;
+}
+
+/* Single-line heading */
+.interoperability-section .interop-heading {
+  white-space: nowrap;
+}
+
+/* Endless marquee: logos in one row, scrolling */
+.interop-marquee-wrap {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.interop-marquee-track-container {
+  display: flex;
+  width: max-content;
+  animation: interop-marquee 50s linear infinite;
+}
+
+.interop-marquee-track,
+.interop-marquee-track-clone {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  align-items: stretch;
+  padding: 0 0.5rem;
+}
+
+.interop-marquee-track > *,
+.interop-marquee-track-clone > * {
+  flex-shrink: 0;
+  width: 140px;
+  min-width: 140px;
+}
+
+@keyframes interop-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* Platform Showcase — scroll-stage pattern (no flex)
  *
  * Why removing flex row eliminates perceived column coupling:
@@ -133,12 +181,16 @@ body {
   width: 100%;
   position: relative;
   overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
 }
 
 /* Stage: normal flow, 55% width. padding-top aligns first heading with sticky video top. */
 .platform-stage {
-  width: 55%;
-  padding-right: 4rem;
+  width: 52%;
+  flex: 0 0 52%;
+  padding-right: 3rem;
   padding-top: 120px;
 }
 
@@ -153,10 +205,19 @@ body {
   opacity: 0.25;
   transition: opacity 0.4s ease;
 }
-/* No vertical centering: content starts at top of each block (justify-content: flex-start above). */
+
+/* Legacy blocks are hidden; content is rendered via .platform-panel instead */
+.platform-stage .feature-block {
+  display: none;
+}
 
 .feature-block.active {
   opacity: 1;
+}
+
+/* Panel used for in-place capability copy */
+.platform-panel {
+  max-width: 680px;
 }
 
 .feature-block-title {
@@ -196,15 +257,17 @@ body {
 
 /* Visual: float right, sticky at 120px so top aligns with stage content (padding-top: 120px). */
 .platform-visual {
-  float: right;
+  float: none;
   position: sticky;
-  top: 120px;
-  width: 45%;
-  height: 60vh;
-  max-height: 600px;
+  top: 80px;
+  width: 40%;
+  flex: 0 0 40%;
+  height: auto;
+  max-height: none;
+  margin-top: 4px;
   border-radius: 1rem;
-  overflow: hidden;
-  background: #0d0d0d;
+  overflow: visible;
+  background: transparent;
 }
 
 .platform-visual .video-container {
@@ -227,6 +290,228 @@ body {
   opacity: 0;
 }
 
+/* Browser-style frame for www.torro.ai visual — fixed size for all capabilities */
+.platform-browser {
+  width: 100%;
+  max-width: 460px;
+  min-width: 380px;
+  height: 420px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  border: 1px solid #1f2937;
+  background:
+    radial-gradient(circle at top left, rgba(148, 164, 244, 0.25), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(248, 189, 100, 0.18), transparent 55%),
+    linear-gradient(135deg, #020617, #020617);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.9);
+  overflow: hidden;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Arrow navigation around capability title */
+.platform-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.platform-nav-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.platform-nav-arrow {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid #374151;
+  background-color: rgba(15, 23, 42, 0.9);
+  color: #94a4f4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.platform-nav-arrow:hover:not(:disabled) {
+  background-color: rgba(30, 64, 175, 0.85);
+  border-color: #94a4f4;
+  transform: translateY(-1px);
+}
+
+.platform-nav-arrow:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
+.platform-browser-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #1f2937;
+  background: linear-gradient(
+    to right,
+    rgba(148, 164, 244, 0.16),
+    rgba(123, 139, 232, 0.06)
+  );
+}
+
+.platform-browser-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.platform-browser-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 9999px;
+  background-color: #1f2937;
+}
+
+.platform-browser-dot-red {
+  background-color: #f97373;
+}
+
+.platform-browser-dot-amber {
+  background-color: #fbbf24;
+}
+
+.platform-browser-dot-green {
+  background-color: #4ade80;
+}
+
+.platform-browser-url {
+  flex: 1;
+  margin-left: 0.75rem;
+  font-size: 0.75rem;
+  color: #d1d5db;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 164, 244, 0.3);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.platform-browser-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  padding: 1.75rem 1.5rem 1.75rem;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.platform-browser-left {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  max-width: 360px;
+  align-items: center;
+}
+
+.platform-browser-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background-color: rgba(148, 164, 244, 0.15);
+  color: #94a4f4;
+  border: 1px solid rgba(148, 164, 244, 0.35);
+  margin-bottom: 0.75rem;
+  align-self: center;
+}
+
+.platform-browser-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f9fafb;
+  line-height: 1.4;
+  margin: 0 0 0.75rem;
+  text-align: center;
+}
+
+.platform-browser-text {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.platform-browser-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  align-self: center;
+  justify-items: center;
+}
+
+.platform-browser-metric {
+  padding: 0.7rem 0.75rem;
+  border-radius: 0.75rem;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(31, 41, 55, 0.9);
+}
+
+.platform-browser-metric-label {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  margin-bottom: 0.25rem;
+}
+
+.platform-browser-metric-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.platform-browser-metric-sub {
+  font-size: 0.65rem;
+  color: #6b7280;
+}
+
+.platform-browser-metric-accent {
+  background: linear-gradient(
+    135deg,
+    rgba(248, 189, 100, 0.16),
+    rgba(148, 164, 244, 0.1)
+  );
+  border-color: rgba(248, 189, 100, 0.7);
+}
+
+.platform-browser-right {
+  display: none;
+}
+
+.platform-browser-right .video-container {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: 16 / 10;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+}
+
 /* Mobile: stack visual then stage, remove float and sticky */
 @media (max-width: 1024px) {
   .platform-wrapper {
@@ -244,6 +529,8 @@ body {
 
   .platform-section {
     overflow: visible;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .platform-stage {
@@ -261,6 +548,14 @@ body {
 
   .platform-visual .video-container {
     max-height: 320px;
+  }
+
+  .platform-browser-body {
+    flex-direction: column;
+  }
+
+  .platform-browser-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .feature-block {
@@ -295,6 +590,10 @@ body {
 
   .platform-visual .video-container {
     max-height: 240px;
+  }
+
+  .platform-browser-metrics {
+    grid-template-columns: 1fr;
   }
 }
 
