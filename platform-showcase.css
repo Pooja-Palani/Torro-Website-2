@@ -20,6 +20,9 @@ body {
 }
 
 /* Core Capabilities: wider container and aligned, wider cards. */
+.capabilities-section {
+  margin-top: 2.5rem !important; /* override mt-32 to move section up */
+}
 .capabilities-section .section-inner {
   max-width: 1400px;
 }
@@ -65,13 +68,24 @@ body {
 .comparison-table thead tr:first-child th:nth-child(2) {
   color: #f8bd64;
 }
+
+/* Recommended badge: align left in TORRO AI column */
+.comparison-table thead tr:nth-child(2) th:nth-child(2) {
+  text-align: left;
+  padding-left: 0.75rem;
+}
 .comparison-table td:nth-child(2) .text-green-400 {
   color: #4ade80;
 }
 
-/* INTEROPERABILITY section: extra top spacing */
+/* INTEROPERABILITY section: reduced top spacing to move up */
 .interoperability-section {
-  margin-top: 3rem;
+  margin-top: 0;
+}
+
+/* Solutions by Team: move section down */
+.solutions-by-team-section {
+  padding-top: 7rem !important;
 }
 
 /* Single-line heading */
@@ -106,6 +120,39 @@ body {
   flex-shrink: 0;
   width: 140px;
   min-width: 140px;
+  min-height: 120px;
+  display: grid;
+  grid-template-rows: 40px auto;
+  row-gap: 0.75rem;
+  align-items: start;
+  justify-items: center;
+  padding: 1.5rem;
+}
+
+/* Starburst/Oracle: fixed 40px logo cell so text aligns with other cards */
+.interop-logo-cell {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.interop-logo-cell .interop-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Uniform logo size across all marquee cards */
+.interop-logo {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 @keyframes interop-marquee {
@@ -188,8 +235,8 @@ body {
 
 /* Stage: normal flow, 55% width. padding-top aligns first heading with sticky video top. */
 .platform-stage {
-  width: 52%;
-  flex: 0 0 52%;
+  width: 44%;
+  flex: 0 0 44%;
   padding-right: 3rem;
   padding-top: 120px;
 }
@@ -260,11 +307,11 @@ body {
   float: none;
   position: sticky;
   top: 80px;
-  width: 40%;
-  flex: 0 0 40%;
+  width: 48%;
+  flex: 0 0 48%;
   height: auto;
   max-height: none;
-  margin-top: 4px;
+  margin-top: 3rem;
   border-radius: 1rem;
   overflow: visible;
   background: transparent;
@@ -293,10 +340,10 @@ body {
 /* Browser-style frame for www.torro.ai visual — fixed size for all capabilities */
 .platform-browser {
   width: 100%;
-  max-width: 460px;
-  min-width: 380px;
-  height: 420px;
-  min-height: 420px;
+  max-width: 560px;
+  min-width: 420px;
+  height: 460px;
+  min-height: 460px;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
