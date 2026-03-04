@@ -129,10 +129,15 @@ html {
     if (stage && !stage.querySelector('.platform-nav')) {
       var nav = document.createElement('div');
       nav.className = 'platform-nav';
+      var dotsHtml = '';
+      for (var di = 0; di < features.length; di++) {
+        dotsHtml += '<span class="platform-nav-dot' + (di === 0 ? ' active' : '') + '" data-index="' + di + '"></span>';
+      }
       nav.innerHTML =
         '<button class="platform-nav-arrow platform-nav-arrow-prev" aria-label="Previous capability">\u2039</button>' +
         '<div class="platform-nav-label">Observe data</div>' +
-        '<button class="platform-nav-arrow platform-nav-arrow-next" aria-label="Next capability">\u203a</button>';
+        '<button class="platform-nav-arrow platform-nav-arrow-next" aria-label="Next capability">\u203a</button>' +
+        '<div class="platform-nav-dots">' + dotsHtml + '</div>';
       stage.insertBefore(nav, stage.firstChild);
     }
     var navRoot = document.querySelector('.platform-nav');
@@ -156,6 +161,7 @@ html {
     if (!videoEl || !sourceEl) return;
     var currentActiveIndex = 0;
     var currentVideo = null;
+    var wrapper = document.querySelector('.platform-wrapper');
     function switchVideo(index) {
       if (index < 0 || index >= features.length) return;
       var nextSrc = features[index].video;
@@ -236,6 +242,86 @@ html {
       nextBtn.addEventListener('click', function() { go(1); });
     }
     setActiveFeature(0);
+
+    if (wrapper && window.innerWidth > 1024) {
+      var progressBar = document.createElement('div');
+      progressBar.className = 'platform-scroll-progress';
+      var inner = document.querySelector('.platform-inner');
+      if (inner) inner.appendChild(progressBar);
+
+      var dotEls = document.querySelectorAll('.platform-nav-dot');
+      dotEls.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          var idx = parseInt(this.getAttribute('data-index'), 10);
+          if (!isNaN(idx)) {
+            var panelEl = stage ? stage.querySelector('.platform-panel') : null;
+            if (panelEl) panelEl.classList.add('panel-fading');
+            setTimeout(function() {
+              setActiveFeature(idx);
+              updateIndicators();
+              if (panelEl) panelEl.classList.remove('panel-fading');
+            }, 150);
+          }
+        });
+      });
+
+      var locked = false;
+      var wheelCooldown = false;
+      var ignoreObserver = false;
+      var COOLDOWN_MS = 600;
+
+      function updateIndicators() {
+        dotEls.forEach(function(d, i) { d.classList.toggle('active', i === currentActiveIndex); });
+        progressBar.style.width = (((currentActiveIndex + 1) / features.length) * 100) + '%';
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.intersectionRatio > 0.7 && !locked && !ignoreObserver) {
+            locked = true;
+            wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else if (entry.intersectionRatio < 0.2) {
+            locked = false;
+          }
+        });
+      }, { threshold: [0, 0.2, 0.5, 0.7, 1] });
+      observer.observe(wrapper);
+
+      document.addEventListener('wheel', function(e) {
+        if (!locked) return;
+        if (wheelCooldown) { e.preventDefault(); return; }
+
+        var dir = e.deltaY > 0 ? 1 : -1;
+
+        if (dir === 1 && currentActiveIndex < features.length - 1) {
+          e.preventDefault();
+          wheelCooldown = true;
+          var panelEl = stage ? stage.querySelector('.platform-panel') : null;
+          if (panelEl) panelEl.classList.add('panel-fading');
+          setTimeout(function() {
+            go(1);
+            updateIndicators();
+            if (panelEl) panelEl.classList.remove('panel-fading');
+            setTimeout(function() { wheelCooldown = false; }, COOLDOWN_MS);
+          }, 150);
+        } else if (dir === -1 && currentActiveIndex > 0) {
+          e.preventDefault();
+          wheelCooldown = true;
+          var panelEl = stage ? stage.querySelector('.platform-panel') : null;
+          if (panelEl) panelEl.classList.add('panel-fading');
+          setTimeout(function() {
+            go(-1);
+            updateIndicators();
+            if (panelEl) panelEl.classList.remove('panel-fading');
+            setTimeout(function() { wheelCooldown = false; }, COOLDOWN_MS);
+          }, 150);
+        } else {
+          locked = false;
+          ignoreObserver = true;
+          setTimeout(function() { ignoreObserver = false; }, 1200);
+        }
+      }, { passive: false });
+    }
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', run);
