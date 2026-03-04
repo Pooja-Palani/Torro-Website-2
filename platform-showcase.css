@@ -202,6 +202,10 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+/* Hide Data Culture stats section entirely */
+.data-culture-section {
+  display: none !important;
+}
 /* Data Culture: force horizontal 3-column layout from 768px up; stack on small screens */
 .data-culture-section .data-culture-stats {
   display: grid;
@@ -236,7 +240,7 @@ body {
   margin-top: 0;
 }
 
-/* Solutions by Team: move section down */
+/* Solutons For Team: move section down */
 .solutions-by-team-section {
   padding-top: 7rem !important;
 }
@@ -758,8 +762,8 @@ body {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
 }
 
-/* Mobile: stack visual then stage, remove float and sticky */
-@media (max-width: 1024px) {
+/* Mobile / medium: stack visual then stage, remove float and sticky */
+@media (max-width: 1200px) {
   .platform-wrapper {
     padding: 4rem 1.5rem;
   }
@@ -854,7 +858,7 @@ body {
 }
 
 /* ========== Global responsive: entire site ========== */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .page-wrapper header > div {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -927,7 +931,7 @@ body {
 }
 
 /* ========== Additional responsive: hero, headings, sections ========== */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .page-wrapper section.min-h-screen .relative.flex.justify-end {
     margin-left: 0;
   }
