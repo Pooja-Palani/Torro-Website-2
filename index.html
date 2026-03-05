@@ -66,7 +66,7 @@ html {
         { label: 'Prompts logged', value: '8.1k', sub: 'last 30 days', accent: false },
         { label: 'Drift alerts', value: '3', sub: 'needs review', accent: true }
       ]}},
-    { title: 'Data Analytics', description: 'Unified observability and analytics dashboards for PII usage, data quality, and cloud cost-to-value in one view.', video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    { title: 'Data Analytics', description: 'Torro\'s privBox architecture provides a secure, project-specific analytics container that automates data entitlements and consent-linked filtering, allowing teams to achieve instant, compliant access to data while maintaining 100% lifecycle visibility and audit readiness.', video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
       browser: { tag: 'Analytics hub', title: 'Unified data observability & analytics', text: 'Monitor PII usage, quality SLAs, and granular cloud costs from a single set of executive dashboards.', metrics: [
         { label: 'Program score', value: 'B+', sub: 'vs last quarter', accent: false },
         { label: 'Improvements', value: '14', sub: 'in progress', accent: false },
@@ -352,28 +352,133 @@ html {
 <script>
 (function() {
   function styleHeroHeadline() {
-    var hero = document.querySelector('.page-wrapper section.min-h-screen h1');
-    if (!hero) return;
-    hero.style.fontSize = '40px';
-    var text = hero.textContent || '';
-    var phrases = [
-      'automates regulatory compliance',
-      'real-time PII protection',
-      'complete visibility'
-    ];
-    var html = text;
-    phrases.forEach(function(phrase) {
-      html = html.replace(
-        phrase,
-        '<span class="text-[#94A4F4]">' + phrase + '</span>'
-      );
-    });
-    hero.innerHTML = html;
+  var hero = document.querySelector('.page-wrapper section.min-h-screen h1');
+  if (!hero) return;
+  hero.style.fontSize = '52px';
+  hero.innerHTML = 'Control <span class="text-[#94A4F4]">Enterprise Data</span> at Scale';
+  var sub = document.querySelector('.page-wrapper section.min-h-screen p.text-base');
+  if (sub) {
+    sub.textContent = 'A RegTech platform that enforces real-time PII protection, automates compliance, and delivers full visibility across hybrid data environments.';
+  }
+  var buttons = document.querySelectorAll('.page-wrapper section.min-h-screen button[data-slot="button"]');
+  if (buttons.length >= 2) {
+    buttons[0].textContent = 'Request a Demo';
+    buttons[1].textContent = 'Explore the Platform';
+  }
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', styleHeroHeadline);
   } else {
     styleHeroHeadline();
+  }
+})();
+</script><script>
+(function() {
+  function updateCoreCapabilities() {
+    var section = document.querySelector('.capabilities-section');
+    if (!section) return;
+    var subtitle = section.querySelector('.text-gray-300.text-xl.text-center');
+    if (subtitle) {
+      subtitle.textContent = 'Comprehensive Data Governance, Privacy Compliance and Secure Analytics for Modern Enterprises';
+    }
+    var cards = section.querySelectorAll('[data-slot="card"]');
+    if (cards.length >= 3) {
+      var second = cards[1];
+      var third = cards[2];
+      var h3_2 = second.querySelector('h3');
+      var p2 = second.querySelector('p.text-gray-400');
+      if (h3_2) h3_2.textContent = 'Seamless Data Discovery and Data Lineage';
+      if (p2) {
+        p2.textContent = 'Our platform uses automated cross-platform scanning and GenAI-powered hyperbolic search to identify structured and unstructured data across multi-cloud and on-premise estates. It tracks the entire data journey from creation to usage to archival to deletion within a unified metadata store. This provides visual source-to-dashboard traceability and generates automated supervisory evidence.';
+      }
+      var h3_3 = third.querySelector('h3');
+      var p3 = third.querySelector('p.text-gray-400');
+      if (h3_3) h3_3.textContent = 'Secure Analytics and Business Intelligence';
+      if (p3) {
+        p3.textContent = 'The privBox is the foundational Secure Analytics Container within Torro\'s architecture that bridges the gap between raw data storage and secure consumption. It is created specifically for an approved business or project purpose, ensuring that data access is never open-ended but tied to a documented use case.';
+      }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateCoreCapabilities);
+  } else {
+    updateCoreCapabilities();
+  }
+})();
+</script><script>
+(function() {
+  function updateSolutionsByTeam() {
+    var section = document.querySelector('.solutions-by-team-section');
+    if (!section) return;
+
+    // Fix "Solutions" label spelling
+    var label = section.querySelector('p.text-[#F8BD64]');
+    if (label) {
+      label.textContent = 'Solutions For Teams';
+    }
+
+    var cards = section.querySelectorAll('.grid.md\\:grid-cols-3 > div.bg-[#171718]');
+    if (cards.length >= 3) {
+      // CISO / AUDIT OFFICE card
+      var ciso = cards[0];
+      var cisoTitle = ciso.querySelector('h3');
+      var cisoBody = ciso.querySelector('p.text-gray-400');
+      var cisoList = ciso.querySelector('ul');
+      if (cisoTitle) cisoTitle.textContent = 'Defensible by Design';
+      if (cisoBody) {
+        cisoBody.textContent =
+          'Torro provides 100% high data visibility throughout the lifecycle, eliminating compliance blind spots and internal security risks. When the regulator calls, you answer with confidence — not a spreadsheet.';
+      }
+      if (cisoList) {
+        cisoList.innerHTML =
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> PII Data auto-detection and granular masking</li>' +
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> Mitigating toxic access via automated entitlements (RBAC/ABAC)</li>' +
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> Regulator-ready audit exports with full Who/What/When/Why traceability</li>' +
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> Toxic dataset combination monitoring</li>';
+      }
+
+      // DATA ENGINEERING TEAMS card
+      var eng = cards[1];
+      var engTitle = eng.querySelector('h3');
+      var engBody = eng.querySelector('p.text-gray-400');
+      var engList = eng.querySelector('ul');
+      if (engTitle) engTitle.textContent = 'Governance Without Friction';
+      if (engBody) {
+        engBody.textContent =
+          'For data engineers, Torro acts as a force multiplier that simplifies complex data estates without requiring expensive re-engineering of the existing tech stack. It integrates across multi-cloud, on-premise, and hybrid systems and works natively with platforms like Databricks, Snowflake, and Starburst.';
+      }
+      if (engList) {
+        engList.innerHTML =
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> Agnostic interoperability across clouds and on-prem</li>' +
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> Automates Active Directory (AD) management and workflows</li>' +
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> End-to-end lineage across pipelines and models</li>' +
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> Automated PII masking in data pipelines</li>';
+      }
+
+      // BUSINESS DECISION MAKERS card
+      var biz = cards[2];
+      var bizTitle = biz.querySelector('h3');
+      var bizBody = biz.querySelector('p.text-gray-400');
+      var bizList = biz.querySelector('ul');
+      if (bizTitle) bizTitle.textContent = 'Data in Minutes, Not Months';
+      if (bizBody) {
+        bizBody.textContent =
+          'Torro provides a shared workspace where Legal, Risk, and IT teams collaborate on shared data decisions, ensuring business velocity never bypasses compliance. Browse the data marketplace, request access, get approval, and start analyzing — all in one governed workflow.';
+      }
+      if (bizList) {
+        bizList.innerHTML =
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> Business decisions layer that aligns Legal, Risk, and IT</li>' +
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> Self-service data marketplace catalog</li>' +
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> One-click governed access requests</li>' +
+          '<li class="flex items-center gap-2"><span class="text-[#94A4F4]">✓</span> Business-friendly data quality scores</li>';
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateSolutionsByTeam);
+  } else {
+    updateSolutionsByTeam();
   }
 })();
 </script></body></html>
