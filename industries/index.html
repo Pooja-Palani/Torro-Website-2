@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Company | Torro AI - About Us &amp; Partners</title>
-  <meta name="description" content="Mission, vision, and partners. Torro is the unified data operating system for institutional-grade governance."/>
+  <title>Industries | Torro AI - BFSI, Healthcare, Telecom</title>
+  <meta name="description" content="Data governance and compliance for BFSI, Healthcare, and Telecom. Built for regulated industries."/>
   <link rel="stylesheet" href="/_next/static/css/a2ec1fefa4b8352d.css"/>
   <link rel="stylesheet" href="/platform-showcase.css"/>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
     html { font-family: 'Geist', sans-serif; }
-    .company-page { min-height: 100vh; background: #000; color: #fff; }
+    .industries-page { min-height: 100vh; background: #000; color: #fff; }
     .solution-hero { padding: 8rem 6rem 5rem; max-width: 90rem; margin: 0 auto; }
     .solution-hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; color: #94A4F4; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
     .solution-hero p { font-size: 1.125rem; color: #e5e7eb; max-width: 42rem; line-height: 1.65; margin-bottom: 2rem; }
@@ -29,21 +29,20 @@
     .solution-card-content { padding: 0.5rem 1rem 0 0; }
     .solution-card.reverse .solution-card-content { padding: 0.5rem 0 0 1rem; }
     .solution-card h3 { font-size: 1.75rem; font-weight: 700; color: #94A4F4; margin-bottom: 1rem; line-height: 1.25; }
-    .solution-card-desc { color: #d1d5db; font-size: 1rem; line-height: 1.65; margin-bottom: 1rem; }
+    .solution-card-desc { color: #d1d5db; font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem; }
     .solution-card-label { font-size: 0.9375rem; font-weight: 600; color: #F8BD64; margin-bottom: 0.5rem; }
-    .solution-card-value { color: #e5e7eb; font-size: 1rem; line-height: 1.6; }
+    .solution-card-value { color: #e5e7eb; font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem; }
+    .solution-card ul { list-style: none; padding: 0; margin: 0; }
+    .solution-card li { color: #d1d5db; font-size: 0.9375rem; line-height: 1.6; padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem; }
+    .solution-card li::before { content: ''; position: absolute; left: 0; top: 0.5em; width: 0.35rem; height: 0.35rem; background: #94A4F4; border-radius: 50%; }
     .solution-card-placeholder { aspect-ratio: 4/3; min-height: 200px; background: rgba(148, 164, 244, 0.05); backdrop-filter: blur(8px); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: rgba(148, 164, 244, 0.45); font-size: 0.875rem; border: 1px solid rgba(148, 164, 244, 0.18); }
-    .stats-row { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin: 2rem 0; }
-    .stat { text-align: center; }
-    .stat .num { font-size: 2.5rem; font-weight: 700; color: #F8BD64; }
-    .stat .label { font-size: 0.875rem; color: #9ca3af; }
     .solution-cta { padding: 5rem 6rem; text-align: center; background: rgba(15, 20, 35, 0.6); }
     .solution-cta h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
     .solution-cta p { color: #9ca3af; font-size: 1.125rem; margin-bottom: 1.5rem; max-width: 36rem; margin-left: auto; margin-right: auto; }
-    .company-page .page-wrapper header > div { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
-    .company-page .page-wrapper header .main-nav { display: flex; flex-direction: row; align-items: center; flex-wrap: nowrap; }
+    .industries-page .page-wrapper header > div { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+    .industries-page .page-wrapper header .main-nav { display: flex; flex-direction: row; align-items: center; flex-wrap: nowrap; }
     @media (max-width: 1024px) {
-      .company-page .page-wrapper header > div { padding: 1rem 2rem; }
+      .industries-page .page-wrapper header > div { padding: 1rem 2rem; }
       .solution-hero { padding: 6rem 2rem 4rem; }
       .solution-section { padding: 3rem 2rem 4rem; }
       .solution-card { grid-template-columns: 1fr; direction: ltr; }
@@ -54,7 +53,7 @@
     }
   </style>
 </head>
-<body class="company-page">
+<body class="industries-page">
 <div class="page-wrapper min-h-screen bg-black text-white" style="overflow-x:clip">
   <header class="fixed top-0 left-0 right-0 z-50 w-full bg-black/40 backdrop-blur-md border-b border-gray-700">
     <div class="flex items-center justify-between px-24 py-4 gap-8">
@@ -131,71 +130,73 @@
   </header>
 
   <section class="solution-hero">
-    <h1>Company</h1>
-    <p>We build the unified data operating system that gives enterprises absolute control over governance, compliance, and trust. Power in safe hands.</p>
+    <h1>Industries We Serve</h1>
+    <p>BFSI, Healthcare, and Telecom face the toughest data and compliance demands. Torro is built for regulated industries that can't afford to be wrong.</p>
     <div class="solution-hero-btns">
       <a href="/#request-demo" class="solution-btn-primary yellow">Book a Demo</a>
-      <a href="/solution/" class="solution-btn-primary outline">Our Solutions</a>
+      <a href="/case-studies/fortune-500-success/" class="solution-btn-primary outline">Read Case Study</a>
     </div>
   </section>
 
-  <section id="about" class="solution-section">
-    <h2 class="solution-section-title">About Us</h2>
+  <section class="solution-section">
+    <h2 class="solution-section-title">Built for Regulated Sectors</h2>
     <div class="solution-section-rule"></div>
 
-    <article class="solution-card">
+    <article id="bfsi" class="solution-card">
       <div class="solution-card-content">
-        <h3>Our Mission</h3>
-        <p class="solution-card-desc">To transform how organizations manage, govern, and derive value from their data. We believe every enterprise deserves institutional-grade data governance without the complexity and cost of legacy tools.</p>
-        <p class="solution-card-label">What we do</p>
-        <p class="solution-card-value">Torro connects discovery, lineage, quality, access control, and governed data sharing into one operating layer. Deploy in weeks. Stay compliant by design.</p>
+        <h3>BFSI</h3>
+        <p class="solution-card-desc">Banks, insurers, and financial institutions need DPDP, RBI, BCBS239, and SOX compliance without slowing down data-driven innovation. Torro delivers full visibility, automated entitlements, and audit-ready reporting.</p>
+        <p class="solution-card-label">Business Value</p>
+        <p class="solution-card-value">Reduce compliance effort by up to 94%, achieve 100% sensitive data visibility in weeks, and cut TCO vs legacy alternatives. Proven at tier-1 scale.</p>
+        <p class="solution-card-label">Key Capabilities</p>
+        <ul>
+          <li>DPDP and RBI readiness</li>
+          <li>BCBS239 risk data aggregation</li>
+          <li>SOX and audit trail automation</li>
+          <li>Hybrid estate (47+ DCs, multi-cloud)</li>
+        </ul>
       </div>
-      <div class="solution-card-placeholder">Image Placeholder</div>
+      <div class="solution-card-placeholder">BFSI Image Placeholder</div>
     </article>
 
-    <article class="solution-card reverse">
+    <article id="healthcare" class="solution-card reverse">
       <div class="solution-card-content">
-        <h3>Our Vision</h3>
-        <p class="solution-card-desc">A world where data governance is seamless, intelligent, and built into every data touchpoint. CISOs, data engineers, and business leaders work from one source of truth.</p>
-        <p class="solution-card-label">By the numbers</p>
-        <div class="stats-row">
-          <div class="stat"><div class="num">4 Weeks</div><div class="label">Avg. time to production</div></div>
-          <div class="stat"><div class="num">100%</div><div class="label">Sensitive data visibility Day 1</div></div>
-          <div class="stat"><div class="num">94%</div><div class="label">Manual compliance effort reduced</div></div>
-        </div>
+        <h3>Healthcare</h3>
+        <p class="solution-card-desc">Patient data is highly sensitive and heavily regulated. Torro helps healthcare organizations govern PHI/PII, enforce consent, and maintain HIPAA and local privacy compliance across EHRs, analytics, and research.</p>
+        <p class="solution-card-label">Business Value</p>
+        <p class="solution-card-value">Enable secure, governed use of clinical and operational data for analytics and AI while keeping regulators and patients confident.</p>
+        <p class="solution-card-label">Key Capabilities</p>
+        <ul>
+          <li>PHI/PII discovery and classification</li>
+          <li>Consent and purpose limitation</li>
+          <li>HIPAA and local privacy alignment</li>
+          <li>Research and de-identification workflows</li>
+        </ul>
       </div>
-      <div class="solution-card-placeholder">Image Placeholder</div>
-    </article>
-  </section>
-
-  <section id="partners" class="solution-section">
-    <h2 class="solution-section-title">Partners</h2>
-    <div class="solution-section-rule"></div>
-
-    <article class="solution-card">
-      <div class="solution-card-content">
-        <h3>Technology &amp; Integration Partners</h3>
-        <p class="solution-card-desc">Torro integrates with the platforms you already use: AWS, Azure, Google Cloud, Databricks, Snowflake, dbt, and 50+ data sources. We partner with leading cloud and data vendors to ensure seamless deployment and support.</p>
-        <p class="solution-card-label">Why partner with Torro</p>
-        <p class="solution-card-value">Joint go-to-market, certified connectors, and co-delivery for complex hybrid estates. If you're a system integrator or cloud partner, we'd like to talk.</p>
-      </div>
-      <div class="solution-card-placeholder">Partners / Logos Placeholder</div>
+      <div class="solution-card-placeholder">Healthcare Image Placeholder</div>
     </article>
 
-    <article class="solution-card reverse">
+    <article id="telecom" class="solution-card">
       <div class="solution-card-content">
-        <h3>Consulting &amp; Implementation Partners</h3>
-        <p class="solution-card-desc">Our consulting partners deliver data governance assessments, DPDP readiness programs, and full platform rollouts. Together we help BFSI, healthcare, and telecom organizations achieve audit-ready governance in weeks.</p>
-        <p class="solution-card-label">Become a partner</p>
-        <p class="solution-card-value">Access training, playbooks, and joint engagements. Contact us to explore a partnership.</p>
+        <h3>Telecom</h3>
+        <p class="solution-card-desc">Telecoms hold vast amounts of subscriber and usage data. Torro supports TRAI, DPDP, and cross-border requirements while enabling data monetization and analytics in a governed way.</p>
+        <p class="solution-card-label">Business Value</p>
+        <p class="solution-card-value">Balance regulatory compliance with the need to leverage data for personalization, fraud detection, and network optimization.</p>
+        <p class="solution-card-label">Key Capabilities</p>
+        <ul>
+          <li>Subscriber and CDR governance</li>
+          <li>Data residency and transfer controls</li>
+          <li>Consent and preference management</li>
+          <li>Unified catalog across BSS/OSS</li>
+        </ul>
       </div>
-      <div class="solution-card-placeholder">Image Placeholder</div>
+      <div class="solution-card-placeholder">Telecom Image Placeholder</div>
     </article>
   </section>
 
   <section class="solution-cta">
-    <h2>Get in Touch</h2>
-    <p>Ready to bring absolute control to your data estate? Request a demo or reach out for partnership discussions.</p>
+    <h2>Ready for Your Industry?</h2>
+    <p>See how Torro helps BFSI, Healthcare, and Telecom achieve governance and compliance at scale.</p>
     <a href="/#request-demo" class="solution-btn-primary yellow">Request an Enterprise Demo</a>
   </section>
 </div>

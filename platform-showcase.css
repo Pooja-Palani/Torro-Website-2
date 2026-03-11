@@ -43,6 +43,133 @@ body {
   color: #94A4F4;
 }
 
+/* Top navigation mega-menu for Solutions */
+.page-wrapper header nav.main-nav {
+  position: relative;
+}
+
+.main-nav .nav-item {
+  position: relative;
+}
+
+.main-nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.main-nav .nav-chevron {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.main-nav .nav-mega {
+  display: none;
+  position: absolute;
+  top: 2.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at top left, #1e1b4b 0, #020617 45%);
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  padding: 1.75rem 2rem;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.9);
+  min-width: 760px;
+  z-index: 60;
+}
+
+.main-nav .nav-mega-inner {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+
+.main-nav .nav-mega-column-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  color: #f8bd64;
+  font-weight: 600;
+}
+.main-nav a.nav-mega-column-title {
+  display: block;
+  text-decoration: none;
+  color: #f8bd64;
+  transition: color 0.15s ease;
+}
+.main-nav a.nav-mega-column-title:hover {
+  color: #94a4f4;
+}
+
+.main-nav .nav-mega-link {
+  display: block;
+  font-size: 0.82rem;
+  color: #e5e7eb;
+  padding: 0.25rem 0;
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.main-nav .nav-mega-link:hover {
+  color: #94a4f4;
+  transform: translateX(2px);
+}
+
+.main-nav .nav-item.group:hover .nav-mega,
+.main-nav .nav-item.group:focus-within .nav-mega {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .main-nav .nav-mega {
+    left: auto;
+    right: 0;
+    transform: none;
+    min-width: 90vw;
+    max-width: 420px;
+  }
+  .main-nav .nav-mega-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Simple fly-out dropdowns (Use Cases, Resources, Company) */
+.main-nav .nav-flyout {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  background: rgba(15, 23, 42, 0.98);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 0.6rem 0.9rem;
+  min-width: 210px;
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+  z-index: 60;
+}
+
+.main-nav .nav-flyout a {
+  display: block;
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  padding: 0.35rem 0.25rem;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.main-nav .nav-flyout a:hover {
+  background-color: rgba(148, 163, 184, 0.18);
+  color: #94a4f4;
+  transform: translateX(1px);
+}
+
+.main-nav .nav-item.group:hover .nav-flyout,
+.main-nav .nav-item.group:focus-within .nav-flyout {
+  display: block;
+}
+
 /* Root page wrapper: must never have max-width so black background spans 100% viewport. */
 .page-wrapper {
   width: 100%;

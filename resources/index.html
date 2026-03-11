@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Company | Torro AI - About Us &amp; Partners</title>
-  <meta name="description" content="Mission, vision, and partners. Torro is the unified data operating system for institutional-grade governance."/>
+  <title>Resources | Torro AI - Data Governance Insights</title>
+  <meta name="description" content="Blog, Newsletter, case studies, and documentation for enterprise data governance and compliance."/>
   <link rel="stylesheet" href="/_next/static/css/a2ec1fefa4b8352d.css"/>
   <link rel="stylesheet" href="/platform-showcase.css"/>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
     html { font-family: 'Geist', sans-serif; }
-    .company-page { min-height: 100vh; background: #000; color: #fff; }
+    .resources-page { min-height: 100vh; background: #000; color: #fff; }
     .solution-hero { padding: 8rem 6rem 5rem; max-width: 90rem; margin: 0 auto; }
     .solution-hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; color: #94A4F4; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
     .solution-hero p { font-size: 1.125rem; color: #e5e7eb; max-width: 42rem; line-height: 1.65; margin-bottom: 2rem; }
@@ -23,38 +23,29 @@
     .solution-section { padding: 4rem 6rem 5rem; max-width: 90rem; margin: 0 auto; }
     .solution-section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color:#FFF; margin-bottom: 0.5rem; text-align: center; }
     .solution-section-rule { width: 6rem; height: 2px; background: linear-gradient(90deg, #94A4F4, #E06365); margin: 0 auto 4rem auto; }
-    .solution-card { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; margin-bottom: 3rem; padding: 2rem; border-radius: 1rem; background: rgba(148, 164, 244, 0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(148, 164, 244, 0.2); }
-    .solution-card.reverse { direction: rtl; }
-    .solution-card.reverse > * { direction: ltr; }
-    .solution-card-content { padding: 0.5rem 1rem 0 0; }
-    .solution-card.reverse .solution-card-content { padding: 0.5rem 0 0 1rem; }
-    .solution-card h3 { font-size: 1.75rem; font-weight: 700; color: #94A4F4; margin-bottom: 1rem; line-height: 1.25; }
-    .solution-card-desc { color: #d1d5db; font-size: 1rem; line-height: 1.65; margin-bottom: 1rem; }
-    .solution-card-label { font-size: 0.9375rem; font-weight: 600; color: #F8BD64; margin-bottom: 0.5rem; }
-    .solution-card-value { color: #e5e7eb; font-size: 1rem; line-height: 1.6; }
-    .solution-card-placeholder { aspect-ratio: 4/3; min-height: 200px; background: rgba(148, 164, 244, 0.05); backdrop-filter: blur(8px); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: rgba(148, 164, 244, 0.45); font-size: 0.875rem; border: 1px solid rgba(148, 164, 244, 0.18); }
-    .stats-row { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin: 2rem 0; }
-    .stat { text-align: center; }
-    .stat .num { font-size: 2.5rem; font-weight: 700; color: #F8BD64; }
-    .stat .label { font-size: 0.875rem; color: #9ca3af; }
+    .resource-card { padding: 2rem; border-radius: 1rem; margin-bottom: 2rem; background: rgba(148, 164, 244, 0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(148, 164, 244, 0.2); }
+    .resource-card h3 { font-size: 1.5rem; font-weight: 700; color: #94A4F4; margin-bottom: 0.75rem; }
+    .resource-card p { color: #d1d5db; font-size: 1rem; line-height: 1.65; margin-bottom: 1rem; }
+    .resource-card a { color: #F8BD64; font-weight: 600; text-decoration: none; }
+    .resource-card a:hover { text-decoration: underline; }
+    .resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
     .solution-cta { padding: 5rem 6rem; text-align: center; background: rgba(15, 20, 35, 0.6); }
     .solution-cta h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
     .solution-cta p { color: #9ca3af; font-size: 1.125rem; margin-bottom: 1.5rem; max-width: 36rem; margin-left: auto; margin-right: auto; }
-    .company-page .page-wrapper header > div { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
-    .company-page .page-wrapper header .main-nav { display: flex; flex-direction: row; align-items: center; flex-wrap: nowrap; }
+    .newsletter-box { max-width: 32rem; margin: 0 auto; padding: 2.5rem; border-radius: 1rem; background: rgba(148, 164, 244, 0.08); border: 1px solid rgba(148, 164, 244, 0.25); }
+    .newsletter-box input { width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid #4b5563; background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem; margin-bottom: 1rem; }
+    .newsletter-box input::placeholder { color: #9ca3af; }
+    .resources-page .page-wrapper header > div { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+    .resources-page .page-wrapper header .main-nav { display: flex; flex-direction: row; align-items: center; flex-wrap: nowrap; }
     @media (max-width: 1024px) {
-      .company-page .page-wrapper header > div { padding: 1rem 2rem; }
+      .resources-page .page-wrapper header > div { padding: 1rem 2rem; }
       .solution-hero { padding: 6rem 2rem 4rem; }
       .solution-section { padding: 3rem 2rem 4rem; }
-      .solution-card { grid-template-columns: 1fr; direction: ltr; }
-      .solution-card.reverse { direction: ltr; }
-      .solution-card-content { padding: 0; }
-      .solution-card-placeholder { order: -1; min-height: 240px; }
       .solution-cta { padding: 3rem 2rem; }
     }
   </style>
 </head>
-<body class="company-page">
+<body class="resources-page">
 <div class="page-wrapper min-h-screen bg-black text-white" style="overflow-x:clip">
   <header class="fixed top-0 left-0 right-0 z-50 w-full bg-black/40 backdrop-blur-md border-b border-gray-700">
     <div class="flex items-center justify-between px-24 py-4 gap-8">
@@ -131,71 +122,63 @@
   </header>
 
   <section class="solution-hero">
-    <h1>Company</h1>
-    <p>We build the unified data operating system that gives enterprises absolute control over governance, compliance, and trust. Power in safe hands.</p>
+    <h1>Resources for Data Leaders</h1>
+    <p>Insights, best practices, and expert guidance on enterprise data governance, DPDP compliance, and building a culture of data trust. Stay ahead with Torro.</p>
     <div class="solution-hero-btns">
-      <a href="/#request-demo" class="solution-btn-primary yellow">Book a Demo</a>
-      <a href="/solution/" class="solution-btn-primary outline">Our Solutions</a>
+      <a href="/blog/" class="solution-btn-primary yellow">Read the Blog</a>
+      <a href="/#request-demo" class="solution-btn-primary outline">Book a Demo</a>
     </div>
   </section>
 
-  <section id="about" class="solution-section">
-    <h2 class="solution-section-title">About Us</h2>
+  <section class="solution-section">
+    <h2 class="solution-section-title">Explore Resources</h2>
     <div class="solution-section-rule"></div>
 
-    <article class="solution-card">
-      <div class="solution-card-content">
-        <h3>Our Mission</h3>
-        <p class="solution-card-desc">To transform how organizations manage, govern, and derive value from their data. We believe every enterprise deserves institutional-grade data governance without the complexity and cost of legacy tools.</p>
-        <p class="solution-card-label">What we do</p>
-        <p class="solution-card-value">Torro connects discovery, lineage, quality, access control, and governed data sharing into one operating layer. Deploy in weeks. Stay compliant by design.</p>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <h3>Blog</h3>
+        <p>Boardroom Headlines and deep dives on AI governance, DPDP, data lineage, and compliance. Written for CISOs, data officers, and business leaders.</p>
+        <a href="/blog/">Visit the Blog →</a>
       </div>
-      <div class="solution-card-placeholder">Image Placeholder</div>
-    </article>
-
-    <article class="solution-card reverse">
-      <div class="solution-card-content">
-        <h3>Our Vision</h3>
-        <p class="solution-card-desc">A world where data governance is seamless, intelligent, and built into every data touchpoint. CISOs, data engineers, and business leaders work from one source of truth.</p>
-        <p class="solution-card-label">By the numbers</p>
-        <div class="stats-row">
-          <div class="stat"><div class="num">4 Weeks</div><div class="label">Avg. time to production</div></div>
-          <div class="stat"><div class="num">100%</div><div class="label">Sensitive data visibility Day 1</div></div>
-          <div class="stat"><div class="num">94%</div><div class="label">Manual compliance effort reduced</div></div>
-        </div>
+      <div class="resource-card">
+        <h3>Case Studies</h3>
+        <p>Real-world deployments: how leading BFSI and enterprises achieved full data visibility and compliance in weeks, not months.</p>
+        <a href="/case-studies/fortune-500-success/">Read Case Studies →</a>
       </div>
-      <div class="solution-card-placeholder">Image Placeholder</div>
-    </article>
-  </section>
+      <div class="resource-card">
+        <h3>Documentation</h3>
+        <p>Technical guides, API references, and deployment playbooks for platform admins and data engineers.</p>
+        <a href="/#request-demo">Request Access →</a>
+      </div>
+    </div>
 
-  <section id="partners" class="solution-section">
-    <h2 class="solution-section-title">Partners</h2>
+    <h2 class="solution-section-title" style="margin-top: 4rem;">Boardroom Headlines</h2>
     <div class="solution-section-rule"></div>
+    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-10">Weekly intelligence on DPDP, RBI guidelines, and AI governance. Delivered to your inbox.</p>
+    <div class="resources-grid" style="max-width: 48rem; margin: 0 auto;">
+      <a href="/blog/ai-governance/" class="resource-card block hover:border-[#94A4F4]/40 transition-colors">
+        <h3>AI Readiness &amp; Governance</h3>
+        <p>How legacy governance gaps expose institutions to risk as they adopt AI. Read the article.</p>
+      </a>
+      <a href="/blog/gdpr-compliance-updates/" class="resource-card block hover:border-[#94A4F4]/40 transition-colors">
+        <h3>DPDP: The CISO Checklist</h3>
+        <p>The ₹250 Crore question every CISO must answer. Key updates and readiness steps.</p>
+      </a>
+    </div>
 
-    <article class="solution-card">
-      <div class="solution-card-content">
-        <h3>Technology &amp; Integration Partners</h3>
-        <p class="solution-card-desc">Torro integrates with the platforms you already use: AWS, Azure, Google Cloud, Databricks, Snowflake, dbt, and 50+ data sources. We partner with leading cloud and data vendors to ensure seamless deployment and support.</p>
-        <p class="solution-card-label">Why partner with Torro</p>
-        <p class="solution-card-value">Joint go-to-market, certified connectors, and co-delivery for complex hybrid estates. If you're a system integrator or cloud partner, we'd like to talk.</p>
-      </div>
-      <div class="solution-card-placeholder">Partners / Logos Placeholder</div>
-    </article>
-
-    <article class="solution-card reverse">
-      <div class="solution-card-content">
-        <h3>Consulting &amp; Implementation Partners</h3>
-        <p class="solution-card-desc">Our consulting partners deliver data governance assessments, DPDP readiness programs, and full platform rollouts. Together we help BFSI, healthcare, and telecom organizations achieve audit-ready governance in weeks.</p>
-        <p class="solution-card-label">Become a partner</p>
-        <p class="solution-card-value">Access training, playbooks, and joint engagements. Contact us to explore a partnership.</p>
-      </div>
-      <div class="solution-card-placeholder">Image Placeholder</div>
-    </article>
+    <div id="newsletter" class="newsletter-box" style="margin-top: 4rem;">
+      <h3 class="text-xl font-bold text-white mb-2">Subscribe to the Newsletter</h3>
+      <p class="text-gray-400 text-sm mb-4">Get Boardroom Headlines and product updates in your inbox. No spam.</p>
+      <form class="flex flex-col sm:flex-row gap-2" onsubmit="return false;">
+        <input type="email" placeholder="your@company.com" required aria-label="Email"/>
+        <button type="submit" class="solution-btn-primary yellow shrink-0">Subscribe</button>
+      </form>
+    </div>
   </section>
 
   <section class="solution-cta">
-    <h2>Get in Touch</h2>
-    <p>Ready to bring absolute control to your data estate? Request a demo or reach out for partnership discussions.</p>
+    <h2>Need a Custom Governance Assessment?</h2>
+    <p>Talk to a Torro architect. We'll map your estate and show you what full compliance looks like in 4 weeks.</p>
     <a href="/#request-demo" class="solution-btn-primary yellow">Request an Enterprise Demo</a>
   </section>
 </div>
