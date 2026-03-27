@@ -43,8 +43,7 @@ const Hero = () => {
                         >
                             Control{' '}
                             <motion.span 
-                                whileHover={{ scale: 1.02, color: '#60a5fa' }}
-                                className="inline-block cursor-default transition-colors duration-300"
+                                className="inline-block cursor-default transition-all duration-300 hover:scale-[1.05] hover:text-[#60a5fa] hover:drop-shadow-[0_0_15px_rgba(96,165,250,0.4)]"
                             >
                                 Enterprise Data
                             </motion.span>
