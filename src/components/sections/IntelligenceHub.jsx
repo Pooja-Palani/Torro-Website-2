@@ -254,7 +254,7 @@ const IntelligenceHub = () => {
                                             </motion.p>
                                         )}
                                     </button>
-                                ))}`
+                                ))}
                             </div>
                         </div>
 
