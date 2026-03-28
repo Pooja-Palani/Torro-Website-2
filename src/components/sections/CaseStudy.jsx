@@ -11,7 +11,7 @@ const CaseStudy = () => {
 
                         {/* Narrative Side (Left) */}
                         <div className="p-10 lg:p-16 flex flex-col justify-center bg-white border-b lg:border-b-0 lg:border-r border-gray-100">
-                            <span className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-6">
+                            <span className="text-[11px] font-black text-[#8c9eff] uppercase tracking-[0.4em] mb-6 block text-left">
                                 Enterprise Case Study
                             </span>
 

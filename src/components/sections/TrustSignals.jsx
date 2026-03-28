@@ -9,7 +9,7 @@ const ScalePreview = () => (
         
         <div className="flex items-center justify-between mb-4 relative z-10">
             <div>
-                <p className="text-[9px] font-black uppercase tracking-widest text-blue-600 mb-0.5">Scale Vector</p>
+                <p className="text-[9px] font-black uppercase tracking-widest text-[#8c9eff] mb-0.5">Scale Vector</p>
                 <p className="text-[17px] font-black text-slate-900 tracking-tight">Tier-1 Estate</p>
             </div>
             <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg transform rotate-3">
@@ -52,7 +52,7 @@ const VelocityPreview = () => (
     <div className="flex flex-col w-full h-full bg-slate-50 rounded-[2rem] border border-slate-100 p-6 relative overflow-hidden">
         <div className="flex items-center justify-between mb-6">
             <div>
-                <p className="text-[9px] font-black uppercase tracking-widest text-[#2563eb] mb-0.5">Deployment Velocity</p>
+                <p className="text-[9px] font-black uppercase tracking-widest text-[#8c9eff] mb-0.5">Deployment Velocity</p>
                 <p className="text-[17px] font-black text-slate-900 tracking-tight">3.5 Weeks to Prod</p>
             </div>
             <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg -rotate-3">
@@ -87,7 +87,7 @@ const ComplianceVizPreview = () => (
     <div className="flex flex-col w-full h-full bg-slate-50 rounded-[2rem] border border-slate-100 p-6 relative overflow-hidden">
         <div className="flex items-center justify-between mb-5">
             <div>
-                <p className="text-[9px] font-black uppercase tracking-widest text-indigo-600 mb-0.5">Economic Posture</p>
+                <p className="text-[9px] font-black uppercase tracking-widest text-[#8c9eff] mb-0.5">Economic Posture</p>
                 <p className="text-[17px] font-black text-slate-900 tracking-tight">72% Lower TCO</p>
             </div>
             <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-lg">
@@ -173,7 +173,7 @@ const TrustCard = ({ index, tag, title, description, features, preview }) => {
                 {displayIndex}
             </div>
 
-            <div className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-600 mb-3">{tag}</div>
+            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#8c9eff] mb-3">{tag}</div>
 
             <h3 className="text-[28px] font-black text-slate-900 tracking-[-0.03em] leading-[1.1] mb-8 min-h-[5rem] flex items-start">
                 {title}
@@ -250,9 +250,9 @@ const TrustSignals = () => {
         <section className="py-48 bg-[#f8fafc] relative overflow-hidden" id="use-cases">
             <div className="relative z-10 mx-auto px-6 md:px-12 lg:px-16 max-w-[95rem]">
                 <div className="max-w-4xl mx-auto text-center mb-24 space-y-8 flex flex-col items-center">
-                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-blue-500/5 border border-blue-500/15 shadow-sm mb-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse shadow-[0_0_12px_#2563eb]" />
-                        <span className="text-[12px] font-black text-blue-600 uppercase tracking-[0.4em]">Proven at Scale</span>
+                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#8c9eff]/5 border border-[#8c9eff]/15 shadow-sm mb-2">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#8c9eff] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
+                        <span className="text-[12px] font-black text-[#8c9eff] uppercase tracking-[0.4em]">Proven at Scale</span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-4">

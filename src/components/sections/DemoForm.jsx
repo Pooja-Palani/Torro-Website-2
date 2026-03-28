@@ -20,8 +20,8 @@ const DemoForm = () => {
                 
                 {/* Centered Header */}
                 <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
-                    <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-2">
-                        <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em]">Book a Demo</span>
+                    <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#8c9eff]/10 border border-[#8c9eff]/20 mb-2">
+                        <span className="text-[10px] font-black text-[#8c9eff] uppercase tracking-[0.4em]">Book a Demo</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
                         Evaluate Your <br /><span className="text-slate-500">Institutional Readiness.</span>

@@ -78,7 +78,7 @@ const ComplianceScorePreview = () => (
         <div className="space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(37,99,235,0.8)]" />
-                <span className="text-[9px] font-black text-blue-400 uppercase tracking-widest">DPDP Ready</span>
+                <span className="text-[9px] font-black text-[#8c9eff] uppercase tracking-widest">DPDP Ready</span>
             </div>
             <p className="text-[18px] font-black text-white tracking-tight">Institutional Risk Clearance</p>
         </div>
@@ -96,7 +96,7 @@ const ResidencyPreview = () => (
     <div className="flex flex-col w-full h-full bg-[#05060f] rounded-[1.5rem] border border-[#1e2343]/50 p-4 md:p-6 relative overflow-hidden">
         <div className="flex items-center justify-between mb-8 relative z-10">
             <div className="flex flex-col gap-1">
-                <span className="text-[9px] font-black text-blue-400 uppercase tracking-widest px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 w-fit">Sovereign Control</span>
+                <span className="text-[9px] font-black text-[#8c9eff] uppercase tracking-widest px-3 py-1 bg-[#8c9eff]/10 rounded-full border border-[#8c9eff]/20 w-fit">Sovereign Control</span>
                 <p className="text-[20px] font-black text-white tracking-tight">India Sovereign Estate</p>
             </div>
             <Globe className="w-7 h-7 text-blue-600/30" />
@@ -124,8 +124,8 @@ const ResidencyPreview = () => (
                 >
                     <p className="text-[12px] font-black text-white leading-tight mb-2 uppercase tracking-wide">PostgreSQL @ Mumbai</p>
                     <div className="flex items-center gap-2 justify-center">
-                         <CheckCircle2 className="w-3.5 h-3.5 text-blue-500" />
-                         <span className="text-[9px] font-black text-blue-400 uppercase tracking-widest">Certified Resident</span>
+                         <CheckCircle2 className="w-3.5 h-3.5 text-[#8c9eff]" />
+                         <span className="text-[9px] font-black text-[#8c9eff] uppercase tracking-widest">Certified Resident</span>
                     </div>
                 </motion.div>
              </div>
@@ -209,9 +209,9 @@ const IntelligenceHub = () => {
             <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[105rem] w-full">
                 {/* Section Header */}
                 <div className="max-w-4xl mx-auto text-center mb-12 space-y-6 flex flex-col items-center">
-                    <div className="inline-flex items-center justify-center gap-3 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 shadow-[0_0_20px_rgba(37,99,235,0.1)]">
-                        <BookOpen className="w-3.5 h-3.5 text-blue-500" />
-                        <span className="text-[11px] font-black text-blue-400 uppercase tracking-[0.4em]">Intelligence Console</span>
+                    <div className="inline-flex items-center justify-center gap-3 px-5 py-2 rounded-full bg-[#8c9eff]/10 border border-[#8c9eff]/20 shadow-[0_0_20px_rgba(140,158,255,0.1)]">
+                        <BookOpen className="w-3.5 h-3.5 text-[#8c9eff]" />
+                        <span className="text-[12px] font-black text-[#8c9eff] uppercase tracking-[0.4em]">Intelligence Console</span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.1]">

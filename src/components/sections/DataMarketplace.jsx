@@ -300,7 +300,7 @@ const DataMarketplace = () => {
                     {/* Narrative Left */}
                     <div className="w-full lg:w-[45%] xl:w-[42%] shrink-0 space-y-12 flex flex-col justify-center my-auto items-start text-left">
                         <div className="w-full">
-                            <span className="text-[13px] font-bold text-blue-600 uppercase tracking-[0.15em] mb-5 block text-left">
+                            <span className="text-[13px] font-bold text-[#8c9eff] uppercase tracking-[0.4em] mb-5 block text-left">
                                 DATA EXCHANGE
                             </span>
                             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-8 text-left">

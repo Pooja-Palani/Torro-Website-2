@@ -21,7 +21,7 @@ const DataCulture = () => {
             <div className="container flex flex-col items-center">
 
                 <div className="max-w-3xl text-center mb-20 space-y-6">
-                    <span className="text-sm font-bold text-blue-400 uppercase tracking-widest block">
+                    <span className="text-sm font-bold text-[#8c9eff] uppercase tracking-[0.4em] block">
                         Performance
                     </span>
                     <h2 className="text-white">Engineered for <span className="text-gray-500">Scale.</span></h2>

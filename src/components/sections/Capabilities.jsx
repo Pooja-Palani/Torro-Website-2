@@ -11,7 +11,7 @@ const CompliancePreview = () => (
         {/* Top bar */}
         <div className="flex items-center justify-between pb-4 border-b border-slate-100">
             <div>
-                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-blue-600 mb-0.5">Compliance Engine</p>
+                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#8c9eff] mb-0.5">Compliance Engine</p>
                 <p className="text-[18px] font-black text-slate-900 tracking-tight leading-none">Privacy Passport</p>
             </div>
             <div className="relative w-12 h-12">
@@ -77,12 +77,12 @@ const LineagePreview = () => {
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
                 <div>
-                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-indigo-600 mb-0.5">Data Lineage</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#8c9eff] mb-0.5">Data Lineage</p>
                     <p className="text-[17px] font-black text-slate-900 tracking-tight leading-none">Live Pipeline Graph</p>
                 </div>
                 <div className="flex items-center gap-2">
                     <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.8, repeat: Infinity }} className="w-2 h-2 rounded-full bg-indigo-500" />
-                    <span className="text-[9px] font-black text-indigo-600 uppercase tracking-wider">Active</span>
+                    <span className="text-[9px] font-black text-[#8c9eff] uppercase tracking-wider">Active</span>
                 </div>
             </div>
 
@@ -153,7 +153,7 @@ const AnalyticsPreview = () => {
             {/* Dark header */}
             <div className="bg-slate-950 px-5 py-4 flex items-center justify-between">
                 <div>
-                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-blue-400 mb-1">Secure Analytics</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#8c9eff] mb-1">Secure Analytics</p>
                     <div className="flex items-baseline gap-1.5">
                         <span className="text-[24px] font-black text-white tracking-tighter leading-none">99.9</span>
                         <span className="text-[13px] font-black text-emerald-400">% Uptime</span>
@@ -329,9 +329,9 @@ const Capabilities = () => {
         <section className="py-48 bg-[#f8fafc] relative overflow-hidden" id="product">
             <div className="relative z-10 mx-auto px-6 md:px-12 lg:px-16 max-w-[95rem]">
                 <div className="max-w-4xl mx-auto text-center mb-24 space-y-8 flex flex-col items-center">
-                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-blue-500/5 border border-blue-500/15 shadow-sm mb-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse shadow-[0_0_12px_#2563eb]" />
-                        <span className="text-[12px] font-black text-blue-600 uppercase tracking-[0.4em]">
+                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#8c9eff]/5 border border-[#8c9eff]/15 shadow-sm mb-2">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#8c9eff] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
+                        <span className="text-[12px] font-black text-[#8c9eff] uppercase tracking-[0.4em]">
                             Core Architecture
                         </span>
                     </div>
