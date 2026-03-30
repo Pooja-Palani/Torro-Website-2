@@ -9,10 +9,10 @@ const ScalePreview = () => (
         
         <div className="flex items-center justify-between mb-4 relative z-10">
             <div>
-                <p className="text-[9px] font-black uppercase tracking-widest text-[#8c9eff] mb-0.5">Scale Vector</p>
+                <p className="text-[9px] font-black uppercase tracking-widest text-[#99A0F9] mb-0.5">Scale Vector</p>
                 <p className="text-[17px] font-black text-slate-900 tracking-tight">Tier-1 Estate</p>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg transform rotate-3">
+            <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center shadow-lg transform rotate-3">
                 <Database className="w-5 h-5 text-white" />
             </div>
         </div>
@@ -21,10 +21,10 @@ const ScalePreview = () => (
             <div className="bg-white p-3 rounded-xl border border-slate-200/60 shadow-sm">
                 <div className="flex items-center justify-between mb-1.5">
                     <span className="text-[10px] font-bold text-slate-500">Scan Throughput</span>
-                    <span className="text-[10px] font-black text-blue-600 font-mono">14.2 PB/Day</span>
+                    <span className="text-[10px] font-black text-indigo-500 font-mono">14.2 PB/Day</span>
                 </div>
                 <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
-                    <motion.div initial={{ width: 0 }} animate={{ width: '92%' }} transition={{ duration: 1.5, ease: "circOut" }} className="h-full bg-blue-500" />
+                    <motion.div initial={{ width: 0 }} animate={{ width: '92%' }} transition={{ duration: 1.5, ease: "circOut" }} className="h-full bg-indigo-400" />
                 </div>
             </div>
             
@@ -41,7 +41,7 @@ const ScalePreview = () => (
         </div>
 
         <div className="mt-auto pt-3 border-t border-slate-100 flex items-center gap-2 relative z-10">
-            <motion.div animate={{ opacity: [1, 0.4, 1] }} transition={{ repeat: Infinity, duration: 1.2 }} className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <motion.div animate={{ opacity: [1, 0.4, 1] }} transition={{ repeat: Infinity, duration: 1.2 }} className="w-1.5 h-1.5 rounded-full bg-amber-500" />
             <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest font-mono">Real-time Discovery Active</span>
         </div>
     </div>
@@ -52,30 +52,30 @@ const VelocityPreview = () => (
     <div className="flex flex-col w-full h-full bg-slate-50 rounded-[2rem] border border-slate-100 p-6 relative overflow-hidden">
         <div className="flex items-center justify-between mb-6">
             <div>
-                <p className="text-[9px] font-black uppercase tracking-widest text-[#8c9eff] mb-0.5">Deployment Velocity</p>
+                <p className="text-[9px] font-black uppercase tracking-widest text-[#99A0F9] mb-0.5">Deployment Velocity</p>
                 <p className="text-[17px] font-black text-slate-900 tracking-tight">3.5 Weeks to Prod</p>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg -rotate-3">
+            <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center shadow-lg -rotate-3">
                 <Clock className="w-5 h-5 text-white" />
             </div>
         </div>
 
         <div className="relative flex-1">
             <svg className="w-full h-24 overflow-visible" viewBox="0 0 200 60">
-                <path d="M0,50 Q50,45 80,20 T150,10 T200,5" fill="none" stroke="#2563eb" strokeWidth="2.5" strokeDasharray="6 4" />
-                <motion.circle r="4" fill="#2563eb" initial={{ cx: 0, cy: 50 }} animate={{ cx: [0, 80, 150, 200], cy: [50, 20, 10, 5] }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} />
+                <path d="M0,50 Q50,45 80,20 T150,10 T200,5" fill="none" stroke="#6366f1" strokeWidth="2.5" strokeDasharray="6 4" />
+                <motion.circle r="4" fill="#6366f1" initial={{ cx: 0, cy: 50 }} animate={{ cx: [0, 80, 150, 200], cy: [50, 20, 10, 5] }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} />
             </svg>
-            <div className="absolute top-0 right-0 p-3 bg-white rounded-xl border border-blue-100 shadow-sm">
-                <p className="text-[20px] font-black text-blue-600 leading-none">94%</p>
+            <div className="absolute top-0 right-0 p-3 bg-white rounded-xl border border-indigo-100 shadow-sm">
+                <p className="text-[20px] font-black text-indigo-500 leading-none">94%</p>
                 <p className="text-[8px] font-bold text-slate-500 uppercase tracking-tighter">Effort Reduction</p>
             </div>
         </div>
 
         <div className="grid grid-cols-2 gap-2 mt-4">
-             <div className="px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-100/50 text-center">
-                <span className="text-[10px] font-black text-blue-700">WEEK 1: Mapping</span>
+             <div className="px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-100/50 text-center">
+                <span className="text-[10px] font-black text-indigo-600">WEEK 1: Mapping</span>
              </div>
-             <div className="px-3 py-1.5 rounded-lg bg-blue-600 text-white text-center shadow-md">
+             <div className="px-3 py-1.5 rounded-lg bg-indigo-500 text-white text-center shadow-md">
                 <span className="text-[10px] font-black">WEEK 4: LIVE</span>
              </div>
         </div>
@@ -87,7 +87,7 @@ const ComplianceVizPreview = () => (
     <div className="flex flex-col w-full h-full bg-slate-50 rounded-[2rem] border border-slate-100 p-6 relative overflow-hidden">
         <div className="flex items-center justify-between mb-5">
             <div>
-                <p className="text-[9px] font-black uppercase tracking-widest text-[#8c9eff] mb-0.5">Economic Posture</p>
+                <p className="text-[9px] font-black uppercase tracking-widest text-[#99A0F9] mb-0.5">Economic Posture</p>
                 <p className="text-[17px] font-black text-slate-900 tracking-tight">72% Lower TCO</p>
             </div>
             <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-lg">
@@ -98,7 +98,7 @@ const ComplianceVizPreview = () => (
         <div className="flex-1 flex flex-col gap-3">
              {[
                 { l: 'Legacy System Cost', v: 100, c: 'bg-slate-200' },
-                { l: 'Torro Deployment', v: 28, c: 'bg-blue-600' }
+                { l: 'Torro Deployment', v: 28, c: 'bg-indigo-500' }
              ].map((item, i) => (
                 <div key={item.l} className="space-y-1.5">
                     <div className="flex justify-between">
@@ -112,17 +112,17 @@ const ComplianceVizPreview = () => (
              ))}
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-sm mt-4 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
+        <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm mt-4 flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-indigo-500 flex items-center justify-center">
                 <BadgeCheck className="w-4 h-4 text-white" />
             </div>
             <div>
                 <p className="text-[10px] font-black text-slate-900 leading-none mb-1">DPDP Risk Mitigated</p>
                 <div className="flex items-center gap-1.5">
                     <div className="h-1 w-16 bg-slate-100 rounded-full overflow-hidden">
-                        <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 2 }} className="h-full bg-blue-500" />
+                        <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 2 }} className="h-full bg-indigo-400" />
                     </div>
-                    <span className="text-[9px] font-black text-blue-600 font-mono">100%</span>
+                    <span className="text-[9px] font-black text-indigo-500 font-mono">100%</span>
                 </div>
             </div>
         </div>
@@ -166,14 +166,14 @@ const TrustCard = ({ index, tag, title, description, features, preview }) => {
             <motion.div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: spotlightBg }} />
             
             <div className="absolute top-10 right-10 opacity-0 group-hover:opacity-100 translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-400">
-                <ArrowUpRight className="w-5 h-5 text-blue-500/40" />
+                <ArrowUpRight className="w-5 h-5 text-indigo-400/40" />
             </div>
 
-            <div className="text-[72px] font-black text-slate-100 group-hover:text-blue-500/20 tracking-[-0.08em] leading-none mb-6 transition-colors duration-500 select-none">
+            <div className="text-[72px] font-black text-slate-100 group-hover:text-indigo-400/20 tracking-[-0.08em] leading-none mb-6 transition-colors duration-500 select-none">
                 {displayIndex}
             </div>
 
-            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#8c9eff] mb-3">{tag}</div>
+            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#99A0F9] mb-3">{tag}</div>
 
             <h3 className="text-[28px] font-black text-slate-900 tracking-[-0.03em] leading-[1.1] mb-8 min-h-[5rem] flex items-start">
                 {title}
@@ -187,7 +187,7 @@ const TrustCard = ({ index, tag, title, description, features, preview }) => {
                             <div className="space-y-3">
                                 {features.map((f, i) => (
                                     <div key={i} className="flex items-start gap-3 text-[13px] font-bold text-slate-600">
-                                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                                        <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                                         {f}
                                     </div>
                                 ))}
@@ -201,7 +201,7 @@ const TrustCard = ({ index, tag, title, description, features, preview }) => {
                 </AnimatePresence>
             </div>
 
-            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-transparent group-hover:w-full transition-all duration-700 rounded-b-full" />
+            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-indigo-400 via-indigo-500 to-transparent group-hover:w-full transition-all duration-700 rounded-b-full" />
         </motion.div>
     );
 };
@@ -250,13 +250,13 @@ const TrustSignals = () => {
         <section className="py-48 bg-[#f8fafc] relative overflow-hidden" id="use-cases">
             <div className="relative z-10 mx-auto px-6 md:px-12 lg:px-16 max-w-[95rem]">
                 <div className="max-w-4xl mx-auto text-center mb-24 space-y-8 flex flex-col items-center">
-                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#8c9eff]/5 border border-[#8c9eff]/15 shadow-sm mb-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#8c9eff] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
-                        <span className="text-[12px] font-black text-[#8c9eff] uppercase tracking-[0.4em]">Proven at Scale</span>
+                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#99A0F9]/5 border border-[#99A0F9]/15 shadow-sm mb-2">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#99A0F9] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
+                        <span className="text-[12px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">Proven at Scale</span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-4">
-                        Real-World <span className="text-slate-500">Use Cases.</span>
+                        Real-World <span className="text-[#99A0F9]">Use Cases.</span>
                     </h2>
 
                     <p className="text-slate-500 text-[20px] leading-relaxed max-w-3xl font-medium">

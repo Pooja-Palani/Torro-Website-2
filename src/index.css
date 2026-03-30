@@ -14,7 +14,7 @@
     /* Elegant medium gray for secondary text */
 
     /* Subtle, brand-aligned accents */
-    --primary: #2563eb;
+    --primary: #6366f1;
     /* Deep trustworthy blue */
     --primary-hover: #1d4ed8;
 
@@ -43,24 +43,24 @@
 
   /* Refined, Apple-esque Typography */
   h1 {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-center text-gray-900;
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-center text-white;
     letter-spacing: -0.04em;
     line-height: 1.05;
   }
 
   h2 {
-    @apply text-4xl md:text-5xl font-bold tracking-tight text-center text-gray-900;
+    @apply text-4xl md:text-5xl font-bold tracking-tight text-center text-white;
     letter-spacing: -0.03em;
     line-height: 1.1;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl font-semibold tracking-tight text-gray-900;
+    @apply text-2xl md:text-3xl font-semibold tracking-tight text-white;
     letter-spacing: -0.02em;
   }
 
   p {
-    @apply text-lg text-gray-600 leading-relaxed font-normal text-center max-w-2xl mx-auto;
+    @apply text-lg text-slate-300 leading-relaxed font-normal text-center max-w-2xl mx-auto;
   }
 }
 
@@ -71,7 +71,7 @@
 
   /* The Apple-style Card: Pure white, very subtle border, soft realistic shadow */
   .pristine-card {
-    @apply bg-white rounded-3xl border border-gray-200 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] transition-all duration-300;
+    @apply bg-[#0f0b1e] rounded-3xl border border-white/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] transition-all duration-300;
   }
 
   .pristine-card:hover {
@@ -84,7 +84,7 @@
   }
 
   .btn-secondary {
-    @apply px-6 py-3 rounded-full text-[14px] font-semibold transition-all duration-200 bg-white text-gray-900 border border-gray-200 shadow-sm hover:border-gray-300 hover:bg-gray-50 active:scale-95 flex items-center justify-center gap-2;
+    @apply px-6 py-3 rounded-full text-[14px] font-semibold transition-all duration-200 bg-[#0f0b1e] text-white border border-white/10 shadow-sm hover:border-gray-300 hover:bg-[#16122b] active:scale-95 flex items-center justify-center gap-2;
   }
 }
 

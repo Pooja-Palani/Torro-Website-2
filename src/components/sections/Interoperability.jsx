@@ -17,20 +17,20 @@ const Interoperability = () => {
     return (
         <section className="py-24 bg-[#0c0e1a] overflow-hidden relative border-y border-white/5">
             {/* Visual Hook: Subtle Ambient Glows */}
-            <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#ff2079]/10 rounded-full blur-[140px] pointer-events-none" />
+            <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#F26969]/10 rounded-full blur-[140px] pointer-events-none" />
 
             <div className="container relative z-10 mx-auto px-4 mb-14 text-center space-y-5 flex flex-col items-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="inline-block px-5 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-[0.4em] text-[#8c9eff] mb-3"
+                    className="inline-block px-5 py-2 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-[0.4em] text-[#99A0F9] mb-3"
                 >
                     Interoperability
                 </motion.div>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.1]">
-                    Seamless <span className="text-slate-500">Interoperability.</span>
+                    Seamless <span className="text-[#99A0F9]">Interoperability.</span>
                 </h2>
                 <p className="max-w-none mx-auto text-[19px] text-gray-400/90 leading-relaxed font-medium italic">
                     "Torro connects to every data platform in your stack. Your hybrid estate, fully governed."
@@ -52,7 +52,7 @@ const Interoperability = () => {
                             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                             
                             {/* Card Glow Effect */}
-                            <div className="absolute -inset-2 bg-gradient-to-r from-[#3b82f6]/0 via-[#ff2079]/10 to-[#fbbf24]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl pointer-events-none" />
+                            <div className="absolute -inset-2 bg-gradient-to-r from-[#818cf8]/0 via-[#F26969]/10 to-[#F4B952]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl pointer-events-none" />
                             
                             <img
                                 src={vendor.logo}

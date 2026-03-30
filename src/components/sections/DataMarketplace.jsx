@@ -13,8 +13,8 @@ const bfsiAssets = [
 ];
 
 const sourceColors = {
-    blue: "bg-blue-50 text-blue-600 border-blue-100",
-    purple: "bg-purple-50 text-purple-600 border-purple-100",
+    blue: "bg-indigo-50 text-indigo-500 border-indigo-100",
+    purple: "bg-purple-50 text-rose-500 border-purple-100",
     emerald: "bg-emerald-50 text-emerald-600 border-emerald-100",
     amber: "bg-amber-50 text-amber-600 border-amber-100",
     cyan: "bg-cyan-50 text-cyan-600 border-cyan-100",
@@ -23,7 +23,7 @@ const sourceColors = {
 
 const typeColors = {
     JSON: "bg-amber-50 text-amber-700 border-amber-200",
-    XML: "bg-blue-50 text-blue-700 border-blue-200",
+    XML: "bg-indigo-50 text-indigo-600 border-indigo-200",
     PDF: "bg-red-50 text-red-700 border-red-200",
     CSV: "bg-emerald-50 text-emerald-700 border-emerald-200",
     DAT: "bg-gray-50 text-gray-700 border-gray-200",
@@ -35,7 +35,7 @@ const AssetRow = ({ name, type, appName, source, srcColor, onView }) => (
         <div className="flex items-center gap-2">
             <span 
                 onClick={onView}
-                className="font-semibold text-gray-800 tracking-tight truncate hover:text-blue-600 transition-colors cursor-pointer text-[13px]"
+                className="font-semibold text-gray-800 tracking-tight truncate hover:text-indigo-500 transition-colors cursor-pointer text-[13px]"
             >
                 {name}
             </span>
@@ -52,7 +52,7 @@ const AssetRow = ({ name, type, appName, source, srcColor, onView }) => (
         </div>
         
         <div>
-            <span className={`px-2.5 py-1 rounded border font-bold text-[10px] tracking-wide truncate inline-block max-w-[130px] shadow-sm ${sourceColors[srcColor] || "bg-blue-50 text-blue-600 border-blue-100"}`}>
+            <span className={`px-2.5 py-1 rounded border font-bold text-[10px] tracking-wide truncate inline-block max-w-[130px] shadow-sm ${sourceColors[srcColor] || "bg-indigo-50 text-indigo-500 border-indigo-100"}`}>
                 {source}
             </span>
         </div>
@@ -60,9 +60,9 @@ const AssetRow = ({ name, type, appName, source, srcColor, onView }) => (
         <div className="flex items-center gap-2 justify-end">
             <button 
                 onClick={onView}
-                className="px-3 py-1.5 rounded border border-blue-200 text-blue-600 hover:bg-blue-50 flex items-center gap-1.5 text-[10px] font-bold transition-colors bg-white shadow-sm tracking-widest uppercase"
+                className="px-3 py-1.5 rounded border border-indigo-200 text-indigo-500 hover:bg-indigo-50 flex items-center gap-1.5 text-[10px] font-bold transition-colors bg-white shadow-sm tracking-widest uppercase"
             >
-                <Eye className="w-3.5 h-3.5 text-blue-400" /> View
+                <Eye className="w-3.5 h-3.5 text-indigo-300" /> View
             </button>
         </div>
     </div>
@@ -105,7 +105,7 @@ const DataAssetModal = ({ asset, isOpen, onClose }) => {
                             <div>
                                 <h3 className="text-2xl font-bold text-slate-800 tracking-tight">{asset?.name}</h3>
                                 <div className="flex gap-2 mt-2">
-                                    <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-widest">{asset?.type}</span>
+                                    <span className="px-2 py-0.5 rounded bg-indigo-100 text-indigo-600 text-[10px] font-bold uppercase tracking-widest">{asset?.type}</span>
                                     <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-widest">{asset?.catalog}</span>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@ const DataAssetModal = ({ asset, isOpen, onClose }) => {
                                     onClick={() => setActiveTab(tab)}
                                     className={`px-4 py-4 text-[11px] font-bold tracking-widest uppercase border-b-2 transition-all whitespace-nowrap ${
                                         activeTab === tab 
-                                        ? 'border-blue-500 text-blue-600' 
+                                        ? 'border-indigo-400 text-indigo-500' 
                                         : 'border-transparent text-slate-400 hover:text-slate-600'
                                     }`}
                                 >
@@ -239,7 +239,7 @@ const DataAssetModal = ({ asset, isOpen, onClose }) => {
                                     <div className="p-6 bg-white border border-gray-100 rounded-xl shadow-sm">
                                         <div className="flex items-center justify-between mb-4">
                                             <div className="text-[12px] font-bold text-slate-800">Value Distribution - Top Values</div>
-                                            <TrendingUp className="w-4 h-4 text-blue-500" />
+                                            <TrendingUp className="w-4 h-4 text-indigo-400" />
                                         </div>
                                         <div className="space-y-3">
                                             {[
@@ -254,7 +254,7 @@ const DataAssetModal = ({ asset, isOpen, onClose }) => {
                                                         <span>{item.value}%</span>
                                                     </div>
                                                     <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
-                                                        <div className="h-full bg-blue-500" style={{ width: `${item.value}%` }} />
+                                                        <div className="h-full bg-indigo-400" style={{ width: `${item.value}%` }} />
                                                     </div>
                                                 </div>
                                             ))}
@@ -287,9 +287,9 @@ const DataMarketplace = () => {
             <svg width="0" height="0" className="absolute">
                 <defs>
                     <linearGradient id="torroIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#3b82f6" />
-                        <stop offset="50%" stopColor="#f59e0b" />
-                        <stop offset="100%" stopColor="#ff2079" />
+                        <stop offset="0%" stopColor="#818cf8" />
+                        <stop offset="50%" stopColor="#F4B952" />
+                        <stop offset="100%" stopColor="#F26969" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -300,11 +300,11 @@ const DataMarketplace = () => {
                     {/* Narrative Left */}
                     <div className="w-full lg:w-[45%] xl:w-[42%] shrink-0 space-y-12 flex flex-col justify-center my-auto items-start text-left">
                         <div className="w-full">
-                            <span className="text-[13px] font-bold text-[#8c9eff] uppercase tracking-[0.4em] mb-5 block text-left">
+                            <span className="text-[13px] font-bold text-[#99A0F9] uppercase tracking-[0.4em] mb-5 block text-left">
                                 DATA EXCHANGE
                             </span>
                             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-8 text-left">
-                                Frictionless <span className="text-slate-500">Access.</span>
+                                Frictionless <span className="text-[#99A0F9]">Access.</span>
                             </h2>
                             <p className="text-gray-500 text-[19px] text-left mx-0 leading-[1.8] font-normal max-w-[540px]">
                                 Empower your analysts with a unified, self-service catalog. Torro's engine dynamically maps complex schemas, rewrites queries, and masks PII payloads on the fly—ensuring absolute compliance without crushing productivity.
@@ -317,8 +317,8 @@ const DataMarketplace = () => {
                                 { icon: Fingerprint, label: "Identity-aware access routing" }
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center gap-4 cursor-pointer">
-                                    <div className="w-[48px] h-[48px] rounded-[16px] bg-white border-[1.5px] border-slate-50 flex items-center justify-center shrink-0 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] transition-all group relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_8px_25px_-6px_rgba(0,0,0,0.1)] hover:border-[#ff2079]/20">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff2079]/5 to-[#fbbf24]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div className="w-[48px] h-[48px] rounded-[16px] bg-white border-[1.5px] border-slate-50 flex items-center justify-center shrink-0 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] transition-all group relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_8px_25px_-6px_rgba(0,0,0,0.1)] hover:border-[#F26969]/20">
+                                        <div className="absolute inset-0 bg-gradient-to-br from-[#F26969]/5 to-[#F4B952]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                         {/* Simple Icon (Default State) */}
                                         <item.icon 
                                             className="w-[22px] h-[22px] transition-all duration-300 absolute group-hover:opacity-0 group-hover:scale-95"
@@ -336,7 +336,7 @@ const DataMarketplace = () => {
                                 </div>
                             ))}
                         </div>
-                        <button className="flex items-center gap-2 text-[16px] font-bold text-[#ff2079] hover:text-[#e01968] hover:translate-x-1 transition-all mt-4 pt-4 inline-flex w-max">
+                        <button className="flex items-center gap-2 text-[16px] font-bold text-[#F26969] hover:text-[#E05A5A] hover:translate-x-1 transition-all mt-4 pt-4 inline-flex w-max">
                             Explore Secure Integration <ArrowRight className="w-4 h-4 ml-1" />
                         </button>
                     </div>
@@ -355,9 +355,9 @@ const DataMarketplace = () => {
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <div className="flex gap-1 items-end h-[18px]">
-                                            <div className="w-[5px] h-2.5 bg-[#ff2079] rounded-full" />
+                                            <div className="w-[5px] h-2.5 bg-[#F26969] rounded-full" />
                                             <div className="w-[5px] h-[18px] bg-yellow-400 rounded-full" />
-                                            <div className="w-[5px] h-[12px] bg-[#fbbf24] rounded-full opacity-80" />
+                                            <div className="w-[5px] h-[12px] bg-[#F4B952] rounded-full opacity-80" />
                                         </div>
                                         <div className="leading-tight">
                                             <div className="font-extrabold tracking-widest text-[13px]">TORRO ENTERPRISE</div>
@@ -374,7 +374,7 @@ const DataMarketplace = () => {
                             {/* Filters Toolbar */}
                             <div className="px-6 py-3 border-b border-gray-100 bg-gray-50/30 flex items-center justify-between z-0">
                                 <div className="flex items-center gap-3">
-                                    <div className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-md shrink-0 w-[220px] shadow-sm bg-white focus-within:border-blue-300 focus-within:ring-2 ring-blue-100 transition-all">
+                                    <div className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-md shrink-0 w-[220px] shadow-sm bg-white focus-within:border-indigo-300 focus-within:ring-2 ring-indigo-100 transition-all">
                                         <Search className="w-3.5 h-3.5 text-gray-400" />
                                         <input type="text" placeholder="Search assets..." className="bg-transparent border-none outline-none text-[11px] w-full text-gray-700 placeholder:text-gray-400" disabled />
                                     </div>
@@ -393,7 +393,7 @@ const DataMarketplace = () => {
                                     <button className="px-3 py-1.5 rounded-md text-gray-600 font-semibold text-[11px] flex items-center gap-1.5 shrink-0 border border-gray-200 bg-white shadow-sm hover:bg-gray-50 transition-colors">
                                         <LayoutGrid className="w-3.5 h-3.5 text-gray-400" /> By App
                                     </button>
-                                    <button className="px-3 py-1.5 rounded bg-[#0c8ce9] text-white font-bold text-[10px] shadow-md tracking-wider flex items-center gap-1.5 hover:bg-blue-600 transition-colors uppercase border border-transparent hover:border-blue-500">
+                                    <button className="px-3 py-1.5 rounded bg-[#0c8ce9] text-white font-bold text-[10px] shadow-md tracking-wider flex items-center gap-1.5 hover:bg-indigo-500 transition-colors uppercase border border-transparent hover:border-indigo-400">
                                         <Download className="w-3.5 h-3.5" /> Export CSV
                                     </button>
                                 </div>

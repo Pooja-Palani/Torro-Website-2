@@ -9,8 +9,8 @@ import { ArrowUpRight, ShieldAlert, Terminal, BarChart4, CheckCircle2, AlertTria
 const CISOPreview = () => {
     const alerts = [
         { type: 'BREACH BLOCKED', time: '09:41:22', dot: 'bg-red-500', text: 'text-red-600', bg: 'bg-red-50' },
-        { type: 'AUDIT LOG SEALED', time: '09:41:45', dot: 'bg-emerald-500', text: 'text-emerald-700', bg: 'bg-emerald-50' },
-        { type: 'DPDP REPORT READY', time: '09:42:10', dot: 'bg-blue-500', text: 'text-blue-700', bg: 'bg-blue-50' },
+        { type: 'AUDIT LOG SEALED', time: '09:41:45', dot: 'bg-amber-500', text: 'text-emerald-700', bg: 'bg-emerald-50' },
+        { type: 'DPDP REPORT READY', time: '09:42:10', dot: 'bg-indigo-400', text: 'text-indigo-600', bg: 'bg-indigo-50' },
     ];
     return (
         <div className="flex flex-col w-full h-full">
@@ -20,16 +20,16 @@ const CISOPreview = () => {
                     <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mb-0.5">Compliance Score</p>
                     <div className="flex items-baseline gap-1">
                         <span className="text-[38px] font-black text-slate-900 tracking-tighter leading-none">99.8</span>
-                        <span className="text-[16px] font-black text-emerald-500">%</span>
+                        <span className="text-[16px] font-black text-amber-500">%</span>
                     </div>
                 </div>
                 <div className="flex flex-col items-end gap-1.5">
                     <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100">
-                        <motion.div animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 1.4, repeat: Infinity }} className="w-2 h-2 rounded-full bg-emerald-500" />
+                        <motion.div animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 1.4, repeat: Infinity }} className="w-2 h-2 rounded-full bg-amber-500" />
                         <span className="text-[9px] font-black text-emerald-700 uppercase tracking-wider">All Systems Secure</span>
                     </div>
                     <div className="flex gap-1.5">
-                        {[{ l: 'GDPR', c: 'bg-green-100 text-green-700' }, { l: 'HIPAA', c: 'bg-blue-100 text-blue-700' }, { l: 'SOC2', c: 'bg-violet-100 text-violet-700' }].map(b => (
+                        {[{ l: 'GDPR', c: 'bg-green-100 text-green-700' }, { l: 'HIPAA', c: 'bg-indigo-100 text-indigo-600' }, { l: 'SOC2', c: 'bg-violet-100 text-violet-700' }].map(b => (
                             <span key={b.l} className={`text-[7px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest ${b.c}`}>{b.l}</span>
                         ))}
                     </div>
@@ -39,8 +39,8 @@ const CISOPreview = () => {
             {/* Progress bars */}
             <div className="flex flex-col gap-2 py-3 border-b border-slate-100">
                 {[
-                    { label: 'Data Residency', val: 100, color: 'bg-emerald-500', tc: 'text-emerald-600' },
-                    { label: 'PII Coverage', val: 98, color: 'bg-blue-500', tc: 'text-blue-600' },
+                    { label: 'Data Residency', val: 100, color: 'bg-amber-500', tc: 'text-emerald-600' },
+                    { label: 'PII Coverage', val: 98, color: 'bg-indigo-400', tc: 'text-indigo-500' },
                     { label: 'Consent Tracking', val: 95, color: 'bg-violet-500', tc: 'text-violet-600' },
                 ].map((r, i) => (
                     <div key={r.label} className="flex items-center gap-3">
@@ -80,8 +80,8 @@ const EngineerPreview = () => {
     const stages = [
         { step: '01', name: 'Ingest', tool: 'S3 + Postgres', metric: '3.2M rows/min', status: 'ACTIVE', dotColor: 'bg-orange-500', barColor: 'bg-orange-400', bar: 88, lineColor: 'bg-orange-200' },
         { step: '02', name: 'PII Scan', tool: 'Torro Shield', metric: '0 violations', status: 'CLEAN', dotColor: 'bg-violet-500', barColor: 'bg-violet-500', bar: 100, lineColor: 'bg-violet-200' },
-        { step: '03', name: 'Transform', tool: 'dbt Cloud', metric: '1.2TB processed', status: 'RUNNING', dotColor: 'bg-blue-500', barColor: 'bg-blue-500', bar: 74, lineColor: 'bg-blue-200' },
-        { step: '04', name: 'Deliver', tool: 'Snowflake', metric: '99.9% SLA', status: 'READY', dotColor: 'bg-emerald-500', barColor: 'bg-emerald-500', bar: 100, lineColor: 'bg-emerald-200' },
+        { step: '03', name: 'Transform', tool: 'dbt Cloud', metric: '1.2TB processed', status: 'RUNNING', dotColor: 'bg-indigo-400', barColor: 'bg-indigo-400', bar: 74, lineColor: 'bg-indigo-200' },
+        { step: '04', name: 'Deliver', tool: 'Snowflake', metric: '99.9% SLA', status: 'READY', dotColor: 'bg-amber-500', barColor: 'bg-amber-500', bar: 100, lineColor: 'bg-emerald-200' },
     ];
 
     return (
@@ -89,8 +89,8 @@ const EngineerPreview = () => {
             {/* Header bar — dark terminal style */}
             <div className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-slate-900 mb-3">
                 <div className="flex items-center gap-2">
-                    <motion.div animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 0.9, repeat: Infinity }} className="w-2 h-2 rounded-full bg-emerald-400" />
-                    <span className="text-[10px] font-black text-emerald-400 font-mono uppercase tracking-wider">Pipeline Live</span>
+                    <motion.div animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 0.9, repeat: Infinity }} className="w-2 h-2 rounded-full bg-amber-400" />
+                    <span className="text-[10px] font-black text-amber-400 font-mono uppercase tracking-wider">Pipeline Live</span>
                 </div>
                 <div className="flex items-center gap-3">
                     <span className="text-[9px] font-mono text-slate-500">main ✓ committed</span>
@@ -113,7 +113,7 @@ const EngineerPreview = () => {
                                     <span className="text-[11px] font-black text-slate-900">{s.name}</span>
                                     <span className={`text-[7px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-widest ${
                                         s.status === 'CLEAN' || s.status === 'READY' ? 'bg-emerald-100 text-emerald-700' :
-                                        s.status === 'ACTIVE' ? 'bg-orange-100 text-orange-700' : 'bg-blue-100 text-blue-700'
+                                        s.status === 'ACTIVE' ? 'bg-orange-100 text-orange-700' : 'bg-indigo-100 text-indigo-600'
                                     }`}>{s.status}</span>
                                 </div>
                                 {/* Progress bar */}
@@ -140,7 +140,7 @@ const EngineerPreview = () => {
 
             {/* Footer */}
             <div className="flex gap-2 pt-2 mt-2 border-t border-slate-100">
-                {[{ l: '0 PII leaks', c: 'text-emerald-600 bg-emerald-50' }, { l: '1.2TB/hr', c: 'text-blue-600 bg-blue-50' }, { l: '100% lineage', c: 'text-violet-600 bg-violet-50' }].map(m => (
+                {[{ l: '0 PII leaks', c: 'text-emerald-600 bg-emerald-50' }, { l: '1.2TB/hr', c: 'text-indigo-500 bg-indigo-50' }, { l: '100% lineage', c: 'text-violet-600 bg-violet-50' }].map(m => (
                     <div key={m.l} className={`flex-1 text-center text-[8px] font-black px-2 py-1.5 rounded-lg uppercase tracking-wider ${m.c}`}>{m.l}</div>
                 ))}
             </div>
@@ -154,8 +154,8 @@ const EngineerPreview = () => {
 ───────────────────────────────────────────────────────────── */
 const LeaderPreview = () => {
     const assets = [
-        { name: 'Customer 360', type: 'Dataset', quality: 98, tag: 'Approved', tagColor: 'bg-emerald-100 text-emerald-700', barColor: 'bg-emerald-500' },
-        { name: 'Revenue Signals', type: 'API Feed', quality: 95, tag: 'Approved', tagColor: 'bg-blue-100 text-blue-700', barColor: 'bg-blue-500' },
+        { name: 'Customer 360', type: 'Dataset', quality: 98, tag: 'Approved', tagColor: 'bg-emerald-100 text-emerald-700', barColor: 'bg-amber-500' },
+        { name: 'Revenue Signals', type: 'API Feed', quality: 95, tag: 'Approved', tagColor: 'bg-indigo-100 text-indigo-600', barColor: 'bg-indigo-400' },
         { name: 'Churn Predictor v3', type: 'ML Model', quality: 91, tag: 'Pending', tagColor: 'bg-amber-100 text-amber-700', barColor: 'bg-amber-400' },
     ];
     return (
@@ -165,7 +165,7 @@ const LeaderPreview = () => {
                     <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mb-0.5">Data Marketplace</p>
                     <p className="text-[15px] font-black text-slate-900 leading-none">312 Certified Assets</p>
                 </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-600">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-500">
                     <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-white" />
                     <span className="text-[8px] font-black text-white uppercase tracking-wider">Browse Live</span>
                 </div>
@@ -194,7 +194,7 @@ const LeaderPreview = () => {
             </div>
 
             <div className="pt-2 border-t border-slate-100">
-                <div className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-blue-600">
+                <div className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-indigo-500">
                     <span className="text-[9px] font-black text-white uppercase tracking-widest">One-Click Access Request →</span>
                 </div>
             </div>
@@ -248,16 +248,16 @@ const SolutionCard = ({ index, tag, title, description, features, preview }) => 
 
             {/* Arrow */}
             <div className="absolute top-10 right-10 opacity-0 group-hover:opacity-100 translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-400">
-                <ArrowUpRight className="w-5 h-5 text-blue-500/40" />
+                <ArrowUpRight className="w-5 h-5 text-indigo-400/40" />
             </div>
 
             {/* Number */}
-            <div className="text-[72px] font-black text-slate-100 group-hover:text-blue-500/20 tracking-[-0.08em] leading-none mb-6 transition-colors duration-500 select-none">
+            <div className="text-[72px] font-black text-slate-100 group-hover:text-indigo-400/20 tracking-[-0.08em] leading-none mb-6 transition-colors duration-500 select-none">
                 {displayIndex}
             </div>
 
             {/* Tag */}
-            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#8c9eff] mb-3">{tag}</div>
+            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#99A0F9] mb-3">{tag}</div>
 
             {/* Title */}
             <h3 className="text-[26px] font-black text-slate-900 tracking-[-0.03em] leading-[1.1] mb-8 min-h-[5rem] flex items-start">
@@ -280,7 +280,7 @@ const SolutionCard = ({ index, tag, title, description, features, preview }) => 
                             <ul className="flex flex-col gap-2 mt-2 items-center w-full">
                                 {features.map((f, i) => (
                                     <li key={i} className="flex items-start gap-2.5 text-[13px] font-semibold text-slate-600 justify-center">
-                                        <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                                        <CheckCircle2 className="w-4 h-4 text-indigo-400 mt-0.5 shrink-0" />
                                         {f}
                                     </li>
                                 ))}
@@ -302,7 +302,7 @@ const SolutionCard = ({ index, tag, title, description, features, preview }) => 
             </div>
 
             {/* Bottom shimmer */}
-            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-transparent group-hover:w-full transition-all duration-700 rounded-b-full" />
+            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-indigo-400 via-indigo-500 to-transparent group-hover:w-full transition-all duration-700 rounded-b-full" />
         </motion.div>
     );
 };
@@ -354,15 +354,15 @@ const Solutions = () => {
         <section className="py-48 bg-[#f8fafc] relative overflow-hidden" id="solutions">
             <div className="relative z-10 mx-auto px-6 md:px-12 lg:px-16 max-w-[95rem]">
                 <div className="max-w-4xl mx-auto text-center mb-24 space-y-8 flex flex-col items-center">
-                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#8c9eff]/5 border border-[#8c9eff]/15 shadow-sm mb-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#8c9eff] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
-                        <span className="text-[12px] font-black text-[#8c9eff] uppercase tracking-[0.4em]">
+                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#99A0F9]/5 border border-[#99A0F9]/15 shadow-sm mb-2">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#99A0F9] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
+                        <span className="text-[12px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">
                             Solutions For Team
                         </span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-4">
-                        Enterprise-Grade <span className="text-slate-500">Platform Solutions.</span>
+                        Enterprise-Grade <span className="text-[#99A0F9]">Platform Solutions.</span>
                     </h2>
 
                     <p className="text-slate-500 text-[20px] leading-relaxed max-w-3xl font-medium">

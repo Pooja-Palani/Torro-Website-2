@@ -7,11 +7,11 @@ const CatalogSchematic = () => (
     <div className="flex flex-col w-full h-full bg-[#05060f] rounded-[1.5rem] border border-[#1e2343]/50 p-4 md:p-6 relative overflow-hidden group">
         <div className="flex items-center justify-between mb-8 relative z-10">
             <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-blue-500 mb-1">Architecture Insight</p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-indigo-400 mb-1">Architecture Insight</p>
                 <p className="text-[20px] font-black text-white tracking-tight leading-none">Catalog Evolution</p>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center">
-                <Cpu className="w-5 h-5 text-blue-500" />
+            <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-400/20 flex items-center justify-center">
+                <Cpu className="w-5 h-5 text-indigo-400" />
             </div>
         </div>
         
@@ -21,12 +21,12 @@ const CatalogSchematic = () => (
                     <p className="text-[8px] font-black text-white/30 uppercase mb-2">Legacy</p>
                     <p className="text-[12px] font-bold text-white/60">Manual Tagging</p>
                 </div>
-                <div className="flex flex-col items-center gap-1 text-blue-600/30">
+                <div className="flex flex-col items-center gap-1 text-indigo-500/30">
                     <motion.div animate={{ x: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
                         <ChevronRight className="w-5 h-5" />
                     </motion.div>
                 </div>
-                <div className="flex-1 px-4 py-4 bg-blue-600/90 rounded-xl text-center shadow-[0_0_20px_rgba(37,99,235,0.2)]">
+                <div className="flex-1 px-4 py-4 bg-indigo-500/90 rounded-xl text-center shadow-[0_0_20px_rgba(37,99,235,0.2)]">
                     <p className="text-[8px] font-black text-white/50 uppercase mb-2">Torro AI</p>
                     <p className="text-[12px] font-bold text-white uppercase tracking-wider">Autonomous</p>
                 </div>
@@ -40,7 +40,7 @@ const CatalogSchematic = () => (
                     { l: 'Zero Drift', i: '04' }
                 ].map(tag => (
                     <div key={tag.l} className="flex items-center gap-3 px-4 py-3 bg-[#0c0e1a]/80 rounded-lg border border-white/5">
-                        <span className="text-[9px] font-black text-blue-500/40">{tag.i}</span>
+                        <span className="text-[9px] font-black text-indigo-400/40">{tag.i}</span>
                         <span className="text-[10px] font-bold text-white/40 uppercase tracking-tight">{tag.l}</span>
                     </div>
                 ))}
@@ -49,7 +49,7 @@ const CatalogSchematic = () => (
 
         {/* Scan line effect */}
         <motion.div 
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent h-1/2 w-full pointer-events-none z-0"
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-400/5 to-transparent h-1/2 w-full pointer-events-none z-0"
             animate={{ y: ['-100%', '200%'] }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
         />
@@ -63,7 +63,7 @@ const ComplianceScorePreview = () => (
             <svg className="w-28 h-28 mx-auto" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="45" fill="none" stroke="#1e2343" strokeWidth="6" />
                 <motion.circle 
-                    cx="50" cy="50" r="45" fill="none" stroke="#2563eb" strokeWidth="6" 
+                    cx="50" cy="50" r="45" fill="none" stroke="#6366f1" strokeWidth="6" 
                     strokeDasharray="283" initial={{ strokeDashoffset: 283 }} 
                     animate={{ strokeDashoffset: 28 }} transition={{ duration: 1.5, ease: "easeOut" }} 
                     strokeLinecap="round"
@@ -76,16 +76,16 @@ const ComplianceScorePreview = () => (
         </div>
         
         <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_rgba(37,99,235,0.8)]" />
-                <span className="text-[9px] font-black text-[#8c9eff] uppercase tracking-widest">DPDP Ready</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-400/10 border border-indigo-400/20">
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_8px_rgba(37,99,235,0.8)]" />
+                <span className="text-[9px] font-black text-[#99A0F9] uppercase tracking-widest">DPDP Ready</span>
             </div>
             <p className="text-[18px] font-black text-white tracking-tight">Institutional Risk Clearance</p>
         </div>
 
         <div className="flex flex-col gap-1.5 px-16">
-            <div className="h-1 bg-blue-600 rounded-full w-full shadow-[0_0_10px_rgba(37,99,235,0.3)]" />
-            <div className="h-1 bg-blue-900 rounded-full w-4/5 mx-auto" />
+            <div className="h-1 bg-indigo-500 rounded-full w-full shadow-[0_0_10px_rgba(37,99,235,0.3)]" />
+            <div className="h-1 bg-indigo-800 rounded-full w-4/5 mx-auto" />
             <div className="h-1 bg-[#1e2343] rounded-full w-1/2 mx-auto" />
         </div>
     </div>
@@ -96,10 +96,10 @@ const ResidencyPreview = () => (
     <div className="flex flex-col w-full h-full bg-[#05060f] rounded-[1.5rem] border border-[#1e2343]/50 p-4 md:p-6 relative overflow-hidden">
         <div className="flex items-center justify-between mb-8 relative z-10">
             <div className="flex flex-col gap-1">
-                <span className="text-[9px] font-black text-[#8c9eff] uppercase tracking-widest px-3 py-1 bg-[#8c9eff]/10 rounded-full border border-[#8c9eff]/20 w-fit">Sovereign Control</span>
+                <span className="text-[9px] font-black text-[#99A0F9] uppercase tracking-widest px-3 py-1 bg-[#99A0F9]/10 rounded-full border border-[#99A0F9]/20 w-fit">Sovereign Control</span>
                 <p className="text-[20px] font-black text-white tracking-tight">India Sovereign Estate</p>
             </div>
-            <Globe className="w-7 h-7 text-blue-600/30" />
+            <Globe className="w-7 h-7 text-indigo-500/30" />
         </div>
         
         <div className="relative flex-1 bg-[#0c0e1a] rounded-2xl border border-white/5 overflow-hidden">
@@ -111,7 +111,7 @@ const ResidencyPreview = () => (
                 <motion.div 
                     key={left} initial={{ scale: 0 }} animate={{ scale: 1 }} 
                     transition={{ delay: i * 0.1 }} 
-                    className="absolute w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]" 
+                    className="absolute w-2 h-2 rounded-full bg-indigo-400 shadow-[0_0_10px_rgba(59,130,246,0.6)]" 
                     style={{ left: `${left}%`, top: `${30 + i * 15}%` }} 
                 />
              ))}
@@ -120,12 +120,12 @@ const ResidencyPreview = () => (
                 <motion.div 
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="bg-[#11152a]/90 backdrop-blur-md p-5 rounded-xl border border-blue-500/20 text-center shadow-2xl"
+                    className="bg-[#11152a]/90 backdrop-blur-md p-5 rounded-xl border border-indigo-400/20 text-center shadow-2xl"
                 >
                     <p className="text-[12px] font-black text-white leading-tight mb-2 uppercase tracking-wide">PostgreSQL @ Mumbai</p>
                     <div className="flex items-center gap-2 justify-center">
-                         <CheckCircle2 className="w-3.5 h-3.5 text-[#8c9eff]" />
-                         <span className="text-[9px] font-black text-[#8c9eff] uppercase tracking-widest">Certified Resident</span>
+                         <CheckCircle2 className="w-3.5 h-3.5 text-[#99A0F9]" />
+                         <span className="text-[9px] font-black text-[#99A0F9] uppercase tracking-widest">Certified Resident</span>
                     </div>
                 </motion.div>
              </div>
@@ -134,7 +134,7 @@ const ResidencyPreview = () => (
         <div className="mt-8 flex justify-between items-center text-[9px] font-black text-white/20 uppercase tracking-[0.2em]">
             <span>Authenticated 4.2k Nodes</span>
             <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(37,99,235,1)]" />
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(37,99,235,1)]" />
                 <span className="text-white/60">Locked ✓</span>
             </div>
         </div>
@@ -209,13 +209,13 @@ const IntelligenceHub = () => {
             <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[105rem] w-full">
                 {/* Section Header */}
                 <div className="max-w-4xl mx-auto text-center mb-12 space-y-6 flex flex-col items-center">
-                    <div className="inline-flex items-center justify-center gap-3 px-5 py-2 rounded-full bg-[#8c9eff]/10 border border-[#8c9eff]/20 shadow-[0_0_20px_rgba(140,158,255,0.1)]">
-                        <BookOpen className="w-3.5 h-3.5 text-[#8c9eff]" />
-                        <span className="text-[12px] font-black text-[#8c9eff] uppercase tracking-[0.4em]">Intelligence Console</span>
+                    <div className="inline-flex items-center justify-center gap-3 px-5 py-2 rounded-full bg-[#99A0F9]/10 border border-[#99A0F9]/20 shadow-[0_0_20px_rgba(140,158,255,0.1)]">
+                        <BookOpen className="w-3.5 h-3.5 text-[#99A0F9]" />
+                        <span className="text-[12px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">Intelligence Console</span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.1]">
-                        Boardroom <span className="text-slate-500">Insights.</span>
+                        Boardroom <span className="text-[#99A0F9]">Insights.</span>
                     </h2>
                 </div>
 
@@ -240,12 +240,12 @@ const IntelligenceHub = () => {
                                         onClick={() => handlePillarClick(i)}
                                         className={`group relative flex flex-col items-center p-5 rounded-2xl text-center transition-all duration-500 border ${
                                             activePillar === i 
-                                            ? 'bg-gradient-to-r from-[#1e2343] to-[#151930] border-blue-500/40 shadow-[0_10px_30px_rgba(0,0,0,0.2)]' 
+                                            ? 'bg-gradient-to-r from-[#1e2343] to-[#151930] border-indigo-400/40 shadow-[0_10px_30px_rgba(0,0,0,0.2)]' 
                                             : 'bg-[#0c0e1a]/40 border-transparent hover:border-white/10'
                                         }`}
                                     >
                                         <div className="flex items-center justify-center gap-2 mb-2 w-full">
-                                            <span className={`text-[9px] font-black uppercase tracking-[0.2em] ${activePillar === i ? 'text-blue-500' : 'text-white/20'}`}>0{i + 1} — {p.title}</span>
+                                            <span className={`text-[9px] font-black uppercase tracking-[0.2em] ${activePillar === i ? 'text-indigo-400' : 'text-white/20'}`}>0{i + 1} — {p.title}</span>
                                         </div>
                                         <p className={`text-[15px] font-black tracking-tight ${activePillar === i ? 'text-white' : 'text-white/40'}`}>{p.label}</p>
                                         {activePillar === i && (
@@ -260,10 +260,10 @@ const IntelligenceHub = () => {
 
                         {/* Bottom CTA */}
                         <div className="pt-8 mt-8 border-t border-white/5 flex justify-center w-full">
-                             <a href="#" className="flex items-center justify-between gap-6 px-8 py-3.5 bg-blue-600 rounded-xl group overflow-hidden relative shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] transition-all">
+                             <a href="#" className="flex items-center justify-between gap-6 px-8 py-3.5 bg-indigo-500 rounded-xl group overflow-hidden relative shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] transition-all">
                                 <span className="text-white text-[12px] font-black uppercase tracking-[0.2em] relative z-10">Get Full PDF Playbook</span>
                                 <FileText className="w-4 h-4 text-white/80 relative z-10" />
-                                <div className="absolute inset-0 bg-blue-700 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                                <div className="absolute inset-0 bg-indigo-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                              </a>
                         </div>
                     </div>
@@ -297,11 +297,11 @@ const IntelligenceHub = () => {
                         <div className="absolute bottom-6 right-10 flex items-center gap-6">
                              <div className="flex gap-1">
                                 {[0, 1, 2].map(i => (
-                                    <div key={i} className={`w-1 h-3 rounded-full transition-all duration-300 ${i === activePillar ? 'bg-blue-600 h-4' : 'bg-white/10'}`} />
+                                    <div key={i} className={`w-1 h-3 rounded-full transition-all duration-300 ${i === activePillar ? 'bg-indigo-500 h-4' : 'bg-white/10'}`} />
                                 ))}
                              </div>
                              <div className="flex items-center gap-2 px-3 py-1 rounded bg-white/5 border border-white/5">
-                                <Activity className="w-3 h-3 text-blue-500" />
+                                <Activity className="w-3 h-3 text-indigo-400" />
                                 <span className="text-[10px] font-black text-white/30 uppercase tracking-widest">Live Engine Feed</span>
                              </div>
                         </div>

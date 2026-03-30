@@ -11,7 +11,7 @@ const CompliancePreview = () => (
         {/* Top bar */}
         <div className="flex items-center justify-between pb-4 border-b border-slate-100">
             <div>
-                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#8c9eff] mb-0.5">Compliance Engine</p>
+                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#99A0F9] mb-0.5">Compliance Engine</p>
                 <p className="text-[18px] font-black text-slate-900 tracking-tight leading-none">Privacy Passport</p>
             </div>
             <div className="relative w-12 h-12">
@@ -35,7 +35,7 @@ const CompliancePreview = () => (
                 { label: 'ISO 27001 Audit Trail', pct: 95 },
             ].map((item, i) => (
                 <div key={item.label} className="flex items-center gap-3 group/row">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
                     <div className="flex-1 min-w-0">
                         <p className="text-[11px] font-bold text-slate-700 leading-none mb-1.5 truncate">{item.label}</p>
                         <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
@@ -43,7 +43,7 @@ const CompliancePreview = () => (
                                 initial={{ width: 0 }}
                                 animate={{ width: `${item.pct}%` }}
                                 transition={{ duration: 1.2, delay: i * 0.15, ease: "circOut" }}
-                                className="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full"
+                                className="h-full bg-gradient-to-r from-amber-400 to-emerald-600 rounded-full"
                             />
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const CompliancePreview = () => (
             <motion.div
                 animate={{ opacity: [1, 0.3, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-2 h-2 rounded-full bg-emerald-500"
+                className="w-2 h-2 rounded-full bg-amber-500"
             />
             <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Audit Sync: LIVE</span>
             <span className="ml-auto text-[9px] font-mono text-slate-400">0.4ms</span>
@@ -67,7 +67,7 @@ const CompliancePreview = () => (
 
 const LineagePreview = () => {
     const stages = [
-        { label: 'Source Layer', nodes: [{ name: 'PostgreSQL v14', tag: 'Primary DB', color: 'bg-blue-50 border-blue-200 text-blue-700' }, { name: 'S3 Data Lake', tag: 'Object Store', color: 'bg-sky-50 border-sky-200 text-sky-700' }] },
+        { label: 'Source Layer', nodes: [{ name: 'PostgreSQL v14', tag: 'Primary DB', color: 'bg-indigo-50 border-indigo-200 text-indigo-600' }, { name: 'S3 Data Lake', tag: 'Object Store', color: 'bg-sky-50 border-sky-200 text-sky-700' }] },
         { label: 'Transform Layer', nodes: [{ name: 'Apache Spark', tag: 'ETL Engine', color: 'bg-orange-50 border-orange-200 text-orange-700' }, { name: 'dbt Cloud', tag: 'SQL Models', color: 'bg-violet-50 border-violet-200 text-violet-700' }] },
         { label: 'Delivery Layer', nodes: [{ name: 'Snowflake DW', tag: 'Analytics', color: 'bg-teal-50 border-teal-200 text-teal-700' }, { name: 'Tableau CX', tag: 'Reporting', color: 'bg-emerald-50 border-emerald-200 text-emerald-700' }] },
     ];
@@ -77,12 +77,12 @@ const LineagePreview = () => {
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
                 <div>
-                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#8c9eff] mb-0.5">Data Lineage</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#99A0F9] mb-0.5">Data Lineage</p>
                     <p className="text-[17px] font-black text-slate-900 tracking-tight leading-none">Live Pipeline Graph</p>
                 </div>
                 <div className="flex items-center gap-2">
                     <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.8, repeat: Infinity }} className="w-2 h-2 rounded-full bg-indigo-500" />
-                    <span className="text-[9px] font-black text-[#8c9eff] uppercase tracking-wider">Active</span>
+                    <span className="text-[9px] font-black text-[#99A0F9] uppercase tracking-wider">Active</span>
                 </div>
             </div>
 
@@ -126,12 +126,12 @@ const LineagePreview = () => {
 
             {/* Throughput ticker */}
             <div className="mx-4 mb-4 flex items-center gap-3 px-3 py-2 rounded-xl bg-slate-950 border border-white/5">
-                <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 0.8, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 0.8, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
                 <div className="flex gap-4 overflow-hidden">
                     {[{ k: 'Throughput', v: '1.2 TB/hr' }, { k: 'Drift', v: '±0.04%' }, { k: 'Lag', v: '12 ms' }].map(m => (
                         <div key={m.k} className="flex items-center gap-1.5 shrink-0">
                             <span className="text-[8px] font-bold text-white/30 uppercase">{m.k}</span>
-                            <span className="text-[10px] font-black text-emerald-400 font-mono">{m.v}</span>
+                            <span className="text-[10px] font-black text-amber-400 font-mono">{m.v}</span>
                         </div>
                     ))}
                 </div>
@@ -153,16 +153,16 @@ const AnalyticsPreview = () => {
             {/* Dark header */}
             <div className="bg-slate-950 px-5 py-4 flex items-center justify-between">
                 <div>
-                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#8c9eff] mb-1">Secure Analytics</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-[#99A0F9] mb-1">Secure Analytics</p>
                     <div className="flex items-baseline gap-1.5">
                         <span className="text-[24px] font-black text-white tracking-tighter leading-none">99.9</span>
-                        <span className="text-[13px] font-black text-emerald-400">% Uptime</span>
+                        <span className="text-[13px] font-black text-amber-400">% Uptime</span>
                     </div>
                 </div>
                 <div className="flex flex-col items-end gap-1">
-                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-600/20 border border-blue-500/30">
-                        <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.4, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                        <span className="text-[8px] font-black text-blue-300 uppercase tracking-widest">privBox Active</span>
+                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30">
+                        <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.4, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-indigo-300" />
+                        <span className="text-[8px] font-black text-indigo-300 uppercase tracking-widest">privBox Active</span>
                     </div>
                     <span className="text-[9px] font-mono text-slate-500">Tier: ELITE-V</span>
                 </div>
@@ -181,7 +181,7 @@ const AnalyticsPreview = () => {
                             initial={{ height: 0 }}
                             animate={{ height: `${h}%` }}
                             transition={{ duration: 0.8, delay: i * 0.04, ease: 'circOut' }}
-                            className={`flex-1 rounded-t-sm ${i === bars.length - 1 ? 'bg-blue-500' : 'bg-slate-200'}`}
+                            className={`flex-1 rounded-t-sm ${i === bars.length - 1 ? 'bg-indigo-400' : 'bg-slate-200'}`}
                         />
                     ))}
                 </div>
@@ -199,7 +199,7 @@ const AnalyticsPreview = () => {
                     >
                         <p className="text-[8px] font-black text-slate-400 uppercase tracking-tighter leading-none">{m.label}</p>
                         <p className="text-[16px] font-black text-slate-900 tracking-tight leading-none">{m.val}</p>
-                        <span className={`text-[8px] font-black ${m.up ? 'text-emerald-500' : 'text-blue-500'}`}>{m.trend}</span>
+                        <span className={`text-[8px] font-black ${m.up ? 'text-amber-500' : 'text-indigo-400'}`}>{m.trend}</span>
                     </motion.div>
                 ))}
             </div>
@@ -258,11 +258,11 @@ const CapabilityCard = ({ index, title, description }) => {
 
             {/* Arrow */}
             <div className="absolute top-10 right-10 opacity-0 group-hover:opacity-100 translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-400">
-                <ArrowUpRight className="w-5 h-5 text-blue-500/40" />
+                <ArrowUpRight className="w-5 h-5 text-indigo-400/40" />
             </div>
 
             {/* Number */}
-            <div className="text-[72px] font-black text-slate-100 group-hover:text-blue-500/20 tracking-[-0.08em] leading-none mb-8 transition-colors duration-500 select-none">
+            <div className="text-[72px] font-black text-slate-100 group-hover:text-indigo-400/20 tracking-[-0.08em] leading-none mb-8 transition-colors duration-500 select-none">
                 {displayIndex}
             </div>
 
@@ -301,7 +301,7 @@ const CapabilityCard = ({ index, title, description }) => {
             </div>
 
             {/* Bottom shimmer line */}
-            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-transparent group-hover:w-full transition-all duration-700 rounded-b-full" />
+            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-indigo-400 via-indigo-500 to-transparent group-hover:w-full transition-all duration-700 rounded-b-full" />
         </motion.div>
     );
 };
@@ -329,15 +329,15 @@ const Capabilities = () => {
         <section className="py-48 bg-[#f8fafc] relative overflow-hidden" id="product">
             <div className="relative z-10 mx-auto px-6 md:px-12 lg:px-16 max-w-[95rem]">
                 <div className="max-w-4xl mx-auto text-center mb-24 space-y-8 flex flex-col items-center">
-                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#8c9eff]/5 border border-[#8c9eff]/15 shadow-sm mb-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#8c9eff] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
-                        <span className="text-[12px] font-black text-[#8c9eff] uppercase tracking-[0.4em]">
+                    <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#99A0F9]/5 border border-[#99A0F9]/15 shadow-sm mb-2">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#99A0F9] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
+                        <span className="text-[12px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">
                             Core Architecture
                         </span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-4">
-                        Industrial-Grade <br /><span className="text-slate-500">Data Governance.</span>
+                        Industrial-Grade <br /><span className="text-[#99A0F9]">Data Governance.</span>
                     </h2>
 
                     <p className="text-slate-500 text-[20px] leading-relaxed max-w-3xl font-medium">

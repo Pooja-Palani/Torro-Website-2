@@ -12,8 +12,8 @@ const ArticleCard = ({ title, excerpt, category, index }) => (
         className="group flex flex-col p-8 pristine-card h-full"
     >
         <div className="flex items-center justify-between mb-8">
-            <span className="text-[11px] font-bold text-[#8c9eff] uppercase tracking-widest">{category}</span>
-            <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-transparent transition-colors">
+            <span className="text-[11px] font-bold text-[#99A0F9] uppercase tracking-widest">{category}</span>
+            <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center group-hover:bg-indigo-500 group-hover:border-transparent transition-colors">
                 <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors transform group-hover:-rotate-45" />
             </div>
         </div>
@@ -52,13 +52,13 @@ const BoardroomHeadlines = () => {
             <div className="container">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
                     <div className="max-w-xl space-y-4">
-                        <span className="text-sm font-bold text-[#8c9eff] uppercase tracking-[0.4em] block">
+                        <span className="text-sm font-bold text-[#99A0F9] uppercase tracking-[0.4em] block">
                             Intelligence
                         </span>
                         <h2 className="text-left">Technical <span className="text-gray-400">Insights.</span></h2>
                     </div>
 
-                    <a href="#" className="flex items-center gap-2 text-[15px] font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+                    <a href="#" className="flex items-center gap-2 text-[15px] font-semibold text-indigo-500 hover:text-indigo-600 transition-colors">
                         View Documentation <ArrowRight className="w-4 h-4 ml-1" />
                     </a>
                 </div>

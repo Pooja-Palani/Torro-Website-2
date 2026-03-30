@@ -14,20 +14,20 @@ const ComparisonTable = () => {
         <section className="py-32 bg-white relative overflow-hidden" id="comparison">
             {/* Visual Hook: Architectural Grid Overlay & Breathing Ambient Orbs using Logo Colors */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_10%,transparent_100%)] opacity-70 pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-[#ff2079]/10 rounded-full blur-[120px] opacity-80 pointer-events-none animate-pulse" />
-            <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#fbbf24]/10 rounded-full blur-[120px] opacity-60 pointer-events-none animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-[#F26969]/10 rounded-full blur-[120px] opacity-80 pointer-events-none animate-pulse" />
+            <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#F4B952]/10 rounded-full blur-[120px] opacity-60 pointer-events-none animate-pulse" style={{ animationDelay: '1s' }} />
 
             <div className="w-full max-w-[100rem] px-4 md:px-12 mx-auto flex flex-col items-center relative z-10">
 
                 <div className="max-w-3xl mx-auto text-center mb-16 space-y-6 flex flex-col items-center">
-                    <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#ff2079]/5 border border-[#ff2079]/10 shadow-sm">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#ff2079] animate-pulse" />
-                        <span className="text-[10px] font-bold text-[#ff2079] uppercase tracking-widest">
+                    <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#F26969]/5 border border-[#F26969]/10 shadow-sm">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#F26969] animate-pulse" />
+                        <span className="text-[10px] font-bold text-[#F26969] uppercase tracking-widest">
                             Competitive Analysis
                         </span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
-                        Strategic <span className="text-slate-500">Superiority.</span>
+                        Strategic <span className="text-[#99A0F9]">Superiority.</span>
                     </h2>
                     <p className="text-gray-500 text-[18px] leading-relaxed max-w-xl mx-auto block !mx-auto !text-center">
                         World-class governance at a fraction of the cost and deployment time.
@@ -41,8 +41,8 @@ const ComparisonTable = () => {
                             <span className="text-[12px] font-bold text-gray-500 uppercase tracking-widest">Capability</span>
                         </div>
                         <div className="flex flex-col items-start gap-2 border-l border-gray-200 pl-4 md:pl-6">
-                            <span className="text-[16px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#ff2079] to-[#fbbf24] tracking-wider uppercase">Torro AI</span>
-                            <span className="bg-[#fbbf24] text-black text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">Recommended</span>
+                            <span className="text-[16px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#F26969] to-[#F4B952] tracking-wider uppercase">Torro AI</span>
+                            <span className="bg-[#F4B952] text-black text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">Recommended</span>
                         </div>
                         <div className="flex items-center border-l border-gray-200 pl-4 md:pl-6">
                             <span className="text-[12px] font-bold text-gray-700 uppercase tracking-widest">Our Competitors</span>
