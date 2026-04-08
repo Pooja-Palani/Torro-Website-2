@@ -23,6 +23,8 @@
     --border-hover: #d1d5db;
 
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* Header height used to offset in-page anchor scrolling */
+    --header-height: 60px;
   }
 
   * {
@@ -39,6 +41,22 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+  }
+
+  /* Ensure anchor scrolling starts below the fixed header */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+  }
+
+  /* For direct element scrolling (e.g., element.scrollIntoView), add margin offset */
+  section[id] {
+    scroll-margin-top: calc(var(--header-height) + 8px);
+  }
+
+/* Intelligence Console (resources) — extra top clearance */
+  section#resources {
+    scroll-margin-top: calc(var(--header-height) + 40px);
   }
 
   /* Refined, Apple-esque Typography */

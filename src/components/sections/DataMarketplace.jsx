@@ -354,11 +354,7 @@ const DataMarketplace = () => {
                                         <div className="w-3.5 h-[1.5px] bg-white rounded-full" />
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <div className="flex gap-1 items-end h-[18px]">
-                                            <div className="w-[5px] h-2.5 bg-[#ff2079] rounded-full" />
-                                            <div className="w-[5px] h-[18px] bg-yellow-400 rounded-full" />
-                                            <div className="w-[5px] h-[12px] bg-[#fbbf24] rounded-full opacity-80" />
-                                        </div>
+                                        <img src="/logotorro.png" alt="Torro" className="h-[22px] w-auto object-contain" />
                                         <div className="leading-tight">
                                             <div className="font-extrabold tracking-widest text-[13px]">TORRO ENTERPRISE</div>
                                             <div className="text-[8px] text-indigo-100 tracking-widest uppercase font-semibold">Torro OneData Platform</div>

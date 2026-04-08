@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,78 +15,236 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navItems = [
+    {
+      label: 'Our Offerings',
+      href: '/offerings',
+      isMegaMenu: true,
+      megaMenuContent: {
+        solutions: [
+          'Unified Discovery & Metadata Foundation',
+          'End-to-End Data Lineage',
+          'Continuous Data Quality & Trust',
+          'Automated Entitlements & Protection',
+          'Data Marketplace & PrivBox'
+        ],
+        services: [
+          'Data Engineering Services',
+          'Cloud Consulting Services',
+          'Legacy to Cloud Platform Design',
+          'Compliance & Reg Consulting',
+          'AI/ML Governance',
+          'Data Governance Assessment'
+        ],
+        industries: ['BFSI', 'Healthcare', 'Telecom'],
+        compliance: ['DPDP / DPDPA', 'GDPR', 'CCPA', 'BCBS239', 'SOX', 'HIPAA']
+      }
+    },
+    {
+      label: 'Use Cases',
+      href: '/use-cases',
+      submenu: [
+        { label: 'Enterprise Data Visibility', href: '/use-cases' },
+        { label: 'Cross-Border Data Governance', href: '/use-cases' },
+        { label: 'Automated Access Provisioning', href: '/use-cases' },
+        { label: 'Consent & PII Management', href: '/use-cases' },
+        { label: 'Audit Readiness', href: '/use-cases' }
+      ]
+    },
+    {
+      label: 'Resources',
+      href: '/resources',
+      submenu: [
+        { label: 'Blog', href: '/resources' },
+        { label: 'Newsletter', href: '/resources' }
+      ]
+    },
+    {
+      label: 'Company',
+      href: '/company',
+      submenu: [
+        { label: 'About Us', href: '/company' },
+        { label: 'Partners', href: '/company' }
+      ]
+    }
+  ];
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#0b1228]/50 backdrop-blur-[24px] border-b border-white/[0.06] shadow-md py-4'
-          : 'bg-transparent border-b border-transparent py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0c0e1a]/70 text-white backdrop-blur-xl backdrop-saturate-150 border-b border-white/10 ${isScrolled ? 'shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] py-2' : 'py-3'
+        }`}
     >
-      <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24 relative flex items-center justify-between">
+      <div className="container flex items-center justify-between px-6">
 
-        {/* Logo */}
-        <a href="/" className="flex items-center gap-3 z-20 shrink-0" aria-label="Torro home">
-          <img
-            src="/logotorro.png"
-            alt="Torro"
-            className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-6' : 'h-7'}`}
-          />
-        </a>
+          {/* Logo */}
+          <Link to="/" className="flex items-center" aria-label="Torro home">
+            <img
+              src="/logotorro.png"
+              alt="Torro"
+              className="h-12 w-auto object-contain"
+            />
+          </Link>
 
-        {/* Desktop Nav (Perfectly Centered) */}
-        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 lg:gap-12 z-10 w-max">
-          {['Our Offerings', 'Use Cases', 'Resources', 'Company'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
-              className="text-[14px] font-medium flex items-center gap-1.5 transition-colors text-white/60 hover:text-white"
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
+            {navItems.map((item) => (
+              <div key={item.label} className="relative group">
+                <Link
+                  to={item.href}
+                  className="px-4 py-2 text-[14px] font-medium text-gray-100 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1"
+                >
+                  {item.label}
+                  {(item.submenu || item.isMegaMenu) && <ChevronDown size={14} className="opacity-60 group-hover:opacity-100" />}
+                </Link>
+
+                {/* Mega Menu Dropdown */}
+                {item.isMegaMenu && item.megaMenuContent && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] backdrop-blur-xl border border-[#1e2343]/50 rounded-2xl shadow-2xl p-10 min-w-[1200px]">
+                      <div className="grid grid-cols-4 gap-16">
+                        {/* Column 1: Solutions */}
+                        <div>
+                          <h3 className="text-[11px] font-black uppercase tracking-[0.35em] text-amber-400 mb-6 pb-3 border-b border-amber-400/30">Our Solutions</h3>
+                          <div className="space-y-4">
+                            {item.megaMenuContent.solutions.map((sol) => (
+                              <Link
+                                key={sol}
+                                to={item.href}
+                                className="block text-[13px] text-white/70 hover:text-blue-400 transition-colors font-medium hover:translate-x-1 duration-200"
+                              >
+                                {sol}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Column 2: Services */}
+                        <div>
+                          <h3 className="text-[11px] font-black uppercase tracking-[0.35em] text-amber-400 mb-6 pb-3 border-b border-amber-400/30">Our Services</h3>
+                          <div className="space-y-4">
+                            {item.megaMenuContent.services.map((svc) => (
+                              <Link
+                                key={svc}
+                                to={item.href}
+                                className="block text-[13px] text-white/70 hover:text-blue-400 transition-colors font-medium hover:translate-x-1 duration-200"
+                              >
+                                {svc}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Column 3: Industries */}
+                        <div>
+                          <h3 className="text-[11px] font-black uppercase tracking-[0.35em] text-amber-400 mb-6 pb-3 border-b border-amber-400/30">Industries</h3>
+                          <div className="space-y-4">
+                            {item.megaMenuContent.industries.map((ind) => (
+                              <Link
+                                key={ind}
+                                to={item.href}
+                                className="block text-[13px] text-white/70 hover:text-blue-400 transition-colors font-medium hover:translate-x-1 duration-200"
+                              >
+                                {ind}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Column 4: Compliance */}
+                        <div>
+                          <h3 className="text-[11px] font-black uppercase tracking-[0.35em] text-amber-400 mb-6 pb-3 border-b border-amber-400/30">Compliance</h3>
+                          <div className="space-y-4">
+                            {item.megaMenuContent.compliance.map((comp) => (
+                              <Link
+                                key={comp}
+                                to={item.href}
+                                className="block text-[13px] text-white/70 hover:text-blue-400 transition-colors font-medium hover:translate-x-1 duration-200"
+                              >
+                                {comp}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Regular Dropdown Menu */}
+                {item.submenu && !item.isMegaMenu && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] backdrop-blur-xl border border-[#1e2343]/50 rounded-xl shadow-2xl py-3 min-w-[320px]">
+                      {item.submenu.map((subitem) => (
+                        <Link
+                          key={subitem.label}
+                          to={subitem.href}
+                          className="block px-6 py-3 text-[13px] text-white/70 hover:text-blue-400 hover:bg-blue-500/5 transition-all font-medium hover:translate-x-1 duration-200"
+                        >
+                          {subitem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+
+          {/* Action Area */}
+          <div className="flex items-center gap-4">
+            <Link
+              to="/"
+              className="hidden sm:inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:bg-gray-100 hover:shadow-md active:scale-95"
             >
-              {item} <ChevronDown className="w-3 h-3 opacity-40" />
-            </a>
-          ))}
-        </nav>
+              Book Demo
+            </Link>
 
-        {/* Action Area */}
-        <div className="flex items-center gap-5 z-20 shrink-0">
-          <a
-            href="#demo"
-            className="hidden sm:inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-[14px] font-bold text-black border border-gray-200/50 shadow-sm transition-all duration-300 hover:bg-gray-50 hover:shadow-md hover:scale-[1.02] active:scale-95 z-20"
-          >
-            Book a Demo
-          </a>
-
-          {/* Mobile Toggle */}
-          <button
-            className="md:hidden p-2 rounded-lg transition-colors text-white/60 hover:text-white"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
+            {/* Mobile Toggle */}
+            <button
+              className="md:hidden p-2 text-white hover:bg-white/5 rounded-lg transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[#0b0c16]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl p-6 flex flex-col gap-6 animate-in slide-in-from-top-2">
-          {['Our Offerings', 'Use Cases', 'Resources', 'Company'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
-              className="text-base font-semibold text-white flex justify-between items-center"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item} <ChevronDown className="w-4 h-4 opacity-50" />
-            </a>
+        <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-b border-black/40 shadow-lg p-6 flex flex-col gap-4 animate-in slide-in-from-top-2 max-h-[80vh] overflow-y-auto">
+          {navItems.map((item) => (
+            <div key={item.label}>
+              <Link
+                to={item.href}
+                className="text-base font-semibold text-gray-100 hover:text-white block py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+              {item.submenu && (
+                <div className="pl-4 space-y-1 mt-1">
+                  {item.submenu.map((subitem) => (
+                    <Link
+                      key={subitem.label}
+                      to={subitem.href}
+                      className="text-sm text-gray-400 hover:text-gray-100 block py-1"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {subitem.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
-          <div className="h-px bg-white/10 w-full" />
-          <a
-            href="#demo"
-            className="w-full inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-bold text-gray-900 shadow-sm transition-all duration-200 hover:bg-gray-100"
+          <div className="h-px bg-gray-100 w-full my-2" />
+          <Link
+            to="/"
+            className="w-full inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:bg-gray-100"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Book a Demo
-          </a>
+          </Link>
         </div>
       )}
     </header>
