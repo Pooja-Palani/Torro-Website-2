@@ -90,13 +90,13 @@ const IntelligenceHub = () => {
     ];
 
     return (
-        <section className="bg-[#0c0e1a] text-white relative border-t border-white/5 pt-32 pb-32" id="resources">
+        <section className="bg-[#0c0e1a] text-white relative border-t border-white/5 pt-10 md:pt-14 pb-10 md:pb-14" id="resources">
                 {/* Ambient background glow */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(153,160,249,0.08)_0%,transparent_55%)] pointer-events-none" />
 
                 <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[105rem] w-full">
                     {/* Section Header */}
-                    <div className="text-center mb-14 space-y-4 flex flex-col items-center">
+                    <div className="text-center mb-6 md:mb-8 space-y-2 flex flex-col items-center">
                         <span
                             className="text-[11px] font-black uppercase tracking-[0.45em]"
                             style={{ color: ACCENT }}

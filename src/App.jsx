@@ -12,6 +12,9 @@ import CompliancePage from './pages/Compliance';
 import UseCases from './pages/UseCases';
 import Resources from './pages/Resources';
 import Company from './pages/Company';
+import CaseStudyTelecomHK from './pages/CaseStudyTelecomHK';
+import BlogPost from './pages/BlogPost';
+import BookDemo from './pages/BookDemo';
 
 function App() {
   return (
@@ -27,7 +30,10 @@ function App() {
             <Route path="/industries" element={<Industries />} />
             <Route path="/compliance" element={<CompliancePage />} />
             <Route path="/use-cases" element={<UseCases />} />
+            <Route path="/case-studies/telecom-hk" element={<CaseStudyTelecomHK />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/:slug" element={<BlogPost />} />
+            <Route path="/book-demo" element={<BookDemo />} />
             <Route path="/company" element={<Company />} />
           </Routes>
         </main>

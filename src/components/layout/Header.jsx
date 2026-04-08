@@ -212,7 +212,7 @@ const Header = () => {
           {/* Action Area */}
           <div className="flex items-center gap-4">
             <Link
-              to="/"
+              to="/book-demo"
               className="hidden sm:inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:bg-gray-100 hover:shadow-md active:scale-95"
             >
               Book Demo
@@ -288,7 +288,7 @@ const Header = () => {
           ))}
           <div className="h-px bg-gray-100 w-full my-2" />
           <Link
-            to="/"
+            to="/book-demo"
             className="w-full inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:bg-gray-100"
             onClick={() => setIsMobileMenuOpen(false)}
           >

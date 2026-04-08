@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowUpRight, ShieldCheck, Database, TrendingUp, Clock, BadgeCheck, Zap, Activity, CheckCircle2 } from 'lucide-react';
 
-/* ─── PREVIEW 1: Scale Visualization (HDFC) ─── */
+/* ─── PREVIEW 1: Scale Visualization (Largest Indian Private Bank) ─── */
 const ScalePreview = () => (
     <div className="flex flex-col w-full h-full bg-slate-50 rounded-[2rem] border border-slate-100 p-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:16px_16px]" />
@@ -247,15 +247,15 @@ const TrustSignals = () => {
     ];
 
     return (
-        <section className="py-48 bg-[#f8fafc] relative overflow-hidden" id="use-cases">
+        <section className="py-16 md:py-24 bg-[#f8fafc] relative overflow-hidden" id="use-cases">
             <div className="relative z-10 mx-auto px-6 md:px-12 lg:px-16 max-w-[95rem]">
-                <div className="max-w-4xl mx-auto text-center mb-24 space-y-8 flex flex-col items-center">
+                <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16 space-y-6 flex flex-col items-center">
                     <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#99A0F9]/5 border border-[#99A0F9]/15 shadow-sm mb-2">
                         <div className="w-2.5 h-2.5 rounded-full bg-[#99A0F9] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
                         <span className="text-[12px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">Proven at Scale</span>
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-4">
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-3">
                         Real-World <span className="text-[#99A0F9]">Use Cases.</span>
                     </h2>
 

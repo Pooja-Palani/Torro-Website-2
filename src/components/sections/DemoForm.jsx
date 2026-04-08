@@ -65,7 +65,7 @@ const DemoForm = () => {
                                         <div className="grid md:grid-cols-2 gap-6">
                                             <div className="space-y-2">
                                                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest pl-1">Company *</label>
-                                                <input type="text" required className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all shadow-sm" placeholder="HDFC Bank" />
+                                                <input type="text" required className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all shadow-sm" placeholder="Largest Indian Private Bank Bank" />
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest pl-1">Your Role *</label>

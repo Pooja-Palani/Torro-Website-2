@@ -282,7 +282,7 @@ const DataMarketplace = () => {
     const [selectedAsset, setSelectedAsset] = useState(null);
 
     return (
-        <section className="py-32 bg-gray-50/50 relative overflow-hidden" id="marketplace">
+        <section className="py-14 md:py-18 bg-gray-50/50 relative overflow-hidden" id="marketplace">
             {/* Global Gradient Definition for Lucide Icons */}
             <svg width="0" height="0" className="absolute">
                 <defs>
@@ -294,16 +294,16 @@ const DataMarketplace = () => {
                 </defs>
             </svg>
             
-            <div className="w-full max-w-[120rem] px-4 md:px-8 mx-auto relative z-10">
-                <div className="flex flex-col lg:flex-row items-start justify-center gap-12 lg:gap-20">
+            <div className="w-full max-w-[95rem] px-4 md:px-8 mx-auto relative z-10">
+                <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-12">
                     
                     {/* Narrative Left */}
-                    <div className="w-full lg:w-[45%] xl:w-[42%] shrink-0 space-y-12 flex flex-col justify-center my-auto items-start text-left">
+                    <div className="w-full lg:w-[42%] shrink-0 space-y-8 flex flex-col justify-center my-auto items-start text-left">
                         <div className="w-full">
                             <span className="text-[13px] font-bold text-[#8c9eff] uppercase tracking-[0.4em] mb-5 block text-left">
                                 DATA EXCHANGE
                             </span>
-                            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-8 text-left">
+                            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-5 text-left">
                                 Frictionless <span className="text-slate-500">Access.</span>
                             </h2>
                             <p className="text-gray-500 text-[19px] text-left mx-0 leading-[1.8] font-normal max-w-[540px]">
@@ -342,8 +342,8 @@ const DataMarketplace = () => {
                     </div>
 
                     {/* Hyper-Realistic Dashboard Replica Right */}
-                    <div className="w-full lg:w-[50%] xl:w-[48%] overflow-x-auto pb-8 hide-scrollbar pt-2 flex">
-                        <div className="w-max border border-gray-200 rounded-xl bg-white overflow-hidden relative z-10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]">
+                    <div className="w-full lg:w-[58%] overflow-x-auto hide-scrollbar pt-2 flex">
+                        <div className="w-full min-w-[860px] border border-gray-200 rounded-xl bg-white overflow-hidden relative z-10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]">
                             
                             {/* Torro Enterprise Top Branding Header (Dark Blue) */}
                             <div className="bg-[#4b55b2] text-white px-4 py-2.5 flex items-center justify-between">

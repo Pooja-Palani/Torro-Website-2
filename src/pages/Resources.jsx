@@ -1,52 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Mail, Download, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { BLOG_POSTS, getBlogPreview50Chars } from '../content/blogPosts';
 
 const Resources = () => {
-  const blogPosts = [
-    {
-      id: 1,
-      title: 'The Future of Data Governance in 2026',
-      category: 'Governance',
-      excerpt: 'Discover emerging trends and best practices shaping the data governance landscape.',
-      date: 'April 8, 2026'
-    },
-    {
-      id: 2,
-      title: 'DPDP Compliance: A Practical Guide',
-      category: 'Compliance',
-      excerpt: 'Navigate India\'s new digital personal data protection regulations effectively.',
-      date: 'April 1, 2026'
-    },
-    {
-      id: 3,
-      title: 'Building Trust with Data Quality',
-      category: 'Best Practices',
-      excerpt: 'How continuous monitoring ensures data integrity across your enterprise.',
-      date: 'March 28, 2026'
-    },
-    {
-      id: 4,
-      title: 'Cross-Border Data Strategies',
-      category: 'Strategy',
-      excerpt: 'Managing data across multiple geographies and regulatory frameworks.',
-      date: 'March 25, 2026'
-    },
-    {
-      id: 5,
-      title: 'AI/ML Governance Essentials',
-      category: 'AI & ML',
-      excerpt: 'Governing machine learning models and datasets in production environments.',
-      date: 'March 22, 2026'
-    },
-    {
-      id: 6,
-      title: 'Case Study: Financial Services Transformation',
-      category: 'Case Study',
-      excerpt: 'How a leading BFSI institution achieved regulatory excellence.',
-      date: 'March 20, 2026'
-    }
-  ];
+  const ACCENT = '#99A0F9';
+
+  const blogPosts = BLOG_POSTS.map((p, idx) => ({
+    id: idx + 1,
+    title: p.title,
+    category: 'Blog',
+    excerpt: getBlogPreview50Chars(p.content),
+    date: '',
+    slug: p.slug,
+  }));
 
   const resources = [
     {
@@ -54,7 +22,7 @@ const Resources = () => {
       title: 'Blog',
       description: 'Latest insights, best practices, and industry trends in data governance',
       icon: BookOpen,
-      link: '#'
+      link: '/resources'
     },
     {
       id: 2,
@@ -68,7 +36,7 @@ const Resources = () => {
   return (
     <section className="bg-[#0c0e1a] text-white min-h-screen pt-40 pb-20 relative border-t border-white/5">
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.04)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(153,160,249,0.06)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         {/* Hero */}
@@ -78,12 +46,14 @@ const Resources = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-24"
         >
-          <div className="inline-flex items-center justify-center gap-3 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 shadow-[0_0_20px_rgba(37,99,235,0.1)] mb-6">
-            <BookOpen className="w-4 h-4 text-blue-400" />
-            <span className="text-[12px] font-black text-blue-400 uppercase tracking-[0.4em]">Resources</span>
+          <div className="inline-flex items-center justify-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 shadow-[0_0_22px_rgba(153,160,249,0.10)] mb-6">
+            <BookOpen className="w-4 h-4" style={{ color: ACCENT }} />
+            <span className="text-[12px] font-black uppercase tracking-[0.4em]" style={{ color: ACCENT }}>
+              Resources
+            </span>
           </div>
           <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
-            Learn & <span className="text-blue-400">Grow</span>
+            Insights & <span style={{ color: ACCENT }}>Briefings</span>
           </h1>
           <p className="text-[16px] text-white/50 font-medium max-w-2xl mx-auto">
             Expert insights, guides, and best practices for modern data governance
@@ -95,36 +65,33 @@ const Resources = () => {
           {resources.map((resource, idx) => {
             const Icon = resource.icon;
             return (
-              <motion.a
+              <motion.div
                 key={idx}
-                href={resource.link}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-500 overflow-hidden cursor-pointer"
+                className="group relative bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 hover:border-white/20 transition-all duration-500 overflow-hidden"
               >
-                {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
-                    <Icon className="w-6 h-6 text-blue-400" />
+                  <Link to={resource.link} className="absolute inset-0" aria-label={`Open ${resource.title}`} />
+                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                    <Icon className="w-6 h-6" style={{ color: ACCENT }} />
                   </div>
 
                   <h3 className="text-2xl font-black text-white mb-3 tracking-tight">
                     {resource.title}
                   </h3>
 
-                  <p className="text-white/50 font-medium mb-6 leading-relaxed">
+                  <p className="text-left text-white/50 font-medium mb-6 leading-relaxed">
                     {resource.description}
                   </p>
 
-                  <div className="flex items-center gap-2 text-blue-400 group-hover:gap-3 transition-all">
+                  <div className="flex items-center gap-2 group-hover:gap-3 transition-all" style={{ color: ACCENT }}>
                     <span className="text-sm font-bold uppercase tracking-[0.2em]">Explore</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
-              </motion.a>
+              </motion.div>
             );
           })}
         </div>
@@ -138,7 +105,7 @@ const Resources = () => {
           className="mb-12"
         >
           <h2 className="text-4xl font-black text-white mb-12 tracking-tight">
-            Latest <span className="text-blue-400">Blog Posts</span>
+            Latest <span style={{ color: ACCENT }}>Blog Posts</span>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -149,31 +116,36 @@ const Resources = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
                 viewport={{ once: true }}
-                className="group bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-300 cursor-pointer overflow-hidden"
+                className="group bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-xl p-6 hover:border-white/20 transition-all duration-300 cursor-pointer overflow-hidden"
               >
-                {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                 <div className="relative z-10">
+                  <Link to={`/resources/${post.slug}`} className="absolute inset-0" aria-label={`Read ${post.title}`} />
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-black text-blue-400 uppercase tracking-[0.2em] bg-blue-500/10 px-3 py-1 rounded-full">
+                    <span
+                      className="text-xs font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full border"
+                      style={{
+                        color: ACCENT,
+                        backgroundColor: 'rgba(153,160,249,0.12)',
+                        borderColor: 'rgba(153,160,249,0.22)',
+                      }}
+                    >
                       {post.category}
                     </span>
-                    <span className="text-xs text-white/40">{post.date}</span>
+                    {post.date ? <span className="text-xs text-white/40">{post.date}</span> : null}
                   </div>
 
                   <h4 className="text-lg font-black text-white mb-3 tracking-tight line-clamp-2">
                     {post.title}
                   </h4>
 
-                  <p className="text-sm text-white/50 leading-relaxed mb-4 line-clamp-2">
+                  <p className="text-left text-sm text-white/50 leading-relaxed mb-4 line-clamp-2">
                     {post.excerpt}
                   </p>
 
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-400 font-bold text-xs uppercase tracking-[0.2em] hover:gap-3 transition-all">
+                  <div className="inline-flex items-center gap-2 font-bold text-xs uppercase tracking-[0.2em] hover:gap-3 transition-all" style={{ color: ACCENT }}>
                     Read More
                     <ArrowRight className="w-3 h-3" />
-                  </a>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -186,11 +158,11 @@ const Resources = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-[#11152a] to-[#0a0d1a] border border-blue-500/20 rounded-2xl p-12 md:p-16 text-center"
+          className="bg-gradient-to-r from-[#11152a] to-[#0a0d1a] border border-white/10 rounded-2xl p-12 md:p-16 text-center"
         >
-          <Mail className="w-12 h-12 text-blue-400 mx-auto mb-6" />
+          <Mail className="w-12 h-12 mx-auto mb-6" style={{ color: ACCENT }} />
           <h3 className="text-3xl font-black text-white mb-4 tracking-tight">
-            Subscribe to Our <span className="text-blue-400">Newsletter</span>
+            Subscribe to Our <span style={{ color: ACCENT }}>Newsletter</span>
           </h3>
           <p className="text-white/50 font-medium mb-8 max-w-2xl mx-auto">
             Get the latest insights on data governance, compliance, and best practices delivered weekly to your inbox.
@@ -199,9 +171,13 @@ const Resources = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-5 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-blue-400/50 transition-colors"
+              className="flex-1 px-5 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none transition-colors"
+              style={{ outline: 'none' }}
             />
-            <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-lg transition-all duration-300 uppercase text-sm tracking-[0.2em] whitespace-nowrap">
+            <button
+              className="px-6 py-3 text-black font-black rounded-lg transition-all duration-300 uppercase text-sm tracking-[0.2em] whitespace-nowrap"
+              style={{ backgroundColor: ACCENT, boxShadow: '0 10px 30px rgba(153,160,249,0.22)' }}
+            >
               Subscribe
             </button>
           </div>
