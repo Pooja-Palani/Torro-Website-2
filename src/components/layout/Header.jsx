@@ -6,6 +6,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const ACCENT = '#99A0F9';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,27 +16,68 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const offeringsMegaMenu = {
+    sections: [
+      {
+        title: 'Our Solutions',
+        href: '/offerings#solutions',
+        links: [
+          { label: 'Unified Discovery & Metadata Foundation', href: '/offerings#unified-discovery-metadata-foundation' },
+          { label: 'End-to-End Data Lineage', href: '/offerings#end-to-end-data-lineage' },
+          { label: 'Continuous Data Quality & Trust', href: '/offerings#continuous-data-quality-trust' },
+          { label: 'Automated Entitlements & Protection', href: '/offerings#automated-entitlements-protection' },
+          { label: 'Data Marketplace & PrivBox', href: '/offerings#data-marketplace-privbox' }
+        ]
+      },
+      {
+        title: 'Our Services',
+        href: '/services',
+        links: [
+          { label: 'Data Engineering Services', href: '/services#data-engineering-services' },
+          { label: 'Cloud Consulting Services', href: '/services#cloud-consulting-services' },
+          { label: 'Legacy to Cloud Platform Design', href: '/services#legacy-to-cloud-platform-design' },
+          { label: 'Compliance & Reg Consulting', href: '/services#compliance-and-reg-consulting' },
+          { label: 'AI/ML Governance', href: '/services#ai-ml-governance' },
+          { label: 'Data Governance Assessment', href: '/services#data-governance-assessment' }
+        ]
+      },
+      {
+        title: 'Industries',
+        href: '/industries',
+        links: [
+          { label: 'BFSI', href: '/industries#bfsi' },
+          { label: 'Healthcare', href: '/industries#healthcare' },
+          { label: 'Telecom', href: '/industries#telecom' }
+        ]
+      },
+      {
+        title: 'Compliance',
+        href: '/compliance',
+        links: [
+          { label: 'DPDP / DPDPA', href: '/compliance#dpdp-act-2023' },
+          { label: 'GDPR', href: '/compliance#gdpr' },
+          { label: 'BCBS239', href: '/compliance#bcbs-239' },
+          { label: 'SOX & HIPAA', href: '/compliance#sox-and-hipaa' }
+        ]
+      }
+    ]
+  };
+
   const navItems = [
     {
       label: 'Our Offerings',
       href: '/offerings',
-      submenu: [
-        { label: 'Unified Discovery & Metadata Foundation', href: '/offerings' },
-        { label: 'End-to-End Data Lineage', href: '/offerings' },
-        { label: 'Continuous Data Quality & Trust', href: '/offerings' },
-        { label: 'Automated Entitlements & Protection', href: '/offerings' },
-        { label: 'Data Marketplace & PrivBox', href: '/offerings' }
-      ]
+      megaMenu: offeringsMegaMenu
     },
     {
       label: 'Use Cases',
       href: '/use-cases',
       submenu: [
-        { label: 'Enterprise Data Visibility', href: '/use-cases' },
-        { label: 'Cross-Border Data Governance', href: '/use-cases' },
-        { label: 'Automated Access Provisioning', href: '/use-cases' },
-        { label: 'Consent & PII Management', href: '/use-cases' },
-        { label: 'Audit Readiness', href: '/use-cases' }
+        { label: 'Enterprise Data Visibility', href: '/use-cases#enterprise-data-visibility' },
+        { label: 'Cross-Border Data Governance', href: '/use-cases#cross-border-data-governance' },
+        { label: 'Automated Access Provisioning', href: '/use-cases#automated-access-provisioning' },
+        { label: 'Consent & PII Management', href: '/use-cases#consent-and-pii-management' },
+        { label: 'Audit Readiness', href: '/use-cases#audit-readiness' }
       ]
     },
     {
@@ -70,6 +112,12 @@ const Header = () => {
               alt="Torro"
               className="h-12 w-auto object-contain"
             />
+            <span
+              className="ml-3 text-[20px] sm:text-[22px] font-extrabold tracking-[0.28em] text-white leading-none"
+              style={{ fontFamily: 'var(--font-sans)' }}
+            >
+              TORRO
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -81,22 +129,79 @@ const Header = () => {
                   className="px-4 py-2 text-[14px] font-medium text-gray-100 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1"
                 >
                   {item.label}
-                  {item.submenu && <ChevronDown size={14} className="opacity-60 group-hover:opacity-100" />}
+                  {(item.submenu || item.megaMenu) && (
+                    <ChevronDown size={14} className="opacity-60 group-hover:opacity-100" />
+                  )}
                 </Link>
 
                 {/* Regular Dropdown Menu */}
-                {item.submenu && (
+                {item.submenu && !item.megaMenu && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] backdrop-blur-xl border border-[#1e2343]/50 rounded-xl shadow-2xl py-3 min-w-[320px]">
                       {item.submenu.map((subitem) => (
                         <Link
                           key={subitem.label}
                           to={subitem.href}
-                          className="block px-6 py-3 text-[13px] text-white/70 hover:text-blue-400 hover:bg-blue-500/5 transition-all font-medium hover:translate-x-1 duration-200"
+                          className="block px-6 py-3 text-[13px] text-white/70 transition-all font-medium hover:translate-x-1 duration-200"
+                          style={{
+                            transitionProperty: 'color, background-color, transform',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.color = ACCENT;
+                            e.currentTarget.style.backgroundColor = 'rgba(153,160,249,0.06)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.color = '';
+                            e.currentTarget.style.backgroundColor = '';
+                          }}
                         >
                           {subitem.label}
                         </Link>
                       ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Mega Menu (Our Offerings) */}
+                {item.megaMenu && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] backdrop-blur-xl border border-[#1e2343]/50 rounded-2xl shadow-2xl p-8 w-[880px] max-w-[92vw]">
+                      <div className="grid grid-cols-4 gap-10">
+                        {item.megaMenu.sections.map((section) => (
+                          <div key={section.title} className="min-w-0">
+                            <Link
+                              to={section.href}
+                              className="block text-[12px] font-black uppercase tracking-[0.3em] transition-colors mb-5"
+                              style={{ color: 'rgba(248,189,100,0.95)' }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.color = ACCENT;
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.color = 'rgba(248,189,100,0.95)';
+                              }}
+                            >
+                              {section.title}
+                            </Link>
+                            <div className="space-y-3">
+                              {section.links.map((link) => (
+                                <Link
+                                  key={link.label}
+                                  to={link.href}
+                                  className="block text-[13px] text-white/70 transition-all font-medium leading-snug hover:translate-x-0.5 duration-200"
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.color = ACCENT;
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.color = '';
+                                  }}
+                                >
+                                  {link.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -135,7 +240,37 @@ const Header = () => {
               >
                 {item.label}
               </Link>
-              {item.submenu && (
+
+              {item.megaMenu && (
+                <div className="pl-4 mt-2 space-y-4">
+                  {item.megaMenu.sections.map((section) => (
+                    <div key={section.title}>
+                      <Link
+                        to={section.href}
+                        className="block text-[12px] font-black uppercase tracking-[0.3em] transition-colors py-1"
+                        style={{ color: 'rgba(248,189,100,0.95)' }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {section.title}
+                      </Link>
+                      <div className="mt-2 space-y-1">
+                        {section.links.map((link) => (
+                          <Link
+                            key={link.label}
+                            to={link.href}
+                            className="text-sm text-gray-400 hover:text-gray-100 block py-1"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {item.submenu && !item.megaMenu && (
                 <div className="pl-4 space-y-1 mt-1">
                   {item.submenu.map((subitem) => (
                     <Link

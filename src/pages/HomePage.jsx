@@ -34,11 +34,11 @@ function HomePage() {
 
       {/* Business Value & Validation */}
       <TrustSignals />
-      <IntelligenceHub />
       <SolutionsForTeam />
       <Compliance />
 
       {/* Conversion */}
+      <IntelligenceHub />
       <DemoForm />
     </>
   );

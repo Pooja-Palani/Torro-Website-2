@@ -3,139 +3,199 @@ import { motion } from 'framer-motion';
 import { Eye, Globe, Users, Lock, CheckCircle2 } from 'lucide-react';
 
 const UseCases = () => {
-  const useCases = [
-    {
-      id: 1,
-      title: 'Enterprise Data Visibility',
-      description: 'Gain complete visibility into your data estate across all systems and clouds.',
-      icon: Eye,
-      benefits: [
-        'Discover all data assets',
-        'Real-time monitoring dashboards',
-        'Cross-infrastructure insights',
-        'Business context enrichment'
-      ]
-    },
-    {
-      id: 2,
-      title: 'Cross-Border Data Governance',
-      description: 'Navigate complex regulatory requirements across multiple geographies.',
-      icon: Globe,
-      benefits: [
-        'Regional compliance tracking',
-        'Data residency enforcement',
-        'Multi-jurisdiction policies',
-        'Automated geofencing'
-      ]
-    },
-    {
-      id: 3,
-      title: 'Automated Access Provisioning',
-      description: 'Streamline data access management with intelligent automation.',
-      icon: Users,
-      benefits: [
-        'Self-service data requests',
-        'Intelligent recommendations',
-        'Policy-driven approvals',
-        'Instant activation'
-      ]
-    },
-    {
-      id: 4,
-      title: 'Consent & PII Management',
-      description: 'Manage personal data with absolute consent and privacy controls.',
-      icon: Lock,
-      benefits: [
-        'Consent tracking',
-        'PII detection & masking',
-        'Right to be forgotten',
-        'Privacy audit trails'
-      ]
-    },
-    {
-      id: 5,
-      title: 'Audit Readiness',
-      description: 'Stay prepared for regulatory audits with continuous evidence generation.',
-      icon: CheckCircle2,
-      benefits: [
-        'Automated report generation',
-        'Evidence collection',
-        'Audit trail preservation',
-        'Compliance dashboards'
-      ]
-    }
-  ];
+  const ACCENT = '#99A0F9';
+
+  const useCaseAnchor = (title) =>
+    title
+      .toLowerCase()
+      .replace(/&/g, 'and')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
 
   return (
     <section className="bg-[#0c0e1a] text-white min-h-screen pt-40 pb-20 relative border-t border-white/5">
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.04)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(153,160,249,0.06)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-        {/* Hero */}
+        {/* Use Cases intro */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          id="use-cases"
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="mb-24"
         >
-          <div className="inline-flex items-center justify-center gap-3 px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 shadow-[0_0_20px_rgba(37,99,235,0.1)] mb-6">
-            <Eye className="w-4 h-4 text-blue-400" />
-            <span className="text-[12px] font-black text-blue-400 uppercase tracking-[0.4em]">Use Cases</span>
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-[1.1] text-white">
+              Use Cases for <span style={{ color: ACCENT }}>Enterprise Data Governance</span>
+            </h1>
+            <p className="mt-5 text-[15px] md:text-[16px] text-white/55 font-medium leading-relaxed max-w-3xl mx-auto">
+              From full data visibility to audit-ready compliance, Torro addresses the real‑world scenarios that even CISOs and data leaders awake at night. One platform, every use case.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="/"
+                className="inline-flex items-center justify-center rounded-xl bg-[#F8BD64] px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-black shadow-[0_14px_34px_-18px_rgba(248,189,100,0.55)] hover:bg-[#f0b04d] transition-colors"
+              >
+                Book a Demo
+              </a>
+              <a
+                href="/offerings#solutions"
+                className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/5 px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-white/85 hover:text-white hover:border-white/50 transition-colors"
+              >
+                Explore Our Solutions
+              </a>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
-            Real-World <span className="text-blue-400">Implementations</span>
-          </h1>
-          <p className="text-[16px] text-white/50 font-medium max-w-2xl mx-auto">
-            Solving enterprise data governance challenges across industries and regulatory landscapes
-          </p>
         </motion.div>
 
-        {/* Use Cases Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-24">
-          {useCases.map((useCase, idx) => {
-            const Icon = useCase.icon;
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-black text-white mb-4 tracking-tight">
+            How We <span style={{ color: ACCENT }}>Help</span>
+          </h2>
+          <div
+            className="h-px w-16 mx-auto bg-gradient-to-r from-transparent to-transparent"
+            style={{ backgroundImage: `linear-gradient(to right, transparent, ${ACCENT}B3, transparent)` }}
+          />
+        </div>
+
+        <div className="space-y-10">
+          {[
+            {
+              title: 'Enterprise Data Visibility',
+              description:
+                'Get single-pane-of-glass access across your entire data estate — on-prem, multi-cloud, and legacy systems. No more shadow data or audit surprises.',
+              businessValue:
+                'Eliminate blind spots so you can answer who, what, when, and where for every data asset. Reduce breach detection time from months to minutes.',
+              capabilities: [
+                'Unified data asset catalog',
+                'Real-time lineage and usage tracking',
+                'PII and sensitivity classification',
+                'Executive compliance dashboards',
+              ],
+            },
+            {
+              title: 'Cross-Border Data Governance',
+              description:
+                'Manage data residency, transfer restrictions, and regulatory requirements across jurisdictions. DPDP, GDPR, and regional rules enforced in one place.',
+              businessValue:
+                'Stay compliant when data crosses borders. Automated policy enforcement and consent tracking reduces legal and reputational risk.',
+              capabilities: [
+                'Data residency and transfer controls',
+                'Consent and lawful basis tracking',
+                'Jurisdiction-specific policy engine',
+                'Cross-border impact analysis',
+              ],
+            },
+            {
+              title: 'Automated Access Provisioning',
+              description:
+                'Replace manual ticket-based access with policy-driven RBAC and ABAC. Approve once, enforce everywhere — with time-bound permissions and automatic revocation.',
+              businessValue:
+                'Cut access request cycles from weeks to minutes. Remove toxic access and ghost accounts while keeping audit trails intact.',
+              capabilities: [
+                'Policy-as-code access controls',
+                'Just-in-time and time-bound access',
+                'Integration with IAM and data platforms',
+                'Access certification and recert',
+              ],
+            },
+            {
+              title: 'Consent & PII Management',
+              description:
+                'Centralize consent capture, preferences, and PII handling. Enforce consent at the point of access and by purpose for regulated use cases.',
+              businessValue:
+                'Meet DPDP and GDPR consent requirements without spreadsheet chaos. Real-time consent checks prevent unauthorized use of personal data.',
+              capabilities: [
+                'Consent and preference directory',
+                'PII discovery and classification',
+                'Dynamic masking and filtering by consent',
+                'Right-to-erasure and portability workflows',
+              ],
+            },
+            {
+              title: 'Audit Readiness',
+              description:
+                'Deliver regulator-ready evidence on demand. Immutable logs, compliance posture dashboards, and one-click export for internal and external audits.',
+              businessValue:
+                'When the regulator calls, answer with confidence. No last-minute scrambles or incomplete records.',
+              capabilities: [
+                'End-to-end audit trails',
+                'Compliance posture scoring',
+                'DPDP / RBI / SOX report templates',
+                'Incident and breach notification workflows',
+              ],
+            },
+          ].map((uc, idx) => {
+            const isReversed = idx % 2 === 1;
+            const Icon =
+              uc.title === 'Enterprise Data Visibility'
+                ? Eye
+                : uc.title === 'Cross-Border Data Governance'
+                  ? Globe
+                  : uc.title === 'Automated Access Provisioning'
+                    ? Users
+                    : uc.title === 'Consent & PII Management'
+                      ? Lock
+                      : CheckCircle2;
+
             return (
               <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                key={uc.title}
+                id={useCaseAnchor(uc.title)}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.55, delay: idx * 0.04 }}
                 viewport={{ once: true }}
-                className="group relative bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-500 overflow-hidden"
+                className="scroll-mt-28 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 md:p-10"
               >
-                {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-6">
-                    <div>
-                      <p className="text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-2">
-                        USE CASE 0{idx + 1}
-                      </p>
-                      <h3 className="text-2xl font-black text-white tracking-tight">
-                        {useCase.title}
+                <div className={`grid lg:grid-cols-2 gap-10 items-center ${isReversed ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+                  <div className="box-copy text-left">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center"
+                        style={{
+                          backgroundColor: 'rgba(153,160,249,0.12)',
+                          border: '1px solid rgba(153,160,249,0.22)',
+                        }}
+                      >
+                        <Icon className="w-5 h-5" style={{ color: ACCENT }} />
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+                        {uc.title}
                       </h3>
                     </div>
-                    <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6 text-blue-400" />
+
+                    <p className="text-white/55 font-medium leading-relaxed mb-6">{uc.description}</p>
+
+                    <div className="space-y-5">
+                      <div>
+                        <div className="text-[12px] font-black uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>
+                          Business Value
+                        </div>
+                        <p className="text-white/60 text-[14px] leading-relaxed font-medium">{uc.businessValue}</p>
+                      </div>
+
+                      <div>
+                        <div className="text-[12px] font-black uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>
+                          Key Capabilities
+                        </div>
+                        <ul className="space-y-2">
+                          {uc.capabilities.map((c) => (
+                            <li key={c} className="flex items-start gap-3 text-[14px] text-white/70">
+                              <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: ACCENT }} />
+                              <span className="font-medium">{c}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
-                  <p className="text-white/50 font-medium mb-6 leading-relaxed">
-                    {useCase.description}
-                  </p>
-
-                  <div className="space-y-3">
-                    <p className="text-xs font-black text-white/40 uppercase tracking-[0.2em]">
-                      Key Benefits
-                    </p>
-                    {useCase.benefits.map((benefit, bidx) => (
-                      <div key={bidx} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-1.5 flex-shrink-0" />
-                        <span className="text-sm text-white/60">{benefit}</span>
-                      </div>
-                    ))}
+                  <div className="rounded-2xl bg-white/5 border border-white/5 h-[260px] md:h-[320px] flex items-center justify-center text-white/25 text-sm font-semibold">
+                    Image / Screenshot Placeholder
                   </div>
                 </div>
               </motion.div>
@@ -153,16 +213,20 @@ const UseCases = () => {
         >
           <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-12 md:p-16">
             <h2 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">
-              Ready to <span className="text-blue-400">Transform</span> Your Governance?
+              Ready to <span style={{ color: ACCENT }}>Solve</span> Your Top Use Case?
             </h2>
             <p className="text-white/50 text-lg mb-8 max-w-2xl mx-auto font-medium">
-              Let our team help you identify the right use cases and implementation strategy for your organization.
+              See how Torro addresses enterprise data visibility, compliance, and access control in one platform.
             </p>
             <a
               href="/"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all duration-300 shadow-[0_10px_30px_rgba(37,99,235,0.3)] uppercase text-sm tracking-[0.2em]"
+              className="inline-flex items-center gap-2 px-8 py-4 text-black font-black rounded-xl transition-all duration-300 uppercase text-sm tracking-[0.2em]"
+              style={{
+                backgroundColor: ACCENT,
+                boxShadow: '0 10px 30px rgba(153,160,249,0.25)',
+              }}
             >
-              Schedule a Demo
+              Request an Enterprise Demo
             </a>
           </div>
         </motion.div>

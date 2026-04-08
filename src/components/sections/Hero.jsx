@@ -4,6 +4,7 @@ import { ArrowRight, Play, Shield, Cloud, BarChart2, Settings, Lock, Unlock, Cpu
 
 const Hero = () => {
     const [hasScrolled, setHasScrolled] = useState(false);
+    const ACCENT = '#99A0F9';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,12 +44,13 @@ const Hero = () => {
                         >
                             Control{' '}
                             <motion.span
-                                className="inline-block cursor-default transition-all duration-300 hover:scale-[1.05] hover:text-[#99A0F9] hover:drop-shadow-[0_0_15px_rgba(153,160,249,0.5)]"
+                                className="inline-block cursor-default transition-all duration-300 hover:scale-[1.05] hover:drop-shadow-[0_0_15px_rgba(153,160,249,0.5)]"
+                                style={{ color: ACCENT }}
                             >
                                 Enterprise Data
                             </motion.span>
                             <br />
-                            <span className="text-primary/70">at Scale!</span>
+                            <span style={{ color: ACCENT }}>at Scale!</span>
                         </motion.h1>
 
                         <motion.p
@@ -66,10 +68,19 @@ const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="flex flex-col sm:flex-row items-center gap-6 pt-4"
                         >
-                            <button className="px-8 py-3.5 rounded-full bg-white text-black font-bold text-[15px] transition-all duration-300 hover:bg-gray-100 hover:scale-[1.05] active:scale-95 whitespace-nowrap z-20">
+                            <button
+                                className="px-8 py-3.5 rounded-full text-black font-bold text-[15px] transition-all duration-300 hover:scale-[1.05] active:scale-95 whitespace-nowrap z-20 shadow-[0_14px_34px_-18px_rgba(153,160,249,0.55)]"
+                                style={{ backgroundColor: ACCENT }}
+                            >
                                 Book a Demo
                             </button>
-                            <button className="px-8 py-3.5 rounded-full border border-white/40 text-white font-bold text-[14px] hover:bg-white/10 transition-all duration-300 whitespace-nowrap active:scale-95 z-20">
+                            <button
+                                className="px-8 py-3.5 rounded-full text-white font-bold text-[14px] transition-all duration-300 whitespace-nowrap active:scale-95 z-20"
+                                style={{
+                                    border: `1px solid rgba(153,160,249,0.35)`,
+                                    backgroundColor: 'rgba(255,255,255,0.05)',
+                                }}
+                            >
                                 Explore the Platform
                             </button>
                         </motion.div>

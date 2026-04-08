@@ -42,15 +42,22 @@ const SolutionsForTeam = () => {
   ];
 
   return (
-    <section className="bg-white text-gray-900 py-24 relative">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="bg-[#0c0e1a] text-white py-24 relative border-t border-white/5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(153,160,249,0.06)_0%,transparent_55%)] pointer-events-none" />
+      <div className="relative container mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-[12px] font-black uppercase tracking-[0.3em] text-blue-600 mb-4">Solutions For Team</p>
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            Built for Every <span className="text-blue-600">Institutional Stakeholder</span>
+        <div className="text-center mb-16 flex flex-col items-center">
+          <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#99A0F9]/10 border border-[#99A0F9]/20 shadow-[0_0_20px_rgba(153,160,249,0.08)] mb-6">
+            <div className="w-2.5 h-2.5 rounded-full bg-[#99A0F9] animate-pulse shadow-[0_0_12px_rgba(153,160,249,0.45)]" />
+            <span className="text-[12px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">
+              Solutions For Team
+            </span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-5 leading-[1.1]">
+            Built for Every <span className="text-[#99A0F9]">Institutional Stakeholder</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-[16px] md:text-lg text-white/55 font-medium max-w-3xl mx-auto">
             Torro speaks the language of CISOs, data engineers, and business leaders — simultaneously.
           </p>
         </div>
@@ -62,31 +69,31 @@ const SolutionsForTeam = () => {
             return (
               <div
                 key={idx}
-                className="group bg-white border border-gray-200 rounded-2xl p-8 hover:border-gray-300 transition-all duration-300 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)]"
+                className="group bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 hover:border-[#99A0F9]/30 transition-all duration-300 hover:shadow-[0_24px_70px_-18px_rgba(0,0,0,0.55)]"
               >
                 {/* Icon & Title */}
                 <div className="mb-6 text-left">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 flex items-center justify-center mb-4 group-hover:from-blue-100 group-hover:to-blue-200 transition-all">
-                    <Icon className="w-7 h-7 text-blue-600" />
+                  <div className="w-14 h-14 rounded-xl bg-[#99A0F9]/10 border border-[#99A0F9]/20 flex items-center justify-center mb-4 transition-all">
+                    <Icon className="w-7 h-7 text-[#99A0F9]" />
                   </div>
-                  <div className="text-[11px] font-black uppercase tracking-[0.15em] text-blue-600 mb-2">
+                  <div className="text-[11px] font-black uppercase tracking-[0.15em] text-[#99A0F9] mb-2">
                     {solution.subtitle}
                   </div>
-                  <h3 className="text-2xl font-bold tracking-tight text-gray-900">
+                  <h3 className="text-2xl font-black tracking-tight text-white">
                     {solution.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 text-[15px] leading-relaxed mb-6 text-left">
+                <p className="text-white/55 text-[15px] leading-relaxed mb-6 text-left font-medium">
                   {solution.description}
                 </p>
 
                 {/* Features List */}
                 <ul className="space-y-3 text-left">
                   {solution.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[14px] text-gray-700">
-                      <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 flex-shrink-0" />
+                    <li key={i} className="flex items-start gap-3 text-[14px] text-white/75">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#99A0F9] mt-2 flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}

@@ -80,6 +80,14 @@
   p {
     @apply text-lg text-slate-300 leading-relaxed font-normal text-center max-w-2xl mx-auto;
   }
+
+  /* Box layouts should left-align their internal copy */
+  .box-copy p {
+    text-align: left !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 
 @layer components {
