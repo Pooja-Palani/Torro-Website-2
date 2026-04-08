@@ -19,26 +19,13 @@ const Header = () => {
     {
       label: 'Our Offerings',
       href: '/offerings',
-      isMegaMenu: true,
-      megaMenuContent: {
-        solutions: [
-          'Unified Discovery & Metadata Foundation',
-          'End-to-End Data Lineage',
-          'Continuous Data Quality & Trust',
-          'Automated Entitlements & Protection',
-          'Data Marketplace & PrivBox'
-        ],
-        services: [
-          'Data Engineering Services',
-          'Cloud Consulting Services',
-          'Legacy to Cloud Platform Design',
-          'Compliance & Reg Consulting',
-          'AI/ML Governance',
-          'Data Governance Assessment'
-        ],
-        industries: ['BFSI', 'Healthcare', 'Telecom'],
-        compliance: ['DPDP / DPDPA', 'GDPR', 'CCPA', 'BCBS239', 'SOX', 'HIPAA']
-      }
+      submenu: [
+        { label: 'Unified Discovery & Metadata Foundation', href: '/offerings' },
+        { label: 'End-to-End Data Lineage', href: '/offerings' },
+        { label: 'Continuous Data Quality & Trust', href: '/offerings' },
+        { label: 'Automated Entitlements & Protection', href: '/offerings' },
+        { label: 'Data Marketplace & PrivBox', href: '/offerings' }
+      ]
     },
     {
       label: 'Use Cases',
@@ -94,84 +81,11 @@ const Header = () => {
                   className="px-4 py-2 text-[14px] font-medium text-gray-100 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1"
                 >
                   {item.label}
-                  {(item.submenu || item.isMegaMenu) && <ChevronDown size={14} className="opacity-60 group-hover:opacity-100" />}
+                  {item.submenu && <ChevronDown size={14} className="opacity-60 group-hover:opacity-100" />}
                 </Link>
 
-                {/* Mega Menu Dropdown */}
-                {item.isMegaMenu && item.megaMenuContent && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] backdrop-blur-xl border border-[#1e2343]/50 rounded-2xl shadow-2xl p-10 min-w-[1200px]">
-                      <div className="grid grid-cols-4 gap-16">
-                        {/* Column 1: Solutions */}
-                        <div>
-                          <h3 className="text-[11px] font-black uppercase tracking-[0.35em] text-amber-400 mb-6 pb-3 border-b border-amber-400/30">Our Solutions</h3>
-                          <div className="space-y-4">
-                            {item.megaMenuContent.solutions.map((sol) => (
-                              <Link
-                                key={sol}
-                                to={item.href}
-                                className="block text-[13px] text-white/70 hover:text-blue-400 transition-colors font-medium hover:translate-x-1 duration-200"
-                              >
-                                {sol}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Column 2: Services */}
-                        <div>
-                          <h3 className="text-[11px] font-black uppercase tracking-[0.35em] text-amber-400 mb-6 pb-3 border-b border-amber-400/30">Our Services</h3>
-                          <div className="space-y-4">
-                            {item.megaMenuContent.services.map((svc) => (
-                              <Link
-                                key={svc}
-                                to={item.href}
-                                className="block text-[13px] text-white/70 hover:text-blue-400 transition-colors font-medium hover:translate-x-1 duration-200"
-                              >
-                                {svc}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Column 3: Industries */}
-                        <div>
-                          <h3 className="text-[11px] font-black uppercase tracking-[0.35em] text-amber-400 mb-6 pb-3 border-b border-amber-400/30">Industries</h3>
-                          <div className="space-y-4">
-                            {item.megaMenuContent.industries.map((ind) => (
-                              <Link
-                                key={ind}
-                                to={item.href}
-                                className="block text-[13px] text-white/70 hover:text-blue-400 transition-colors font-medium hover:translate-x-1 duration-200"
-                              >
-                                {ind}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Column 4: Compliance */}
-                        <div>
-                          <h3 className="text-[11px] font-black uppercase tracking-[0.35em] text-amber-400 mb-6 pb-3 border-b border-amber-400/30">Compliance</h3>
-                          <div className="space-y-4">
-                            {item.megaMenuContent.compliance.map((comp) => (
-                              <Link
-                                key={comp}
-                                to={item.href}
-                                className="block text-[13px] text-white/70 hover:text-blue-400 transition-colors font-medium hover:translate-x-1 duration-200"
-                              >
-                                {comp}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
                 {/* Regular Dropdown Menu */}
-                {item.submenu && !item.isMegaMenu && (
+                {item.submenu && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] backdrop-blur-xl border border-[#1e2343]/50 rounded-xl shadow-2xl py-3 min-w-[320px]">
                       {item.submenu.map((subitem) => (
