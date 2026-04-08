@@ -8,9 +8,9 @@ const PrivacyViz = () => (
     <div className="flex flex-col items-center justify-center w-full h-full gap-6 relative z-10">
         {/* Shield with concentric rings — all sized to stay within container */}
         <div className="relative flex items-center justify-center w-32 h-32">
-            <motion.div className="absolute w-32 h-32 rounded-full border border-[#8c9eff]/10" animate={{ scale: [1, 1.12, 1], opacity: [0.5, 0.2, 0.5] }} transition={{ repeat: Infinity, duration: 3 }} />
-            <motion.div className="absolute w-24 h-24 rounded-full border border-[#8c9eff]/20" animate={{ scale: [1, 1.08, 1], opacity: [0.6, 0.3, 0.6] }} transition={{ repeat: Infinity, duration: 2.5, delay: 0.3 }} />
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1e2343] to-[#0f1225] border border-[#8c9eff]/40 shadow-[0_0_25px_rgba(140,158,255,0.25)] flex items-center justify-center relative z-10">
+            <motion.div className="absolute w-32 h-32 rounded-full border border-[#99A0F9]/10" animate={{ scale: [1, 1.12, 1], opacity: [0.5, 0.2, 0.5] }} transition={{ repeat: Infinity, duration: 3 }} />
+            <motion.div className="absolute w-24 h-24 rounded-full border border-[#99A0F9]/20" animate={{ scale: [1, 1.08, 1], opacity: [0.6, 0.3, 0.6] }} transition={{ repeat: Infinity, duration: 2.5, delay: 0.3 }} />
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1e2343] to-[#0f1225] border border-[#99A0F9]/40 shadow-[0_0_25px_rgba(140,158,255,0.25)] flex items-center justify-center relative z-10">
                 <ShieldCheck className="w-7 h-7 text-[#a5b4fc]" />
             </div>
         </div>
@@ -19,7 +19,7 @@ const PrivacyViz = () => (
         <div className="flex items-center gap-2 flex-wrap justify-center">
             {[
                 { label: 'GDPR', color: 'bg-green-500', delay: 0 },
-                { label: 'HIPAA', color: 'bg-blue-500', delay: 0.3 },
+                { label: 'HIPAA', color: 'bg-indigo-400', delay: 0.3 },
                 { label: 'SOC2', color: 'bg-violet-500', delay: 0.6 },
                 { label: 'DPDP', color: 'bg-amber-500', delay: 0.9 },
             ].map(b => (
@@ -36,7 +36,7 @@ const PrivacyViz = () => (
         </div>
 
         {/* Status pill */}
-        <div className="bg-[#151930] border border-[#8c9eff]/30 px-6 py-2.5 rounded-full text-[11px] font-bold text-[#e0e7ff] tracking-[0.18em] uppercase relative overflow-hidden">
+        <div className="bg-[#151930] border border-[#99A0F9]/30 px-6 py-2.5 rounded-full text-[11px] font-bold text-[#e0e7ff] tracking-[0.18em] uppercase relative overflow-hidden">
             <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full" animate={{ x: ['-200%', '200%'] }} transition={{ repeat: Infinity, duration: 2.5, ease: 'linear' }} />
             <span className="relative z-10">Enforcing 14 Active Policies...</span>
         </div>
@@ -45,9 +45,9 @@ const PrivacyViz = () => (
 
 const MarketplaceViz = () => {
     const assets = [
-        { name: 'Customer 360', type: 'Dataset', tag: 'GDPR', color: 'text-blue-400 border-blue-500/30' },
+        { name: 'Customer 360', type: 'Dataset', tag: 'GDPR', color: 'text-indigo-300 border-indigo-400/30' },
         { name: 'Churn Model v3', type: 'ML Model', tag: 'PII-Free', color: 'text-violet-400 border-violet-500/30' },
-        { name: 'Revenue Signals', type: 'API Feed', tag: 'Approved', color: 'text-emerald-400 border-emerald-500/30' },
+        { name: 'Revenue Signals', type: 'API Feed', tag: 'Approved', color: 'text-amber-400 border-amber-500/30' },
         { name: 'Risk Scorecard', type: 'Report', tag: 'SOC2', color: 'text-amber-400 border-amber-500/30' },
     ];
     return (
@@ -68,7 +68,7 @@ const MarketplaceViz = () => {
                 ))}
             </div>
             <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#151930] border border-white/5 mt-1">
-                <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
                 <span className="text-[10px] font-bold text-white/50 uppercase tracking-widest">4 Assets certified & published to Marketplace</span>
             </div>
         </div>
@@ -77,7 +77,7 @@ const MarketplaceViz = () => {
 
 const LineageViz = () => {
     const nodes = [
-        { id: 'pg', label: 'PostgreSQL', sub: 'Source DB', x: '10%', y: '30%', dot: 'bg-blue-500' },
+        { id: 'pg', label: 'PostgreSQL', sub: 'Source DB', x: '10%', y: '30%', dot: 'bg-indigo-400' },
         { id: 's3', label: 'S3 Lake', sub: 'Raw Store', x: '10%', y: '70%', dot: 'bg-sky-500' },
         { id: 'spark', label: 'Spark ETL', sub: 'Transform', x: '45%', y: '50%', dot: 'bg-orange-400' },
         { id: 'dw', label: 'Snowflake', sub: 'Analytics DW', x: '80%', y: '30%', dot: 'bg-teal-400' },
@@ -91,7 +91,7 @@ const LineageViz = () => {
                 {lines.map(([x1, y1, x2, y2], i) => (
                     <React.Fragment key={i}>
                         <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#1e2343" strokeWidth="2" />
-                        <motion.circle r="4" fill="#8c9eff"
+                        <motion.circle r="4" fill="#99A0F9"
                             initial={{ cx: x1, cy: y1 }}
                             animate={{ cx: [x1, x2], cy: [y1, y2] }}
                             transition={{ duration: 2, delay: i * 0.5, repeat: Infinity, ease: 'linear' }}
@@ -118,9 +118,9 @@ const LineageViz = () => {
 
 const DataQualityViz = () => {
     const checks = [
-        { name: 'Schema Validation', score: 100, color: 'bg-emerald-500', status: 'PASS' },
-        { name: 'Null Rate Check', score: 98, color: 'bg-emerald-400', status: 'PASS' },
-        { name: 'Format Consistency', score: 94, color: 'bg-blue-500', status: 'WARN' },
+        { name: 'Schema Validation', score: 100, color: 'bg-amber-500', status: 'PASS' },
+        { name: 'Null Rate Check', score: 98, color: 'bg-amber-400', status: 'PASS' },
+        { name: 'Format Consistency', score: 94, color: 'bg-indigo-400', status: 'WARN' },
         { name: 'Referential Integrity', score: 87, color: 'bg-amber-400', status: 'WARN' },
     ];
     return (
@@ -130,12 +130,12 @@ const DataQualityViz = () => {
                     <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Overall DQ Score</p>
                     <div className="flex items-baseline gap-1">
                         <span className="text-[36px] font-black text-white tracking-tighter leading-none">95.2</span>
-                        <span className="text-[16px] font-black text-emerald-400">%</span>
+                        <span className="text-[16px] font-black text-amber-400">%</span>
                     </div>
                 </div>
                 <div className="flex flex-col items-end gap-1">
                     <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }} className="flex items-center gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                        <div className="w-2 h-2 rounded-full bg-amber-400" />
                         <span className="text-[9px] font-black text-white/50 uppercase">Monitoring Live</span>
                     </motion.div>
                 </div>
@@ -147,7 +147,7 @@ const DataQualityViz = () => {
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between mb-1">
                                 <span className="text-[10px] font-bold text-white/70 truncate">{c.name}</span>
-                                <span className={`text-[8px] font-black uppercase tracking-widest ml-2 ${c.status === 'PASS' ? 'text-emerald-400' : 'text-amber-400'}`}>{c.status}</span>
+                                <span className={`text-[8px] font-black uppercase tracking-widest ml-2 ${c.status === 'PASS' ? 'text-amber-400' : 'text-amber-400'}`}>{c.status}</span>
                             </div>
                             <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                                 <motion.div initial={{ width: 0 }} animate={{ width: `${c.score}%` }} transition={{ delay: 0.3 + i * 0.1, duration: 1, ease: 'circOut' }}
@@ -171,14 +171,14 @@ const AnalyticsViz = () => {
                 <div className="flex items-center justify-between">
                     <p className="text-[10px] font-black text-white/30 uppercase tracking-widest">Query Volume — 12h</p>
                     <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} className="flex items-center gap-1.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#8c9eff]" />
-                        <span className="text-[8px] font-bold text-[#8c9eff] uppercase">Real-time</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#99A0F9]" />
+                        <span className="text-[8px] font-bold text-[#99A0F9] uppercase">Real-time</span>
                     </motion.div>
                 </div>
                 <div className="flex items-end gap-[3px] h-16">
                     {bars.map((h, i) => (
                         <motion.div key={i} initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ duration: 0.7, delay: i * 0.04, ease: 'circOut' }}
-                            className={`flex-1 rounded-t-sm ${i === bars.length - 1 ? 'bg-[#8c9eff] shadow-[0_0_10px_rgba(140,158,255,0.5)]' : 'bg-[#1e2343]'}`}
+                            className={`flex-1 rounded-t-sm ${i === bars.length - 1 ? 'bg-[#99A0F9] shadow-[0_0_10px_rgba(140,158,255,0.5)]' : 'bg-[#1e2343]'}`}
                         />
                     ))}
                 </div>
@@ -289,11 +289,11 @@ const PlatformShowcase = () => {
             <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden py-10">
                 <div className="container relative z-10 mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-center mb-10 space-y-4">
-                        <span className="text-[12px] font-bold text-[#8c9eff] uppercase tracking-[0.3em] drop-shadow-[0_0_15px_rgba(140,158,255,0.3)]">
+                        <span className="text-[12px] font-bold text-[#99A0F9] uppercase tracking-[0.3em] drop-shadow-[0_0_15px_rgba(140,158,255,0.3)]">
                             Platform Intelligence
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
-                            See Everything. <br /><span className="text-slate-500">Protect Everything.</span>
+                            See Everything. <br /><span className="text-[#99A0F9]">Protect Everything.</span>
                         </h2>
                     </div>
 
@@ -306,12 +306,12 @@ const PlatformShowcase = () => {
                                     key={feature.id}
                                     onClick={() => handleTabClick(idx)}
                                     className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl text-left transition-all duration-300 relative border ${activeTab === idx
-                                        ? 'bg-gradient-to-r from-[#1e2343] to-[#151930] border-[#8c9eff]/40 shadow-[0_0_20px_rgba(140,158,255,0.1)]'
+                                        ? 'bg-gradient-to-r from-[#1e2343] to-[#151930] border-[#99A0F9]/40 shadow-[0_0_20px_rgba(140,158,255,0.1)]'
                                         : 'bg-[#0f1225] border-transparent hover:border-[#1e2343] hover:bg-[#151930]'
                                     }`}
                                 >
                                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${activeTab === idx
-                                        ? 'bg-gradient-to-br from-[#8c9eff] to-blue-500 text-white shadow-[0_0_15px_rgba(140,158,255,0.4)] scale-110'
+                                        ? 'bg-gradient-to-br from-[#99A0F9] to-indigo-400 text-white shadow-[0_0_15px_rgba(140,158,255,0.4)] scale-110'
                                         : 'bg-[#1e2343] border border-white/5 text-slate-400'}`}
                                     >
                                         <feature.icon className="w-5 h-5" />
@@ -320,7 +320,7 @@ const PlatformShowcase = () => {
                                         {feature.label}
                                     </div>
                                     {activeTab === idx && (
-                                        <motion.div layoutId="active-pill" className="absolute right-3 w-1.5 h-1.5 rounded-full bg-[#8c9eff]" />
+                                        <motion.div layoutId="active-pill" className="absolute right-3 w-1.5 h-1.5 rounded-full bg-[#99A0F9]" />
                                     )}
                                 </button>
                             ))}

@@ -11,7 +11,7 @@ const CaseStudy = () => {
 
                         {/* Narrative Side (Left) */}
                         <div className="p-10 lg:p-16 flex flex-col justify-center bg-white border-b lg:border-b-0 lg:border-r border-gray-100">
-                            <span className="text-[11px] font-black text-[#8c9eff] uppercase tracking-[0.4em] mb-6 block text-left">
+                            <span className="text-[11px] font-black text-[#99A0F9] uppercase tracking-[0.4em] mb-6 block text-left">
                                 Enterprise Case Study
                             </span>
 
@@ -23,7 +23,7 @@ const CaseStudy = () => {
                                 Faced with a multi-year cloud migration and stringent new privacy laws, GlobalBank deployed Torro's autonomous agents. The result: absolute visibility without slowing down engineering velocity.
                             </p>
 
-                            <a href="#" className="inline-flex items-center gap-2 text-[15px] font-semibold text-blue-600 hover:text-blue-700 transition-colors w-fit">
+                            <a href="#" className="inline-flex items-center gap-2 text-[15px] font-semibold text-indigo-500 hover:text-indigo-600 transition-colors w-fit">
                                 Read Full Engineering Case Study <ArrowRight className="w-4 h-4 ml-1" />
                             </a>
                         </div>
@@ -34,7 +34,7 @@ const CaseStudy = () => {
 
                                 <div className="space-y-3">
                                     <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center shadow-sm">
-                                        <TrendingUp className="w-5 h-5 text-blue-600" />
+                                        <TrendingUp className="w-5 h-5 text-indigo-500" />
                                     </div>
                                     <div className="text-[40px] font-bold tracking-tight text-gray-900 leading-none">
                                         85%
