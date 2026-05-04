@@ -30,7 +30,7 @@ const TorroOneData = () => {
       <ComparisonTable />
       
       {/* Footer conversion */}
-      <DemoForm />
+      <DemoForm sectionClassName="!pt-10 md:!pt-12" />
     </div>
   );
 };

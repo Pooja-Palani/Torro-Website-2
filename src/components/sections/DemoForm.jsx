@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, Mail, Building, User, ArrowRight, CheckCircle2, Clock, Play, Map, Send, Bell } from 'lucide-react';
 
-const DemoForm = () => {
+const DemoForm = ({ sectionClassName = '' }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
 
@@ -12,7 +12,7 @@ const DemoForm = () => {
     };
 
     return (
-        <section className="py-24 bg-white relative overflow-hidden" id="demo">
+        <section className={`py-24 bg-white relative overflow-hidden ${sectionClassName}`} id="demo">
             {/* Subtle architectural background */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
             

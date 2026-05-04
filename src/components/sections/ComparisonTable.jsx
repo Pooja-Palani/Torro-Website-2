@@ -11,7 +11,7 @@ const ComparisonTable = () => {
     ];
 
     return (
-        <section className="py-32 bg-white relative overflow-hidden" id="comparison">
+        <section className="pt-24 md:pt-32 pb-6 md:pb-10 bg-white relative overflow-hidden" id="comparison">
             {/* Visual Hook: Architectural Grid Overlay & Breathing Ambient Orbs using Logo Colors */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,#000_10%,transparent_100%)] opacity-70 pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-[#F26969]/10 rounded-full blur-[120px] opacity-80 pointer-events-none animate-pulse" />
