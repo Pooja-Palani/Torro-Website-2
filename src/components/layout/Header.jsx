@@ -65,6 +65,10 @@ const Header = () => {
 
   const navItems = [
     {
+      label: 'TorroOneData',
+      href: '/torro-onedata'
+    },
+    {
       label: 'Our Offerings',
       href: '/offerings',
       megaMenu: offeringsMegaMenu
@@ -108,12 +112,12 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center" aria-label="Torro home">
             <img
-              src="/logotorro.png"
+              src="/torro_png_logo.png"
               alt="Torro"
-              className="h-12 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain"
             />
             <span
-              className="ml-3 text-[20px] sm:text-[22px] font-extrabold tracking-[0.28em] text-white leading-none"
+              className="ml-1 text-[24px] sm:text-[28px] font-extrabold tracking-[0.28em] text-white leading-none"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
               TORRO

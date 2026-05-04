@@ -1,129 +1,163 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, ShieldCheck, Cpu, Database, Zap } from 'lucide-react';
-
-const ACCENT = '#99A0F9';
-
-const PillarCard = ({ icon: Icon, title, text }) => (
-  <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl backdrop-saturate-150 p-6">
-    <div className="flex items-start gap-4">
-      <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center border"
-        style={{
-          backgroundColor: 'rgba(153,160,249,0.12)',
-          borderColor: 'rgba(153,160,249,0.22)',
-          color: 'rgba(153,160,249,0.95)',
-        }}
-      >
-        <Icon className="w-5 h-5" />
-      </div>
-      <div className="min-w-0">
-        <div className="text-[15px] font-black tracking-tight text-white mb-2">{title}</div>
-        <p className="text-[13px] md:text-[14px] text-white/55 leading-relaxed font-medium">{text}</p>
-      </div>
-    </div>
-  </div>
-);
+import { Shield, Zap, Cpu, ChevronLeft, Layout, CheckCircle2, TrendingUp, Database, ArrowRight, Activity } from 'lucide-react';
 
 const CaseStudyTelecomHK = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="bg-[#0c0e1a] text-white">
-      <section className="relative overflow-hidden border-t border-white/5 pt-20 md:pt-24 pb-14 md:pb-18">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(153,160,249,0.10)_0%,transparent_55%)] pointer-events-none" />
+    <div className="bg-[#f8fafc] min-h-screen pt-24 pb-20">
+      <div className="container mx-auto px-6">
+        {/* Back Button */}
+        <a href="/" className="inline-flex items-center gap-2 text-[12px] font-black text-slate-400 uppercase tracking-widest hover:text-blue-600 transition-colors mb-12">
+          <ChevronLeft className="w-4 h-4" /> Back to Home
+        </a>
 
-        <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[95rem]">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-5xl"
-          >
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
-              <span className="text-[11px] font-black uppercase tracking-[0.35em]" style={{ color: ACCENT }}>
-                Case Study
-              </span>
-              <span className="text-[11px] font-black uppercase tracking-[0.35em] text-white/35">
-                Hong Kong Telecom
-              </span>
-            </div>
-
-            <h1 className="mt-6 text-4xl md:text-5xl font-black tracking-tight leading-[1.05]">
-              Executive Summary:{' '}
-              <span style={{ color: ACCENT }}>Strategic AI & Data Transformation</span> for a Telecom Company in Hong Kong
-            </h1>
-
-            <p className="mt-5 mx-0 text-left text-[15px] md:text-[16px] text-white/60 leading-relaxed font-medium max-w-4xl">
-              Torro has recently spearheaded a comprehensive, multi-layered data and artificial intelligence
-              transformation for a Telecom company in Hong Kong. By bridging the gap between legacy infrastructure and
-              cutting-edge generative AI, Torro has delivered measurable financial impact, fortified data security, and
-              dramatically enhanced engineering productivity.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href="/resources"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[12px] font-black text-black uppercase tracking-[0.22em] transition-colors"
-                style={{ backgroundColor: ACCENT, boxShadow: '0 10px 30px rgba(153,160,249,0.25)' }}
-              >
-                View Resources <ChevronRight className="w-4 h-4" />
-              </a>
-              <a
-                href="/use-cases"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[12px] font-black uppercase tracking-[0.22em] border border-white/10 bg-white/5 text-white/75 hover:text-white hover:border-white/20 transition-colors"
-              >
-                Back to Use Cases
-              </a>
-            </div>
-          </motion.div>
+        {/* Header Section */}
+        <div className="max-w-5xl mb-16">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-6">
+            <span className="text-[11px] font-black text-blue-600 uppercase tracking-[0.3em]">Case Study 03</span>
+            <div className="w-px h-4 bg-blue-200" />
+            <span className="text-[11px] font-bold text-blue-400 uppercase tracking-widest">Telecom & AI</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.05] tracking-tight mb-8">
+            Strategic AI & Data Transformation for a <span className="text-blue-600">Leading Telecom</span> Company in HK
+          </h1>
+          <p className="text-[20px] text-slate-500 font-medium leading-relaxed max-w-4xl">
+            Operationalizing Generative AI across the Greater Bay Area while modernizing legacy infrastructure and adhering to stringent PIPL privacy laws.
+          </p>
         </div>
-      </section>
 
-      <section className="relative overflow-hidden pb-20 md:pb-24">
-        <div className="mx-auto px-6 md:px-12 max-w-[95rem]">
-          <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl backdrop-saturate-150 p-7 md:p-10">
-            <div className="text-[11px] font-black uppercase tracking-[0.35em] text-white/35 mb-3">
-              Core pillars of success
-            </div>
-
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <PillarCard
-                icon={ShieldCheck}
-                title="Secure Edge AI for Next‑Generation Privacy"
-                text="Implemented an Edge AI LLM Gateway with advanced differential privacy protocols, ensuring sensitive enterprise data is processed securely at the edge without compromising LLM analytical power."
-              />
-              <PillarCard
-                icon={Database}
-                title="Legacy Modernization and US$1M Value Creation"
-                text="Engineered a proprietary SAS‑to‑Lakehouse transformation agent to modernize 3,000 legacy SAS programs, generating US$1M in direct cost savings and establishing an AI‑ready data model with quality guardrails and lineage."
-              />
-              <PillarCard
-                icon={Cpu}
-                title="Hyper‑Scale AI Deployment & Workforce Uplift"
-                text="Established CI/CD for a 400B parameter model on dual NVIDIA DGX Spark infrastructure, integrating a distributed, agentic coding system that uplifts developer productivity and accelerates delivery."
-              />
-              <PillarCard
-                icon={Zap}
-                title="Greater Bay Area Modernization & PIPL Compliance"
-                text="Executed a Lakehouse transformation across China’s Greater Bay Area, modernizing legacy Teradata and SAS environments into an industry-standard Lakehouse engineered to fulfill PIPL regulatory requirements."
-              />
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-white/10 bg-[#0a0d1a]/40 p-6">
-              <div className="text-[11px] font-black uppercase tracking-[0.35em] mb-2" style={{ color: ACCENT }}>
-                Business Impact
-              </div>
-              <p className="mx-0 text-left text-[13px] md:text-[14px] text-white/55 leading-relaxed font-medium">
-                Through this strategic initiative, Torro has enabled the client to securely harness generative AI,
-                modernize legacy data architectures across key regions with exceptional ROI, ensure strict cross-border
-                regulatory compliance, and future-proof its engineering workforce for the AI era.
+        {/* Content Grid */}
+        <div className="grid lg:grid-cols-3 gap-12">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-12">
+            
+            {/* Problem Statement */}
+            <div className="bg-white rounded-[2.5rem] p-10 border border-slate-200 shadow-sm">
+              <h2 className="text-[13px] font-black text-blue-600 uppercase tracking-[0.4em] mb-6">Problem Statement</h2>
+              <p className="text-[18px] text-slate-700 font-medium leading-relaxed mb-6">
+                The telecom operator had massive stranded value trapped in complex legacy infrastructure (SAS, Teradata). They needed to operationalize Generative AI across the Greater Bay Area while strictly adhering to China's stringent PIPL privacy laws.
               </p>
+              <div className="grid md:grid-cols-2 gap-6 mt-8">
+                <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                  <Database className="w-6 h-6 text-blue-500 mb-4" />
+                  <h4 className="font-bold text-slate-900 mb-2">Legacy Tech Debt</h4>
+                  <p className="text-[14px] text-slate-500 font-medium">Massive stranded value trapped in aging SAS and Teradata environments.</p>
+                </div>
+                <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                  <Shield className="w-6 h-6 text-amber-500 mb-4" />
+                  <h4 className="font-bold text-slate-900 mb-2">PIPL Compliance</h4>
+                  <p className="text-[14px] text-slate-500 font-medium">Strict cross-border data privacy requirements for the Greater Bay Area.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Modernization Architecture */}
+            <div className="bg-blue-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-10 opacity-10">
+                <Cpu className="w-48 h-48" />
+              </div>
+              <h2 className="text-[13px] font-black text-blue-400 uppercase tracking-[0.4em] mb-10 relative z-10">Edge AI & Modernization Architecture</h2>
+              <div className="grid md:grid-cols-3 gap-8 relative z-10">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <h4 className="text-[16px] font-black tracking-tight">Legacy Transformation Agent</h4>
+                  <p className="text-[14px] text-blue-100/60 font-medium leading-relaxed">Proprietary tool bridging SAS to modern Data Lakehouse architectures.</p>
+                </div>
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-indigo-400" />
+                  </div>
+                  <h4 className="text-[16px] font-black tracking-tight">Edge AI LLM Gateway</h4>
+                  <p className="text-[14px] text-blue-100/60 font-medium leading-relaxed">Decentralized architecture with built-in differential privacy.</p>
+                </div>
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-400/30 flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-amber-400" />
+                  </div>
+                  <h4 className="text-[16px] font-black tracking-tight">Distributed Agentic Copilot</h4>
+                  <p className="text-[14px] text-blue-100/60 font-medium leading-relaxed">CI/CD integrated coding assistant for internal engineering teams.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Value Drivers */}
+            <div className="space-y-6">
+              <h2 className="text-[13px] font-black text-slate-400 uppercase tracking-[0.4em] ml-2">Strategic Value Drivers</h2>
+              <div className="grid gap-4">
+                {[
+                  "Zero-compromise data processing via advanced differential privacy protocols.",
+                  "Automated migration tooling accelerating time-to-value for legacy systems.",
+                  "Comprehensive regional compliance (PIPL) integrated at the architectural layer."
+                ].map((item, i) => (
+                  <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 flex items-center gap-6 shadow-sm hover:translate-x-1 transition-transform">
+                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <p className="text-slate-700 font-bold">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-8">
+            {/* Impact Metrics Sidebar */}
+            <div className="bg-white rounded-[2.5rem] p-8 border border-slate-200 shadow-sm sticky top-24">
+              <h3 className="text-[13px] font-black text-slate-400 uppercase tracking-[0.4em] mb-8">Impact Metrics</h3>
+              <div className="space-y-10">
+                <div className="space-y-2">
+                  <span className="text-4xl font-black text-blue-600 leading-none block">US$1M</span>
+                  <p className="text-[11px] font-black text-slate-400 uppercase tracking-tight">Direct cost savings from legacy modernization</p>
+                  <div className="h-2 bg-slate-100 rounded-full overflow-hidden mt-4">
+                    <div className="h-full bg-blue-500 w-[75%]" />
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                    <Activity className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <span className="text-2xl font-black text-slate-900 leading-none block">400B</span>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase">Parameter AI Model Deployed</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                    <Zap className="w-6 h-6 text-amber-500" />
+                  </div>
+                  <div>
+                    <span className="text-2xl font-black text-slate-900 leading-none block">3,000+</span>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase">Programs Automated & Modernized</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tech Ecosystem */}
+              <div className="mt-12 pt-8 border-t border-slate-100">
+                <h4 className="text-[12px] font-black text-slate-400 uppercase tracking-widest mb-4">Technology Ecosystem</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["Edge AI LLM Gateway", "Generative AI", "Dual NVIDIA DGX Spark", "Teradata", "SAS", "Data Lakehouse"].map((t, i) => (
+                    <span key={i} className="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-[10px] font-bold text-slate-600">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
 
 export default CaseStudyTelecomHK;
-

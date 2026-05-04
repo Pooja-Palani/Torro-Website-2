@@ -77,44 +77,115 @@ const MarketplaceViz = () => {
 
 const LineageViz = () => {
     const nodes = [
-        { id: 'pg', label: 'PostgreSQL', sub: 'Source DB', x: '10%', y: '30%', dot: 'bg-indigo-400' },
-        { id: 's3', label: 'S3 Lake', sub: 'Raw Store', x: '10%', y: '70%', dot: 'bg-sky-500' },
-        { id: 'spark', label: 'Spark ETL', sub: 'Transform', x: '45%', y: '50%', dot: 'bg-orange-400' },
-        { id: 'dw', label: 'Snowflake', sub: 'Analytics DW', x: '80%', y: '30%', dot: 'bg-teal-400' },
-        { id: 'bi', label: 'BI Layer', sub: 'Delivery', x: '80%', y: '70%', dot: 'bg-violet-400' },
+        // Source Layer (left)
+        { id: 'pg', label: 'PostgreSQL', sub: 'Primary DB', x: '8%', y: '18%', dot: 'bg-indigo-400' },
+        { id: 's3', label: 'S3 Data Lake', sub: 'Object Store', x: '8%', y: '45%', dot: 'bg-sky-500' },
+        { id: 'kafka', label: 'Kafka', sub: 'Event Stream', x: '8%', y: '72%', dot: 'bg-emerald-400' },
+        { id: 'mongo', label: 'MongoDB', sub: 'NoSQL Store', x: '8%', y: '92%', dot: 'bg-green-500' },
+        // Ingestion Layer
+        { id: 'nifi', label: 'NiFi', sub: 'Ingestion', x: '30%', y: '32%', dot: 'bg-amber-400' },
+        { id: 'airflow', label: 'Airflow', sub: 'Orchestrator', x: '30%', y: '68%', dot: 'bg-rose-400' },
+        // Transform Layer (center)
+        { id: 'spark', label: 'Spark ETL', sub: 'Transform', x: '52%', y: '38%', dot: 'bg-orange-400' },
+        { id: 'dbt', label: 'dbt Cloud', sub: 'SQL Models', x: '52%', y: '65%', dot: 'bg-violet-400' },
+        // Delivery Layer (right)
+        { id: 'snow', label: 'Snowflake', sub: 'Analytics DW', x: '76%', y: '22%', dot: 'bg-teal-400' },
+        { id: 'redshift', label: 'Redshift', sub: 'Data Mart', x: '76%', y: '52%', dot: 'bg-cyan-400' },
+        { id: 'bi', label: 'Tableau', sub: 'Reporting', x: '76%', y: '80%', dot: 'bg-pink-400' },
+        // Consumers (far right)
+        { id: 'api', label: 'API Gateway', sub: 'Delivery', x: '94%', y: '35%', dot: 'bg-yellow-400' },
+        { id: 'ml', label: 'ML Pipeline', sub: 'AI/ML', x: '94%', y: '68%', dot: 'bg-fuchsia-400' },
     ];
-    const lines = [['10%', '30%', '45%', '50%'], ['10%', '70%', '45%', '50%'], ['45%', '50%', '80%', '30%'], ['45%', '50%', '80%', '70%']];
+
+    const lines = [
+        // Sources → Ingestion
+        ['8%', '18%', '30%', '32%'],
+        ['8%', '45%', '30%', '32%'],
+        ['8%', '45%', '30%', '68%'],
+        ['8%', '72%', '30%', '68%'],
+        ['8%', '92%', '30%', '68%'],
+        // Ingestion → Transform
+        ['30%', '32%', '52%', '38%'],
+        ['30%', '68%', '52%', '65%'],
+        ['30%', '32%', '52%', '65%'],
+        // Transform → Delivery
+        ['52%', '38%', '76%', '22%'],
+        ['52%', '38%', '76%', '52%'],
+        ['52%', '65%', '76%', '52%'],
+        ['52%', '65%', '76%', '80%'],
+        // Delivery → Consumers
+        ['76%', '22%', '94%', '35%'],
+        ['76%', '52%', '94%', '35%'],
+        ['76%', '52%', '94%', '68%'],
+        ['76%', '80%', '94%', '68%'],
+    ];
+
+    // Junction dots where lines converge
+    const junctions = [
+        { x: '30%', y: '32%' },
+        { x: '30%', y: '68%' },
+        { x: '52%', y: '38%' },
+        { x: '52%', y: '65%' },
+        { x: '76%', y: '52%' },
+    ];
 
     return (
         <div className="relative w-full h-full z-10">
             <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                {/* Connection lines */}
                 {lines.map(([x1, y1, x2, y2], i) => (
                     <React.Fragment key={i}>
-                        <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#1e2343" strokeWidth="2" />
-                        <motion.circle r="4" fill="#99A0F9"
+                        <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#1e2343" strokeWidth="1.5" />
+                        {/* Animated data packet */}
+                        <motion.circle r="3" fill="#99A0F9"
+                            style={{ filter: 'drop-shadow(0 0 4px rgba(153,160,249,0.7))' }}
                             initial={{ cx: x1, cy: y1 }}
                             animate={{ cx: [x1, x2], cy: [y1, y2] }}
-                            transition={{ duration: 2, delay: i * 0.5, repeat: Infinity, ease: 'linear' }}
+                            transition={{ duration: 1.8 + (i % 3) * 0.4, delay: i * 0.35, repeat: Infinity, ease: 'linear' }}
                         />
+                        {/* Secondary slower packet on some lines */}
+                        {i % 3 === 0 && (
+                            <motion.circle r="2" fill="#F26969" opacity={0.7}
+                                style={{ filter: 'drop-shadow(0 0 3px rgba(242,105,105,0.5))' }}
+                                initial={{ cx: x1, cy: y1 }}
+                                animate={{ cx: [x1, x2], cy: [y1, y2] }}
+                                transition={{ duration: 2.8, delay: i * 0.35 + 1.2, repeat: Infinity, ease: 'linear' }}
+                            />
+                        )}
+                    </React.Fragment>
+                ))}
+                {/* Glowing junction points */}
+                {junctions.map((j, i) => (
+                    <React.Fragment key={`jnc-${i}`}>
+                        <motion.circle cx={j.x} cy={j.y} r="6" fill="transparent" stroke="#99A0F9" strokeWidth="1" opacity={0.3}
+                            animate={{ r: [6, 10, 6], opacity: [0.3, 0.1, 0.3] }}
+                            transition={{ duration: 2, delay: i * 0.4, repeat: Infinity }}
+                        />
+                        <circle cx={j.x} cy={j.y} r="2.5" fill="#99A0F9" opacity={0.5} />
                     </React.Fragment>
                 ))}
             </svg>
+            {/* Node labels */}
             {nodes.map((n, i) => (
-                <motion.div key={n.id} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.1 }}
+                <motion.div key={n.id} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.06 }}
                     className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10"
                     style={{ left: n.x, top: n.y }}>
-                    <div className="px-3 py-2 rounded-xl bg-[#0f1225] border border-[#1e2343] text-center shadow-lg">
-                        <div className="flex items-center gap-1.5 justify-center mb-0.5">
-                            <div className={`w-1.5 h-1.5 rounded-full ${n.dot}`} />
-                            <span className="text-[10px] font-black text-white leading-none">{n.label}</span>
+                    <div className="px-2 py-1.5 rounded-lg bg-[#0f1225] border border-[#1e2343] text-center shadow-lg hover:border-[#99A0F9]/30 transition-colors">
+                        <div className="flex items-center gap-1 justify-center mb-0.5">
+                            <motion.div className={`w-1.5 h-1.5 rounded-full ${n.dot}`}
+                                animate={{ opacity: [1, 0.4, 1] }}
+                                transition={{ duration: 1.5 + i * 0.2, repeat: Infinity }}
+                            />
+                            <span className="text-[9px] font-black text-white leading-none">{n.label}</span>
                         </div>
-                        <p className="text-[8px] text-white/30 uppercase tracking-widest font-bold">{n.sub}</p>
+                        <p className="text-[7px] text-white/30 uppercase tracking-widest font-bold">{n.sub}</p>
                     </div>
                 </motion.div>
             ))}
         </div>
     );
 };
+
 
 const DataQualityViz = () => {
     const checks = [

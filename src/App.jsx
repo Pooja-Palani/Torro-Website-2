@@ -12,7 +12,10 @@ import CompliancePage from './pages/Compliance';
 import UseCases from './pages/UseCases';
 import Resources from './pages/Resources';
 import Company from './pages/Company';
+import TorroOneData from './pages/TorroOneData';
 import CaseStudyTelecomHK from './pages/CaseStudyTelecomHK';
+import CaseStudyBankIndia from './pages/CaseStudyBankIndia';
+import CaseStudyESGBank from './pages/CaseStudyESGBank';
 import BlogPost from './pages/BlogPost';
 import BookDemo from './pages/BookDemo';
 
@@ -25,12 +28,15 @@ function App() {
         <main className="flex-1 flex flex-col">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/torro-onedata" element={<TorroOneData />} />
             <Route path="/offerings" element={<Offerings />} />
             <Route path="/services" element={<Services />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/compliance" element={<CompliancePage />} />
             <Route path="/use-cases" element={<UseCases />} />
             <Route path="/case-studies/telecom-hk" element={<CaseStudyTelecomHK />} />
+            <Route path="/case-studies/bank-india" element={<CaseStudyBankIndia />} />
+            <Route path="/case-studies/esg-bank" element={<CaseStudyESGBank />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/resources/:slug" element={<BlogPost />} />
             <Route path="/book-demo" element={<BookDemo />} />

@@ -15,7 +15,7 @@ const VENDORS = [
 
 const Interoperability = () => {
     return (
-        <section className="py-24 bg-[#0c0e1a] overflow-hidden relative border-y border-white/5">
+        <section className="py-24 bg-[#0c0e1a] overflow-hidden relative border-y border-white/5" id="interoperability">
             {/* Visual Hook: Subtle Ambient Glows */}
             <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none" />
             <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#F26969]/10 rounded-full blur-[140px] pointer-events-none" />

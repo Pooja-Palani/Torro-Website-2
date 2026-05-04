@@ -9,6 +9,7 @@ import TrustSignals from '../components/sections/TrustSignals';
 import IntelligenceHub from '../components/sections/IntelligenceHub';
 import SolutionsForTeam from '../components/sections/SolutionsForTeam';
 import Compliance from '../components/sections/Compliance';
+import CaseStudies from '../components/sections/CaseStudies';
 import DemoForm from '../components/sections/DemoForm';
 
 function HomePage() {
@@ -17,7 +18,7 @@ function HomePage() {
       {/* Core Narrative */}
       <Hero />
 
-      {/* Foundation & Architecture */}
+      {/* Moved to TorroOneData page
       <div className="bg-gray-50/50">
         <Capabilities />
       </div>
@@ -28,12 +29,14 @@ function HomePage() {
         <ComparisonTable />
       </div>
 
-      {/* Data Access & Culture */}
       <DataMarketplace />
       <Interoperability />
 
-      {/* Business Value & Validation */}
       <TrustSignals />
+      */}
+
+      <PlatformShowcase />
+
       <SolutionsForTeam />
       <Compliance />
 
