@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Our Services | Torro AI - Data &amp; Compliance Consulting</title>
+  <meta name="description" content="Data Engineering, Cloud Consulting, Compliance &amp; Regulatory Consulting, AI/ML Governance, and Data Governance Assessment from Torro."/>
+  <link rel="stylesheet" href="/_next/static/css/a2ec1fefa4b8352d.css"/>
+  <link rel="stylesheet" href="/platform-showcase.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+    html { font-family: 'Geist', sans-serif; }
+    .services-page { min-height: 100vh; background: #000; color: #fff; }
+    .solution-hero { padding: 8rem 6rem 5rem; max-width: 90rem; margin: 0 auto; }
+    .solution-hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; color: #94A4F4; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .solution-hero p { font-size: 1.125rem; color: #e5e7eb; max-width: 42rem; line-height: 1.65; margin-bottom: 2rem; }
+    .solution-hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .solution-btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 0.875rem 1.75rem; font-size: 1rem; font-weight: 600; border-radius: 0.5rem; border: none; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+    .solution-btn-primary.yellow { background: #F8BD64; color: #000; }
+    .solution-btn-primary.yellow:hover { background: #f5b04d; transform: scale(1.02); }
+    .solution-btn-primary.outline { background: transparent; color: #fff; border: 2px solid #4b5563; }
+    .solution-btn-primary.outline:hover { border-color: #94A4F4; color: #94A4F4; }
+    .solution-section { padding: 4rem 6rem 5rem; max-width: 90rem; margin: 0 auto; }
+    .solution-section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color:#FFF; margin-bottom: 0.5rem; text-align: center; }
+    .solution-section-rule { width: 6rem; height: 2px; background: linear-gradient(90deg, #94A4F4, #E06365); margin: 0 auto 4rem auto; }
+    .solution-card { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; margin-bottom: 3rem; padding: 2rem; border-radius: 1rem; background: rgba(148, 164, 244, 0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(148, 164, 244, 0.2); }
+    .solution-card.reverse { direction: rtl; }
+    .solution-card.reverse > * { direction: ltr; }
+    .solution-card-content { padding: 0.5rem 1rem 0 0; }
+    .solution-card.reverse .solution-card-content { padding: 0.5rem 0 0 1rem; }
+    .solution-card h3 { font-size: 1.75rem; font-weight: 700; color: #94A4F4; margin-bottom: 1rem; line-height: 1.25; }
+    .solution-card-desc { color: #d1d5db; font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem; }
+    .solution-card-label { font-size: 0.9375rem; font-weight: 600; color: #F8BD64; margin-bottom: 0.5rem; }
+    .solution-card-value { color: #e5e7eb; font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem; }
+    .solution-card ul { list-style: none; padding: 0; margin: 0; }
+    .solution-card li { color: #d1d5db; font-size: 0.9375rem; line-height: 1.6; padding-left: 1.25rem; position: relative; margin-bottom: 0.5rem; }
+    .solution-card li::before { content: ''; position: absolute; left: 0; top: 0.5em; width: 0.35rem; height: 0.35rem; background: #94A4F4; border-radius: 50%; }
+    .solution-card-placeholder { aspect-ratio: 4/3; min-height: 200px; background: rgba(148, 164, 244, 0.05); backdrop-filter: blur(8px); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: rgba(148, 164, 244, 0.45); font-size: 0.875rem; border: 1px solid rgba(148, 164, 244, 0.18); }
+    .solution-cta { padding: 5rem 6rem; text-align: center; background: rgba(15, 20, 35, 0.6); }
+    .solution-cta h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+    .solution-cta p { color: #9ca3af; font-size: 1.125rem; margin-bottom: 1.5rem; max-width: 36rem; margin-left: auto; margin-right: auto; }
+    .services-page .page-wrapper header > div { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+    .services-page .page-wrapper header .main-nav { display: flex; flex-direction: row; align-items: center; flex-wrap: nowrap; }
+    @media (max-width: 1024px) {
+      .services-page .page-wrapper header > div { padding: 1rem 2rem; }
+      .solution-hero { padding: 6rem 2rem 4rem; }
+      .solution-section { padding: 3rem 2rem 4rem; }
+      .solution-card { grid-template-columns: 1fr; direction: ltr; }
+      .solution-card.reverse { direction: ltr; }
+      .solution-card-content { padding: 0; }
+      .solution-card-placeholder { order: -1; min-height: 240px; }
+      .solution-cta { padding: 3rem 2rem; }
+    }
+  </style>
+</head>
+<body class="services-page">
+<div class="page-wrapper min-h-screen bg-black text-white" style="overflow-x:clip">
+  <header class="fixed top-0 left-0 right-0 z-50 w-full bg-black/40 backdrop-blur-md border-b border-gray-700">
+    <div class="flex items-center justify-between px-24 py-4 gap-8">
+      <a class="flex items-center gap-3" href="/"><img alt="Torro AI Logo" width="120" height="32" class="h-8 w-auto" style="height:2rem;width:auto;color:transparent" src="/Untitled design (3).png"/><span class="text-2xl font-semibold text-white -mt-1">TORRO</span></a>
+      <div class="flex items-center gap-6 mr-2">
+        <nav class="hidden md:flex items-center gap-6 main-nav">
+          <div class="nav-item group relative">
+            <button class="nav-link text-white hover:text-[#94A4F4] transition-colors text-base font-medium" type="button">Our Offerings <span class="nav-chevron">▾</span></button>
+            <div class="nav-mega">
+              <div class="nav-mega-inner">
+                <div class="nav-mega-column">
+                  <a href="/solution/" class="nav-mega-column-title">Our Solutions</a>
+                  <a href="/solution/" class="nav-mega-link">Unified Discovery &amp; Metadata Foundation</a>
+                  <a href="/solution/" class="nav-mega-link">End-to-End Data Lineage</a>
+                  <a href="/solution/" class="nav-mega-link">Continuous Data Quality &amp; Trust</a>
+                  <a href="/solution/" class="nav-mega-link">Automated Entitlements &amp; Protection</a>
+                  <a href="/solution/" class="nav-mega-link">Data Marketplace &amp; PrivBox</a>
+                </div>
+                <div class="nav-mega-column">
+                  <a href="/services/" class="nav-mega-column-title">Our Services</a>
+                  <a href="/services/" class="nav-mega-link">Data Engineering Services</a>
+                  <a href="/services/" class="nav-mega-link">Cloud Consulting Services</a>
+                  <a href="/services/" class="nav-mega-link">Legacy to Cloud Platform Design</a>
+                  <a href="/services/" class="nav-mega-link">Compliance &amp; Reg Consulting</a>
+                  <a href="/services/" class="nav-mega-link">AI/Ml Governance</a>
+                  <a href="/services/" class="nav-mega-link">Data Governance Assessment</a>
+                </div>
+                <div class="nav-mega-column">
+                  <a href="/industries/" class="nav-mega-column-title">Industries</a>
+                  <a href="/industries/#bfsi" class="nav-mega-link">BFSI</a>
+                  <a href="/industries/#healthcare" class="nav-mega-link">Healthcare</a>
+                  <a href="/industries/#telecom" class="nav-mega-link">Telecom</a>
+                </div>
+                <div class="nav-mega-column">
+                  <a href="/compliance/" class="nav-mega-column-title">Compliance</a>
+                  <a href="/compliance/" class="nav-mega-link">DPDP / DPDPA</a>
+                  <a href="/compliance/" class="nav-mega-link">GDPR</a>
+                  <a href="/compliance/" class="nav-mega-link">CCPA</a>
+                  <a href="/compliance/" class="nav-mega-link">BCBS239</a>
+                  <a href="/compliance/" class="nav-mega-link">SOX</a>
+                  <a href="/compliance/" class="nav-mega-link">HIPAA</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-item group relative ml-4">
+            <button class="nav-link text-white hover:text-[#94A4F4] transition-colors text-base font-medium" type="button">Use Cases <span class="nav-chevron">▾</span></button>
+            <div class="nav-flyout">
+              <a href="/use-cases/#enterprise-data-visibility" class="nav-mega-link">Enterprise Data Visibility</a>
+              <a href="/use-cases/#cross-border-data-governance" class="nav-mega-link">Cross-Border Data Governance</a>
+              <a href="/use-cases/#automated-access-provisioning" class="nav-mega-link">Automated Access Provisioning</a>
+              <a href="/use-cases/#consent-pii-management" class="nav-mega-link">Consent &amp; PII Management</a>
+              <a href="/use-cases/#audit-readiness" class="nav-mega-link">Audit Readiness</a>
+            </div>
+          </div>
+          <div class="nav-item group relative ml-4">
+            <button class="nav-link text-white hover:text-[#94A4F4] transition-colors text-base font-medium" type="button">Resources <span class="nav-chevron">▾</span></button>
+            <div class="nav-flyout">
+              <a href="/blog/" class="nav-mega-link">Blog</a>
+              <a href="/resources/#newsletter" class="nav-mega-link">Newsletter</a>
+            </div>
+          </div>
+          <div class="nav-item group relative ml-4">
+            <button class="nav-link text-white hover:text-[#94A4F4] transition-colors text-base font-medium" type="button">Company <span class="nav-chevron">▾</span></button>
+            <div class="nav-flyout">
+              <a href="/company/#about" class="nav-mega-link">About Us</a>
+              <a href="/company/#partners" class="nav-mega-link">Partners</a>
+            </div>
+          </div>
+        </nav>
+        <a href="/#request-demo" class="inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3 text-base font-semibold rounded-full bg-white text-black hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300">Book a Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="solution-hero">
+    <h1>Our Services</h1>
+    <p>Beyond the platform: data engineering, cloud strategy, compliance consulting, and governance assessments. We help you design, deploy, and operate with confidence.</p>
+    <div class="solution-hero-btns">
+      <a href="/#request-demo" class="solution-btn-primary yellow">Book a Demo</a>
+      <a href="/solution/" class="solution-btn-primary outline">Our Solutions</a>
+    </div>
+  </section>
+
+  <section class="solution-section">
+    <h2 class="solution-section-title">What We Offer</h2>
+    <div class="solution-section-rule"></div>
+
+    <article class="solution-card">
+      <div class="solution-card-content">
+        <h3>Data Engineering Services</h3>
+        <p class="solution-card-desc">Build and modernize data pipelines with governance built in. We design ingestion, transformation, and orchestration that align with your compliance and lineage requirements.</p>
+        <p class="solution-card-label">Business Value</p>
+        <p class="solution-card-value">Faster time to governed data, fewer rework cycles, and pipelines that are audit-ready by design.</p>
+        <p class="solution-card-label">Key Capabilities</p>
+        <ul>
+          <li>Pipeline design and implementation</li>
+          <li>dbt, Airflow, and Spark integration</li>
+          <li>Metadata and lineage enablement</li>
+          <li>PII handling and masking patterns</li>
+        </ul>
+      </div>
+      <div class="solution-card-placeholder">Image Placeholder</div>
+    </article>
+
+    <article class="solution-card reverse">
+      <div class="solution-card-content">
+        <h3>Cloud Consulting Services</h3>
+        <p class="solution-card-desc">Multi-cloud and hybrid strategy: architecture, migration, and cost optimization. We help you move to the cloud without losing control of your data.</p>
+        <p class="solution-card-label">Business Value</p>
+        <p class="solution-card-value">Clear roadmap, reduced risk, and governance that works across AWS, Azure, GCP, and on-prem.</p>
+        <p class="solution-card-label">Key Capabilities</p>
+        <ul>
+          <li>Cloud readiness and migration</li>
+          <li>Data lake and warehouse design</li>
+          <li>Security and access architecture</li>
+          <li>FinOps and cost governance</li>
+        </ul>
+      </div>
+      <div class="solution-card-placeholder">Image Placeholder</div>
+    </article>
+
+    <article class="solution-card">
+      <div class="solution-card-content">
+        <h3>Legacy to Cloud Platform Design</h3>
+        <p class="solution-card-desc">Modernize legacy data estates with a clear path to cloud-native platforms. We preserve lineage, classification, and compliance while you migrate.</p>
+        <p class="solution-card-label">Business Value</p>
+        <p class="solution-card-value">De-risk legacy exit, avoid data black holes, and keep regulators satisfied throughout the transition.</p>
+        <p class="solution-card-label">Key Capabilities</p>
+        <ul>
+          <li>Legacy discovery and inventory</li>
+          <li>Target state architecture</li>
+          <li>Phased migration and cutover</li>
+          <li>Governance continuity</li>
+        </ul>
+      </div>
+      <div class="solution-card-placeholder">Image Placeholder</div>
+    </article>
+
+    <article class="solution-card reverse">
+      <div class="solution-card-content">
+        <h3>Compliance &amp; Regulatory Consulting</h3>
+        <p class="solution-card-desc">DPDP, GDPR, RBI, BCBS239, SOX, HIPAA: we translate regulation into actionable policies and controls. Gap assessments, remediation roadmaps, and audit prep.</p>
+        <p class="solution-card-label">Business Value</p>
+        <p class="solution-card-value">Know exactly where you stand and what to fix. Reduce legal and reputational risk with a defensible program.</p>
+        <p class="solution-card-label">Key Capabilities</p>
+        <ul>
+          <li>Regulatory gap assessments</li>
+          <li>Policy and control design</li>
+          <li>Audit readiness and evidence</li>
+          <li>Training and change management</li>
+        </ul>
+      </div>
+      <div class="solution-card-placeholder">Image Placeholder</div>
+    </article>
+
+    <article class="solution-card">
+      <div class="solution-card-content">
+        <h3>AI/ML Governance</h3>
+        <p class="solution-card-desc">Govern model inputs, outputs, and usage. We help you put guardrails around LLMs and ML pipelines so innovation stays within policy.</p>
+        <p class="solution-card-label">Business Value</p>
+        <p class="solution-card-value">Ship AI use cases faster while meeting emerging regulatory and ethical requirements.</p>
+        <p class="solution-card-label">Key Capabilities</p>
+        <ul>
+          <li>Model and prompt governance</li>
+          <li>Bias and fairness checks</li>
+          <li>Data lineage for ML assets</li>
+          <li>Audit trails for AI decisions</li>
+        </ul>
+      </div>
+      <div class="solution-card-placeholder">Image Placeholder</div>
+    </article>
+
+    <article class="solution-card reverse">
+      <div class="solution-card-content">
+        <h3>Data Governance Assessment</h3>
+        <p class="solution-card-desc">A structured assessment of your people, process, and technology. We deliver a maturity score, gap analysis, and a prioritized roadmap to full governance.</p>
+        <p class="solution-card-label">Business Value</p>
+        <p class="solution-card-value">Executive-ready view of governance posture and a clear path to improvement without guesswork.</p>
+        <p class="solution-card-label">Key Capabilities</p>
+        <ul>
+          <li>Stakeholder interviews and workshops</li>
+          <li>Current state documentation</li>
+          <li>Maturity model and scoring</li>
+          <li>Roadmap and quick wins</li>
+        </ul>
+      </div>
+      <div class="solution-card-placeholder">Image Placeholder</div>
+    </article>
+  </section>
+
+  <section class="solution-cta">
+    <h2>Ready to Engage Our Services?</h2>
+    <p>From assessment to implementation, we'll help you get to governed data faster.</p>
+    <a href="/#request-demo" class="solution-btn-primary yellow">Request an Enterprise Demo</a>
+  </section>
+</div>
+</body>
+</html>

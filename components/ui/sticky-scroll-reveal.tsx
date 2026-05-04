@@ -30,9 +30,13 @@ export function StickyScroll({ content, contentClassName = "" }: StickyScrollPro
         }
       },
       {
-        root: containerRef.current,
-        rootMargin: "-40% 0px -40% 0px",
-        threshold: [0, 0.25, 0.5, 0.75, 1],
+        // Use the scroll container as the root if available, otherwise the viewport.
+        root: containerRef.current ?? null,
+        // Shrink the observable area to the vertical center of the root so items
+        // become "intersecting" as they enter the middle of the scroll area.
+        rootMargin: "-50% 0px -50% 0px",
+        // Use a single threshold so the first intersection into the center triggers.
+        threshold: [0],
       }
     );
 
