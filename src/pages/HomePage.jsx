@@ -2,14 +2,9 @@ import React from 'react';
 import Hero from '../components/sections/Hero';
 import Capabilities from '../components/sections/Capabilities';
 import PlatformShowcase from '../components/sections/PlatformShowcase';
-import ComparisonTable from '../components/sections/ComparisonTable';
-import DataMarketplace from '../components/sections/DataMarketplace';
-import Interoperability from '../components/sections/Interoperability';
-import TrustSignals from '../components/sections/TrustSignals';
 import IntelligenceHub from '../components/sections/IntelligenceHub';
 import SolutionsForTeam from '../components/sections/SolutionsForTeam';
-import Compliance from '../components/sections/Compliance';
-import CaseStudies from '../components/sections/CaseStudies';
+import GlobalMandates from '../components/sections/GlobalMandates';
 import DemoForm from '../components/sections/DemoForm';
 
 function HomePage() {
@@ -18,27 +13,18 @@ function HomePage() {
       {/* Core Narrative */}
       <Hero />
 
-      {/* Moved to TorroOneData page
       <div className="bg-gray-50/50">
-        <Capabilities />
+        <Capabilities 
+          title="Enterprise Data At Scale" 
+          subtitle="Comprehensive Data Governance, Privacy Compliance and Secure Analytics for Modern Enterprises"
+        />
       </div>
-
-      <PlatformShowcase />
-
-      <div className="bg-gray-50/50">
-        <ComparisonTable />
-      </div>
-
-      <DataMarketplace />
-      <Interoperability />
-
-      <TrustSignals />
-      */}
 
       <PlatformShowcase />
 
       <SolutionsForTeam />
-      <Compliance />
+
+      <GlobalMandates />
 
       {/* Conversion */}
       <IntelligenceHub />

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import Capabilities from '../components/sections/Capabilities';
+import IndustrialGovernanceMandates from '../components/sections/IndustrialGovernanceMandates';
+import TorroOneDataPlatformStack from '../components/sections/TorroOneDataPlatformStack';
 import PlatformShowcase from '../components/sections/PlatformShowcase';
 import ComparisonTable from '../components/sections/ComparisonTable';
 import DataMarketplace from '../components/sections/DataMarketplace';
 import Interoperability from '../components/sections/Interoperability';
-import TrustSignals from '../components/sections/TrustSignals';
 import DemoForm from '../components/sections/DemoForm';
 
 const TorroOneData = () => {
@@ -22,17 +22,12 @@ const TorroOneData = () => {
 
   return (
     <div className="pt-20">
-      {/* 
-          Since the user wants these specific sections, 
-          we'll lead with the core capabilities and showcase.
-      */}
-      
-      <Capabilities />
+      <IndustrialGovernanceMandates />
+      <TorroOneDataPlatformStack />
       <PlatformShowcase />
       <DataMarketplace />
       <Interoperability />
       <ComparisonTable />
-      <TrustSignals />
       
       {/* Footer conversion */}
       <DemoForm />

@@ -236,7 +236,15 @@ const CapabilityCard = ({ index, title, description }) => {
     };
 
     const displayIndex = (index + 1).toString().padStart(2, '0');
-    const previews = [<CompliancePreview key="p1" />, <LineagePreview key="p2" />, <AnalyticsPreview key="p3" />];
+    const previews = [
+        <CompliancePreview key="p1" />, 
+        <LineagePreview key="p2" />, 
+        <AnalyticsPreview key="p3" />,
+        <CompliancePreview key="p4" />, // Fallback/Repeat for additional cards
+        <LineagePreview key="p5" />
+    ];
+
+    const currentPreview = previews[index % previews.length];
 
     return (
         <motion.div
@@ -261,8 +269,8 @@ const CapabilityCard = ({ index, title, description }) => {
                 <ArrowUpRight className="w-5 h-5 text-indigo-400/40" />
             </div>
 
-            {/* Number */}
-            <div className="text-[72px] font-black text-slate-100 group-hover:text-indigo-400/20 tracking-[-0.08em] leading-none mb-8 transition-colors duration-500 select-none">
+            {/* Number — lavender tint (theme), more visible on hover */}
+            <div className="mb-8 text-[72px] font-black leading-none tracking-[-0.08em] text-[#99A0F9]/40 transition-colors duration-500 select-none group-hover:text-[#99A0F9]/60">
                 {displayIndex}
             </div>
 
@@ -294,7 +302,7 @@ const CapabilityCard = ({ index, title, description }) => {
                             transition={{ type: "spring", stiffness: 340, damping: 28 }}
                             className="absolute inset-0 w-full h-full"
                         >
-                            {previews[index]}
+                            {currentPreview}
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -309,8 +317,8 @@ const CapabilityCard = ({ index, title, description }) => {
 /* ─────────────────────────────────────────────────────────────
    SECTION
 ───────────────────────────────────────────────────────────── */
-const Capabilities = () => {
-    const capabilities = [
+const Capabilities = ({ title, subtitle, capabilities: customCapabilities, padding = "py-48", id = "product" }) => {
+    const defaultCapabilities = [
         {
             title: "Enterprise-Grade Data Privacy & Compliance by Design",
             description: "Our platform embeds data privacy, security, and regulatory compliance directly into its architecture. With GDPR, HIPAA, SOX, and global standards support, compliance is not an add-on — it's the foundation."
@@ -325,10 +333,12 @@ const Capabilities = () => {
         }
     ];
 
+    const displayCapabilities = customCapabilities || defaultCapabilities;
+
     return (
-        <section className="py-24 md:py-32 bg-[#f8fafc] relative overflow-hidden" id="governance">
+        <section className={`${padding} bg-[#f8fafc] relative overflow-hidden`} id={id}>
             <div className="relative z-10 mx-auto px-6 md:px-12 lg:px-16 max-w-[95rem]">
-                <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20 space-y-8 flex flex-col items-center">
+                <div className="max-w-4xl mx-auto text-center mb-24 space-y-8 flex flex-col items-center">
                     <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#99A0F9]/5 border border-[#99A0F9]/15 shadow-sm mb-2">
                         <div className="w-2.5 h-2.5 rounded-full bg-[#99A0F9] animate-pulse shadow-[0_0_12px_rgba(140,158,255,0.6)]" />
                         <span className="text-[12px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">
@@ -337,16 +347,16 @@ const Capabilities = () => {
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-4">
-                        Industrial-Grade <br /><span className="text-[#99A0F9]">Data Governance.</span>
+                        {title ? title : <>Industrial-Grade <br /><span className="text-[#99A0F9]">Data Governance.</span></>}
                     </h2>
 
                     <p className="text-slate-500 text-[20px] leading-relaxed max-w-3xl font-medium">
-                        Comprehensive Data Governance, Privacy Compliance and Secure Analytics for Modern Enterprises
+                        {subtitle ? subtitle : "Comprehensive Data Governance, Privacy Compliance and Secure Analytics for Modern Enterprises"}
                     </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {capabilities.map((cap, i) => (
+                    {displayCapabilities.map((cap, i) => (
                         <CapabilityCard key={i} index={i} {...cap} />
                     ))}
                 </div>
