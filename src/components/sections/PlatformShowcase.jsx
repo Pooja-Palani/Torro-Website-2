@@ -1,75 +1,124 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShieldCheck, ShoppingBag, GitBranch, BadgeCheck, BarChart3 } from 'lucide-react';
+import { ShieldCheck, ShoppingBag, GitBranch, BadgeCheck, BarChart3, Search, Database, Cpu, FileText, Globe2, Users, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /* ─── Illustration Components ─── */
 
-const PrivacyViz = () => (
-    <div className="flex flex-col items-center justify-center w-full h-full gap-6 relative z-10">
-        {/* Shield with concentric rings — all sized to stay within container */}
-        <div className="relative flex items-center justify-center w-32 h-32">
-            <motion.div className="absolute w-32 h-32 rounded-full border border-[#99A0F9]/10" animate={{ scale: [1, 1.12, 1], opacity: [0.5, 0.2, 0.5] }} transition={{ repeat: Infinity, duration: 3 }} />
-            <motion.div className="absolute w-24 h-24 rounded-full border border-[#99A0F9]/20" animate={{ scale: [1, 1.08, 1], opacity: [0.6, 0.3, 0.6] }} transition={{ repeat: Infinity, duration: 2.5, delay: 0.3 }} />
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1e2343] to-[#0f1225] border border-[#99A0F9]/40 shadow-[0_0_25px_rgba(140,158,255,0.25)] flex items-center justify-center relative z-10">
-                <ShieldCheck className="w-7 h-7 text-[#a5b4fc]" />
+const PrivacyViz = () => {
+    const globalPolicies = [
+        { label: 'GDPR', color: 'bg-emerald-400' },
+        { label: 'HIPAA', color: 'bg-sky-400' },
+        { label: 'SOC2', color: 'bg-violet-400' },
+        { label: 'DPDP', color: 'bg-amber-400' },
+        { label: 'CCPA', color: 'bg-rose-400' },
+        { label: 'PIPL', color: 'bg-red-400' },
+    ];
+    const bfsiPolicies = [
+        { label: 'RBI', color: 'bg-indigo-400' },
+        { label: 'PCI-DSS', color: 'bg-orange-400' },
+        { label: 'HKMA', color: 'bg-teal-400' },
+        { label: 'MAS TRM', color: 'bg-cyan-400' },
+        { label: 'SOX', color: 'bg-fuchsia-400' },
+        { label: 'Basel III', color: 'bg-yellow-400' },
+        { label: 'GLBA', color: 'bg-lime-400' },
+        { label: 'FFIEC', color: 'bg-pink-400' },
+    ];
+
+    const PolicyChip = ({ p }) => (
+        <span className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-[#151930] px-2 py-1">
+            <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${p.color}`} />
+            <span className="text-[10px] font-bold uppercase tracking-wide text-white/80">{p.label}</span>
+        </span>
+    );
+
+    return (
+        <div className="relative z-10 flex h-full w-full flex-col justify-between gap-3 px-1">
+            <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#99A0F9]/40 bg-gradient-to-br from-[#1e2343] to-[#0f1225] shadow-[0_0_18px_rgba(140,158,255,0.25)]">
+                    <ShieldCheck className="h-6 w-6 text-[#a5b4fc]" />
+                </div>
+                <div className="min-w-0 flex-1">
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/35">Active Policy Engine</p>
+                    <p className="text-xl font-black tracking-tight text-white">
+                        14 <span className="text-sm font-bold text-[#99A0F9]">Policies Enforced</span>
+                    </p>
+                </div>
+                <div className="flex shrink-0 items-center gap-1.5 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                    <span className="text-[10px] font-black uppercase text-emerald-400">Live</span>
+                </div>
+            </div>
+
+            <div className="grid flex-1 grid-cols-2 gap-3">
+                <div className="flex flex-col rounded-xl border border-[#1e2343] bg-[#0a0d18] p-3">
+                    <p className="mb-2 text-[10px] font-black uppercase tracking-[0.16em] text-[#99A0F9]">Global & Privacy</p>
+                    <div className="flex flex-wrap gap-1.5">
+                        {globalPolicies.map((p) => <PolicyChip key={p.label} p={p} />)}
+                    </div>
+                </div>
+                <div className="flex flex-col rounded-xl border border-[#1e2343] bg-[#0a0d18] p-3">
+                    <p className="mb-2 text-[10px] font-black uppercase tracking-[0.16em] text-[#F4B952]">BFSI & Financial</p>
+                    <div className="flex flex-wrap gap-1.5">
+                        {bfsiPolicies.map((p) => <PolicyChip key={p.label} p={p} />)}
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex items-center justify-between rounded-xl border border-[#99A0F9]/20 bg-[#0f1225] px-4 py-2.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-white/50">Masking · Consent · Zero-trust</span>
+                <span className="text-[11px] font-black text-[#99A0F9]">100% Coverage</span>
             </div>
         </div>
-
-        {/* Compliance badges — inline row, no negative offsets */}
-        <div className="flex items-center gap-2 flex-wrap justify-center">
-            {[
-                { label: 'GDPR', color: 'bg-green-500', delay: 0 },
-                { label: 'HIPAA', color: 'bg-indigo-400', delay: 0.3 },
-                { label: 'SOC2', color: 'bg-violet-500', delay: 0.6 },
-                { label: 'DPDP', color: 'bg-amber-500', delay: 0.9 },
-            ].map(b => (
-                <motion.div
-                    key={b.label}
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ repeat: Infinity, duration: 2.5, delay: b.delay }}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full ${b.color}/10 border border-white/10`}
-                >
-                    <div className={`w-1.5 h-1.5 rounded-full ${b.color} animate-pulse`} />
-                    <span className="text-[9px] font-black text-white/60 uppercase tracking-widest">{b.label}</span>
-                </motion.div>
-            ))}
-        </div>
-
-        {/* Status pill */}
-        <div className="bg-[#151930] border border-[#99A0F9]/30 px-6 py-2.5 rounded-full text-[11px] font-bold text-[#e0e7ff] tracking-[0.18em] uppercase relative overflow-hidden">
-            <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full" animate={{ x: ['-200%', '200%'] }} transition={{ repeat: Infinity, duration: 2.5, ease: 'linear' }} />
-            <span className="relative z-10">Enforcing 14 Active Policies...</span>
-        </div>
-    </div>
-);
+    );
+};
 
 const MarketplaceViz = () => {
-    const assets = [
-        { name: 'Customer 360', type: 'Dataset', tag: 'GDPR', color: 'text-indigo-300 border-indigo-400/30' },
-        { name: 'Churn Model v3', type: 'ML Model', tag: 'PII-Free', color: 'text-violet-400 border-violet-500/30' },
-        { name: 'Revenue Signals', type: 'API Feed', tag: 'Approved', color: 'text-amber-400 border-amber-500/30' },
-        { name: 'Risk Scorecard', type: 'Report', tag: 'SOC2', color: 'text-amber-400 border-amber-500/30' },
+    const listings = [
+        { name: 'Customer 360', type: 'Dataset', icon: Database, status: 'Certified', rating: 4.9, subs: 128, accent: 'text-indigo-300' },
+        { name: 'Churn Model v3', type: 'ML Model', icon: Cpu, status: 'PII-Free', rating: 4.7, subs: 64, accent: 'text-violet-400' },
+        { name: 'Revenue Signals', type: 'API Feed', icon: Globe2, status: 'Published', rating: 4.8, subs: 210, accent: 'text-amber-400' },
+        { name: 'Risk Scorecard', type: 'Report', icon: FileText, status: 'Approved', rating: 5.0, subs: 89, accent: 'text-teal-400' },
     ];
+
     return (
-        <div className="flex flex-col w-full h-full gap-3 justify-center relative z-10 px-2">
-            <div className="grid grid-cols-2 gap-3">
-                {assets.map((a, i) => (
-                    <motion.div key={a.name} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }}
-                        className={`p-4 rounded-2xl bg-[#0f1225] border ${a.color.split(' ')[1]} flex flex-col gap-2`}>
-                        <div className="flex items-center justify-between">
-                            <span className={`text-[10px] font-black uppercase tracking-widest ${a.color.split(' ')[0]}`}>{a.type}</span>
-                            <span className="text-[8px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 border border-white/10 uppercase tracking-wider font-bold">{a.tag}</span>
-                        </div>
-                        <p className="text-[13px] font-bold text-white leading-tight">{a.name}</p>
-                        <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                            <motion.div initial={{ width: 0 }} animate={{ width: `${60 + i * 10}%` }} transition={{ delay: 0.5 + i * 0.1, duration: 1 }} className={`h-full ${a.color.split(' ')[0].replace('text-', 'bg-')}`} />
-                        </div>
-                    </motion.div>
-                ))}
+        <div className="relative z-10 flex h-full w-full flex-col justify-center gap-2.5 px-1">
+            <div className="flex shrink-0 items-center gap-2.5 rounded-xl border border-[#1e2343] bg-[#0f1225] px-3 py-2">
+                <Search className="h-4 w-4 shrink-0 text-white/35" />
+                <span className="text-[11px] font-medium text-white/40">Search governed assets...</span>
+                <div className="ml-auto flex items-center gap-2">
+                    <span className="text-[9px] font-bold text-white/35">491 assets</span>
+                    <span className="text-[9px] font-black text-[#99A0F9]">+4 today</span>
+                </div>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#151930] border border-white/5 mt-1">
-                <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-widest">4 Assets certified & published to Marketplace</span>
+
+            <div className="grid shrink-0 grid-cols-2 gap-2">
+                {listings.map((item, i) => {
+                    const Icon = item.icon;
+                    return (
+                        <motion.div
+                            key={item.name}
+                            initial={{ opacity: 0, scale: 0.96 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: i * 0.07 }}
+                            className="flex flex-col rounded-xl border border-[#1e2343] bg-[#0a0d18] px-2.5 py-2"
+                        >
+                            <div className="mb-1 flex items-center justify-between gap-1">
+                                <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/5 bg-[#151930]">
+                                    <Icon className={`h-3.5 w-3.5 ${item.accent}`} />
+                                </div>
+                                <span className="rounded border border-[#99A0F9]/25 bg-[#99A0F9]/10 px-1.5 py-0.5 text-[8px] font-black uppercase text-[#99A0F9]">{item.status}</span>
+                            </div>
+                            <p className="text-[11px] font-bold leading-tight text-white">{item.name}</p>
+                            <p className={`text-[9px] font-black uppercase tracking-wide ${item.accent}`}>{item.type}</p>
+                            <div className="mt-1 flex items-center gap-2 text-[9px] text-white/45">
+                                <Star className="h-2.5 w-2.5 fill-[#F4B952] text-[#F4B952]" />
+                                <span className="font-bold text-white/70">{item.rating}</span>
+                                <Users className="h-2.5 w-2.5" />
+                                <span>{item.subs}</span>
+                            </div>
+                        </motion.div>
+                    );
+                })}
             </div>
         </div>
     );
@@ -170,15 +219,15 @@ const LineageViz = () => {
                 <motion.div key={n.id} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.06 }}
                     className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1 z-10"
                     style={{ left: n.x, top: n.y }}>
-                    <div className="px-2 py-1.5 rounded-lg bg-[#0f1225] border border-[#1e2343] text-center shadow-lg hover:border-[#99A0F9]/30 transition-colors">
-                        <div className="flex items-center gap-1 justify-center mb-0.5">
-                            <motion.div className={`w-1.5 h-1.5 rounded-full ${n.dot}`}
+                    <div className="rounded-lg border border-[#1e2343] bg-[#0f1225] px-2 py-1.5 text-center shadow-lg transition-colors hover:border-[#99A0F9]/30">
+                        <div className="mb-0.5 flex items-center justify-center gap-1">
+                            <motion.div className={`h-1.5 w-1.5 rounded-full ${n.dot}`}
                                 animate={{ opacity: [1, 0.4, 1] }}
                                 transition={{ duration: 1.5 + i * 0.2, repeat: Infinity }}
                             />
-                            <span className="text-[9px] font-black text-white leading-none">{n.label}</span>
+                            <span className="text-[9px] font-black leading-none text-white">{n.label}</span>
                         </div>
-                        <p className="text-[7px] text-white/30 uppercase tracking-widest font-bold">{n.sub}</p>
+                        <p className="text-[7px] font-bold uppercase tracking-widest text-white/30">{n.sub}</p>
                     </div>
                 </motion.div>
             ))}
@@ -188,44 +237,51 @@ const LineageViz = () => {
 
 
 const DataQualityViz = () => {
-    const checks = [
-        { name: 'Schema Validation', score: 100, color: 'bg-amber-500', status: 'PASS' },
-        { name: 'Null Rate Check', score: 98, color: 'bg-amber-400', status: 'PASS' },
-        { name: 'Format Consistency', score: 94, color: 'bg-indigo-400', status: 'WARN' },
-        { name: 'Referential Integrity', score: 87, color: 'bg-amber-400', status: 'WARN' },
+    const dimensions = [
+        { name: 'Completeness', score: 98, color: 'bg-[#99A0F9]', gate: 'PASS' },
+        { name: 'Accuracy', score: 96, color: 'bg-[#a5b4fc]', gate: 'PASS' },
+        { name: 'Consistency', score: 94, color: 'bg-[#F4B952]', gate: 'WARN' },
+        { name: 'Timeliness', score: 91, color: 'bg-[#F4B952]', gate: 'WARN' },
     ];
+
     return (
-        <div className="flex flex-col gap-4 w-full h-full justify-center relative z-10 px-4">
-            <div className="flex items-center justify-between mb-1">
-                <div>
-                    <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Overall DQ Score</p>
-                    <div className="flex items-baseline gap-1">
-                        <span className="text-[36px] font-black text-white tracking-tighter leading-none">95.2</span>
-                        <span className="text-[16px] font-black text-amber-400">%</span>
-                    </div>
+        <div className="relative z-10 flex h-full w-full flex-col justify-between gap-4 px-1">
+            <div className="flex items-center justify-between">
+                <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-black leading-none tracking-tight text-white">95.2</span>
+                    <span className="text-sm font-black text-[#99A0F9]">%</span>
+                    <span className="ml-2 text-[11px] font-black uppercase tracking-[0.16em] text-white/35">DQ Index</span>
                 </div>
-                <div className="flex flex-col items-end gap-1">
-                    <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }} className="flex items-center gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-amber-400" />
-                        <span className="text-[9px] font-black text-white/50 uppercase">Monitoring Live</span>
-                    </motion.div>
+                <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                    <span className="text-[10px] font-black uppercase text-emerald-400">Gates Active</span>
                 </div>
             </div>
-            <div className="space-y-3">
-                {checks.map((c, i) => (
-                    <motion.div key={c.name} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}
-                        className="flex items-center gap-3">
-                        <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between mb-1">
-                                <span className="text-[10px] font-bold text-white/70 truncate">{c.name}</span>
-                                <span className={`text-[8px] font-black uppercase tracking-widest ml-2 ${c.status === 'PASS' ? 'text-amber-400' : 'text-amber-400'}`}>{c.status}</span>
-                            </div>
-                            <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                <motion.div initial={{ width: 0 }} animate={{ width: `${c.score}%` }} transition={{ delay: 0.3 + i * 0.1, duration: 1, ease: 'circOut' }}
-                                    className={`h-full ${c.color} rounded-full`} />
+
+            <div className="flex flex-1 flex-col justify-center gap-3">
+                {dimensions.map((d, i) => (
+                    <motion.div
+                        key={d.name}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.08 }}
+                        className="space-y-1.5"
+                    >
+                        <div className="flex items-center justify-between">
+                            <span className="text-[11px] font-bold text-white/70">{d.name}</span>
+                            <div className="flex items-center gap-2">
+                                <span className={`text-[10px] font-black uppercase ${d.gate === 'PASS' ? 'text-emerald-400' : 'text-amber-400'}`}>{d.gate}</span>
+                                <span className="text-[12px] font-black text-white/60">{d.score}%</span>
                             </div>
                         </div>
-                        <span className="text-[11px] font-black text-white/50 shrink-0 w-8 text-right">{c.score}%</span>
+                        <div className="h-2 overflow-hidden rounded-full bg-white/5">
+                            <motion.div
+                                initial={{ width: 0 }}
+                                animate={{ width: `${d.score}%` }}
+                                transition={{ delay: 0.2 + i * 0.1, duration: 0.9, ease: 'circOut' }}
+                                className={`h-full rounded-full ${d.color}`}
+                            />
+                        </div>
                     </motion.div>
                 ))}
             </div>
@@ -237,16 +293,16 @@ const AnalyticsViz = () => {
     const bars = [45, 62, 38, 80, 55, 70, 48, 92, 65, 78, 58, 88];
     const kpis = [{ label: 'Queries/Day', val: '4.2M' }, { label: 'Avg Latency', val: '28ms' }, { label: 'Cost Savings', val: '$1.4M' }];
     return (
-        <div className="flex flex-col gap-5 w-full h-full justify-center relative z-10 px-2">
+        <div className="relative z-10 flex h-full w-full flex-col justify-center gap-5 px-2">
             <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
-                    <p className="text-[10px] font-black text-white/30 uppercase tracking-widest">Query Volume — 12h</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-white/30">Query Volume — 12h</p>
                     <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} className="flex items-center gap-1.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#99A0F9]" />
-                        <span className="text-[8px] font-bold text-[#99A0F9] uppercase">Real-time</span>
+                        <div className="h-1.5 w-1.5 rounded-full bg-[#99A0F9]" />
+                        <span className="text-[8px] font-bold uppercase text-[#99A0F9]">Real-time</span>
                     </motion.div>
                 </div>
-                <div className="flex items-end gap-[3px] h-16">
+                <div className="flex h-16 items-end gap-[3px]">
                     {bars.map((h, i) => (
                         <motion.div key={i} initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ duration: 0.7, delay: i * 0.04, ease: 'circOut' }}
                             className={`flex-1 rounded-t-sm ${i === bars.length - 1 ? 'bg-[#99A0F9] shadow-[0_0_10px_rgba(140,158,255,0.5)]' : 'bg-[#1e2343]'}`}
@@ -257,9 +313,9 @@ const AnalyticsViz = () => {
             <div className="grid grid-cols-3 gap-3">
                 {kpis.map((k, i) => (
                     <motion.div key={k.label} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 + i * 0.1 }}
-                        className="p-3 rounded-xl bg-[#0f1225] border border-[#1e2343] flex flex-col gap-1">
-                        <p className="text-[8px] font-black text-white/30 uppercase tracking-tighter">{k.label}</p>
-                        <p className="text-[17px] font-black text-white tracking-tight leading-none">{k.val}</p>
+                        className="flex flex-col gap-1 rounded-xl border border-[#1e2343] bg-[#0f1225] p-3">
+                        <p className="text-[8px] font-black uppercase tracking-tighter text-white/30">{k.label}</p>
+                        <p className="text-[17px] font-black leading-none tracking-tight text-white">{k.val}</p>
                     </motion.div>
                 ))}
             </div>
@@ -356,52 +412,57 @@ const PlatformShowcase = () => {
     ];
 
     return (
-        <section ref={sectionRef} className="bg-[#0c0e1a] text-white relative border-t border-white/5 h-[500vh]" id="showcase">
-            <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden py-10">
+        <section ref={sectionRef} className="relative h-[500vh] border-t border-white/5 bg-[#0c0e1a] text-white" id="showcase">
+            <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden py-10">
                 <div className="container relative z-10 mx-auto px-6">
-                    <div className="max-w-4xl mx-auto text-center mb-10 space-y-4">
-                        <span className="text-[12px] font-bold text-[#99A0F9] uppercase tracking-[0.3em] drop-shadow-[0_0_15px_rgba(140,158,255,0.3)]">
+                    <div className="mx-auto mb-10 max-w-4xl space-y-4 text-center">
+                        <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#99A0F9] drop-shadow-[0_0_15px_rgba(140,158,255,0.3)]">
                             Platform Intelligence
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
+                        <h2 className="!mb-2 !text-center !text-4xl !font-bold !tracking-tight !text-white md:!text-5xl">
                             See Everything and <br /><span className="text-[#99A0F9]">Protect Everything</span>
                         </h2>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
-
-                        {/* Left: Navigation */}
-                        <div className="w-full lg:w-[280px] flex flex-col gap-2 shrink-0">
+                    <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
+                        <div className="flex w-full shrink-0 flex-col gap-2 lg:w-[280px]">
                             {features.map((feature, idx) => (
                                 <button
                                     key={feature.id}
+                                    type="button"
                                     onClick={() => handleTabClick(idx)}
-                                    className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl text-left transition-all duration-300 relative border ${activeTab === idx
-                                        ? 'bg-gradient-to-r from-[#1e2343] to-[#151930] border-[#99A0F9]/40 shadow-[0_0_20px_rgba(140,158,255,0.1)]'
-                                        : 'bg-[#0f1225] border-transparent hover:border-[#1e2343] hover:bg-[#151930]'
+                                    className={`relative flex items-center gap-3 rounded-2xl border px-4 py-3.5 text-left transition-all duration-300 ${
+                                        activeTab === idx
+                                            ? 'border-[#99A0F9]/40 bg-gradient-to-r from-[#1e2343] to-[#151930] shadow-[0_0_20px_rgba(140,158,255,0.1)]'
+                                            : 'border-transparent bg-[#0f1225] hover:border-[#1e2343] hover:bg-[#151930]'
                                     }`}
                                 >
-                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${activeTab === idx
-                                        ? 'bg-gradient-to-br from-[#99A0F9] to-indigo-400 text-white shadow-[0_0_15px_rgba(140,158,255,0.4)] scale-110'
-                                        : 'bg-[#1e2343] border border-white/5 text-slate-400'}`}
+                                    <div
+                                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
+                                            activeTab === idx
+                                                ? 'scale-110 bg-gradient-to-br from-[#99A0F9] to-indigo-400 text-white shadow-[0_0_15px_rgba(140,158,255,0.4)]'
+                                                : 'border border-white/5 bg-[#1e2343] text-slate-400'
+                                        }`}
                                     >
-                                        <feature.icon className="w-5 h-5" />
+                                        <feature.icon className="h-5 w-5" />
                                     </div>
-                                    <div className={`text-[14px] font-bold tracking-tight transition-colors leading-tight ${activeTab === idx ? 'text-white' : 'text-slate-400'}`}>
+                                    <div
+                                        className={`text-[14px] font-bold leading-tight tracking-tight transition-colors ${
+                                            activeTab === idx ? 'text-white' : 'text-slate-400'
+                                        }`}
+                                    >
                                         {feature.label}
                                     </div>
                                     {activeTab === idx && (
-                                        <motion.div layoutId="active-pill" className="absolute right-3 w-1.5 h-1.5 rounded-full bg-[#99A0F9]" />
+                                        <motion.div layoutId="active-pill" className="absolute right-3 h-1.5 w-1.5 rounded-full bg-[#99A0F9]" />
                                     )}
                                 </button>
                             ))}
                         </div>
 
-                        {/* Right: Dashboard panel */}
-                        <div className="flex-1 w-full relative">
-                            <div className="p-8 flex flex-col bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343] shadow-[0_20px_40px_rgba(0,0,0,0.5)] rounded-[2rem]">
-                                {/* Header */}
-                                <div className="mb-5 h-[88px] shrink-0">
+                        <div className="relative w-full flex-1">
+                            <div className="flex flex-col rounded-[2rem] border border-[#1e2343] bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-8 shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+                                <div className="mb-4 h-[72px] shrink-0">
                                     <AnimatePresence mode="wait">
                                         <motion.div
                                             key={activeTab}
@@ -410,14 +471,17 @@ const PlatformShowcase = () => {
                                             exit={{ opacity: 0, y: -10 }}
                                             transition={{ duration: 0.25 }}
                                         >
-                                            <h3 className="text-[26px] font-bold text-white mb-2 tracking-tight text-center">{features[activeTab].title}</h3>
-                                            <p className="text-slate-400 text-[14px] leading-relaxed text-center line-clamp-2">{features[activeTab].desc}</p>
+                                            <h3 className="!mb-2 !text-center !text-[26px] !font-bold !tracking-tight !text-white">
+                                                {features[activeTab].title}
+                                            </h3>
+                                            <p className="!mx-auto line-clamp-2 max-w-2xl !text-center text-[14px] leading-relaxed text-slate-400">
+                                                {features[activeTab].desc}
+                                            </p>
                                         </motion.div>
                                     </AnimatePresence>
                                 </div>
 
-                                {/* Illustration */}
-                                <div className="bg-[#05060f] rounded-2xl border border-[#1e2343]/50 overflow-hidden relative h-[260px] shrink-0 w-full">
+                                <div className="relative h-[300px] w-full shrink-0 overflow-hidden rounded-2xl border border-[#1e2343]/50 bg-[#05060f]">
                                     <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:2rem_2rem]" />
                                     <AnimatePresence mode="wait">
                                         <motion.div
@@ -426,15 +490,14 @@ const PlatformShowcase = () => {
                                             animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0, scale: 1.02 }}
                                             transition={{ duration: 0.3 }}
-                                            className="absolute inset-0 p-6"
+                                            className="absolute inset-0 flex p-5"
                                         >
                                             {features[activeTab].viz}
                                         </motion.div>
                                     </AnimatePresence>
                                 </div>
 
-                                {/* Footer Metrics */}
-                                <div className="flex w-full justify-between items-start mt-6 pt-6 border-t border-[#1e2343] gap-2">
+                                <div className="mt-5 flex w-full items-start justify-between gap-2 border-t border-[#1e2343] pt-5">
                                     <AnimatePresence mode="wait">
                                         <motion.div
                                             key={activeTab}
@@ -445,9 +508,11 @@ const PlatformShowcase = () => {
                                             className="flex w-full justify-between"
                                         >
                                             {features[activeTab].metrics.map((m, i) => (
-                                                <div key={i} className="flex flex-col shrink-0 text-left">
-                                                    <div className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-1 whitespace-nowrap">Metric {i + 1}</div>
-                                                    <div className="text-[15px] font-bold text-white tracking-tight whitespace-nowrap">{m}</div>
+                                                <div key={i} className="flex shrink-0 flex-col text-left">
+                                                    <div className="mb-1 whitespace-nowrap text-[9px] font-bold uppercase tracking-widest text-slate-500">
+                                                        Metric {i + 1}
+                                                    </div>
+                                                    <div className="whitespace-nowrap text-[15px] font-bold tracking-tight text-white">{m}</div>
                                                 </div>
                                             ))}
                                         </motion.div>
@@ -455,7 +520,6 @@ const PlatformShowcase = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -12,18 +12,18 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
     };
 
     return (
-        <section className={`py-24 bg-white relative overflow-hidden ${sectionClassName}`} id="demo">
-            {/* Subtle architectural background */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+        <section className={`light-section-bg relative overflow-hidden py-24 ${sectionClassName}`} id="demo">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(153,160,249,0.14)_0%,transparent_45%),radial-gradient(circle_at_80%_100%,rgba(153,160,249,0.08)_0%,transparent_40%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,160,249,0.04)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
             
             <div className="container relative z-10 max-w-[85rem] mx-auto px-6">
                 
                 {/* Centered Header */}
                 <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
-                    <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#99A0F9]/10 border border-[#99A0F9]/20 mb-2">
-                        <span className="text-[10px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">Book a Demo</span>
+                    <div className="glass-badge relative z-10 mb-2 inline-flex items-center justify-center gap-2 px-5 py-2">
+                        <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.4em] text-[#7b82e8]">Book a Demo</span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                    <h2 className="!text-center text-4xl font-bold tracking-tight !text-slate-900 leading-[1.1] md:text-5xl">
                         {title}{' '}
                         <span className="text-[#99A0F9]">{titleAccent}</span>
                     </h2>
@@ -35,8 +35,8 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                 <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 items-start">
                     
                     {/* Left: Schedule a Demo Form */}
-                    <div className="bg-white border border-slate-200 rounded-[2.5rem] p-10 lg:p-12 shadow-[0_24px_64px_rgba(0,0,0,0.03)] relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50/50 rounded-bl-[4rem] -mr-16 -mt-16 transition-transform group-hover:scale-110" />
+                    <div className="glass-panel group relative overflow-hidden rounded-[2.5rem] p-10 lg:p-12">
+                        <div className="pointer-events-none absolute top-0 right-0 -mr-16 -mt-16 h-32 w-32 rounded-bl-[4rem] bg-gradient-to-bl from-[#99A0F9]/20 to-transparent transition-transform group-hover:scale-110" />
                         
                         <div className="relative z-10">
                             <h3 className="text-[24px] font-black text-slate-900 tracking-tight mb-8">Schedule a Demo</h3>
@@ -112,9 +112,9 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                     <div className="space-y-8 flex flex-col h-full">
                         
                         {/* What to Expect */}
-                        <div className="bg-slate-50/50 border border-slate-200 rounded-[2.5rem] p-8 lg:p-10 flex-1">
-                            <h4 className="text-[18px] font-black text-slate-900 tracking-tight mb-8">What to Expect</h4>
-                            <div className="space-y-6">
+                        <div className="glass-card relative z-10 flex-1 rounded-[2.5rem] p-8 lg:p-10">
+                            <h4 className="relative z-10 mb-8 text-[18px] font-black tracking-tight text-slate-900">What to Expect</h4>
+                            <div className="relative z-10 space-y-6">
                                 {[
                                     { icon: Clock, label: 'Response in < 24 hours' },
                                     { icon: ShieldCheck, label: '30-minute governance gap assessment' },
@@ -122,7 +122,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                     { icon: Map, label: 'Custom DPDP readiness roadmap' }
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-4 group">
-                                        <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-sm transition-colors group-hover:border-indigo-300">
+                                        <div className="glass-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors group-hover:border-[#99A0F9]/40">
                                             <item.icon className="w-5 h-5 text-indigo-500" />
                                         </div>
                                         <span className="text-[14px] font-bold text-slate-600 leading-tight">{item.label}</span>

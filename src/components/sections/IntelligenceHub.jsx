@@ -11,7 +11,7 @@ const InsightCard = ({ tag, readTime, title, excerpt, author, date, index }) => 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.55, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-7 shadow-[0_18px_60px_-30px_rgba(0,0,0,0.75)] hover:border-white/20 transition-colors"
+        className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-8 shadow-[0_18px_60px_-30px_rgba(0,0,0,0.75)] hover:border-white/20 transition-colors"
     >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(153,160,249,0.10)_0%,transparent_55%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -22,11 +22,11 @@ const InsightCard = ({ tag, readTime, title, excerpt, author, date, index }) => 
             <span className="text-[11px] font-semibold text-white/35">{readTime}</span>
         </div>
         
-        <h3 className="relative z-10 mt-5 text-[18px] font-black tracking-tight text-white leading-snug">
+        <h3 className="relative z-10 mt-5 text-left text-[18px] font-black tracking-tight text-white leading-snug">
             {title}
         </h3>
 
-        <p className="relative z-10 mt-3 text-[13px] leading-relaxed font-medium text-white/50">
+        <p className="relative z-10 mt-3 min-h-[4.5rem] flex-1 !text-left text-[13px] leading-relaxed font-medium text-white/50 line-clamp-3 !mx-0 !max-w-none">
             {excerpt}
         </p>
 
@@ -90,7 +90,7 @@ const IntelligenceHub = () => {
     ];
 
     return (
-        <section className="bg-[#0c0e1a] text-white relative border-t border-white/5 pt-10 md:pt-14 pb-10 md:pb-14" id="resources">
+        <section className="bg-[#0c0e1a] text-white relative border-t border-white/5 pt-12 md:pt-16 pb-12 md:pb-16" id="resources">
                 {/* Ambient background glow */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(153,160,249,0.08)_0%,transparent_55%)] pointer-events-none" />
 
@@ -117,7 +117,7 @@ const IntelligenceHub = () => {
                         </a>
                     </div>
 
-                    <div className="grid gap-6 md:grid-cols-3">
+                    <div className="grid gap-8 md:grid-cols-3">
                         {insights.map((i, idx) => (
                             <InsightCard key={i.title} index={idx} {...i} />
                         ))}

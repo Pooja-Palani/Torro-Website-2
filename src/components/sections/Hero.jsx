@@ -63,7 +63,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative flex min-h-[82vh] items-center overflow-hidden bg-black px-4 pb-16 pt-24 text-white lg:min-h-[88vh] lg:pt-28">
+        <section className="relative isolate flex min-h-[100svh] min-h-[100dvh] items-center overflow-hidden bg-black px-4 pb-12 pt-[calc(var(--header-height)+1.5rem)] text-white">
             {/* Starry/Node background effect */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,160,249,0.15)_0,transparent_100%)]" />
@@ -81,10 +81,9 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="!text-left text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-5xl lg:text-[3.35rem] lg:leading-[1.06]"
+                            className="!text-left whitespace-nowrap text-[clamp(1.5rem,4.5vw,2.25rem)] font-bold leading-[1.06] tracking-tight text-white md:text-[clamp(2rem,3vw+0.65rem,2.85rem)] lg:text-[2.5rem] xl:text-5xl 2xl:text-6xl"
                         >
-                            Command{' '}
-                            <span style={{ color: ACCENT }}>Data Leadership</span>
+                            Command <span style={{ color: ACCENT }}>Data Leadership</span>
                         </motion.h1>
 
                         <motion.p
@@ -138,7 +137,7 @@ const Hero = () => {
                     </div>
 
                     {/* Right Visual (Shield & Platform) */}
-                    <div className="relative mt-12 flex w-full justify-center lg:mt-0 lg:w-1/2 lg:justify-end">
+                    <div className="relative mt-8 flex w-full justify-center lg:mt-0 lg:w-1/2 lg:justify-end">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -149,49 +148,22 @@ const Hero = () => {
                             <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
                                 <svg className="h-full w-full" viewBox="0 0 500 500">
                                     <g className="origin-center animate-[spin_40s_linear_infinite]">
-                                        <circle
-                                            cx="250"
-                                            cy="250"
-                                            r="140"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            className="text-primary/40"
-                                            strokeWidth="1"
-                                            strokeDasharray="3 8"
-                                        />
+                                        <circle cx="250" cy="250" r="140" fill="none" stroke="currentColor" className="text-primary/40" strokeWidth="1" strokeDasharray="3 8" />
                                     </g>
                                     <g className="origin-center animate-[spin_50s_linear_infinite_reverse]">
-                                        <circle
-                                            cx="250"
-                                            cy="250"
-                                            r="185"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            className="text-accent/30"
-                                            strokeWidth="1"
-                                            strokeDasharray="4 10"
-                                        />
+                                        <circle cx="250" cy="250" r="185" fill="none" stroke="currentColor" className="text-accent/30" strokeWidth="1" strokeDasharray="4 10" />
                                     </g>
                                     <g className="origin-center animate-[spin_60s_linear_infinite]">
-                                        <circle
-                                            cx="250"
-                                            cy="250"
-                                            r="230"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            className="text-primary/20"
-                                            strokeWidth="1"
-                                            strokeDasharray="4 12"
-                                        />
+                                        <circle cx="250" cy="250" r="230" fill="none" stroke="currentColor" className="text-primary/20" strokeWidth="1" strokeDasharray="4 12" />
                                     </g>
                                 </svg>
                             </div>
 
-                            {/* Orbit 1 (r=140) — Data Quality */}
+                            {/* Orbit 1 — Data Quality */}
                             <motion.div
                                 animate={{ y: [-4, 4, -4] }}
                                 transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-                                className="absolute left-[30%] top-[30%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
+                                className="absolute left-[22%] top-[22%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
                             >
                                 <div className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md">
                                     <Cloud className="h-6 w-6 text-primary" />
@@ -203,7 +175,7 @@ const Hero = () => {
                             <motion.div
                                 animate={{ y: [4, -4, 4] }}
                                 transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 0.5 }}
-                                className="absolute left-[70%] top-[70%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
+                                className="absolute left-[72%] top-[62%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
                             >
                                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md">
                                     <Cpu className="h-5 w-5 text-primary" />
@@ -211,7 +183,7 @@ const Hero = () => {
                                 <span className={orbitLabel}>Data Stewardship</span>
                             </motion.div>
 
-                            {/* Orbit 2 (r=185) — Data Visibility */}
+                            {/* Orbit 2 — Data Visibility */}
                             <motion.div
                                 animate={{ y: [-5, 5, -5] }}
                                 transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}

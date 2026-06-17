@@ -42,58 +42,54 @@ const SolutionsForTeam = () => {
   ];
 
   return (
-    <section className="bg-[#0c0e1a] text-white py-24 relative border-t border-white/5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(153,160,249,0.06)_0%,transparent_55%)] pointer-events-none" />
+    <section className="light-section-bg relative py-24 text-slate-900">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_0%,rgba(153,160,249,0.18)_0%,transparent_50%),radial-gradient(circle_at_80%_20%,rgba(153,160,249,0.1)_0%,transparent_45%)]" />
       <div className="relative container mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 flex flex-col items-center">
-          <div className="inline-flex items-center justify-center gap-3 px-6 py-2.5 rounded-full bg-[#99A0F9]/10 border border-[#99A0F9]/20 shadow-[0_0_20px_rgba(153,160,249,0.08)] mb-6">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#99A0F9] animate-pulse shadow-[0_0_12px_rgba(153,160,249,0.45)]" />
-            <span className="text-[12px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">
+        <div className="mb-16 flex flex-col items-center text-center">
+          <div className="glass-badge relative z-10 mb-6 inline-flex items-center justify-center gap-3 px-6 py-2.5">
+            <div className="relative z-10 h-2.5 w-2.5 animate-pulse rounded-full bg-[#99A0F9] shadow-[0_0_12px_rgba(153,160,249,0.45)]" />
+            <span className="relative z-10 text-[12px] font-black uppercase tracking-[0.4em] text-[#7b82e8]">
               Solutions For Team
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-5 leading-[1.1]">
-            Built for Every <span className="text-[#99A0F9]">Institutional Stakeholder</span>
+          <h2 className="!mb-5 !text-center !text-4xl !font-black !leading-[1.1] !tracking-tight !text-slate-900 md:!text-5xl">
+            <span className="text-slate-900">Built for Every</span>{' '}
+            <span className="text-[#6b72d6]">Institutional Stakeholder</span>
           </h2>
-          <p className="text-[16px] md:text-lg text-white/55 font-medium max-w-3xl mx-auto">
+          <p className="!mx-auto max-w-3xl !text-center text-[16px] font-medium !text-slate-600 md:text-lg">
             Torro speaks the language of CISOs, data engineers, and business leaders — simultaneously.
           </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-3">
           {solutions.map((solution, idx) => {
             const Icon = solution.icon;
             return (
               <div
                 key={idx}
-                className="group bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 hover:border-[#99A0F9]/30 transition-all duration-300 hover:shadow-[0_24px_70px_-18px_rgba(0,0,0,0.55)]"
+                className="glass-card glass-card-lift group box-copy p-8"
               >
-                {/* Icon & Title */}
-                <div className="mb-6 text-left">
-                  <div className="w-14 h-14 rounded-xl bg-[#99A0F9]/10 border border-[#99A0F9]/20 flex items-center justify-center mb-4 transition-all">
-                    <Icon className="w-7 h-7 text-[#99A0F9]" />
+                <div className="relative z-10 mb-6 text-left">
+                  <div className="glass-icon-lavender relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-2xl">
+                    <Icon className="relative z-10 h-7 w-7 text-[#6b72d6]" />
                   </div>
-                  <div className="text-[11px] font-black uppercase tracking-[0.15em] text-[#99A0F9] mb-2">
+                  <div className="mb-2 text-[11px] font-black uppercase tracking-[0.15em] text-[#7b82e8]">
                     {solution.subtitle}
                   </div>
-                  <h3 className="text-2xl font-black tracking-tight text-white">
+                  <h3 className="!text-left !text-2xl !font-black !tracking-tight !text-slate-900">
                     {solution.title}
                   </h3>
                 </div>
 
-                {/* Description */}
-                <p className="text-white/55 text-[15px] leading-relaxed mb-6 text-left font-medium">
+                <p className="relative z-10 mb-6 text-left text-[15px] font-medium leading-relaxed text-slate-600">
                   {solution.description}
                 </p>
 
-                {/* Features List */}
-                <ul className="space-y-3 text-left">
+                <ul className="relative z-10 space-y-3 text-left">
                   {solution.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-[14px] text-white/75">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#99A0F9] mt-2 flex-shrink-0" />
+                    <li key={i} className="flex items-start gap-3 text-[14px] !text-slate-700">
+                      <div className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#99A0F9]" />
                       <span>{feature}</span>
                     </li>
                   ))}
