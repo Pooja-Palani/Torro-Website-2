@@ -105,8 +105,8 @@ const IntelligenceHub = () => {
                         </span>
 
                         <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.1]">
-                            Intelligence for Executives Who Can&apos;t Afford{' '}
-                            <span style={{ color: ACCENT }}>Surprises</span>
+                            Intelligence for Executives{' '}
+                            <span style={{ color: ACCENT }}>at Scale</span>
                         </h2>
 
                         <a

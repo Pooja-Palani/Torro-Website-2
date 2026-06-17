@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, Mail, Building, User, ArrowRight, CheckCircle2, Clock, Play, Map, Send, Bell } from 'lucide-react';
 
-const DemoForm = ({ sectionClassName = '' }) => {
+const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent = 'Institutional Readiness.' }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
 
@@ -24,7 +24,8 @@ const DemoForm = ({ sectionClassName = '' }) => {
                         <span className="text-[10px] font-black text-[#99A0F9] uppercase tracking-[0.4em]">Book a Demo</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
-                        Evaluate Your <br /><span className="text-[#99A0F9]">Institutional Readiness.</span>
+                        {title}{' '}
+                        <span className="text-[#99A0F9]">{titleAccent}</span>
                     </h2>
                     <p className="text-slate-500 text-[16px] font-medium leading-relaxed max-w-2xl mx-auto">
                         Talk to a Torro governance architect. We'll map your estate, identify gaps, and show you what full compliance looks like in 4 weeks.

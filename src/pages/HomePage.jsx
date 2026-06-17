@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from '../components/sections/Hero';
-import Capabilities from '../components/sections/Capabilities';
 import PlatformShowcase from '../components/sections/PlatformShowcase';
 import IntelligenceHub from '../components/sections/IntelligenceHub';
 import SolutionsForTeam from '../components/sections/SolutionsForTeam';
@@ -10,25 +9,26 @@ import DemoForm from '../components/sections/DemoForm';
 function HomePage() {
   return (
     <>
-      {/* Core Narrative */}
+      {/* Page 1 — Command Data Leadership */}
       <Hero />
 
-      <div className="bg-gray-50/50">
-        <Capabilities 
-          title="Enterprise Data At Scale" 
-          subtitle="Comprehensive Data Governance, Privacy Compliance and Secure Analytics for Modern Enterprises"
-        />
-      </div>
-
-      <PlatformShowcase />
-
+      {/* Page 2 — Built for Every Institutional Stakeholder */}
       <SolutionsForTeam />
 
+      {/* Page 3 — See Everything and Protect Everything */}
+      <PlatformShowcase />
+
+      {/* Page 4 — Navigate Global Mandates With Absolute Accountability */}
       <GlobalMandates />
 
-      {/* Conversion */}
+      {/* Page 5 — Intelligence for Executives at Scale */}
       <IntelligenceHub />
-      <DemoForm />
+
+      {/* Final — Evaluate Institutional Readiness */}
+      <DemoForm
+        title="Evaluate"
+        titleAccent="Institutional Readiness"
+      />
     </>
   );
 }

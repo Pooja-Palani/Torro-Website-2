@@ -20,6 +20,13 @@ const Footer = () => {
                             Torro is the unified data operating system for institutional-grade governance, compliance, and secure analytics.
                         </div>
 
+                        <address className="not-italic text-white/55 text-[13px] leading-relaxed font-medium space-y-0.5">
+                            <div className="text-white/70 text-[12px] font-black uppercase tracking-[0.18em] mb-2">
+                                Research and Development Center
+                            </div>
+                            <div>Torro AI Lab Limited</div>
+                            <div>22/F 3 Lockhart Rd, Wan Chai, Hong Kong</div>
+                        </address>
                     </div>
 
                     <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-10">

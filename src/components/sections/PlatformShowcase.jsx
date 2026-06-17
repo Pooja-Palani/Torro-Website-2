@@ -364,7 +364,7 @@ const PlatformShowcase = () => {
                             Platform Intelligence
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
-                            See Everything. <br /><span className="text-[#99A0F9]">Protect Everything.</span>
+                            See Everything and <br /><span className="text-[#99A0F9]">Protect Everything</span>
                         </h2>
                     </div>
 

@@ -1,10 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Cloud, BarChart2, Settings, Lock, Cpu, Globe } from 'lucide-react';
 
 const ACCENT = '#99A0F9';
 
+const HERO_VERBS = ['Observe', 'Manage', 'Protect', 'Accelerate'];
+const VERB_INTERVAL_MS = 4200;
+const VERB_TRANSITION = { duration: 0.75, ease: [0.22, 1, 0.36, 1] };
+
 const orbitLabel = 'text-[8px] font-black uppercase tracking-[0.14em] text-white/65 text-center leading-tight md:text-[9px] max-w-[92px]';
+
+const HeroVerbCarousel = () => {
+    const [verbIndex, setVerbIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setVerbIndex((current) => (current + 1) % HERO_VERBS.length);
+        }, VERB_INTERVAL_MS);
+        return () => clearInterval(timer);
+    }, []);
+
+    const activeVerb = HERO_VERBS[verbIndex];
+
+    return (
+        <span className="relative inline-grid align-bottom text-[#99A0F9]" aria-live="polite" aria-atomic="true">
+            <span className="sr-only">{`${activeVerb} Enterprise Data At Scale`}</span>
+            {/* Sizing ghost — width matches longest verb without leaving empty inline space */}
+            <span className="invisible col-start-1 row-start-1 whitespace-nowrap" aria-hidden="true">
+                Accelerate
+            </span>
+            <span className="relative col-start-1 row-start-1 h-[1.1em] overflow-hidden">
+                <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                        key={activeVerb}
+                        initial={{ y: '100%', opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: '-100%', opacity: 0 }}
+                        transition={VERB_TRANSITION}
+                        className="absolute left-0 top-0 block whitespace-nowrap"
+                    >
+                        {activeVerb}
+                    </motion.span>
+                </AnimatePresence>
+            </span>
+        </span>
+    );
+};
 
 const Hero = () => {
     const [hasScrolled, setHasScrolled] = useState(false);
@@ -22,7 +63,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-black px-4 pb-24 pt-32 text-white">
+        <section className="relative flex min-h-[82vh] items-center overflow-hidden bg-black px-4 pb-16 pt-24 text-white lg:min-h-[88vh] lg:pt-28">
             {/* Starry/Node background effect */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,160,249,0.15)_0,transparent_100%)]" />
@@ -33,31 +74,38 @@ const Hero = () => {
             </div>
 
             <div className="container relative z-10 mx-auto px-6">
-                <div className="flex flex-col items-center justify-between gap-16 lg:flex-row">
+                <div className="flex flex-col items-center justify-between gap-10 lg:flex-row lg:gap-12">
                     {/* Left Content */}
-                    <div className="w-full space-y-8 text-left lg:w-1/2">
+                    <div className="w-full space-y-3 text-left lg:w-1/2">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="!text-left text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl"
+                            className="!text-left text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-5xl lg:text-[3.35rem] lg:leading-[1.06]"
                         >
-                            Control{' '}
-                            <motion.span
-                                className="inline-block cursor-default transition-all duration-300 hover:scale-[1.05] hover:drop-shadow-[0_0_15px_rgba(153,160,249,0.5)]"
-                                style={{ color: ACCENT }}
-                            >
-                                Enterprise Data
-                            </motion.span>
-                            <br />
-                            <span style={{ color: ACCENT }}>at Scale!</span>
+                            Command{' '}
+                            <span style={{ color: ACCENT }}>Data Leadership</span>
                         </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.1 }}
-                            className="!mx-0 max-w-xl !text-left text-lg leading-relaxed text-gray-300"
+                            transition={{ duration: 0.8, delay: 0.08 }}
+                            className="!mx-0 flex max-w-2xl flex-wrap items-baseline gap-x-2 !text-left text-xl font-bold leading-[1.2] tracking-tight text-white md:text-2xl lg:text-3xl"
+                            role="doc-subtitle"
+                        >
+                            <HeroVerbCarousel />
+                            <span>
+                                Enterprise Data{' '}
+                                <span style={{ color: ACCENT }}>At Scale</span>
+                            </span>
+                        </motion.p>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.16 }}
+                            className="!mx-0 max-w-xl !text-left pt-1 text-base leading-relaxed text-gray-300 md:text-lg"
                         >
                             A RegTech platform that enforces real-time PII protection, automates compliance, and delivers full
                             visibility across hybrid data environments.
@@ -67,7 +115,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="flex flex-col items-center gap-6 pt-4 sm:flex-row"
+                            className="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center"
                         >
                             <button
                                 className="z-20 whitespace-nowrap rounded-full px-8 py-3.5 text-[15px] font-bold text-black shadow-[0_14px_34px_-18px_rgba(153,160,249,0.55)] transition-all duration-300 hover:scale-[1.05] active:scale-95"
