@@ -244,11 +244,12 @@ const Resources = () => {
 
         {/* Newsletter — enterprise band */}
         <motion.div
+          id="newsletter"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
           viewport={{ once: true }}
-          className="mt-16 overflow-hidden rounded-2xl border border-[#1e2343]/50 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] md:mt-20"
+          className="mt-16 scroll-mt-28 overflow-hidden rounded-2xl border border-[#1e2343]/50 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] md:mt-20"
         >
           <div className="grid gap-8 p-8 md:grid-cols-[1fr_1.05fr] md:items-center md:gap-12 md:p-12">
             <div className="box-copy text-left">

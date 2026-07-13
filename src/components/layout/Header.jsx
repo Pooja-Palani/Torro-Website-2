@@ -40,16 +40,16 @@ const Header = () => {
         title: 'Our Solutions',
         href: '/offerings#solutions',
         links: [
-          { label: 'Unified Discovery & Metadata Foundation', href: '/offerings#unified-discovery-metadata-foundation' },
+          { label: 'Unified Discovery & Metadata Foundation', href: '/offerings#unified-discovery-and-metadata-foundation' },
           { label: 'End-to-End Data Lineage', href: '/offerings#end-to-end-data-lineage' },
-          { label: 'Continuous Data Quality & Trust', href: '/offerings#continuous-data-quality-trust' },
-          { label: 'Automated Entitlements & Protection', href: '/offerings#automated-entitlements-protection' },
-          { label: 'Data Marketplace & PrivBox', href: '/offerings#data-marketplace-privbox' }
+          { label: 'Continuous Data Quality & Trust', href: '/offerings#continuous-data-quality-and-trust' },
+          { label: 'Automated Entitlements & Protection', href: '/offerings#automated-entitlements-and-protection' },
+          { label: 'Data Marketplace & PrivBox', href: '/offerings#data-marketplace-and-privbox' }
         ]
       },
       {
         title: 'Our Services',
-        href: '/services',
+        href: '/services#services',
         links: [
           { label: 'Data Engineering Services', href: '/services#data-engineering-services' },
           { label: 'Cloud Consulting Services', href: '/services#cloud-consulting-services' },
@@ -61,7 +61,7 @@ const Header = () => {
       },
       {
         title: 'Industries',
-        href: '/industries',
+        href: '/industries#industries',
         links: [
           { label: 'BFSI', href: '/industries#bfsi' },
           { label: 'Healthcare', href: '/industries#healthcare' },
@@ -70,7 +70,7 @@ const Header = () => {
       },
       {
         title: 'Compliance',
-        href: '/compliance',
+        href: '/compliance#compliance',
         links: [
           { label: 'DPDP / DPDPA', href: '/compliance#dpdp-act-2023' },
           { label: 'GDPR', href: '/compliance#gdpr' },
@@ -93,7 +93,7 @@ const Header = () => {
     },
     {
       label: 'Use Cases',
-      href: '/use-cases',
+      href: '/use-cases#use-cases',
       submenu: [
         { label: 'Enterprise Data Visibility', href: '/use-cases#enterprise-data-visibility' },
         { label: 'Cross-Border Data Governance', href: '/use-cases#cross-border-data-governance' },
@@ -106,15 +106,15 @@ const Header = () => {
       label: 'Resources',
       href: '/resources',
       submenu: [
-        { label: 'Blog', href: '/resources' },
-        { label: 'Newsletter', href: '/resources' }
+        { label: 'Blog', href: '/resources#briefings' },
+        { label: 'Newsletter', href: '/resources#newsletter' }
       ]
     },
     {
       label: 'Company',
       href: '/company',
       submenu: [
-        { label: 'About Us', href: '/company' },
+        { label: 'About Us', href: '/company#about' },
         // { label: 'Partners', href: '/company' }
       ]
     }

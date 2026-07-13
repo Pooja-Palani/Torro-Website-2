@@ -116,15 +116,15 @@ const Footer = () => {
                         <div className="space-y-4">
                             <div className="text-[12px] font-black uppercase tracking-[0.2em] text-white">Resources</div>
                             <ul className="space-y-2.5">
-                                <li><Link to="/resources" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Blog</Link></li>
-                                <li><Link to="/resources" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Newsletter</Link></li>
+                                <li><Link to="/resources#briefings" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Blog</Link></li>
+                                <li><Link to="/resources#newsletter" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Newsletter</Link></li>
                             </ul>
                         </div>
 
                         <div className="space-y-4">
                             <div className="text-[12px] font-black uppercase tracking-[0.2em] text-white">Company</div>
                             <ul className="space-y-2.5">
-                                <li><Link to="/company" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">About Us</Link></li>
+                                <li><Link to="/company#about" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">About Us</Link></li>
                                 {/* <li><Link to="/company" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Partners</Link></li> */}
                             </ul>
                         </div>

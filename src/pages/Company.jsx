@@ -49,10 +49,11 @@ const Company = () => {
       <div className="relative z-10 mx-auto max-w-[95rem] px-6 md:px-12">
         {/* Hero */}
         <motion.div
+          id="about"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto mb-16 max-w-4xl text-center md:mb-20"
+          className="mx-auto mb-16 max-w-4xl scroll-mt-28 text-center md:mb-20"
         >
           <div className="mb-6 inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-6 py-2.5 shadow-[0_0_22px_rgba(153,160,249,0.10)]">
             <Users className="h-4 w-4" style={{ color: ACCENT }} />

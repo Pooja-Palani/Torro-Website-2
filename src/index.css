@@ -63,8 +63,10 @@
   }
 
   /* For direct element scrolling (e.g., element.scrollIntoView), add margin offset */
-  section[id] {
-    scroll-margin-top: calc(var(--header-height) + 8px);
+  section[id],
+  [id].scroll-mt-28,
+  [id][class*='scroll-mt'] {
+    scroll-margin-top: calc(var(--header-height) + 12px);
   }
 
 /* Intelligence Console (resources) — extra top clearance */

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import ScrollToHash from './components/ScrollToHash';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -22,6 +23,7 @@ import BookDemo from './pages/BookDemo';
 function App() {
   return (
     <Router>
+      <ScrollToHash />
       <div className="min-h-screen flex flex-col bg-white text-gray-900 selection:bg-blue-100 selection:text-blue-900">
         <Header />
         
