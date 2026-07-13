@@ -70,6 +70,11 @@ const analyticsLayerCards = [
     { title: 'Databases', Icon: Database },
 ];
 
+const connectorHorizontal =
+    'pointer-events-none absolute left-[6%] right-[6%] hidden h-[2px] bg-gradient-to-r from-transparent from-[8%] via-[#99A0F9]/60 via-50% to-transparent to-[92%] sm:block';
+const connectorVertical =
+    'w-[2px] rounded-full bg-gradient-to-b from-[#99A0F9]/70 via-[#99A0F9]/85 to-[#99A0F9]/70 shadow-[0_0_6px_rgba(153,160,249,0.35)]';
+
 const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 16 },
     whileInView: { opacity: 1, y: 0 },
@@ -115,29 +120,32 @@ const TorroOneDataPlatformStack = () => {
 
                         <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12">
                             {/* Strategic outcomes — floating lavender pods */}
-                            <div className="mb-8 flex flex-wrap justify-center gap-3 md:gap-4">
-                                {strategicOutcomes.map((row, i) => {
-                                    const Icon = row.Icon;
-                                    return (
-                                        <motion.div
-                                            key={row.title}
-                                            {...fadeUp(0.1 + i * 0.04)}
-                                            className="glass-pill-lavender glass-card-lift group relative z-10 flex max-w-full items-center gap-3 rounded-2xl px-4 py-3 sm:max-w-[calc(50%-0.5rem)] lg:max-w-[calc(25%-0.75rem)] lg:flex-1 lg:basis-0"
-                                        >
-                                            <div className="glass-icon-lavender-sm relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
-                                                <Icon className="relative z-10 h-5 w-5 text-[#6b72d6]" strokeWidth={2} />
-                                            </div>
-                                            <span className="relative z-10 text-left text-xs font-bold leading-snug text-slate-800 sm:text-[13px]">
-                                                {row.title}
-                                            </span>
-                                        </motion.div>
-                                    );
-                                })}
+                            <div className="relative mb-8">
+                                <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+                                    {strategicOutcomes.map((row, i) => {
+                                        const Icon = row.Icon;
+                                        return (
+                                            <motion.div
+                                                key={row.title}
+                                                {...fadeUp(0.1 + i * 0.04)}
+                                                className="glass-pill-lavender glass-card-lift group relative z-10 flex max-w-full items-center gap-3 rounded-2xl px-4 py-3 sm:max-w-[calc(50%-0.5rem)] lg:max-w-[calc(25%-0.75rem)] lg:flex-1 lg:basis-0"
+                                            >
+                                                <div className="glass-icon-lavender-sm relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
+                                                    <Icon className="relative z-10 h-5 w-5 text-[#6b72d6]" strokeWidth={2} />
+                                                </div>
+                                                <span className="relative z-10 text-left text-xs font-bold leading-snug text-slate-800 sm:text-[13px]">
+                                                    {row.title}
+                                                </span>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </div>
+                                <div className={`${connectorHorizontal} bottom-0 translate-y-4`} />
                             </div>
 
                             {/* Connector + platform hub */}
                             <div className="relative mb-8 flex w-full flex-col items-center">
-                                <div className="mb-3 h-8 w-px bg-gradient-to-b from-[#99A0F9]/40 to-[#99A0F9]/15" />
+                                <div className={`mb-3 h-10 ${connectorVertical}`} />
                                 <div className="glass-pill-lavender relative z-10 flex w-full max-w-4xl items-center justify-center gap-4 rounded-2xl px-10 py-4 shadow-[0_12px_40px_rgba(153,160,249,0.18)] sm:gap-5 sm:px-14 sm:py-5 md:max-w-5xl">
                                     <img
                                         src="/torro_png_logo.png"
@@ -148,12 +156,12 @@ const TorroOneDataPlatformStack = () => {
                                         Torro OneData Platform
                                     </span>
                                 </div>
-                                <div className="mt-3 h-8 w-px bg-gradient-to-b from-[#99A0F9]/15 to-[#99A0F9]/40" />
+                                <div className={`mt-3 h-10 ${connectorVertical}`} />
                             </div>
 
                             {/* Analytics layer — connected pods */}
                             <div className="relative mb-10">
-                                <div className="pointer-events-none absolute left-[8%] right-[8%] top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-[#99A0F9]/25 to-transparent sm:block" />
+                                <div className={`${connectorHorizontal} top-1/2 -translate-y-1/2`} />
                                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
                                     {analyticsLayerCards.map((c, i) => {
                                         const Icon = c.Icon;

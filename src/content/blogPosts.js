@@ -3,6 +3,8 @@ export const BLOG_POSTS = [
     slug: 'data-chaos-trap',
     title: "The Data Chaos Trap – Why Vertical Businesses Can't Tame Horizontal Data Flows",
     date: '',
+    image: '/resources/data-chaos.jpg',
+    imageAlt: 'Data center infrastructure representing complex enterprise data flows',
     content: [
       "In today's enterprises, think of your organization as a towering skyscraper: departments stacked vertically like floors, each with its own elevators (silos) for internal movement. Teams work nimbly in agile pods—those cross-floor squads hustling on projects—but data? It's the rogue wind blowing through cracked windows, seeping everywhere horizontally, circularly, and beyond borders.",
       'Vertical Structures Meet Multi-Dimensional Data Mayhem',
@@ -22,8 +24,9 @@ export const BLOG_POSTS = [
     slug: 'data-centric-enterprises',
     title: 'Data-Centric Enterprises – Governing Flows for the AI Onslaught',
     date: '',
-    content: [
-      "If Blog 1 exposed the cracks, here's the blueprint: Flip the skyscraper. Put data at the center—a glowing core hub with governed elevators (flows), observability radars, and border controls. This isn't buzzword bingo; it's reimagining design for multi-reg compliance, team agility, and AI readiness. At Torro.AI, we live this in our startup stack—here's how any org can.",
+    image: '/resources/data-centric.jpg',
+    imageAlt: 'Analytics dashboard visualizing governed enterprise data',
+    content: [      "If Blog 1 exposed the cracks, here's the blueprint: Flip the skyscraper. Put data at the center—a glowing core hub with governed elevators (flows), observability radars, and border controls. This isn't buzzword bingo; it's reimagining design for multi-reg compliance, team agility, and AI readiness. At Torro.AI, we live this in our startup stack—here's how any org can.",
       'Streamline with Full Observability: See Every Data Packet',
       'Empower decisions by mapping data like air traffic control. Deploy agent-based monitoring (think lightweight ML sentinels) across cloud/on-prem hybrids. They tag flows in real-time: origin, destination, sensitivity (e.g., via RBI tokenization for Indian banks).',
       'Original twist: Use "data passports"—dynamic metadata stamps logging journey, regs compliance, and access proofs. Query: "Show all customer data paths from Q1." No more "where is it?" black holes. Tools like open-source Collibra forks or Torro.AI-inspired custom dashboards make this democratic—pods self-serve without anarchy.',
@@ -65,8 +68,12 @@ const TAG_ALLOWLIST = [
 ];
 
 export function getBlogPreview50Chars(content) {
+  return getBlogPreview(content, 50);
+}
+
+export function getBlogPreview(content, max = 160) {
   const text = content.join(' ').replace(/\s+/g, ' ').trim();
-  return text.length <= 50 ? text : `${text.slice(0, 50).trimEnd()}…`;
+  return text.length <= max ? text : `${text.slice(0, max).trimEnd()}…`;
 }
 
 export function getBlogTagsFromContent(content) {

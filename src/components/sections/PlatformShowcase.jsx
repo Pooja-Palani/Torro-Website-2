@@ -325,18 +325,34 @@ const AnalyticsViz = () => {
 
 /* ─── Main Component ─── */
 
+const getHeaderOffset = () =>
+    parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 72;
+
 const PlatformShowcase = () => {
     const [activeTab, setActiveTab] = useState(0);
+    const [isLgUp, setIsLgUp] = useState(false);
     const sectionRef = useRef(null);
     const NUM_TABS = 5;
 
     useEffect(() => {
+        const mq = window.matchMedia('(min-width: 1024px)');
+        const sync = () => setIsLgUp(mq.matches);
+        sync();
+        mq.addEventListener('change', sync);
+        return () => mq.removeEventListener('change', sync);
+    }, []);
+
+    useEffect(() => {
+        if (!isLgUp) return undefined;
+
         const handleScroll = () => {
             if (!sectionRef.current) return;
+
             const rect = sectionRef.current.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            const scrollableDistance = rect.height - viewportHeight;
-            const scrolledDistance = -rect.top;
+            const stickyTop = getHeaderOffset();
+            const stickyHeight = window.innerHeight - stickyTop;
+            const scrollableDistance = Math.max(rect.height - stickyHeight, 1);
+            const scrolledDistance = stickyTop - rect.top;
 
             if (scrolledDistance >= 0 && scrolledDistance <= scrollableDistance) {
                 const progress = scrolledDistance / scrollableDistance;
@@ -344,7 +360,7 @@ const PlatformShowcase = () => {
                 setActiveTab(idx);
             } else if (scrolledDistance < 0) {
                 setActiveTab(0);
-            } else if (scrolledDistance > scrollableDistance) {
+            } else {
                 setActiveTab(NUM_TABS - 1);
             }
         };
@@ -352,14 +368,18 @@ const PlatformShowcase = () => {
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isLgUp]);
 
     const handleTabClick = (idx) => {
-        if (!sectionRef.current) return;
+        setActiveTab(idx);
+        if (!isLgUp || !sectionRef.current) return;
+
         const rect = sectionRef.current.getBoundingClientRect();
+        const stickyTop = getHeaderOffset();
+        const stickyHeight = window.innerHeight - stickyTop;
         const absoluteTop = window.scrollY + rect.top;
-        const scrollableDistance = rect.height - window.innerHeight;
-        const targetScroll = absoluteTop + scrollableDistance * (idx / (NUM_TABS - 1));
+        const scrollableDistance = Math.max(rect.height - stickyHeight, 1);
+        const targetScroll = absoluteTop - stickyTop + scrollableDistance * (idx / (NUM_TABS - 1));
         window.scrollTo({ top: targetScroll, behavior: 'smooth' });
     };
 
@@ -412,57 +432,63 @@ const PlatformShowcase = () => {
     ];
 
     return (
-        <section ref={sectionRef} className="relative h-[500vh] border-t border-white/5 bg-[#0c0e1a] text-white" id="showcase">
-            <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden py-10">
-                <div className="container relative z-10 mx-auto px-6">
-                    <div className="mx-auto mb-10 max-w-4xl space-y-4 text-center">
-                        <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#99A0F9] drop-shadow-[0_0_15px_rgba(140,158,255,0.3)]">
+        <section
+            ref={sectionRef}
+            className="relative border-t border-white/5 bg-[#0c0e1a] text-white lg:h-[500vh]"
+            id="showcase"
+        >
+            <div className="relative flex w-full flex-col justify-center overflow-visible py-12 sm:py-14 lg:sticky lg:top-[var(--header-height)] lg:h-[calc(100dvh-var(--header-height))] lg:overflow-hidden lg:py-5 xl:py-6">
+                <div className="container relative z-10 mx-auto min-h-0 w-full px-4 sm:px-6">
+                    <div className="mx-auto mb-6 max-w-4xl space-y-3 text-center md:mb-7 lg:mb-6">
+                        <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#99A0F9] drop-shadow-[0_0_15px_rgba(140,158,255,0.3)] sm:text-[12px] sm:tracking-[0.3em]">
                             Platform Intelligence
                         </span>
-                        <h2 className="!mb-2 !text-center !text-4xl !font-bold !tracking-tight !text-white md:!text-5xl">
-                            See Everything and <br /><span className="text-[#99A0F9]">Protect Everything</span>
+                        <h2 className="!mb-0 !text-center !text-[1.75rem] !font-bold !tracking-tight !text-white sm:!text-3xl md:!text-4xl lg:!text-[2.5rem] xl:!text-5xl">
+                            See Everything and <br className="hidden sm:block" />
+                            <span className="text-[#99A0F9]">Protect Everything</span>
                         </h2>
                     </div>
 
-                    <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
-                        <div className="flex w-full shrink-0 flex-col gap-2 lg:w-[280px]">
+                    <div className="flex min-h-0 flex-col gap-5 lg:flex-row lg:items-center lg:gap-6 xl:gap-8">
+                        {/* Mobile/tablet: horizontal snap tabs · Desktop: vertical rail */}
+                        <div className="-mx-4 flex w-[calc(100%+2rem)] shrink-0 gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:thin] sm:-mx-0 sm:w-full sm:px-0 lg:w-[260px] lg:flex-col lg:overflow-visible xl:w-[280px]">
                             {features.map((feature, idx) => (
                                 <button
                                     key={feature.id}
                                     type="button"
                                     onClick={() => handleTabClick(idx)}
-                                    className={`relative flex items-center gap-3 rounded-2xl border px-4 py-3.5 text-left transition-all duration-300 ${
+                                    className={`relative flex min-w-[min(78vw,280px)] shrink-0 snap-start items-center gap-3 rounded-2xl border px-3.5 py-3 text-left transition-all duration-300 sm:min-w-[240px] lg:min-w-0 lg:w-full lg:px-4 lg:py-2.5 xl:py-3.5 ${
                                         activeTab === idx
                                             ? 'border-[#99A0F9]/40 bg-gradient-to-r from-[#1e2343] to-[#151930] shadow-[0_0_20px_rgba(140,158,255,0.1)]'
                                             : 'border-transparent bg-[#0f1225] hover:border-[#1e2343] hover:bg-[#151930]'
                                     }`}
                                 >
                                     <div
-                                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
+                                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-all duration-300 lg:h-10 lg:w-10 ${
                                             activeTab === idx
-                                                ? 'scale-110 bg-gradient-to-br from-[#99A0F9] to-indigo-400 text-white shadow-[0_0_15px_rgba(140,158,255,0.4)]'
+                                                ? 'scale-105 bg-gradient-to-br from-[#99A0F9] to-indigo-400 text-white shadow-[0_0_15px_rgba(140,158,255,0.4)] lg:scale-110'
                                                 : 'border border-white/5 bg-[#1e2343] text-slate-400'
                                         }`}
                                     >
-                                        <feature.icon className="h-5 w-5" />
+                                        <feature.icon className="h-4 w-4 lg:h-5 lg:w-5" />
                                     </div>
                                     <div
-                                        className={`text-[14px] font-bold leading-tight tracking-tight transition-colors ${
+                                        className={`text-[13px] font-bold leading-tight tracking-tight transition-colors lg:text-[14px] ${
                                             activeTab === idx ? 'text-white' : 'text-slate-400'
                                         }`}
                                     >
                                         {feature.label}
                                     </div>
                                     {activeTab === idx && (
-                                        <motion.div layoutId="active-pill" className="absolute right-3 h-1.5 w-1.5 rounded-full bg-[#99A0F9]" />
+                                        <motion.div layoutId="active-pill" className="absolute right-3 hidden h-1.5 w-1.5 rounded-full bg-[#99A0F9] lg:block" />
                                     )}
                                 </button>
                             ))}
                         </div>
 
-                        <div className="relative w-full flex-1">
-                            <div className="flex flex-col rounded-[2rem] border border-[#1e2343] bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-8 shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
-                                <div className="mb-4 h-[72px] shrink-0">
+                        <div className="relative min-w-0 flex-1">
+                            <div className="flex flex-col rounded-[1.5rem] border border-[#1e2343] bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:rounded-[2rem] sm:p-6 md:p-8">
+                                <div className="mb-3 min-h-[52px] shrink-0 sm:mb-4 sm:min-h-[60px] md:min-h-[72px]">
                                     <AnimatePresence mode="wait">
                                         <motion.div
                                             key={activeTab}
@@ -471,17 +497,17 @@ const PlatformShowcase = () => {
                                             exit={{ opacity: 0, y: -10 }}
                                             transition={{ duration: 0.25 }}
                                         >
-                                            <h3 className="!mb-2 !text-center !text-[26px] !font-bold !tracking-tight !text-white">
+                                            <h3 className="!mb-2 !text-center !text-[18px] !font-bold !tracking-tight !text-white sm:!text-[20px] md:!text-[26px]">
                                                 {features[activeTab].title}
                                             </h3>
-                                            <p className="!mx-auto line-clamp-2 max-w-2xl !text-center text-[14px] leading-relaxed text-slate-400">
+                                            <p className="!mx-auto line-clamp-3 max-w-2xl !text-center text-[12px] leading-relaxed text-slate-400 sm:line-clamp-2 sm:text-[13px] md:text-[14px]">
                                                 {features[activeTab].desc}
                                             </p>
                                         </motion.div>
                                     </AnimatePresence>
                                 </div>
 
-                                <div className="relative h-[300px] w-full shrink-0 overflow-hidden rounded-2xl border border-[#1e2343]/50 bg-[#05060f]">
+                                <div className="relative h-[200px] w-full shrink-0 overflow-hidden rounded-2xl border border-[#1e2343]/50 bg-[#05060f] sm:h-[240px] md:h-[280px] lg:h-[min(260px,32dvh)] xl:h-[min(300px,36dvh)]">
                                     <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:2rem_2rem]" />
                                     <AnimatePresence mode="wait">
                                         <motion.div
@@ -490,14 +516,14 @@ const PlatformShowcase = () => {
                                             animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0, scale: 1.02 }}
                                             transition={{ duration: 0.3 }}
-                                            className="absolute inset-0 flex p-5"
+                                            className="absolute inset-0 flex p-3 sm:p-5"
                                         >
                                             {features[activeTab].viz}
                                         </motion.div>
                                     </AnimatePresence>
                                 </div>
 
-                                <div className="mt-5 flex w-full items-start justify-between gap-2 border-t border-[#1e2343] pt-5">
+                                <div className="mt-4 border-t border-[#1e2343] pt-4 sm:mt-5 sm:pt-5">
                                     <AnimatePresence mode="wait">
                                         <motion.div
                                             key={activeTab}
@@ -505,14 +531,14 @@ const PlatformShowcase = () => {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0 }}
                                             transition={{ duration: 0.3 }}
-                                            className="flex w-full justify-between"
+                                            className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:flex md:flex-wrap md:justify-between lg:grid lg:grid-cols-3 xl:flex"
                                         >
                                             {features[activeTab].metrics.map((m, i) => (
-                                                <div key={i} className="flex shrink-0 flex-col text-left">
-                                                    <div className="mb-1 whitespace-nowrap text-[9px] font-bold uppercase tracking-widest text-slate-500">
+                                                <div key={i} className="min-w-0 flex-col text-left md:flex md:min-w-[7rem]">
+                                                    <div className="mb-1 text-[8px] font-bold uppercase tracking-widest text-slate-500 md:text-[9px]">
                                                         Metric {i + 1}
                                                     </div>
-                                                    <div className="whitespace-nowrap text-[15px] font-bold tracking-tight text-white">{m}</div>
+                                                    <div className="text-[12px] font-bold tracking-tight text-white sm:text-[13px] md:text-[15px]">{m}</div>
                                                 </div>
                                             ))}
                                         </motion.div>

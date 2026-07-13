@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 import { Shield, Cloud, BarChart2, Settings, Lock, Cpu, Globe } from 'lucide-react';
 
 const ACCENT = '#99A0F9';
 
 const HERO_VERBS = ['Observe', 'Manage', 'Protect', 'Accelerate'];
 const VERB_INTERVAL_MS = 4200;
-const VERB_TRANSITION = { duration: 0.75, ease: [0.22, 1, 0.36, 1] };
+const VERB_EASE = [0.22, 1, 0.36, 1];
+const VERB_TRANSITION = { duration: 0.55, ease: VERB_EASE };
+const WIDTH_TRANSITION = { duration: 0.5, ease: VERB_EASE };
 
 const orbitLabel = 'text-[8px] font-black uppercase tracking-[0.14em] text-white/65 text-center leading-tight md:text-[9px] max-w-[92px]';
 
@@ -23,27 +25,32 @@ const HeroVerbCarousel = () => {
     const activeVerb = HERO_VERBS[verbIndex];
 
     return (
-        <span className="relative inline-grid align-bottom text-[#99A0F9]" aria-live="polite" aria-atomic="true">
+        <motion.span
+            layout="size"
+            transition={{ layout: WIDTH_TRANSITION }}
+            className="relative inline-grid align-baseline text-[#99A0F9]"
+            aria-live="polite"
+            aria-atomic="true"
+        >
             <span className="sr-only">{`${activeVerb} Enterprise Data At Scale`}</span>
-            {/* Sizing ghost — width matches longest verb without leaving empty inline space */}
             <span className="invisible col-start-1 row-start-1 whitespace-nowrap" aria-hidden="true">
-                Accelerate
+                {activeVerb}
             </span>
-            <span className="relative col-start-1 row-start-1 h-[1.1em] overflow-hidden">
+            <span className="relative col-start-1 row-start-1 h-[1.15em] overflow-hidden">
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.span
                         key={activeVerb}
-                        initial={{ y: '100%', opacity: 0 }}
+                        initial={{ y: '108%', opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: '-100%', opacity: 0 }}
+                        exit={{ y: '-108%', opacity: 0 }}
                         transition={VERB_TRANSITION}
-                        className="absolute left-0 top-0 block whitespace-nowrap"
+                        className="absolute left-0 top-0 block whitespace-nowrap will-change-transform"
                     >
                         {activeVerb}
                     </motion.span>
                 </AnimatePresence>
             </span>
-        </span>
+        </motion.span>
     );
 };
 
@@ -81,7 +88,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="!text-left whitespace-nowrap text-[clamp(1.5rem,4.5vw,2.25rem)] font-bold leading-[1.06] tracking-tight text-white md:text-[clamp(2rem,3vw+0.65rem,2.85rem)] lg:text-[2.5rem] xl:text-5xl 2xl:text-6xl"
+                            className="!text-left text-[clamp(1.5rem,4.5vw,2.25rem)] font-bold leading-[1.06] tracking-tight text-white md:text-[clamp(2rem,3vw+0.65rem,2.85rem)] lg:text-[2.5rem] xl:text-5xl 2xl:text-6xl"
                         >
                             Command <span style={{ color: ACCENT }}>Data Leadership</span>
                         </motion.h1>
@@ -90,14 +97,22 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.08 }}
-                            className="!mx-0 flex max-w-2xl flex-wrap items-baseline gap-x-2 !text-left text-xl font-bold leading-[1.2] tracking-tight text-white md:text-2xl lg:text-3xl"
+                            className="!mx-0 max-w-2xl !text-left text-[clamp(1.05rem,3.8vw,1.75rem)] font-bold leading-[1.25] tracking-tight text-white sm:text-xl md:text-2xl lg:text-3xl"
                             role="doc-subtitle"
                         >
-                            <HeroVerbCarousel />
-                            <span>
-                                Enterprise Data{' '}
-                                <span style={{ color: ACCENT }}>At Scale</span>
-                            </span>
+                            <LayoutGroup id="hero-verb-line">
+                                <span className="inline-flex flex-wrap items-baseline gap-x-[0.28em] gap-y-1">
+                                    <HeroVerbCarousel />
+                                    <motion.span
+                                        layout
+                                        transition={{ layout: WIDTH_TRANSITION }}
+                                        className="sm:whitespace-nowrap"
+                                    >
+                                        Enterprise Data{' '}
+                                        <span style={{ color: ACCENT }}>At Scale</span>
+                                    </motion.span>
+                                </span>
+                            </LayoutGroup>
                         </motion.p>
 
                         <motion.p
@@ -114,17 +129,17 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center"
+                            className="flex w-full flex-col items-stretch gap-3 pt-2 sm:w-auto sm:flex-row sm:items-center sm:gap-4"
                         >
                             <button
-                                className="z-20 whitespace-nowrap rounded-full px-8 py-3.5 text-[15px] font-bold text-black shadow-[0_14px_34px_-18px_rgba(153,160,249,0.55)] transition-all duration-300 hover:scale-[1.05] active:scale-95"
+                                className="z-20 w-full whitespace-nowrap rounded-full px-6 py-3.5 text-[14px] font-bold text-black shadow-[0_14px_34px_-18px_rgba(153,160,249,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-95 sm:w-auto sm:px-8 sm:text-[15px]"
                                 style={{ backgroundColor: ACCENT }}
                                 type="button"
                             >
                                 Book a Demo
                             </button>
                             <button
-                                className="z-20 whitespace-nowrap rounded-full border px-8 py-3.5 text-[14px] font-bold text-white transition-all duration-300 active:scale-95"
+                                className="z-20 w-full whitespace-nowrap rounded-full border px-6 py-3.5 text-[13px] font-bold text-white transition-all duration-300 active:scale-95 sm:w-auto sm:px-8 sm:text-[14px]"
                                 style={{
                                     border: `1px solid rgba(153,160,249,0.35)`,
                                     backgroundColor: 'rgba(255,255,255,0.05)',
@@ -137,12 +152,12 @@ const Hero = () => {
                     </div>
 
                     {/* Right Visual (Shield & Platform) */}
-                    <div className="relative mt-8 flex w-full justify-center lg:mt-0 lg:w-1/2 lg:justify-end">
+                    <div className="relative mt-6 flex w-full justify-center lg:mt-0 lg:w-1/2 lg:justify-end">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1, delay: 0.3 }}
-                            className="group relative flex aspect-square w-full max-w-[650px] flex-col items-center justify-end"
+                            className="group relative flex aspect-square w-full max-w-[min(100%,420px)] flex-col items-center justify-end sm:max-w-[520px] lg:max-w-[650px]"
                         >
                             {/* Animated SVG Orbital lines Background */}
                             <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
@@ -165,10 +180,10 @@ const Hero = () => {
                                 transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
                                 className="absolute left-[22%] top-[22%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
                             >
-                                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md">
-                                    <Cloud className="h-6 w-6 text-primary" />
+                                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md sm:h-12 sm:w-12 md:h-14 md:w-14">
+                                    <Cloud className="h-4 w-4 text-primary sm:h-5 sm:w-5 md:h-6 md:w-6" />
                                 </div>
-                                <span className={orbitLabel}>Data Quality</span>
+                                <span className={`${orbitLabel} hidden sm:block`}>Data Quality</span>
                             </motion.div>
 
                             {/* Orbit 1 — Data Stewardship */}
@@ -177,65 +192,65 @@ const Hero = () => {
                                 transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 0.5 }}
                                 className="absolute left-[72%] top-[62%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
                             >
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md">
-                                    <Cpu className="h-5 w-5 text-primary" />
+                                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md sm:h-11 sm:w-11 md:h-12 md:w-12">
+                                    <Cpu className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
                                 </div>
-                                <span className={orbitLabel}>Data Stewardship</span>
+                                <span className={`${orbitLabel} hidden sm:block`}>Data Stewardship</span>
                             </motion.div>
 
                             {/* Orbit 2 — Data Visibility */}
                             <motion.div
                                 animate={{ y: [-5, 5, -5] }}
                                 transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}
-                                className="absolute left-[76%] top-[24%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
+                                className="absolute left-[74%] top-[24%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
                             >
-                                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md">
-                                    <BarChart2 className="h-7 w-7 text-accent" />
+                                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md sm:h-14 sm:w-14 md:h-16 md:w-16">
+                                    <BarChart2 className="h-5 w-5 text-accent sm:h-6 sm:w-6 md:h-7 md:w-7" />
                                 </div>
-                                <span className={orbitLabel}>Data Visibility</span>
+                                <span className={`${orbitLabel} hidden sm:block`}>Data Visibility</span>
                             </motion.div>
 
                             {/* Orbit 3 — Policies & Compliance */}
                             <motion.div
                                 animate={{ y: [-3, 3, -3] }}
                                 transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 2 }}
-                                className="absolute left-[96%] top-[50%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
+                                className="absolute left-[88%] top-[50%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5 sm:left-[90%]"
                             >
-                                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md">
-                                    <Settings className="h-6 w-6 text-primary" />
+                                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md sm:h-12 sm:w-12 md:h-14 md:w-14">
+                                    <Settings className="h-4 w-4 text-primary sm:h-5 sm:w-5 md:h-6 md:w-6" />
                                 </div>
-                                <span className={orbitLabel}>Policies &amp; Compliance</span>
+                                <span className={`${orbitLabel} hidden md:block`}>Policies &amp; Compliance</span>
                             </motion.div>
 
                             {/* Orbit 3 — Data Access */}
                             <motion.div
                                 animate={{ y: [3, -3, 3] }}
                                 transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut', delay: 2.5 }}
-                                className="absolute left-[4%] top-[50%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
+                                className="absolute left-[12%] top-[50%] z-30 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5 sm:left-[10%]"
                             >
-                                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md">
-                                    <Globe className="h-5 w-5 text-primary" />
+                                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-primary/40 bg-[#1e1a38]/90 shadow-[0_0_20px_rgba(153,160,249,0.3)] backdrop-blur-md sm:h-11 sm:w-11 md:h-12 md:w-12">
+                                    <Globe className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
                                 </div>
-                                <span className={orbitLabel}>Data Access</span>
+                                <span className={`${orbitLabel} hidden sm:block`}>Data Access</span>
                             </motion.div>
 
                             {/* Main Shield */}
-                            <div className="relative z-20 mb-[20px] translate-y-8 transition-transform duration-700 group-hover:translate-y-2">
+                            <div className="relative z-20 mb-3 translate-y-4 transition-transform duration-700 group-hover:translate-y-2 sm:mb-5 sm:translate-y-6 md:mb-[20px] md:translate-y-8">
                                 <div className="absolute inset-0 rounded-full bg-[#99A0F9]/30 blur-3xl" />
-                                <Shield className="relative z-10 h-72 w-72 stroke-[1] text-primary drop-shadow-[0_0_40px_rgba(153,160,249,0.5)]" />
-                                <Lock className="absolute left-1/2 top-1/2 z-20 h-16 w-16 -translate-x-1/2 -translate-y-1/2 text-primary opacity-90 drop-shadow-md" />
+                                <Shield className="relative z-10 h-40 w-40 stroke-[1] text-primary drop-shadow-[0_0_40px_rgba(153,160,249,0.5)] sm:h-56 sm:w-56 md:h-72 md:w-72" />
+                                <Lock className="absolute top-1/2 left-1/2 z-20 h-9 w-9 -translate-x-1/2 -translate-y-1/2 text-primary opacity-90 drop-shadow-md sm:h-12 sm:w-12 md:h-16 md:w-16" />
                             </div>
 
                             {/* Professional Isometric Disk Base */}
-                            <div className="group relative z-10 mt-8 h-[160px] w-full max-w-[480px]">
-                                <div className="absolute inset-x-8 top-[80px] z-0 h-[70px] rounded-[100%] bg-primary/10 blur-[30px]" />
-                                <div className="absolute inset-x-0 top-[50px] z-10 h-[100px] rounded-[100%] border-b border-primary/10 bg-gradient-to-b from-[#131024] to-[#05040a] shadow-[0_40px_60px_rgba(0,0,0,0.95)]" />
-                                <div className="absolute inset-x-0 top-[50px] z-10 flex h-[50px] items-center justify-center border-x border-primary/10 bg-gradient-to-b from-[#18142e] to-[#0a0715]">
-                                    <span className="absolute top-[12px] z-20 text-[20px] font-medium tracking-wide text-[#e2e8f0] drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] transition-all duration-300 group-hover:text-accent">
+                            <div className="group relative z-10 mt-4 h-[110px] w-full max-w-[480px] sm:mt-6 sm:h-[140px] md:mt-8 md:h-[160px]">
+                                <div className="absolute inset-x-8 top-[55%] z-0 h-[45%] rounded-[100%] bg-primary/10 blur-[30px]" />
+                                <div className="absolute inset-x-0 top-[32%] z-10 h-[62%] rounded-[100%] border-b border-primary/10 bg-gradient-to-b from-[#131024] to-[#05040a] shadow-[0_40px_60px_rgba(0,0,0,0.95)]" />
+                                <div className="absolute inset-x-0 top-[32%] z-10 flex h-[32%] items-center justify-center border-x border-primary/10 bg-gradient-to-b from-[#18142e] to-[#0a0715]">
+                                    <span className="absolute z-20 px-2 text-center text-[12px] font-medium tracking-wide text-[#e2e8f0] drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] transition-all duration-300 group-hover:text-accent sm:text-[16px] md:text-[20px]">
                                         Torro OneData Platform
                                     </span>
                                 </div>
-                                <div className="absolute inset-x-0 top-0 z-20 flex h-[100px] items-center justify-center overflow-hidden rounded-[100%] border border-primary/20 bg-gradient-to-b from-[#251e40] to-[#120e24] shadow-[inset_0_2px_15px_rgba(153,160,249,0.05)]">
+                                <div className="absolute inset-x-0 top-0 z-20 flex h-[62%] items-center justify-center overflow-hidden rounded-[100%] border border-primary/20 bg-gradient-to-b from-[#251e40] to-[#120e24] shadow-[inset_0_2px_15px_rgba(153,160,249,0.05)]">
                                     <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(153,160,249,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(153,160,249,0.05)_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-80" />
                                     <div className="absolute h-[60%] w-[60%] rounded-[100%] bg-gradient-to-r from-primary/15 to-accent/15 blur-[25px]" />
                                 </div>

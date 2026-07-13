@@ -117,7 +117,7 @@ const SolutionsPage = () => {
         <div className="min-h-screen bg-[#05040a] text-slate-200 selection:bg-indigo-100 selection:text-indigo-800">
             <Header />
 
-            <main className="flex flex-col pt-32 pb-0">
+            <main className="flex flex-col pb-0 pt-[calc(var(--header-height)+2.5rem)]">
                 {/* Page Hero */}
                 <section className="container mx-auto px-6 max-w-5xl mb-24 relative">
                     <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#99A0F9]/10 rounded-full blur-[120px] pointer-events-none" />

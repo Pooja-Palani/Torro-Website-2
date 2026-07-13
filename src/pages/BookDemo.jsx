@@ -8,7 +8,7 @@ const ACCENT = '#99A0F9';
 const BookDemo = () => {
   return (
     <div className="bg-[#0c0e1a] text-white min-h-screen border-t border-white/5">
-      <section className="relative overflow-hidden pt-20 md:pt-24 pb-10">
+      <section className="relative overflow-hidden pb-10 pt-[calc(var(--header-height)+2rem)]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(153,160,249,0.10)_0%,transparent_55%)] pointer-events-none" />
 
         <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[95rem]">

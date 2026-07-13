@@ -8,7 +8,7 @@ const CaseStudyESGBank = () => {
   }, []);
 
   return (
-    <div className="bg-[#f8fafc] min-h-screen pt-24 pb-20">
+    <div className="min-h-screen bg-[#f8fafc] pb-20 pt-[calc(var(--header-height)+2rem)]">
       <div className="container mx-auto px-6">
         {/* Back Button */}
         <a href="/" className="inline-flex items-center gap-2 text-[12px] font-black text-slate-400 uppercase tracking-widest hover:text-emerald-600 transition-colors mb-12">

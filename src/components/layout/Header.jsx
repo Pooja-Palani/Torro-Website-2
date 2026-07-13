@@ -16,6 +16,24 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const header = document.querySelector('header');
+    if (!header) return undefined;
+
+    const syncHeaderHeight = () => {
+      document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    };
+
+    syncHeaderHeight();
+    const observer = new ResizeObserver(syncHeaderHeight);
+    observer.observe(header);
+    window.addEventListener('resize', syncHeaderHeight);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', syncHeaderHeight);
+    };
+  }, [isScrolled, isMobileMenuOpen]);
+
   const offeringsMegaMenu = {
     sections: [
       {
@@ -97,40 +115,40 @@ const Header = () => {
       href: '/company',
       submenu: [
         { label: 'About Us', href: '/company' },
-        { label: 'Partners', href: '/company' }
+        // { label: 'Partners', href: '/company' }
       ]
     }
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0c0e1a]/70 text-white backdrop-blur-xl backdrop-saturate-150 border-b border-white/10 ${isScrolled ? 'shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] py-2' : 'py-3'
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0c0e1a]/70 text-white backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 ${isScrolled ? 'py-2.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]' : 'py-3.5'
         }`}
     >
       <div className="container flex items-center justify-between px-6">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center" aria-label="Torro home">
+          <Link to="/" className="flex shrink-0 items-center" aria-label="Torro home">
             <img
               src="/torro_png_logo.png"
               alt="Torro"
-              className="h-16 md:h-20 w-auto object-contain"
+              className="h-12 w-auto object-contain sm:h-14 md:h-16"
             />
             <span
-              className="ml-1 text-[24px] sm:text-[28px] font-extrabold tracking-[0.28em] text-white leading-none"
+              className="ml-0.5 text-[19px] font-extrabold leading-none tracking-[0.06em] text-white sm:text-[21px] md:text-[23px]"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
               TORRO
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
+          {/* Desktop Nav — lg+ to avoid collision with logo/CTA on tablets */}
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 lg:flex xl:gap-1">
             {navItems.map((item) => (
               <div key={item.label} className="relative group">
                 <Link
                   to={item.href}
-                  className="px-4 py-2 text-[14px] font-medium text-gray-100 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1"
+                  className="flex items-center gap-1 whitespace-nowrap px-2.5 py-2 text-[13px] font-medium text-gray-100 transition-colors hover:text-white xl:px-4 xl:text-[14px]"
                 >
                   {item.label}
                   {(item.submenu || item.megaMenu) && (
@@ -169,8 +187,8 @@ const Header = () => {
                 {/* Mega Menu (Our Offerings) */}
                 {item.megaMenu && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] backdrop-blur-xl border border-[#1e2343]/50 rounded-2xl shadow-2xl p-8 w-[880px] max-w-[92vw]">
-                      <div className="grid grid-cols-4 gap-10">
+                    <div className="w-[min(880px,calc(100vw-2rem))] max-w-[92vw] rounded-2xl border border-[#1e2343]/50 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-6 shadow-2xl backdrop-blur-xl sm:p-8">
+                      <div className="grid grid-cols-2 gap-6 xl:grid-cols-4 xl:gap-10">
                         {item.megaMenu.sections.map((section) => (
                           <div key={section.title} className="min-w-0">
                             <Link
@@ -217,15 +235,16 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <Link
               to="/book-demo"
-              className="hidden sm:inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:bg-gray-100 hover:shadow-md active:scale-95"
+              className="hidden items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm transition-all duration-200 hover:bg-gray-100 hover:shadow-md active:scale-95 lg:inline-flex"
             >
               Book Demo
             </Link>
 
-            {/* Mobile Toggle */}
+            {/* Mobile / tablet Toggle */}
             <button
-              className="md:hidden p-2 text-white hover:bg-white/5 rounded-lg transition-colors"
+              className="rounded-lg p-2 text-white transition-colors hover:bg-white/5 lg:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -234,7 +253,7 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-b border-black/40 shadow-lg p-6 flex flex-col gap-4 animate-in slide-in-from-top-2 max-h-[80vh] overflow-y-auto">
+        <div className="absolute top-full right-0 left-0 flex max-h-[min(80vh,calc(100dvh-var(--header-height)))] animate-in slide-in-from-top-2 flex-col gap-4 overflow-y-auto border-b border-black/40 bg-black/95 p-6 shadow-lg backdrop-blur-sm lg:hidden">
           {navItems.map((item) => (
             <div key={item.label}>
               <Link

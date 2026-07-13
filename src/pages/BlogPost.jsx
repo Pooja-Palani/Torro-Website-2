@@ -86,7 +86,7 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <section className="bg-[#0c0e1a] text-white min-h-screen pt-24 pb-20 border-t border-white/5">
+      <section className="min-h-screen border-t border-white/5 bg-[#0c0e1a] pb-20 pt-[calc(var(--header-height)+2rem)] text-white">
         <div className="mx-auto px-6 md:px-12 max-w-[95rem]">
           <div className="max-w-3xl">
             <div className="text-[12px] font-black uppercase tracking-[0.35em]" style={{ color: ACCENT }}>
@@ -106,7 +106,7 @@ const BlogPost = () => {
   }
 
   return (
-    <section className="bg-[#0c0e1a] text-white min-h-screen pt-20 md:pt-24 pb-20 relative border-t border-white/5">
+    <section className="relative min-h-screen border-t border-white/5 bg-[#0c0e1a] pb-20 pt-[calc(var(--header-height)+2rem)] text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(153,160,249,0.09)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="relative z-10 mx-auto px-6 md:px-12 max-w-[95rem]">

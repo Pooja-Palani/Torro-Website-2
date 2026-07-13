@@ -14,6 +14,8 @@ const Industries = () => {
   const industries = [
     {
       title: 'BFSI',
+      image: '/industries/bfsi.jpg',
+      imageAlt: 'Financial market analytics and trading data visualization',
       description:
         'Banks, insurers, and financial institutions need DPDP, RBI, BCBS239 and SOX compliance without slowing down data-driven innovation. Torro delivers full visibility, automated entitlements, and audit-ready reporting.',
       businessValue:
@@ -27,6 +29,8 @@ const Industries = () => {
     },
     {
       title: 'Healthcare',
+      image: '/industries/healthcare.jpg',
+      imageAlt: 'Healthcare professional using digital technology for patient care',
       description:
         'Patient data is highly sensitive and heavily regulated. Torro helps healthcare organizations govern PHI/PII, enforce consent, and maintain HIPAA and local privacy compliance across EHRs, analytics, and research.',
       businessValue:
@@ -40,6 +44,8 @@ const Industries = () => {
     },
     {
       title: 'Telecom',
+      image: '/industries/telecom.jpg',
+      imageAlt: 'Network infrastructure and data center connectivity for telecom',
       description:
         'Telecoms hold vast amounts of subscriber and usage data. Torro supports TRAI, DPDP, and cross-border requirements while enabling data monetization and analytics in a governed way.',
       businessValue:
@@ -149,8 +155,21 @@ const Industries = () => {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl bg-white/5 border border-white/5 h-[260px] md:h-[320px] flex items-center justify-center text-white/25 text-sm font-semibold">
-                    {ind.title} Image Placeholder
+                  <div className="group relative h-[260px] overflow-hidden rounded-2xl border border-white/10 md:h-[320px]">
+                    <img
+                      src={ind.image}
+                      alt={ind.imageAlt}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      loading="lazy"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0d1a]/70 via-transparent to-[#0a0d1a]/20" />
+                    <div
+                      className="pointer-events-none absolute inset-0 opacity-40"
+                      style={{
+                        background:
+                          'radial-gradient(ellipse at 30% 20%, rgba(153,160,249,0.22), transparent 55%)',
+                      }}
+                    />
                   </div>
                 </div>
               </motion.div>

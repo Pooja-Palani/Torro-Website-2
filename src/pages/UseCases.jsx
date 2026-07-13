@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Globe, Users, Lock, CheckCircle2 } from 'lucide-react';
+import { UseCaseMock } from '../components/mocks/UseCaseMocks';
 
 const UseCases = () => {
   const ACCENT = '#99A0F9';
@@ -194,9 +195,7 @@ const UseCases = () => {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl bg-white/5 border border-white/5 h-[260px] md:h-[320px] flex items-center justify-center text-white/25 text-sm font-semibold">
-                    Image / Screenshot Placeholder
-                  </div>
+                  <UseCaseMock title={uc.title} />
                 </div>
               </motion.div>
             );

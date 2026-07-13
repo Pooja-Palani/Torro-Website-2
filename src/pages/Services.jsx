@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ServiceMock } from '../components/mocks/ServiceMocks';
 
 const ACCENT = '#99A0F9';
 
@@ -93,10 +94,10 @@ const Services = () => {
   ];
 
   return (
-    <section className="bg-[#0c0e1a] text-white min-h-screen pt-40 pb-20 relative border-t border-white/5">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(153,160,249,0.06)_0%,transparent_70%)] pointer-events-none" />
+    <section className="relative min-h-screen border-t border-white/5 bg-[#0c0e1a] pb-20 pt-40 text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,160,249,0.06)_0%,transparent_70%)]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12">
         <motion.div
           id="services"
           initial={{ opacity: 0, y: 24 }}
@@ -104,25 +105,25 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="mb-24"
         >
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-[1.1] text-white">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="text-4xl font-black leading-[1.1] tracking-tight text-white md:text-5xl">
               Our <span style={{ color: ACCENT }}>Services</span>
             </h1>
-            <p className="mt-5 text-[15px] md:text-[16px] text-white/55 font-medium leading-relaxed">
+            <p className="mt-5 text-[15px] font-medium leading-relaxed text-white/55 md:text-[16px]">
               Beyond the platform: data engineering, cloud strategy, compliance consulting, and governance assessments.
               We help you design, deploy, and operate with confidence.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="/"
-                className="inline-flex items-center justify-center rounded-xl bg-[#F8BD64] px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-black shadow-[0_14px_34px_-18px_rgba(248,189,100,0.55)] hover:bg-[#f0b04d] transition-colors"
+                href="/book-demo"
+                className="inline-flex items-center justify-center rounded-xl bg-[#F8BD64] px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-black shadow-[0_14px_34px_-18px_rgba(248,189,100,0.55)] transition-colors hover:bg-[#f0b04d]"
               >
                 Book a Demo
               </a>
               <a
-                href="/"
-                className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/5 px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-white/85 hover:text-white hover:border-white/50 transition-colors"
+                href="/torro-onedata"
+                className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/5 px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-white/85 transition-colors hover:border-white/50 hover:text-white"
               >
                 Explore the Platform
               </a>
@@ -130,12 +131,12 @@ const Services = () => {
           </div>
         </motion.div>
 
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-black text-white mb-4 tracking-tight">
+        <div className="mb-14 text-center">
+          <h2 className="mb-4 text-4xl font-black tracking-tight text-white">
             What We <span style={{ color: ACCENT }}>Offer</span>
           </h2>
           <div
-            className="h-px w-16 mx-auto bg-gradient-to-r from-transparent to-transparent"
+            className="mx-auto h-px w-16"
             style={{ backgroundImage: `linear-gradient(to right, transparent, ${ACCENT}B3, transparent)` }}
           />
         </div>
@@ -151,35 +152,33 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: idx * 0.04 }}
                 viewport={{ once: true }}
-                className="scroll-mt-28 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 md:p-10"
+                className="scroll-mt-28 rounded-2xl border border-[#1e2343]/50 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-8 md:p-10"
               >
                 <div
-                  className={`grid lg:grid-cols-2 gap-10 items-center ${
+                  className={`grid items-center gap-10 lg:grid-cols-2 ${
                     isReversed ? 'lg:[&>*:first-child]:order-2' : ''
                   }`}
                 >
                   <div className="box-copy text-left">
-                    <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight mb-3">
-                      {svc.title}
-                    </h3>
-                    <p className="text-white/55 font-medium leading-relaxed mb-6">{svc.description}</p>
+                    <h3 className="mb-3 text-2xl font-black tracking-tight text-white md:text-3xl">{svc.title}</h3>
+                    <p className="mb-6 font-medium leading-relaxed text-white/55">{svc.description}</p>
 
                     <div className="space-y-5">
                       <div>
-                        <div className="text-[12px] font-black uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>
+                        <div className="mb-2 text-[12px] font-black uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
                           Business Value
                         </div>
-                        <p className="text-white/60 text-[14px] leading-relaxed font-medium">{svc.businessValue}</p>
+                        <p className="text-[14px] font-medium leading-relaxed text-white/60">{svc.businessValue}</p>
                       </div>
 
                       <div>
-                        <div className="text-[12px] font-black uppercase tracking-[0.2em] mb-2" style={{ color: ACCENT }}>
+                        <div className="mb-2 text-[12px] font-black uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
                           Key Capabilities
                         </div>
                         <ul className="space-y-2">
                           {svc.capabilities.map((c) => (
                             <li key={c} className="flex items-start gap-3 text-[14px] text-white/70">
-                              <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: ACCENT }} />
+                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: ACCENT }} />
                               <span className="font-medium">{c}</span>
                             </li>
                           ))}
@@ -188,9 +187,7 @@ const Services = () => {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl bg-white/5 border border-white/5 h-[260px] md:h-[320px] flex items-center justify-center text-white/25 text-sm font-semibold">
-                    Image Placeholder
-                  </div>
+                  <ServiceMock title={svc.title} />
                 </div>
               </motion.div>
             );
@@ -202,4 +199,3 @@ const Services = () => {
 };
 
 export default Services;
-

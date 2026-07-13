@@ -1,7 +1,6 @@
 import React from 'react';
 import Hero from '../components/sections/Hero';
 import PlatformShowcase from '../components/sections/PlatformShowcase';
-import IntelligenceHub from '../components/sections/IntelligenceHub';
 import SolutionsForTeam from '../components/sections/SolutionsForTeam';
 import GlobalMandates from '../components/sections/GlobalMandates';
 import DemoForm from '../components/sections/DemoForm';
@@ -18,11 +17,8 @@ function HomePage() {
       {/* Page 3 — See Everything and Protect Everything */}
       <PlatformShowcase />
 
-      {/* Page 4 — Navigate Global Mandates With Absolute Accountability */}
+      {/* Page 4 — Production case studies */}
       <GlobalMandates />
-
-      {/* Page 5 — Intelligence for Executives at Scale */}
-      <IntelligenceHub />
 
       {/* Final — Evaluate Institutional Readiness */}
       <DemoForm

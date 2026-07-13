@@ -29,40 +29,43 @@ const typeColors = {
     DAT: "bg-gray-50 text-gray-700 border-gray-200",
 };
 
+const tableGrid =
+    'grid grid-cols-[minmax(0,1.6fr)_minmax(52px,0.45fr)_minmax(0,1fr)_minmax(0,1.05fr)_minmax(72px,0.55fr)] gap-2 sm:gap-3 items-center';
+
 const AssetRow = ({ name, type, appName, source, srcColor, onView }) => (
-    <div className="grid grid-cols-[250px_60px_140px_130px_80px] gap-4 py-3 px-5 hover:bg-slate-50 border-b border-gray-100 transition-colors items-center text-[12px] bg-white">
-        
-        <div className="flex items-center gap-2">
-            <span 
+    <div className={`${tableGrid} border-b border-gray-100 bg-white px-3 py-2.5 text-[12px] transition-colors hover:bg-slate-50 sm:px-4`}>
+        <div className="min-w-0">
+            <span
                 onClick={onView}
-                className="font-semibold text-gray-800 tracking-tight truncate hover:text-blue-600 transition-colors cursor-pointer text-[13px]"
+                className="block cursor-pointer truncate text-[12px] font-semibold tracking-tight text-gray-800 transition-colors hover:text-blue-600 sm:text-[13px]"
+                title={name}
             >
                 {name}
             </span>
         </div>
-        
+
         <div>
-            <span className={`px-2 py-0.5 rounded border font-bold shadow-sm text-[10px] tracking-widest uppercase ${typeColors[type] || "bg-white border-gray-200 text-gray-500"}`}>
+            <span className={`inline-block rounded border px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-widest shadow-sm sm:px-2 sm:text-[10px] ${typeColors[type] || 'bg-white border-gray-200 text-gray-500'}`}>
                 {type}
             </span>
         </div>
-        
-        <div className="text-gray-600 font-medium pr-2 leading-tight truncate">
+
+        <div className="min-w-0 truncate pr-1 font-medium leading-tight text-gray-600">
             {appName}
         </div>
-        
-        <div>
-            <span className={`px-2.5 py-1 rounded border font-bold text-[10px] tracking-wide truncate inline-block max-w-[130px] shadow-sm ${sourceColors[srcColor] || "bg-blue-50 text-blue-600 border-blue-100"}`}>
+
+        <div className="min-w-0">
+            <span className={`inline-block max-w-full truncate rounded border px-2 py-0.5 text-[9px] font-bold tracking-wide shadow-sm sm:px-2.5 sm:py-1 sm:text-[10px] ${sourceColors[srcColor] || 'bg-blue-50 text-blue-600 border-blue-100'}`}>
                 {source}
             </span>
         </div>
-        
-        <div className="flex items-center gap-2 justify-end">
-            <button 
+
+        <div className="flex items-center justify-end">
+            <button
                 onClick={onView}
-                className="px-3 py-1.5 rounded border border-blue-200 text-blue-600 hover:bg-blue-50 flex items-center gap-1.5 text-[10px] font-bold transition-colors bg-white shadow-sm tracking-widest uppercase"
+                className="flex items-center gap-1 rounded border border-blue-200 bg-white px-2 py-1 text-[9px] font-bold uppercase tracking-widest text-blue-600 shadow-sm transition-colors hover:bg-blue-50 sm:gap-1.5 sm:px-2.5 sm:py-1.5 sm:text-[10px]"
             >
-                <Eye className="w-3.5 h-3.5 text-blue-400" /> View
+                <Eye className="h-3 w-3 text-blue-400 sm:h-3.5 sm:w-3.5" /> View
             </button>
         </div>
     </div>
@@ -342,66 +345,66 @@ const DataMarketplace = () => {
                     </div>
 
                     {/* Hyper-Realistic Dashboard Replica Right */}
-                    <div className="w-full lg:w-[58%] overflow-x-auto hide-scrollbar pt-2 flex">
-                        <div className="w-full min-w-[860px] border border-gray-200 rounded-xl bg-white overflow-hidden relative z-10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]">
+                    <div className="w-full min-w-0 lg:w-[58%]">
+                        <div className="relative z-10 w-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]">
                             
                             {/* Torro Enterprise Top Branding Header (Dark Blue) */}
-                            <div className="bg-[#4b55b2] text-white px-4 py-2.5 flex items-center justify-between">
-                                <div className="flex items-center gap-4">
-                                    <div className="flex flex-col gap-1 pr-4 border-r border-white/20 cursor-pointer">
-                                        <div className="w-3.5 h-[1.5px] bg-white rounded-full" />
-                                        <div className="w-3.5 h-[1.5px] bg-white rounded-full" />
-                                        <div className="w-3.5 h-[1.5px] bg-white rounded-full" />
+                            <div className="flex items-center justify-between bg-[#4b55b2] px-3 py-2.5 text-white sm:px-4">
+                                <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+                                    <div className="hidden cursor-pointer flex-col gap-1 border-r border-white/20 pr-3 sm:flex sm:pr-4">
+                                        <div className="h-[1.5px] w-3.5 rounded-full bg-white" />
+                                        <div className="h-[1.5px] w-3.5 rounded-full bg-white" />
+                                        <div className="h-[1.5px] w-3.5 rounded-full bg-white" />
                                     </div>
-                                    <div className="flex items-center gap-3">
-                                        <img src="/logotorro.png" alt="Torro" className="h-[22px] w-auto object-contain" />
-                                        <div className="leading-tight">
-                                            <div className="font-extrabold tracking-widest text-[13px]">TORRO ENTERPRISE</div>
-                                            <div className="text-[8px] text-indigo-100 tracking-widest uppercase font-semibold">Torro OneData Platform</div>
+                                    <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+                                        <img src="/logotorro.png" alt="Torro" className="h-[20px] w-auto shrink-0 object-contain sm:h-[22px]" />
+                                        <div className="min-w-0 leading-tight">
+                                            <div className="truncate text-[11px] font-extrabold tracking-widest sm:text-[13px]">TORRO ENTERPRISE</div>
+                                            <div className="truncate text-[7px] font-semibold uppercase tracking-widest text-indigo-100 sm:text-[8px]">Torro OneData Platform</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2 border border-white/20 rounded-full px-3 py-1 bg-white/10">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
-                                    <span className="text-[9px] font-bold tracking-widest uppercase text-green-50">System Online</span>
+                                <div className="flex shrink-0 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 sm:px-3">
+                                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400"></div>
+                                    <span className="text-[8px] font-bold uppercase tracking-widest text-green-50 sm:text-[9px]">System Online</span>
                                 </div>
                             </div>
 
                             {/* Filters Toolbar */}
-                            <div className="px-6 py-3 border-b border-gray-100 bg-gray-50/30 flex items-center justify-between z-0">
-                                <div className="flex items-center gap-3">
-                                    <div className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-md shrink-0 w-[220px] shadow-sm bg-white focus-within:border-blue-300 focus-within:ring-2 ring-blue-100 transition-all">
-                                        <Search className="w-3.5 h-3.5 text-gray-400" />
-                                        <input type="text" placeholder="Search assets..." className="bg-transparent border-none outline-none text-[11px] w-full text-gray-700 placeholder:text-gray-400" disabled />
+                            <div className="z-0 flex flex-wrap items-center justify-between gap-2 border-b border-gray-100 bg-gray-50/30 px-3 py-2.5 sm:px-4 sm:py-3">
+                                <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 sm:gap-3">
+                                    <div className="flex w-full max-w-[200px] shrink-0 items-center gap-2 rounded-md border border-gray-200 bg-white px-2.5 py-1.5 shadow-sm transition-all focus-within:border-blue-300 focus-within:ring-2 focus-within:ring-blue-100 sm:max-w-[220px] sm:px-3">
+                                        <Search className="h-3.5 w-3.5 shrink-0 text-gray-400" />
+                                        <input type="text" placeholder="Search assets..." className="w-full border-none bg-transparent text-[11px] text-gray-700 outline-none placeholder:text-gray-400" disabled />
                                     </div>
                                     
-                                    <div className="h-5 w-px bg-gray-200 mx-1" />
+                                    <div className="mx-0.5 hidden h-5 w-px bg-gray-200 sm:block" />
                                     
-                                    <button className="px-3 py-1.5 rounded-md text-gray-600 font-semibold text-[11px] flex items-center gap-2 shrink-0 border border-gray-200 bg-white hover:bg-gray-50 shadow-sm transition-colors">
-                                        All Types <Filter className="w-3 h-3 text-gray-400" />
+                                    <button className="flex shrink-0 items-center gap-1.5 rounded-md border border-gray-200 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-gray-600 shadow-sm transition-colors hover:bg-gray-50 sm:gap-2 sm:px-3 sm:text-[11px]">
+                                        All Types <Filter className="h-3 w-3 text-gray-400" />
                                     </button>
                                     
-                                    <button className="px-3 py-1.5 rounded-md text-gray-400 font-medium text-[11px] flex items-center gap-1.5 shrink-0 border border-transparent hover:text-gray-600 hover:bg-gray-100 transition-colors">
-                                        <X className="w-3.5 h-3.5" /> Clear
+                                    <button className="hidden shrink-0 items-center gap-1.5 rounded-md border border-transparent px-2.5 py-1.5 text-[10px] font-medium text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 sm:flex sm:px-3 sm:text-[11px]">
+                                        <X className="h-3.5 w-3.5" /> Clear
                                     </button>
                                 </div>
-                                <div className="flex items-center gap-3">
-                                    <button className="px-3 py-1.5 rounded-md text-gray-600 font-semibold text-[11px] flex items-center gap-1.5 shrink-0 border border-gray-200 bg-white shadow-sm hover:bg-gray-50 transition-colors">
-                                        <LayoutGrid className="w-3.5 h-3.5 text-gray-400" /> By App
+                                <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+                                    <button className="hidden items-center gap-1.5 rounded-md border border-gray-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-gray-600 shadow-sm transition-colors hover:bg-gray-50 sm:flex">
+                                        <LayoutGrid className="h-3.5 w-3.5 text-gray-400" /> By App
                                     </button>
-                                    <button className="px-3 py-1.5 rounded bg-[#0c8ce9] text-white font-bold text-[10px] shadow-md tracking-wider flex items-center gap-1.5 hover:bg-blue-600 transition-colors uppercase border border-transparent hover:border-blue-500">
-                                        <Download className="w-3.5 h-3.5" /> Export CSV
+                                    <button className="flex items-center gap-1.5 rounded border border-transparent bg-[#0c8ce9] px-2.5 py-1.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-md transition-colors hover:border-blue-500 hover:bg-blue-600 sm:px-3 sm:text-[10px]">
+                                        <Download className="h-3.5 w-3.5" /> Export CSV
                                     </button>
                                 </div>
                             </div>
 
                             {/* Table Header */}
-                            <div className="grid grid-cols-[250px_60px_140px_130px_80px] gap-4 px-5 py-3 border-b border-gray-200 bg-gray-50/50 text-[10px] font-extrabold text-gray-800 uppercase tracking-widest items-center">
+                            <div className={`${tableGrid} border-b border-gray-200 bg-gray-50/50 px-3 py-2.5 text-[9px] font-extrabold uppercase tracking-widest text-gray-800 sm:px-4 sm:text-[10px]`}>
                                 <div>Name</div>
                                 <div>Type</div>
                                 <div>App Name</div>
                                 <div>Data Source</div>
-                                <div className="text-right pr-2">Actions</div>
+                                <div className="pr-1 text-right">Actions</div>
                             </div>
                             
                             {/* Table Body */}

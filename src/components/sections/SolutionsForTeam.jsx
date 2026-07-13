@@ -42,27 +42,27 @@ const SolutionsForTeam = () => {
   ];
 
   return (
-    <section className="light-section-bg relative py-24 text-slate-900">
+    <section className="light-section-bg relative py-16 text-slate-900 sm:py-20 md:py-24">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_0%,rgba(153,160,249,0.18)_0%,transparent_50%),radial-gradient(circle_at_80%_20%,rgba(153,160,249,0.1)_0%,transparent_45%)]" />
-      <div className="relative container mx-auto px-6 lg:px-8">
-        <div className="mb-16 flex flex-col items-center text-center">
-          <div className="glass-badge relative z-10 mb-6 inline-flex items-center justify-center gap-3 px-6 py-2.5">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 flex flex-col items-center text-center sm:mb-16">
+          <div className="glass-badge relative z-10 mb-6 inline-flex items-center justify-center gap-3 px-5 py-2.5 sm:px-6">
             <div className="relative z-10 h-2.5 w-2.5 animate-pulse rounded-full bg-[#99A0F9] shadow-[0_0_12px_rgba(153,160,249,0.45)]" />
-            <span className="relative z-10 text-[12px] font-black uppercase tracking-[0.4em] text-[#7b82e8]">
+            <span className="relative z-10 text-[11px] font-black uppercase tracking-[0.2em] text-[#7b82e8] sm:text-[12px] sm:tracking-[0.4em]">
               Solutions For Team
             </span>
           </div>
 
-          <h2 className="!mb-5 !text-center !text-4xl !font-black !leading-[1.1] !tracking-tight !text-slate-900 md:!text-5xl">
+          <h2 className="!mb-5 !text-center !text-3xl !font-black !leading-[1.1] !tracking-tight !text-slate-900 sm:!text-4xl md:!text-5xl">
             <span className="text-slate-900">Built for Every</span>{' '}
             <span className="text-[#6b72d6]">Institutional Stakeholder</span>
           </h2>
-          <p className="!mx-auto max-w-3xl !text-center text-[16px] font-medium !text-slate-600 md:text-lg">
+          <p className="!mx-auto max-w-3xl !text-center text-[15px] font-medium !text-slate-600 sm:text-[16px] md:text-lg">
             Torro speaks the language of CISOs, data engineers, and business leaders — simultaneously.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {solutions.map((solution, idx) => {
             const Icon = solution.icon;
             return (
