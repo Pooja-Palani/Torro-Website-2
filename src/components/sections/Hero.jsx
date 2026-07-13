@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 import { Shield, Cloud, BarChart2, Settings, Lock, Cpu, Globe } from 'lucide-react';
 
@@ -131,23 +132,23 @@ const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="flex w-full flex-col items-stretch gap-3 pt-2 sm:w-auto sm:flex-row sm:items-center sm:gap-4"
                         >
-                            <button
-                                className="z-20 w-full whitespace-nowrap rounded-full px-6 py-3.5 text-[14px] font-bold text-black shadow-[0_14px_34px_-18px_rgba(153,160,249,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-95 sm:w-auto sm:px-8 sm:text-[15px]"
+                            <Link
+                                to="/book-demo"
+                                className="z-20 w-full whitespace-nowrap rounded-full px-6 py-3.5 text-center text-[14px] font-bold text-black shadow-[0_14px_34px_-18px_rgba(153,160,249,0.55)] transition-all duration-300 hover:scale-[1.03] active:scale-95 sm:w-auto sm:px-8 sm:text-[15px]"
                                 style={{ backgroundColor: ACCENT }}
-                                type="button"
                             >
                                 Book a Demo
-                            </button>
-                            <button
-                                className="z-20 w-full whitespace-nowrap rounded-full border px-6 py-3.5 text-[13px] font-bold text-white transition-all duration-300 active:scale-95 sm:w-auto sm:px-8 sm:text-[14px]"
+                            </Link>
+                            <Link
+                                to="/torro-onedata"
+                                className="z-20 w-full whitespace-nowrap rounded-full border px-6 py-3.5 text-center text-[13px] font-bold text-white transition-all duration-300 active:scale-95 sm:w-auto sm:px-8 sm:text-[14px]"
                                 style={{
                                     border: `1px solid rgba(153,160,249,0.35)`,
                                     backgroundColor: 'rgba(255,255,255,0.05)',
                                 }}
-                                type="button"
                             >
                                 Explore the Platform
-                            </button>
+                            </Link>
                         </motion.div>
                     </div>
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, ArrowRight, CheckCircle2, Clock, Play, Map } from 'lucide-react';
+import { ShieldCheck, ArrowRight, CheckCircle2, Clock, Play, Map, Loader2 } from 'lucide-react';
+import { submitDemoRequest } from '../../lib/submitDemoRequest';
 
 const expectItems = [
     {
@@ -28,12 +29,38 @@ const expectItems = [
 const fieldClass =
     'h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-[14px] text-slate-900 shadow-sm transition-all placeholder:text-slate-400 focus:border-[#99A0F9]/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#99A0F9]/25';
 
-const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent = 'Institutional Readiness.' }) => {
-    const [isSubmitted, setIsSubmitted] = useState(false);
+const initialForm = {
+    name: '',
+    email: '',
+    company: '',
+    role: '',
+    challenge: '',
+};
 
-    const handleSubmit = (e) => {
+const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent = 'Institutional Readiness.' }) => {
+    const [form, setForm] = useState(initialForm);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState('');
+
+    const updateField = (key) => (e) => {
+        setForm((prev) => ({ ...prev, [key]: e.target.value }));
+        if (error) setError('');
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsSubmitted(true);
+        setError('');
+        setIsSubmitting(true);
+        try {
+            await submitDemoRequest({ ...form, source: 'platform-demo-form' });
+            setIsSubmitted(true);
+            setForm(initialForm);
+        } catch (err) {
+            setError(err?.message || 'Something went wrong. Please email solutions@torro.ai.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -62,7 +89,6 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                 </div>
 
                 <div className="grid items-stretch gap-5 lg:grid-cols-2 lg:gap-6 xl:gap-8">
-                    {/* Form card */}
                     <div className="glass-panel group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-7 lg:p-8">
                         <div className="pointer-events-none absolute top-0 right-0 -mr-16 -mt-16 h-32 w-32 rounded-bl-[4rem] bg-gradient-to-bl from-[#99A0F9]/20 to-transparent transition-transform group-hover:scale-110" />
 
@@ -85,13 +111,29 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                                 <label className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-slate-400">
                                                     Full Name *
                                                 </label>
-                                                <input type="text" required className={fieldClass} placeholder="e.g. Rajiv Nair" />
+                                                <input
+                                                    type="text"
+                                                    name="name"
+                                                    required
+                                                    value={form.name}
+                                                    onChange={updateField('name')}
+                                                    className={fieldClass}
+                                                    placeholder="e.g. Rajiv Nair"
+                                                />
                                             </div>
                                             <div className="space-y-1.5">
                                                 <label className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-slate-400">
                                                     Business Email *
                                                 </label>
-                                                <input type="email" required className={fieldClass} placeholder="ciso@company.com" />
+                                                <input
+                                                    type="email"
+                                                    name="email"
+                                                    required
+                                                    value={form.email}
+                                                    onChange={updateField('email')}
+                                                    className={fieldClass}
+                                                    placeholder="ciso@company.com"
+                                                />
                                             </div>
                                         </div>
 
@@ -100,14 +142,28 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                                 <label className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-slate-400">
                                                     Company *
                                                 </label>
-                                                <input type="text" required className={fieldClass} placeholder="Largest Indian Private Bank" />
+                                                <input
+                                                    type="text"
+                                                    name="company"
+                                                    required
+                                                    value={form.company}
+                                                    onChange={updateField('company')}
+                                                    className={fieldClass}
+                                                    placeholder="Largest Indian Private Bank"
+                                                />
                                             </div>
                                             <div className="space-y-1.5">
                                                 <label className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-slate-400">
                                                     Your Role *
                                                 </label>
-                                                <select className={`${fieldClass} cursor-pointer appearance-none`}>
-                                                    <option>Select role</option>
+                                                <select
+                                                    name="role"
+                                                    required
+                                                    value={form.role}
+                                                    onChange={updateField('role')}
+                                                    className={`${fieldClass} cursor-pointer appearance-none`}
+                                                >
+                                                    <option value="">Select role</option>
                                                     <option>CISO / CTO</option>
                                                     <option>Data Architect</option>
                                                     <option>Privacy Officer</option>
@@ -121,17 +177,34 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                                 What&apos;s your primary governance challenge? (Optional)
                                             </label>
                                             <textarea
+                                                name="challenge"
+                                                value={form.challenge}
+                                                onChange={updateField('challenge')}
                                                 className="min-h-[96px] w-full flex-1 resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-[14px] text-slate-900 shadow-sm transition-all placeholder:text-slate-400 focus:border-[#99A0F9]/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#99A0F9]/25"
                                                 placeholder="Describe your DPDP readiness concerns, regulatory pressures, or data discovery challenges..."
                                             />
                                         </div>
 
+                                        {error ? (
+                                            <p className="text-[13px] font-semibold text-rose-600">{error}</p>
+                                        ) : null}
+
                                         <button
                                             type="submit"
-                                            className="group mt-1 flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#6b72d6] py-3.5 text-[12px] font-black uppercase tracking-[0.16em] text-white shadow-[0_12px_28px_rgba(107,114,214,0.28)] transition-all hover:bg-[#5a61c4] hover:shadow-[0_16px_36px_rgba(107,114,214,0.35)] active:scale-[0.98] sm:text-[13px]"
+                                            disabled={isSubmitting}
+                                            className="group mt-1 flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#6b72d6] py-3.5 text-[12px] font-black uppercase tracking-[0.16em] text-white shadow-[0_12px_28px_rgba(107,114,214,0.28)] transition-all hover:bg-[#5a61c4] hover:shadow-[0_16px_36px_rgba(107,114,214,0.35)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 sm:text-[13px]"
                                         >
-                                            Book a Demo
-                                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                            {isSubmitting ? (
+                                                <>
+                                                    <Loader2 className="h-4 w-4 animate-spin" />
+                                                    Sending…
+                                                </>
+                                            ) : (
+                                                <>
+                                                    Book a Demo
+                                                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                                </>
+                                            )}
                                         </button>
                                     </motion.form>
                                 ) : (
@@ -146,7 +219,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                         </div>
                                         <h4 className="mb-2 text-xl font-black text-slate-900 sm:text-2xl">Request Received</h4>
                                         <p className="max-w-sm font-medium text-slate-500">
-                                            A Torro governance architect will contact you within 24 hours.
+                                            Sent to solutions@torro.ai. A Torro governance architect will contact you within 24 hours.
                                         </p>
                                     </motion.div>
                                 )}
@@ -154,7 +227,6 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                         </div>
                     </div>
 
-                    {/* Expect card — matched height, filled layout */}
                     <div className="glass-card relative z-10 flex h-full flex-col overflow-hidden rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-7 lg:p-8">
                         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(153,160,249,0.12)_0%,transparent_55%)]" />
 

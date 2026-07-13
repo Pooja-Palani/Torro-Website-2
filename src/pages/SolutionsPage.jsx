@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import Header from '../components/layout/Header';
@@ -144,12 +145,18 @@ const SolutionsPage = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                            <button className="px-8 py-3.5 rounded-full bg-[#F4B952] text-black font-bold text-[15px] transition-all hover:scale-105 active:scale-95 whitespace-nowrap z-20 shadow-[0_0_20px_rgba(244,185,82,0.2)]">
+                            <Link
+                                to="/book-demo"
+                                className="px-8 py-3.5 rounded-full bg-[#F4B952] text-black font-bold text-[15px] transition-all hover:scale-105 active:scale-95 whitespace-nowrap z-20 shadow-[0_0_20px_rgba(244,185,82,0.2)]"
+                            >
                                 Book a Demo
-                            </button>
-                            <button className="px-8 py-3.5 rounded-full border border-white/20 text-white font-bold text-[14px] hover:bg-white/10 transition-all whitespace-nowrap active:scale-95 z-20">
+                            </Link>
+                            <Link
+                                to="/torro-onedata"
+                                className="px-8 py-3.5 rounded-full border border-white/20 text-white font-bold text-[14px] hover:bg-white/10 transition-all whitespace-nowrap active:scale-95 z-20"
+                            >
                                 Explore the Platform
-                            </button>
+                            </Link>
                         </div>
                     </motion.div>
                 </section>

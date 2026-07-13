@@ -10,7 +10,9 @@ import {
   Play,
   Map,
   Lock,
+  Loader2,
 } from 'lucide-react';
+import { submitDemoRequest } from '../lib/submitDemoRequest';
 
 const ACCENT = '#99A0F9';
 const GOLD = '#F8BD64';
@@ -41,12 +43,38 @@ const expectItems = [
 const fieldClass =
   'h-12 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 text-[14px] text-white shadow-sm transition-all placeholder:text-white/30 focus:border-[#99A0F9]/45 focus:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-[#99A0F9]/20';
 
-const BookDemo = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const initialForm = {
+  name: '',
+  email: '',
+  company: '',
+  role: '',
+  challenge: '',
+};
 
-  const handleSubmit = (e) => {
+const BookDemo = () => {
+  const [form, setForm] = useState(initialForm);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
+  const updateField = (key) => (e) => {
+    setForm((prev) => ({ ...prev, [key]: e.target.value }));
+    if (error) setError('');
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setError('');
+    setIsSubmitting(true);
+    try {
+      await submitDemoRequest({ ...form, source: 'book-demo' });
+      setIsSubmitted(true);
+      setForm(initialForm);
+    } catch (err) {
+      setError(err?.message || 'Something went wrong. Please email solutions@torro.ai.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -78,7 +106,6 @@ const BookDemo = () => {
         </motion.div>
 
         <div className="grid items-stretch gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
-          {/* Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,31 +138,68 @@ const BookDemo = () => {
                 >
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
-                      <label className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
+                      <label htmlFor="demo-name" className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
                         Full Name *
                       </label>
-                      <input type="text" required className={fieldClass} placeholder="e.g. Rajiv Nair" />
+                      <input
+                        id="demo-name"
+                        name="name"
+                        type="text"
+                        required
+                        autoComplete="name"
+                        value={form.name}
+                        onChange={updateField('name')}
+                        className={fieldClass}
+                        placeholder="e.g. Rajiv Nair"
+                      />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
+                      <label htmlFor="demo-email" className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
                         Business Email *
                       </label>
-                      <input type="email" required className={fieldClass} placeholder="ciso@company.com" />
+                      <input
+                        id="demo-email"
+                        name="email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        value={form.email}
+                        onChange={updateField('email')}
+                        className={fieldClass}
+                        placeholder="ciso@company.com"
+                      />
                     </div>
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
-                      <label className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
+                      <label htmlFor="demo-company" className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
                         Company *
                       </label>
-                      <input type="text" required className={fieldClass} placeholder="Your organization" />
+                      <input
+                        id="demo-company"
+                        name="company"
+                        type="text"
+                        required
+                        autoComplete="organization"
+                        value={form.company}
+                        onChange={updateField('company')}
+                        className={fieldClass}
+                        placeholder="Your organization"
+                      />
                     </div>
                     <div className="relative space-y-1.5">
-                      <label className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
+                      <label htmlFor="demo-role" className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
                         Your Role *
                       </label>
-                      <select required className={`${fieldClass} cursor-pointer appearance-none pr-10`}>
+                      <select
+                        id="demo-role"
+                        name="role"
+                        required
+                        value={form.role}
+                        onChange={updateField('role')}
+                        className={`${fieldClass} cursor-pointer appearance-none pr-10`}
+                      >
                         <option value="" className="bg-[#11152a]">
                           Select role
                         </option>
@@ -152,27 +216,49 @@ const BookDemo = () => {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
+                    <label htmlFor="demo-challenge" className="pl-0.5 text-[11px] font-black uppercase tracking-widest text-white/40">
                       Primary governance challenge (optional)
                     </label>
                     <textarea
+                      id="demo-challenge"
+                      name="challenge"
                       rows={4}
+                      value={form.challenge}
+                      onChange={updateField('challenge')}
                       className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-[14px] text-white shadow-sm transition-all placeholder:text-white/30 focus:border-[#99A0F9]/45 focus:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-[#99A0F9]/20"
                       placeholder="DPDP readiness, lineage gaps, access control, audit evidence…"
                     />
                   </div>
 
+                  {error ? (
+                    <p className="!mx-0 !text-left text-[13px] font-semibold text-rose-300">{error}</p>
+                  ) : null}
+
                   <button
                     type="submit"
-                    className="group mt-2 flex w-full items-center justify-center gap-2.5 rounded-xl py-3.5 text-[12px] font-black uppercase tracking-[0.2em] text-black transition-all hover:brightness-105 active:scale-[0.98]"
+                    disabled={isSubmitting}
+                    className="group mt-2 flex w-full items-center justify-center gap-2.5 rounded-xl py-3.5 text-[12px] font-black uppercase tracking-[0.2em] text-black transition-all hover:brightness-105 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
                     style={{
                       backgroundColor: GOLD,
                       boxShadow: '0 14px 34px -18px rgba(248,189,100,0.55)',
                     }}
                   >
-                    Book a Demo
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Sending…
+                      </>
+                    ) : (
+                      <>
+                        Book a Demo
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </>
+                    )}
                   </button>
+
+                  <p className="!mx-0 !text-left text-[11px] font-medium text-white/30">
+                    Submissions are sent to solutions@torro.ai
+                  </p>
                 </motion.form>
               ) : (
                 <motion.div
@@ -192,7 +278,8 @@ const BookDemo = () => {
                   </div>
                   <h3 className="mb-2 text-2xl font-black text-white">Request received</h3>
                   <p className="max-w-sm text-[14px] font-medium leading-relaxed text-white/50">
-                    A Torro governance architect will contact you within 24 hours.
+                    Your request was sent to solutions@torro.ai. A Torro governance architect will contact you within 24
+                    hours.
                   </p>
                   <Link
                     to="/torro-onedata"
@@ -206,7 +293,6 @@ const BookDemo = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* What to expect */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
