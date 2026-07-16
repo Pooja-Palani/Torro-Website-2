@@ -13,7 +13,7 @@
  *    VITE_DEMO_FORM_ENDPOINT=https://script.google.com/macros/s/XXXX/exec
  */
 
-const TO_EMAIL = 'solutions@torro.ai';
+const TO_EMAIL = 'digihub@torro.ai';
 
 function doPost(e) {
   try {

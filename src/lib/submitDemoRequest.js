@@ -1,6 +1,6 @@
-/** Demo form submissions → solutions@torro.ai */
+/** Demo form submissions → digihub@torro.ai */
 
-export const DEMO_INBOX = 'solutions@torro.ai';
+export const DEMO_INBOX = 'digihub@torro.ai';
 
 const buildMessage = (fields) =>
   [
@@ -123,7 +123,7 @@ async function sendViaFormSubmit(fields) {
 }
 
 /**
- * Sends a demo request to solutions@torro.ai.
+ * Sends a demo request to digihub@torro.ai.
  * Returns { ok, provider, needsMailtoBackup?, mailtoHref? }.
  */
 export async function submitDemoRequest(fields) {
