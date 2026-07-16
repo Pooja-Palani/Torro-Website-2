@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ComplianceMock } from '../components/mocks/ComplianceMocks';
 
@@ -219,12 +220,12 @@ const CompliancePage = () => {
               Non-compliance in the DPDP era is no longer a “reasonable measures” discussion. It is about absolute
               infrastructure reality.
             </p>
-            <a
-              href="/book-demo"
+            <Link
+              to="/book-demo"
               className="inline-flex items-center justify-center rounded-xl bg-[#F8BD64] px-7 py-3.5 text-[12px] font-black uppercase tracking-[0.22em] text-black shadow-[0_14px_34px_-18px_rgba(248,189,100,0.55)] transition-colors hover:bg-[#f0b04d]"
             >
               Evaluate Your Institutional Readiness — Book a Compliance Deep Dive
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, ArrowRight, CheckCircle2, Clock, Play, Map, Loader2 } from 'lucide-react';
-import { submitDemoRequest } from '../../lib/submitDemoRequest';
+import { submitDemoRequest, DEMO_INBOX } from '../../lib/submitDemoRequest';
 
 const expectItems = [
     {
@@ -42,6 +42,8 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
+    const [mailtoHref, setMailtoHref] = useState('');
+    const [usedMailtoBackup, setUsedMailtoBackup] = useState(false);
 
     const updateField = (key) => (e) => {
         setForm((prev) => ({ ...prev, [key]: e.target.value }));
@@ -53,11 +55,18 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
         setError('');
         setIsSubmitting(true);
         try {
-            await submitDemoRequest({ ...form, source: 'platform-demo-form' });
+            const result = await submitDemoRequest({ ...form, source: 'platform-demo-form' });
+            if (result.mailtoHref) setMailtoHref(result.mailtoHref);
+            setUsedMailtoBackup(Boolean(result.needsMailtoBackup));
             setIsSubmitted(true);
             setForm(initialForm);
+            if (result.needsMailtoBackup && result.mailtoHref) {
+                window.setTimeout(() => {
+                    window.location.href = result.mailtoHref;
+                }, 500);
+            }
         } catch (err) {
-            setError(err?.message || 'Something went wrong. Please email solutions@torro.ai.');
+            setError(err?.message || `Something went wrong. Please email ${DEMO_INBOX}.`);
         } finally {
             setIsSubmitting(false);
         }
@@ -197,7 +206,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                             {isSubmitting ? (
                                                 <>
                                                     <Loader2 className="h-4 w-4 animate-spin" />
-                                                    Sending…
+                                                    Booking your demo…
                                                 </>
                                             ) : (
                                                 <>
@@ -217,10 +226,22 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                         <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-50">
                                             <CheckCircle2 className="h-8 w-8 text-[#6b72d6]" />
                                         </div>
-                                        <h4 className="mb-2 text-xl font-black text-slate-900 sm:text-2xl">Request Received</h4>
+                                        <h4 className="mb-2 text-xl font-black text-slate-900 sm:text-2xl">
+                                            Demo request received
+                                        </h4>
                                         <p className="max-w-sm font-medium text-slate-500">
-                                            Sent to solutions@torro.ai. A Torro governance architect will contact you within 24 hours.
+                                            {usedMailtoBackup
+                                                ? `Thank you. Please click Send in your email window to finalize the request to ${DEMO_INBOX}. A member of our team will contact you shortly to confirm the session.`
+                                                : 'Thank you. Your demo is being scheduled — a member of our team will contact you shortly to confirm the session.'}
                                         </p>
+                                        {mailtoHref ? (
+                                            <a
+                                                href={mailtoHref}
+                                                className="mt-4 text-[12px] font-semibold text-slate-400 underline-offset-2 hover:text-slate-600 hover:underline"
+                                            >
+                                                Prefer email? Write to {DEMO_INBOX}
+                                            </a>
+                                        ) : null}
                                     </motion.div>
                                 )}
                             </AnimatePresence>

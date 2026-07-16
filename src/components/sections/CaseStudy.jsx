@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, ShieldCheck, Database } from 'lucide-react';
 
 const CaseStudy = () => {
@@ -23,9 +23,9 @@ const CaseStudy = () => {
                                 Faced with a multi-year cloud migration and stringent new privacy laws, GlobalBank deployed Torro's autonomous agents. The result: absolute visibility without slowing down engineering velocity.
                             </p>
 
-                            <a href="#" className="inline-flex items-center gap-2 text-[15px] font-semibold text-indigo-500 hover:text-indigo-600 transition-colors w-fit">
+                            <Link to="/case-studies/bank-india" className="inline-flex items-center gap-2 text-[15px] font-semibold text-indigo-500 hover:text-indigo-600 transition-colors w-fit">
                                 Read Full Engineering Case Study <ArrowRight className="w-4 h-4 ml-1" />
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Metrics Side (Right) */}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ScrollToHash from './components/ScrollToHash';
@@ -19,6 +19,7 @@ import CaseStudyBankIndia from './pages/CaseStudyBankIndia';
 import CaseStudyESGBank from './pages/CaseStudyESGBank';
 import BlogPost from './pages/BlogPost';
 import BookDemo from './pages/BookDemo';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/industries" element={<Industries />} />
             <Route path="/compliance" element={<CompliancePage />} />
             <Route path="/use-cases" element={<UseCases />} />
+            <Route path="/case-studies" element={<Navigate to="/case-studies/bank-india" replace />} />
             <Route path="/case-studies/telecom-hk" element={<CaseStudyTelecomHK />} />
             <Route path="/case-studies/bank-india" element={<CaseStudyBankIndia />} />
             <Route path="/case-studies/esg-bank" element={<CaseStudyESGBank />} />
@@ -43,6 +45,7 @@ function App() {
             <Route path="/resources/:slug" element={<BlogPost />} />
             <Route path="/book-demo" element={<BookDemo />} />
             <Route path="/company" element={<Company />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 

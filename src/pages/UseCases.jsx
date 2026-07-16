@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Eye, Globe, Users, Lock, CheckCircle2 } from 'lucide-react';
 import { UseCaseMock } from '../components/mocks/UseCaseMocks';
@@ -36,18 +37,18 @@ const UseCases = () => {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="/"
+              <Link
+                to="/book-demo"
                 className="inline-flex items-center justify-center rounded-xl bg-[#F8BD64] px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-black shadow-[0_14px_34px_-18px_rgba(248,189,100,0.55)] hover:bg-[#f0b04d] transition-colors"
               >
                 Book a Demo
-              </a>
-              <a
-                href="/offerings#solutions"
+              </Link>
+              <Link
+                to="/offerings#solutions"
                 className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/5 px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-white/85 hover:text-white hover:border-white/50 transition-colors"
               >
                 Explore Our Solutions
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>
@@ -217,8 +218,8 @@ const UseCases = () => {
             <p className="text-white/50 text-lg mb-8 max-w-2xl mx-auto font-medium">
               See how Torro addresses enterprise data visibility, compliance, and access control in one platform.
             </p>
-            <a
-              href="/"
+            <Link
+              to="/book-demo"
               className="inline-flex items-center gap-2 px-8 py-4 text-black font-black rounded-xl transition-all duration-300 uppercase text-sm tracking-[0.2em]"
               style={{
                 backgroundColor: ACCENT,
@@ -226,7 +227,7 @@ const UseCases = () => {
               }}
             >
               Request an Enterprise Demo
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

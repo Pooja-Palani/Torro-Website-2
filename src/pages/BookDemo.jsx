@@ -12,7 +12,7 @@ import {
   Lock,
   Loader2,
 } from 'lucide-react';
-import { submitDemoRequest } from '../lib/submitDemoRequest';
+import { submitDemoRequest, DEMO_INBOX } from '../lib/submitDemoRequest';
 
 const ACCENT = '#99A0F9';
 const GOLD = '#F8BD64';
@@ -56,6 +56,8 @@ const BookDemo = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [mailtoHref, setMailtoHref] = useState('');
+  const [usedMailtoBackup, setUsedMailtoBackup] = useState(false);
 
   const updateField = (key) => (e) => {
     setForm((prev) => ({ ...prev, [key]: e.target.value }));
@@ -67,11 +69,18 @@ const BookDemo = () => {
     setError('');
     setIsSubmitting(true);
     try {
-      await submitDemoRequest({ ...form, source: 'book-demo' });
+      const result = await submitDemoRequest({ ...form, source: 'book-demo' });
+      if (result.mailtoHref) setMailtoHref(result.mailtoHref);
+      setUsedMailtoBackup(Boolean(result.needsMailtoBackup));
       setIsSubmitted(true);
       setForm(initialForm);
+      if (result.needsMailtoBackup && result.mailtoHref) {
+        window.setTimeout(() => {
+          window.location.href = result.mailtoHref;
+        }, 500);
+      }
     } catch (err) {
-      setError(err?.message || 'Something went wrong. Please email solutions@torro.ai.');
+      setError(err?.message || `Something went wrong. Please email ${DEMO_INBOX}.`);
     } finally {
       setIsSubmitting(false);
     }
@@ -246,7 +255,7 @@ const BookDemo = () => {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="h-4 w-4 animate-spin" />
-                        Sending…
+                        Booking your demo…
                       </>
                     ) : (
                       <>
@@ -257,7 +266,7 @@ const BookDemo = () => {
                   </button>
 
                   <p className="!mx-0 !text-left text-[11px] font-medium text-white/30">
-                    Submissions are sent to solutions@torro.ai
+                    Your request is sent securely to our solutions team
                   </p>
                 </motion.form>
               ) : (
@@ -276,11 +285,20 @@ const BookDemo = () => {
                   >
                     <CheckCircle2 className="h-8 w-8" style={{ color: ACCENT }} />
                   </div>
-                  <h3 className="mb-2 text-2xl font-black text-white">Request received</h3>
+                  <h3 className="mb-2 text-2xl font-black text-white">Demo request received</h3>
                   <p className="max-w-sm text-[14px] font-medium leading-relaxed text-white/50">
-                    Your request was sent to solutions@torro.ai. A Torro governance architect will contact you within 24
-                    hours.
+                    {usedMailtoBackup
+                      ? `Thank you. Please click Send in your email window to finalize the request to ${DEMO_INBOX}. A member of our team will contact you shortly to confirm the session.`
+                      : 'Thank you. Your demo is being scheduled — a member of our team will contact you shortly to confirm the session.'}
                   </p>
+                  {mailtoHref ? (
+                    <a
+                      href={mailtoHref}
+                      className="mt-5 text-[12px] font-semibold text-white/40 underline-offset-2 hover:text-white/70 hover:underline"
+                    >
+                      Didn&apos;t see a confirmation? Email {DEMO_INBOX}
+                    </a>
+                  ) : null}
                   <Link
                     to="/torro-onedata"
                     className="mt-8 inline-flex items-center gap-2 text-[13px] font-bold transition-colors hover:text-white"

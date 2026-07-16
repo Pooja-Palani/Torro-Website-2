@@ -21,7 +21,7 @@ const TorroOneData = () => {
   }, []);
 
   return (
-    <div className="pt-[calc(var(--header-height)+0.5rem)]">
+    <div className="bg-[#0c0e1a] pt-[calc(var(--header-height)+0.5rem)]">
       <IndustrialGovernanceMandates />
       <TorroOneDataPlatformStack />
       <PlatformShowcase />

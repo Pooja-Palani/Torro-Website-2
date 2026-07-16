@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ServiceMock } from '../components/mocks/ServiceMocks';
 
@@ -115,18 +116,18 @@ const Services = () => {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="/book-demo"
+              <Link
+                to="/book-demo"
                 className="inline-flex items-center justify-center rounded-xl bg-[#F8BD64] px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-black shadow-[0_14px_34px_-18px_rgba(248,189,100,0.55)] transition-colors hover:bg-[#f0b04d]"
               >
                 Book a Demo
-              </a>
-              <a
-                href="/torro-onedata"
+              </Link>
+              <Link
+                to="/torro-onedata"
                 className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/5 px-6 py-3 text-[12px] font-black uppercase tracking-[0.22em] text-white/85 transition-colors hover:border-white/50 hover:text-white"
               >
                 Explore the Platform
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>

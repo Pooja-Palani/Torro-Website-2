@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Shield,
@@ -169,13 +170,13 @@ const CaseStudySlide = ({ study, theme = 'dark' }) => {
             </div>
 
             <div className="mt-5 md:mt-6">
-                <a
-                    href={study.ctaHref}
+                <Link
+                    to={study.ctaHref}
                     className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#99A0F9] to-[#8088f0] px-5 py-3 text-[12px] font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_30px_rgba(153,160,249,0.25)] transition-all duration-300 hover:from-[#b0b6ff] hover:to-[#99A0F9] hover:shadow-[0_15px_40px_rgba(153,160,249,0.35)] active:scale-95 sm:gap-2.5 sm:px-6 sm:text-[13px]"
                 >
                     Explore Case Study
                     <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
             </div>
         </motion.div>
     );

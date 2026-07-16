@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Shield, Layout, BarChart3, ChevronRight, CheckCircle2, Database, Clock, Zap } from 'lucide-react';
 
@@ -59,13 +60,13 @@ const CaseStudyCard = ({ id, title, problem, architecture, metrics, valueDrivers
         </div>
 
         <div className="mt-auto pt-4">
-          <a
-            href={href}
+          <Link
+            to={href}
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#0c0e1a] text-white rounded-2xl text-[12px] font-black uppercase tracking-[0.2em] hover:bg-indigo-600 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 active:scale-95 group"
           >
             Explore Case Study
             <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Link>
         </div>
       </div>
     </motion.div>

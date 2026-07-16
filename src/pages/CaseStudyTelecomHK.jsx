@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Shield, Zap, Cpu, ChevronLeft, Layout, CheckCircle2, TrendingUp, Database, ArrowRight, Activity } from 'lucide-react';
 
@@ -11,9 +12,9 @@ const CaseStudyTelecomHK = () => {
     <div className="min-h-screen bg-[#f8fafc] pb-20 pt-[calc(var(--header-height)+2rem)]">
       <div className="container mx-auto px-6">
         {/* Back Button */}
-        <a href="/" className="inline-flex items-center gap-2 text-[12px] font-black text-slate-400 uppercase tracking-widest hover:text-blue-600 transition-colors mb-12">
+        <Link to="/" className="inline-flex items-center gap-2 text-[12px] font-black text-slate-400 uppercase tracking-widest hover:text-blue-600 transition-colors mb-12">
           <ChevronLeft className="w-4 h-4" /> Back to Home
-        </a>
+        </Link>
 
         {/* Header Section */}
         <div className="max-w-5xl mb-16">

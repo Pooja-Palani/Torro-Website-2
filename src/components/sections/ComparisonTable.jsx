@@ -2,7 +2,7 @@ import React from 'react';
 
 const ComparisonTable = () => {
     const features = [
-        { name: "DEPLOYMENT TIME", torro: "✓ 2-4 Weeks", comp: "6-18 Months", legacy: "12-24 Months" },
+        { name: "DEPLOYMENT TIME", torro: "✓ 4-6 Months", comp: "6-18 Months", legacy: "12-24 Months" },
         { name: "TCO (3-YEAR)", torro: "✓ 60-80% Lower", comp: "Baseline", legacy: "2-3x Higher" },
         { name: "DPDP / INDIA COMPLIANCE", torro: "✓ Native - Built-in", comp: "Partial (paid add-on)", legacy: "Not Available" },
         { name: "HYBRID ESTATE SUPPORT", torro: "✓ Full (Cloud + On-prem)", comp: "Cloud-first only", legacy: "Cloud-only" },
