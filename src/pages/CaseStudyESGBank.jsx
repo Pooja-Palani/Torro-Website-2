@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Leaf, Zap, BarChart3, ChevronLeft, Layout, CheckCircle2, Globe, TrendingUp, Search, UserCheck } from 'lucide-react';
+import { Leaf, Zap, BarChart3, ChevronLeft, Layout, CheckCircle2, Globe, TrendingUp, Search, UserCheck, Shield, ArrowRight } from 'lucide-react';
 
 const CaseStudyESGBank = () => {
   useEffect(() => {
