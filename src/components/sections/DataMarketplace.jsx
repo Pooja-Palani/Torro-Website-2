@@ -285,7 +285,7 @@ const DataMarketplace = () => {
     const [selectedAsset, setSelectedAsset] = useState(null);
 
     return (
-        <section className="py-14 md:py-18 bg-gray-50/50 relative overflow-hidden" id="marketplace">
+        <section className="relative overflow-hidden bg-white py-14 md:py-18" id="marketplace">
             {/* Global Gradient Definition for Lucide Icons */}
             <svg width="0" height="0" className="absolute">
                 <defs>
