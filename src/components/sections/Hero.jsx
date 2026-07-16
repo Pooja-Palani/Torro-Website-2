@@ -71,7 +71,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative isolate flex min-h-[100svh] min-h-[100dvh] items-center overflow-hidden bg-black px-4 pb-12 pt-[calc(var(--header-height)+1.5rem)] text-white">
+        <section className="relative isolate flex min-h-[100svh] min-h-[100dvh] items-start overflow-hidden bg-black px-4 pb-10 pt-[calc(var(--header-height)+1.25rem)] text-white sm:pb-12 lg:items-center lg:pt-[calc(var(--header-height)+1.5rem)]">
             {/* Starry/Node background effect */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,160,249,0.15)_0,transparent_100%)]" />
@@ -82,23 +82,26 @@ const Hero = () => {
             </div>
 
             <div className="container relative z-10 mx-auto px-6">
-                <div className="flex flex-col items-center justify-between gap-10 lg:flex-row lg:gap-12">
-                    {/* Left Content */}
-                    <div className="w-full space-y-3 text-left lg:w-1/2">
+                <div className="flex flex-col items-stretch justify-between gap-10 sm:gap-12 lg:flex-row lg:items-center lg:gap-12">
+                    {/* Left Content — hero lines dominate the first viewport on every screen */}
+                    <div className="box-copy flex w-full min-h-[calc(100svh-var(--header-height)-2.5rem)] flex-col justify-center space-y-5 text-left sm:space-y-5 md:min-h-0 lg:w-1/2 lg:space-y-4">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="!text-left text-[clamp(1.5rem,4.5vw,2.25rem)] font-bold leading-[1.06] tracking-tight text-white md:text-[clamp(2rem,3vw+0.65rem,2.85rem)] lg:text-[2.5rem] xl:text-5xl 2xl:text-6xl"
+                            className="!mx-0 !text-left text-[clamp(2.85rem,12.5vw,3.6rem)] font-bold leading-[1.05] tracking-[-0.045em] text-white sm:text-[clamp(3rem,7vw,3.75rem)] md:text-[clamp(3.15rem,4.5vw,3.85rem)] lg:text-5xl xl:text-5xl 2xl:text-6xl"
                         >
-                            Command <span style={{ color: ACCENT }}>Data Leadership</span>
+                            Command{' '}
+                            <span className="whitespace-nowrap" style={{ color: ACCENT }}>
+                              Data Leadership
+                            </span>
                         </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.08 }}
-                            className="!mx-0 max-w-2xl !text-left text-[clamp(1.05rem,3.8vw,1.75rem)] font-bold leading-[1.25] tracking-tight text-white sm:text-xl md:text-2xl lg:text-3xl"
+                            className="!mx-0 max-w-2xl !text-left text-[clamp(1.65rem,6.8vw,2.15rem)] font-bold leading-[1.15] tracking-tight text-white sm:text-[clamp(1.8rem,4vw,2.25rem)] md:text-3xl lg:text-3xl"
                             role="doc-subtitle"
                         >
                             <LayoutGroup id="hero-verb-line">
@@ -120,7 +123,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.16 }}
-                            className="!mx-0 max-w-xl !text-left pt-1 text-base leading-relaxed text-gray-300 md:text-lg"
+                            className="!mx-0 max-w-xl !text-left pt-1 text-[15px] leading-relaxed text-gray-300 sm:text-base md:text-lg"
                         >
                             A RegTech platform that enforces real-time PII protection, automates compliance, and delivers full
                             visibility across hybrid data environments.
@@ -130,7 +133,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="flex w-full flex-col items-stretch gap-3 pt-2 sm:w-auto sm:flex-row sm:items-center sm:gap-4"
+                            className="flex w-full flex-col items-stretch gap-3 pt-1 sm:w-auto sm:flex-row sm:items-center sm:gap-4 sm:pt-2"
                         >
                             <Link
                                 to="/book-demo"
@@ -152,13 +155,13 @@ const Hero = () => {
                         </motion.div>
                     </div>
 
-                    {/* Right Visual (Shield & Platform) */}
-                    <div className="relative mt-6 flex w-full justify-center lg:mt-0 lg:w-1/2 lg:justify-end">
+                    {/* Right Visual — below the fold on small screens; side-by-side from lg */}
+                    <div className="relative mt-4 flex w-full justify-center lg:mt-0 lg:w-1/2 lg:justify-end">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1, delay: 0.3 }}
-                            className="group relative flex aspect-square w-full max-w-[min(100%,420px)] flex-col items-center justify-end sm:max-w-[520px] lg:max-w-[650px]"
+                            className="group relative flex aspect-square w-full max-w-[min(100%,320px)] flex-col items-center justify-end sm:max-w-[440px] md:max-w-[520px] lg:max-w-[650px]"
                         >
                             {/* Animated SVG Orbital lines Background */}
                             <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">

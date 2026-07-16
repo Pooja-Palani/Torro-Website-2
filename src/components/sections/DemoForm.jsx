@@ -278,7 +278,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                         </div>
 
                         <div className="relative z-10 mt-5 border-t border-slate-200/80 pt-4 text-[12px] font-bold tracking-wide text-slate-400 sm:mt-6">
-                            No commitment · 30 minutes · Architecture-level deep dive
+                            30 minutes · Architecture-level deep dive
                         </div>
                     </div>
                 </div>

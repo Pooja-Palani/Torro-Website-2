@@ -127,7 +127,7 @@ const BookDemo = () => {
                   Schedule a session
                 </h2>
                 <p className="!mx-0 mt-1.5 !text-left text-[13px] font-medium text-white/45">
-                  Architecture-level deep dive · No commitment
+                  Architecture-level deep dive · 30 minutes
                 </p>
               </div>
               <div className="hidden items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white/50 sm:inline-flex">
@@ -351,7 +351,7 @@ const BookDemo = () => {
             </div>
 
             <div className="mt-6 border-t border-white/5 pt-4 text-[12px] font-bold tracking-wide text-white/35">
-              No commitment · 30 minutes · Architecture-level deep dive
+              30 minutes · Architecture-level deep dive
             </div>
           </motion.div>
         </div>
