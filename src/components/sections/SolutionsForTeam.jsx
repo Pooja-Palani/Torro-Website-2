@@ -31,7 +31,7 @@ const SolutionsForTeam = () => {
       title: 'Data in Minutes, Not Months',
       subtitle: 'BUSINESS DECISION MAKERS',
       icon: BarChart3,
-      description: 'Self-service data access in minutes, not months — with governance guardrails built in. Browse the data marketplace, request access, get approval, and start analyzing — all in one governed workflow.',
+      description: 'Self-serve data access in minutes with self-serve AI/ML and Advanced Analytics in minutes. Browse the marketplace, request access, and start analyzing — all in one governed workflow.',
       features: [
         'Self-service data marketplace catalog',
         'One-click governed access requests',
@@ -58,7 +58,7 @@ const SolutionsForTeam = () => {
             <span className="text-[#6b72d6]">Institutional Stakeholder</span>
           </h2>
           <p className="!mx-auto max-w-3xl !text-center text-[15px] font-medium !text-slate-600 sm:text-[16px] md:text-lg">
-            Torro speaks the language of CISOs, data engineers, and business leaders — simultaneously.
+            Torro is a collaborative platform for CISOs, DPOs, Governance, Business, and Analytics teams to work with data, accelerate decisions, and build trust through full transparency and end-to-end auditability.
           </p>
         </div>
 

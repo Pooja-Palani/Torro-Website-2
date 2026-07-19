@@ -74,7 +74,7 @@ const Stakeholders = () => {
             icon: BarChart3,
             tag: "BUSINESS LEADERS",
             title: "Data in Minutes, Not Months",
-            description: "Self-service data access in minutes, not months — with governance guardrails built in. Browse the marketplace, request access, and start analyzing in one workflow.",
+            description: "Self-serve data access in minutes with self-serve AI/ML and Advanced Analytics in minutes. Browse the marketplace, request access, and start analyzing — all in one governed workflow.",
             features: [
                 "Self-service data marketplace catalog",
                 "One-click governed access requests",
@@ -105,8 +105,8 @@ const Stakeholders = () => {
                         Built for Every <span className="text-[#99A0F9]">Institutional Stakeholder.</span>
                     </h2>
 
-                    <p className="text-slate-500 text-[20px] leading-relaxed max-w-2xl mx-auto font-medium">
-                        Torro speaks the language of CISOs, data engineers, and business leaders — simultaneously.
+                    <p className="text-slate-500 text-[20px] leading-relaxed max-w-3xl mx-auto font-medium">
+                        Torro is a collaborative platform for CISOs, DPOs, Governance, Business, and Analytics teams to work with data, accelerate decisions, and build trust through full transparency and end-to-end auditability.
                     </p>
                 </div>
 
