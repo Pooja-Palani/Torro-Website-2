@@ -5,7 +5,7 @@ import { Shield, Cloud, BarChart2, Settings, Lock, Cpu, Globe } from 'lucide-rea
 
 const ACCENT = '#99A0F9';
 
-const HERO_VERBS = ['Observe', 'Manage', 'Protect', 'Accelerate'];
+const HERO_VERBS = ['Govern', 'Protect', 'Accelerate', 'Manage', 'Observe'];
 const VERB_INTERVAL_MS = 4200;
 const VERB_EASE = [0.22, 1, 0.36, 1];
 const VERB_TRANSITION = { duration: 0.55, ease: VERB_EASE };
@@ -125,8 +125,7 @@ const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.16 }}
                             className="!mx-0 max-w-xl !text-left pt-1 text-[15px] leading-relaxed text-gray-300 sm:text-base md:text-lg"
                         >
-                            A RegTech platform that enforces real-time PII protection, automates compliance, and delivers full
-                            visibility across hybrid data environments.
+                            The Unified Data Operating System for Enterprise Grade Governance, Compliance and Secure Analytics.
                         </motion.p>
 
                         <motion.div
