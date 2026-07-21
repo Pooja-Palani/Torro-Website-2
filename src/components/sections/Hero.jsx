@@ -244,18 +244,42 @@ const Hero = () => {
                                 <Lock className="absolute top-1/2 left-1/2 z-20 h-9 w-9 -translate-x-1/2 -translate-y-1/2 text-primary opacity-90 drop-shadow-md sm:h-12 sm:w-12 md:h-16 md:w-16" />
                             </div>
 
-                            {/* Professional Isometric Disk Base */}
-                            <div className="group relative z-10 mt-4 h-[110px] w-full max-w-[480px] sm:mt-6 sm:h-[140px] md:mt-8 md:h-[160px]">
-                                <div className="absolute inset-x-8 top-[55%] z-0 h-[45%] rounded-[100%] bg-primary/10 blur-[30px]" />
-                                <div className="absolute inset-x-0 top-[32%] z-10 h-[62%] rounded-[100%] border-b border-primary/10 bg-gradient-to-b from-[#131024] to-[#05040a] shadow-[0_40px_60px_rgba(0,0,0,0.95)]" />
-                                <div className="absolute inset-x-0 top-[32%] z-10 flex h-[32%] items-center justify-center border-x border-primary/10 bg-gradient-to-b from-[#18142e] to-[#0a0715]">
-                                    <span className="absolute z-20 px-2 text-center text-[12px] font-medium tracking-wide text-[#e2e8f0] drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] transition-all duration-300 group-hover:text-accent sm:text-[16px] md:text-[20px]">
-                                        Torro OneData Platform
-                                    </span>
+                            {/* Lakehouse base — Torro brand trio: red · lavender · gold */}
+                            <div className="group relative z-10 mt-4 h-[130px] w-full max-w-[480px] sm:mt-6 sm:h-[165px] md:mt-8 md:h-[190px]">
+                                <div className="absolute inset-x-10 top-[62%] z-0 h-[40%] rounded-[100%] bg-[#E06365]/15 blur-[36px]" />
+
+                                {/* Base — Torro red #E06365 */}
+                                <div className="absolute inset-x-[-2%] top-[48%] z-[11] h-[46%]">
+                                    <div className="absolute inset-x-0 top-[28%] h-[72%] rounded-[100%] border-b border-[#E06365]/30 bg-gradient-to-b from-[#1a0e10] to-[#080406] shadow-[0_28px_40px_rgba(0,0,0,0.85)]" />
+                                    <div className="absolute inset-x-0 top-[28%] h-[28%] border-x border-[#E06365]/25 bg-gradient-to-b from-[#2a1418] to-[#12080a]" />
+                                    <div className="absolute inset-x-0 top-0 h-[56%] overflow-hidden rounded-[100%] border border-[#E06365]/45 bg-gradient-to-b from-[#4a2028] to-[#1a0e12]">
+                                        <div
+                                            className="absolute inset-0 opacity-55"
+                                            style={{
+                                                backgroundImage:
+                                                    'radial-gradient(ellipse at 50% 40%, rgba(224,99,101,0.28) 0%, transparent 55%), repeating-radial-gradient(ellipse at 50% 50%, transparent 0 10px, rgba(224,99,101,0.16) 10px 11px)',
+                                            }}
+                                        />
+                                    </div>
                                 </div>
-                                <div className="absolute inset-x-0 top-0 z-20 flex h-[62%] items-center justify-center overflow-hidden rounded-[100%] border border-primary/20 bg-gradient-to-b from-[#251e40] to-[#120e24] shadow-[inset_0_2px_15px_rgba(153,160,249,0.05)]">
-                                    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(153,160,249,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(153,160,249,0.05)_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-80" />
-                                    <div className="absolute h-[60%] w-[60%] rounded-[100%] bg-gradient-to-r from-primary/15 to-accent/15 blur-[25px]" />
+
+                                {/* Mid — Torro lavender #99A0F9 */}
+                                <div className="absolute inset-x-[7%] top-[26%] z-[12] h-[38%]">
+                                    <div className="absolute inset-x-0 top-[28%] h-[72%] rounded-[100%] border-b border-[#99A0F9]/30 bg-gradient-to-b from-[#161a32] to-[#080a14] shadow-[0_20px_32px_rgba(0,0,0,0.7)]" />
+                                    <div className="absolute inset-x-0 top-0 h-[56%] overflow-hidden rounded-[100%] border border-[#99A0F9]/50 bg-gradient-to-b from-[#3a4280] to-[#181c38] shadow-[inset_0_2px_18px_rgba(153,160,249,0.2)]">
+                                        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(153,160,249,0.22)_1px,transparent_1px),linear-gradient(to_bottom,rgba(153,160,249,0.16)_1px,transparent_1px)] bg-[size:0.8rem_0.5rem] opacity-80" />
+                                    </div>
+                                </div>
+
+                                {/* Crown — Torro gold #F8BD64 */}
+                                <div className="absolute inset-x-[16%] top-0 z-[13] h-[36%]">
+                                    <div className="absolute inset-x-0 top-[28%] h-[72%] rounded-[100%] border-b border-[#F8BD64]/35 bg-gradient-to-b from-[#1c160c] to-[#08060a] shadow-[0_16px_28px_rgba(0,0,0,0.65)]" />
+                                    <div className="absolute inset-x-0 top-0 h-[56%] overflow-hidden rounded-[100%] border border-[#F8BD64]/55 bg-gradient-to-b from-[#4a3a16] to-[#1a140c] shadow-[inset_0_2px_18px_rgba(248,189,100,0.22)]">
+                                        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(248,189,100,0.16)_1px,transparent_1px),linear-gradient(to_bottom,rgba(248,189,100,0.12)_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-80" />
+                                        <div className="absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-gradient-to-br from-[#F8BD64]/35 via-[#99A0F9]/12 to-transparent blur-[16px]" />
+                                        <div className="absolute left-1/2 top-1/2 h-[42%] w-[58%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] border border-[#F8BD64]/40 opacity-70" />
+                                        <div className="absolute left-1/2 top-1/2 h-[24%] w-[36%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] border border-[#F8BD64]/60 opacity-80" />
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>

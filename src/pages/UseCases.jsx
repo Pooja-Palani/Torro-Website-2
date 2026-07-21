@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Eye, Globe, Users, Lock, CheckCircle2 } from 'lucide-react';
+import { Eye, Globe, Users, Lock, CheckCircle2, Layers } from 'lucide-react';
 import { UseCaseMock } from '../components/mocks/UseCaseMocks';
 
 const UseCases = () => {
@@ -79,6 +79,19 @@ const UseCases = () => {
               ],
             },
             {
+              title: 'Open Semantic Interchange',
+              description:
+                'Unify meaning across your data estate with an OSI semantic layer. One governed contract between sources, AI, analytics, and reporting — so every consumer speaks the same business language.',
+              businessValue:
+                'Stop rewriting metrics for every tool. OSI gives AI, dashboards, and reports a shared semantic backbone — faster delivery, fewer inconsistencies, stronger governance.',
+              capabilities: [
+                'Central semantic contract for all consumers',
+                'Source-to-meaning mapping with lineage',
+                'AI-ready governed definitions',
+                'Consistent metrics across BI and reporting',
+              ],
+            },
+            {
               title: 'Cross-Border Data Governance',
               description:
                 'Manage data residency, transfer restrictions, and regulatory requirements across jurisdictions. DPDP, GDPR, and regional rules enforced in one place.',
@@ -141,7 +154,9 @@ const UseCases = () => {
                     ? Users
                     : uc.title === 'Consent & PII Management'
                       ? Lock
-                      : CheckCircle2;
+                      : uc.title === 'Open Semantic Interchange'
+                        ? Layers
+                        : CheckCircle2;
 
             return (
               <motion.div

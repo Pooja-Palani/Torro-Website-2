@@ -107,6 +107,7 @@ const Footer = () => {
                             <div className="text-[12px] font-black uppercase tracking-[0.2em] text-white">Use Cases</div>
                             <ul className="space-y-2.5">
                                 <li><Link to="/use-cases#enterprise-data-visibility" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Enterprise Data Visibility</Link></li>
+                                <li><Link to="/use-cases#open-semantic-interchange" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Open Semantic Interchange</Link></li>
                                 <li><Link to="/use-cases#cross-border-data-governance" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Cross-Border Governance</Link></li>
                                 <li><Link to="/use-cases#automated-access-provisioning" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Access Provisioning</Link></li>
                                 <li><Link to="/use-cases#audit-readiness" className="text-[14px] font-semibold text-white/55 transition-colors hover:text-white">Audit Readiness</Link></li>

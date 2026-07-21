@@ -96,6 +96,7 @@ const Header = () => {
       href: '/use-cases#use-cases',
       submenu: [
         { label: 'Enterprise Data Visibility', href: '/use-cases#enterprise-data-visibility' },
+        { label: 'Open Semantic Interchange', href: '/use-cases#open-semantic-interchange' },
         { label: 'Cross-Border Data Governance', href: '/use-cases#cross-border-data-governance' },
         { label: 'Automated Access Provisioning', href: '/use-cases#automated-access-provisioning' },
         { label: 'Consent & PII Management', href: '/use-cases#consent-and-pii-management' },

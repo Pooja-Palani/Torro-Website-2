@@ -9,6 +9,10 @@ import {
   Clock,
   FileCheck2,
   Shield,
+  Brain,
+  Database,
+  FileText,
+  ArrowUp,
 } from 'lucide-react';
 
 /** Fictional use-case UI mocks for marketing — not product screenshots. */
@@ -389,12 +393,202 @@ export const AuditReadinessMock = () => {
   );
 };
 
+/** OSI — Open Semantic Interchange hub (matches semantic-layer diagram) */
+export const OsiSemanticMock = () => {
+  const pulse = useCycle(4, 1600);
+
+  return (
+    <Shell className="bg-[#f7f8fc]">
+      <Header eyebrow="Use Case · OSI" title="Open Semantic Interchange" />
+      <div className="relative h-[calc(100%-44px)] overflow-hidden px-3 py-2 sm:px-4">
+        {/* Soft grid like the sketch paper */}
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:14px_14px]" />
+
+        {/* Top consumers — dashboards | AI | notebooks */}
+        <div className="relative z-10 grid grid-cols-3 items-start gap-2">
+          {/* Dashboards / viz */}
+          <motion.div
+            animate={{ y: pulse === 0 ? -2 : 0 }}
+            className="flex flex-col items-center gap-1"
+          >
+            <div className="flex gap-1">
+              <div className="h-10 w-11 rounded-md border border-slate-300 bg-white p-1 shadow-sm">
+                <div className="mb-0.5 h-1 w-6 rounded bg-slate-200" />
+                <svg viewBox="0 0 40 20" className="h-5 w-full">
+                  <polyline
+                    fill="none"
+                    stroke="#5b6cfa"
+                    strokeWidth="1.5"
+                    points="2,14 10,10 18,12 26,6 34,8 38,4"
+                  />
+                </svg>
+              </div>
+              <div className="h-10 w-11 rounded-md border border-slate-300 bg-white p-1 shadow-sm">
+                <div className="mb-0.5 h-1 w-5 rounded bg-slate-200" />
+                <div className="flex h-5 items-end gap-0.5">
+                  {[40, 70, 45, 85, 55].map((h, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-sm bg-[#99A0F9]/70"
+                      style={{ height: `${h}%` }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="text-[6px] font-bold uppercase tracking-wider text-slate-400">Analytics</div>
+          </motion.div>
+
+          {/* AI brain */}
+          <motion.div
+            animate={{ scale: pulse === 1 ? 1.06 : 1 }}
+            className="flex flex-col items-center gap-1"
+          >
+            <div className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-slate-700 bg-white shadow-md">
+              <Brain className="h-6 w-6 text-slate-700" />
+              <span className="absolute -bottom-0.5 rounded bg-slate-800 px-1 text-[6px] font-black text-white">
+                AI
+              </span>
+            </div>
+            <motion.div
+              animate={{ opacity: [0.4, 1, 0.4] }}
+              transition={{ repeat: Infinity, duration: 1.4 }}
+              className="h-4 w-px bg-slate-500"
+            />
+          </motion.div>
+
+          {/* Notebooks / reports */}
+          <motion.div
+            animate={{ y: pulse === 2 ? -2 : 0 }}
+            className="flex flex-col items-center gap-1"
+          >
+            <div className="flex gap-1">
+              {[0, 1].map((n) => (
+                <div
+                  key={n}
+                  className="flex h-10 w-8 flex-col rounded-md border border-slate-300 bg-white p-1 shadow-sm"
+                >
+                  <div className="mb-1 h-1 w-full rounded bg-[#E06365]/50" />
+                  <div className="space-y-0.5">
+                    <div className="h-0.5 w-full rounded bg-slate-200" />
+                    <div className="h-0.5 w-[80%] rounded bg-slate-200" />
+                    <div className="h-0.5 w-full rounded bg-slate-200" />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="text-[6px] font-bold uppercase tracking-wider text-slate-400">Reporting</div>
+          </motion.div>
+        </div>
+
+        {/* Side arrows into hub */}
+        <div className="relative z-10 my-1 flex items-center justify-between px-6">
+          <motion.div
+            animate={{ x: [0, 3, 0], opacity: [0.5, 1, 0.5] }}
+            transition={{ repeat: Infinity, duration: 1.6 }}
+            className="h-px flex-1 bg-[#5b6cfa]"
+          />
+          <span className="mx-2 text-[8px] text-[#5b6cfa]">◀</span>
+          <div className="w-16" />
+          <span className="mx-2 text-[8px] text-[#5b6cfa]">▶</span>
+          <motion.div
+            animate={{ x: [0, -3, 0], opacity: [0.5, 1, 0.5] }}
+            transition={{ repeat: Infinity, duration: 1.6 }}
+            className="h-px flex-1 bg-[#5b6cfa]"
+          />
+        </div>
+
+        {/* Central OSI SEMANTIC LAYER pill */}
+        <div className="relative z-20 mx-auto w-full max-w-[300px]">
+          {/* Yellow glow rays */}
+          <div className="pointer-events-none absolute -inset-x-2 -top-2 flex justify-center gap-1.5">
+            {[0, 1, 2, 3, 4, 5, 6].map((n) => (
+              <motion.span
+                key={n}
+                animate={{ opacity: [0.45, 1, 0.45], height: [6, 10, 6] }}
+                transition={{ repeat: Infinity, duration: 1.8, delay: n * 0.08 }}
+                className="w-0.5 rounded-full bg-[#F8BD64]"
+                style={{ transform: `rotate(${-24 + n * 8}deg)` }}
+              />
+            ))}
+          </div>
+          <motion.div
+            animate={{
+              boxShadow: [
+                '0 0 0 0 rgba(248,189,100,0)',
+                '0 0 0 5px rgba(248,189,100,0.2)',
+                '0 0 0 0 rgba(248,189,100,0)',
+              ],
+            }}
+            transition={{ repeat: Infinity, duration: 2.2 }}
+            className="rounded-full border-2 border-slate-700 bg-white px-3 py-2 text-center shadow-md"
+          >
+            <div className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-800 sm:text-[10px]">
+              OSI Semantic Layer
+            </div>
+            <div className="text-[6px] font-bold text-[#5b6cfa]">Open Semantic Interchange</div>
+          </motion.div>
+        </div>
+
+        {/* Arrow up from sources */}
+        <div className="relative z-10 flex justify-center py-1.5">
+          <motion.div
+            animate={{ y: [3, 0, 3], opacity: [0.45, 1, 0.45] }}
+            transition={{ repeat: Infinity, duration: 1.3 }}
+            className="flex flex-col items-center"
+          >
+            <ArrowUp className="h-3.5 w-3.5 text-[#5b6cfa]" strokeWidth={2.5} />
+            <div className="h-2 w-0.5 bg-[#5b6cfa]" />
+          </motion.div>
+        </div>
+
+        {/* Data sources */}
+        <div className="relative z-10 mt-auto pb-1">
+          <div className="mb-1.5 text-center text-[6px] font-black uppercase tracking-[0.18em] text-slate-500">
+            Data Sources
+          </div>
+          <div className="flex items-end justify-center gap-1.5 sm:gap-2">
+            {[
+              { type: 'db', h: 22 },
+              { type: 'db', h: 30 },
+              { type: 'file', h: 20 },
+              { type: 'db', h: 26 },
+              { type: 'file', h: 20 },
+              { type: 'db', h: 24 },
+            ].map((src, i) => (
+              <motion.div
+                key={i}
+                animate={{
+                  y: pulse === i % 4 ? -2 : 0,
+                  borderColor: pulse === i % 4 ? '#99A0F9' : '#cbd5e1',
+                }}
+                className="flex items-center justify-center rounded border bg-white shadow-sm"
+                style={{ width: src.type === 'file' ? 18 : 20, height: src.h }}
+              >
+                {src.type === 'db' ? (
+                  <Database className="h-3 w-3 text-slate-600" />
+                ) : (
+                  <FileText className="h-3 w-3 text-slate-600" />
+                )}
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-1 text-center text-[6px] font-black uppercase tracking-[0.16em] text-slate-400">
+            Data Sources
+          </div>
+        </div>
+      </div>
+    </Shell>
+  );
+};
+
 const USE_CASE_MOCKS = {
   'Enterprise Data Visibility': VisibilityMock,
   'Cross-Border Data Governance': CrossBorderMock,
   'Automated Access Provisioning': AccessProvisioningMock,
   'Consent & PII Management': ConsentPiiMock,
   'Audit Readiness': AuditReadinessMock,
+  'Open Semantic Interchange': OsiSemanticMock,
 };
 
 export const UseCaseMock = ({ title }) => {
