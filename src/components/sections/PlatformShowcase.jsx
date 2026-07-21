@@ -94,7 +94,7 @@ const AzureLogo = ({ className = 'h-3.5 w-3.5' }) => (
 const SqlLogo = ({ className = 'h-3.5 w-3.5' }) => (
     <svg viewBox="0 0 24 24" className={className} aria-hidden>
         <rect width="24" height="24" rx="5" fill="#CC2927" />
-        <text x="12" y="15.5" textAnchor="middle" fill="#fff" fontSize="7.5" fontWeight="800" fontFamily="ui-sans-serif,system-ui,sans-serif" letterSpacing="-0.3">SQL</text>
+        <text x="12" y="15.5" textAnchor="middle" fill="#fff" fontSize="7.5" fontWeight="700" fontFamily="Comfortaa, ui-sans-serif, system-ui, sans-serif" letterSpacing="-0.3">SQL</text>
     </svg>
 );
 
