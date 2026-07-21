@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShieldCheck, ShoppingBag, GitBranch, BadgeCheck, BarChart3, Search, Database, Cpu, FileText, Globe2, Users, Star } from 'lucide-react';
+import { ShieldCheck, ShoppingBag, GitBranch, BadgeCheck, BarChart3, Search, ShoppingCart, ChevronRight, ArrowUpRight, ArrowDownRight, FileCode2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /* ─── Illustration Components ─── */
@@ -72,49 +72,212 @@ const PrivacyViz = () => {
     );
 };
 
+/* Brand marks for marketplace cards */
+const ExcelLogo = ({ className = 'h-3.5 w-3.5' }) => (
+    <svg viewBox="0 0 32 32" className={className} aria-hidden>
+        <rect x="4" y="2" width="18" height="28" rx="2" fill="#185C37" />
+        <path fill="#21A366" d="M22 8V2l8 8h-6a2 2 0 0 1-2-2z" />
+        <rect x="2" y="9" width="16" height="14" rx="1.5" fill="#107C41" />
+        <path fill="#fff" d="M6.2 20.2 9.1 16l-2.8-4.2h2.2l1.7 2.9c.1.2.2.4.3.6h.05c.1-.2.2-.4.3-.6l1.7-2.9h2.1L12.1 16l2.9 4.2h-2.2l-1.8-3c-.1-.2-.2-.4-.3-.6h-.05c-.1.2-.2.4-.3.6l-1.8 3H6.2z" />
+    </svg>
+);
+
+const AzureLogo = ({ className = 'h-3.5 w-3.5' }) => (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden>
+        <path
+            fill="#0078D4"
+            d="M13.05 4.24 6.56 19.9h4.6l6.54-15.66h-4.65zm.34 0L19.3 19.9h-4.58l-2.88-6.85 1.55-3.71z"
+        />
+    </svg>
+);
+
+const SqlLogo = ({ className = 'h-3.5 w-3.5' }) => (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden>
+        <rect width="24" height="24" rx="5" fill="#CC2927" />
+        <text x="12" y="15.5" textAnchor="middle" fill="#fff" fontSize="7.5" fontWeight="800" fontFamily="ui-sans-serif,system-ui,sans-serif" letterSpacing="-0.3">SQL</text>
+    </svg>
+);
+
 const MarketplaceViz = () => {
-    const listings = [
-        { name: 'Customer 360', type: 'Dataset', icon: Database, status: 'Certified', rating: 4.9, subs: 128, accent: 'text-indigo-300' },
-        { name: 'Churn Model v3', type: 'ML Model', icon: Cpu, status: 'PII-Free', rating: 4.7, subs: 64, accent: 'text-violet-400' },
-        { name: 'Revenue Signals', type: 'API Feed', icon: Globe2, status: 'Published', rating: 4.8, subs: 210, accent: 'text-amber-400' },
-        { name: 'Risk Scorecard', type: 'Report', icon: FileText, status: 'Approved', rating: 5.0, subs: 89, accent: 'text-teal-400' },
+    const assets = [
+        {
+            Logo: ExcelLogo,
+            accent: '#21A366',
+            glow: 'rgba(33,163,102,0.35)',
+            tags: [
+                { label: 'XLSX', tone: 'border-emerald-400/30 bg-emerald-400/10 text-emerald-300' },
+                { label: 'SCRIPT', tone: 'border-amber-400/30 bg-amber-400/10 text-amber-300' },
+            ],
+            name: 'banking_customers_data4.xlsx',
+            fields: [
+                ['Database', 'Manual Upload'],
+                ['Publish ID', '9'],
+            ],
+            owner: 'charlie@torro.ai',
+            stats: [
+                { Icon: ArrowUpRight, value: '24', color: 'text-[#99A0F9]' },
+                { Icon: ArrowDownRight, value: '8', color: 'text-amber-400' },
+                { Icon: FileCode2, value: '3', color: 'text-rose-400' },
+            ],
+            active: true,
+        },
+        {
+            Logo: AzureLogo,
+            accent: '#0078D4',
+            glow: 'rgba(0,120,212,0.35)',
+            tags: [
+                { label: 'TABLE', tone: 'border-[#99A0F9]/30 bg-[#99A0F9]/10 text-[#99A0F9]' },
+                { label: 'SOURCE', tone: 'border-amber-400/30 bg-amber-400/10 text-amber-300' },
+            ],
+            name: 'crm_customer',
+            fields: [
+                ['Database', 'Azure Synapse'],
+                ['Publish ID', '8'],
+            ],
+            owner: 'charlie@torro.ai',
+            stats: [
+                { Icon: ArrowUpRight, value: '112', color: 'text-[#99A0F9]' },
+                { Icon: ArrowDownRight, value: '41', color: 'text-amber-400' },
+                { Icon: FileCode2, value: '9', color: 'text-rose-400' },
+            ],
+            active: false,
+        },
+        {
+            Logo: SqlLogo,
+            accent: '#CC2927',
+            glow: 'rgba(204,41,39,0.32)',
+            tags: [
+                { label: 'SCRIPT', tone: 'border-[#99A0F9]/30 bg-[#99A0F9]/10 text-[#99A0F9]' },
+                { label: 'SQL', tone: 'border-rose-400/30 bg-rose-400/10 text-rose-300' },
+            ],
+            name: 'kyc_watchlist.sql',
+            fields: [
+                ['Database', 'SQL Server'],
+                ['Publish ID', '7'],
+            ],
+            owner: 'ava@torro.ai',
+            stats: [
+                { Icon: ArrowUpRight, value: '56', color: 'text-[#99A0F9]' },
+                { Icon: ArrowDownRight, value: '17', color: 'text-amber-400' },
+                { Icon: FileCode2, value: '5', color: 'text-rose-400' },
+            ],
+            active: false,
+        },
     ];
 
     return (
-        <div className="relative z-10 flex h-full w-full flex-col justify-center gap-2.5 px-1">
-            <div className="flex shrink-0 items-center gap-2.5 rounded-xl border border-[#1e2343] bg-[#0f1225] px-3 py-2">
-                <Search className="h-4 w-4 shrink-0 text-white/35" />
-                <span className="text-[11px] font-medium text-white/40">Search governed assets...</span>
-                <div className="ml-auto flex items-center gap-2">
-                    <span className="text-[9px] font-bold text-white/35">491 assets</span>
-                    <span className="text-[9px] font-black text-[#99A0F9]">+4 today</span>
+        <div className="relative z-10 flex h-full w-full flex-col justify-center gap-3 px-0.5">
+            <div className="relative flex shrink-0 items-center gap-2.5 overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-r from-[#141833] via-[#0f1225] to-[#0c1020] px-3.5 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_8px_28px_-16px_rgba(153,160,249,0.45)]">
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#99A0F9]/50 to-transparent" />
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-[#99A0F9]/25 bg-[#99A0F9]/10">
+                    <Search className="h-3.5 w-3.5 text-[#99A0F9]" />
+                </div>
+                <span className="truncate text-[11px] font-medium tracking-tight text-white/40">
+                    Search for tables, scripts, or datasets...
+                </span>
+                <div className="ml-auto flex shrink-0 items-center gap-1.5">
+                    <span className="rounded-lg bg-gradient-to-r from-[#99A0F9] to-indigo-400 px-2.5 py-1 text-[8px] font-black tracking-wide text-white shadow-[0_0_16px_rgba(153,160,249,0.45)]">
+                        All
+                    </span>
+                    <span className="hidden rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[8px] font-bold text-white/40 sm:inline">
+                        Tables
+                    </span>
+                    <span className="ml-1 rounded-lg border border-white/10 bg-white/[0.03] px-2 py-1 text-[8px] font-bold text-white/45">
+                        491 <span className="text-[#99A0F9]">+4</span>
+                    </span>
                 </div>
             </div>
 
-            <div className="grid shrink-0 grid-cols-2 gap-2">
-                {listings.map((item, i) => {
-                    const Icon = item.icon;
+            <div className="grid min-h-0 flex-1 grid-cols-3 gap-2.5 sm:gap-3">
+                {assets.map((asset, i) => {
+                    const Logo = asset.Logo;
                     return (
                         <motion.div
-                            key={item.name}
-                            initial={{ opacity: 0, scale: 0.96 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: i * 0.07 }}
-                            className="flex flex-col rounded-xl border border-[#1e2343] bg-[#0a0d18] px-2.5 py-2"
+                            key={asset.name}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                            className={`group relative flex min-h-0 flex-col overflow-hidden rounded-2xl border bg-gradient-to-b from-[#151a33] to-[#080a14] transition-transform duration-300 ${
+                                asset.active
+                                    ? 'border-[#99A0F9]/45 shadow-[0_12px_36px_-14px_rgba(153,160,249,0.45)]'
+                                    : 'border-white/[0.07] shadow-[0_10px_28px_-18px_rgba(0,0,0,0.8)]'
+                            }`}
                         >
-                            <div className="mb-1 flex items-center justify-between gap-1">
-                                <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/5 bg-[#151930]">
-                                    <Icon className={`h-3.5 w-3.5 ${item.accent}`} />
+                            <div
+                                className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                                style={{
+                                    background: asset.active
+                                        ? 'linear-gradient(90deg, transparent, rgba(153,160,249,0.7), transparent)'
+                                        : `linear-gradient(90deg, transparent, ${asset.accent}66, transparent)`,
+                                }}
+                            />
+                            <div
+                                className="pointer-events-none absolute -right-6 -top-8 h-24 w-24 rounded-full blur-3xl"
+                                style={{ background: asset.glow, opacity: asset.active ? 0.55 : 0.28 }}
+                            />
+
+                            <div className="relative flex min-h-0 flex-1 flex-col px-3 pt-3 pb-2.5 sm:px-3.5 sm:pt-3.5">
+                                <div className="mb-3 flex items-start justify-between gap-1.5">
+                                    <div className="flex min-w-0 items-center gap-2">
+                                        <div
+                                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-[#0a0d18]/90"
+                                            style={{ boxShadow: `0 0 20px ${asset.glow}` }}
+                                        >
+                                            <Logo className="h-5 w-5" />
+                                        </div>
+                                        <div className="flex flex-wrap gap-1">
+                                            {asset.tags.map((tag) => (
+                                                <span
+                                                    key={tag.label}
+                                                    className={`rounded-md border px-1.5 py-0.5 text-[7px] font-black uppercase tracking-wider ${tag.tone}`}
+                                                >
+                                                    {tag.label}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="flex shrink-0 items-center gap-1">
+                                        <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#99A0F9]/30 bg-[#99A0F9]/10 text-[#99A0F9] shadow-[0_0_12px_rgba(153,160,249,0.25)]">
+                                            <ChevronRight className="h-3 w-3" />
+                                        </span>
+                                        <span className="flex h-6 w-6 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-white/35 transition-colors group-hover:border-[#99A0F9]/30 group-hover:text-[#99A0F9]">
+                                            <ShoppingCart className="h-3 w-3" />
+                                        </span>
+                                    </div>
                                 </div>
-                                <span className="rounded border border-[#99A0F9]/25 bg-[#99A0F9]/10 px-1.5 py-0.5 text-[8px] font-black uppercase text-[#99A0F9]">{item.status}</span>
+
+                                <div className="mb-2.5 truncate text-left !text-[11px] !font-bold !leading-tight !tracking-tight !text-white sm:!text-[12px]">
+                                    {asset.name}
+                                </div>
+
+                                <div className="space-y-1.5 text-left">
+                                    {asset.fields.map(([label, value]) => (
+                                        <div key={label} className="flex items-center justify-between gap-2 !text-[9px] !leading-none">
+                                            <span className="font-semibold tracking-wide text-white/35">{label}</span>
+                                            <span className={`truncate font-bold ${label === 'Publish ID' ? 'text-[#99A0F9]' : 'text-white/75'}`}>
+                                                {value}
+                                            </span>
+                                        </div>
+                                    ))}
+                                    <div className="flex items-center justify-between gap-2 !text-[9px] !leading-none">
+                                        <span className="font-semibold tracking-wide text-white/35">Owner</span>
+                                        <span className="truncate font-bold text-[#99A0F9]">{asset.owner}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <p className="text-[11px] font-bold leading-tight text-white">{item.name}</p>
-                            <p className={`text-[9px] font-black uppercase tracking-wide ${item.accent}`}>{item.type}</p>
-                            <div className="mt-1 flex items-center gap-2 text-[9px] text-white/45">
-                                <Star className="h-2.5 w-2.5 fill-[#F4B952] text-[#F4B952]" />
-                                <span className="font-bold text-white/70">{item.rating}</span>
-                                <Users className="h-2.5 w-2.5" />
-                                <span>{item.subs}</span>
+
+                            <div className="relative mt-auto grid grid-cols-3 border-t border-white/[0.06] bg-gradient-to-b from-[#101428]/90 to-[#0a0d18]">
+                                {asset.stats.map(({ Icon, value, color }, idx) => (
+                                    <div
+                                        key={idx}
+                                        className={`flex items-center justify-center gap-1 py-2 text-[9px] font-bold text-white/55 ${
+                                            idx < 2 ? 'border-r border-white/[0.06]' : ''
+                                        }`}
+                                    >
+                                        <Icon className={`h-3 w-3 ${color}`} />
+                                        {value}
+                                    </div>
+                                ))}
                             </div>
                         </motion.div>
                     );
@@ -507,7 +670,7 @@ const PlatformShowcase = () => {
                                     </AnimatePresence>
                                 </div>
 
-                                <div className="relative h-[200px] w-full shrink-0 overflow-hidden rounded-2xl border border-[#1e2343]/50 bg-[#05060f] sm:h-[240px] md:h-[280px] lg:h-[min(260px,32dvh)] xl:h-[min(300px,36dvh)]">
+                                <div className="relative h-[260px] w-full shrink-0 overflow-hidden rounded-2xl border border-[#1e2343]/50 bg-[#05060f] sm:h-[300px] md:h-[340px] lg:h-[min(320px,40dvh)] xl:h-[min(360px,44dvh)]">
                                     <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:2rem_2rem]" />
                                     <AnimatePresence mode="wait">
                                         <motion.div
@@ -516,7 +679,7 @@ const PlatformShowcase = () => {
                                             animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0, scale: 1.02 }}
                                             transition={{ duration: 0.3 }}
-                                            className="absolute inset-0 flex p-3 sm:p-5"
+                                            className="absolute inset-0 flex p-3 sm:p-4"
                                         >
                                             {features[activeTab].viz}
                                         </motion.div>

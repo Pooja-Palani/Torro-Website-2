@@ -255,7 +255,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                             <h3 className="mb-2 text-[20px] font-black tracking-tight text-slate-900 sm:text-[22px]">
                                 What to Expect
                             </h3>
-                            <p className="text-[14px] leading-relaxed font-medium text-slate-500">
+                            <p className="!mx-0 max-w-none !text-left text-[14px] leading-relaxed font-medium text-slate-500">
                                 A focused session built for CISOs, data leaders, and compliance teams.
                             </p>
                         </div>

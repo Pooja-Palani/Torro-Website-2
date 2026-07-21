@@ -41,11 +41,15 @@ function DiscoveryPreview() {
     { label: 'Dark Data', pct: 76 },
   ];
   return (
-    <div className="flex h-full w-full flex-col rounded-2xl border border-white/10 bg-[#0a0d18] p-5">
+    <div className="box-copy flex h-full w-full flex-col rounded-2xl border border-white/10 bg-[#0a0d18] p-5 text-left">
       <div className="mb-4 flex items-center justify-between">
-        <div>
-          <p className="text-[9px] font-black uppercase tracking-[0.2em] text-[#99A0F9]">Asset Scanner</p>
-          <p className="text-[17px] font-black tracking-tight text-white">100% Coverage</p>
+        <div className="min-w-0 text-left">
+          <p className="!mx-0 !max-w-none !text-left text-[9px] font-black uppercase tracking-[0.2em] text-[#99A0F9]">
+            Asset Scanner
+          </p>
+          <p className="!mx-0 !max-w-none !text-left text-[17px] font-black tracking-tight text-white">
+            100% Coverage
+          </p>
         </div>
         <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#99A0F9]/30 bg-[#99A0F9]/10">
           <Database className="h-5 w-5 text-[#99A0F9]" />
@@ -78,21 +82,26 @@ function DiscoveryPreview() {
 }
 
 function EnforcementPreview() {
-  const rules = ['Role-Based Access', 'Column Masking', 'Lineage Enforcement', 'Policy-as-Code'];
+  const rules = ['Role-Based Access', 'Column Masking', 'Lineage Enforcement'];
   return (
-    <div className="flex h-full w-full flex-col rounded-2xl border border-white/10 bg-[#0a0d18] p-5">
-      <div className="mb-4 flex items-center justify-between">
-        <div>
-          <p className="text-[9px] font-black uppercase tracking-[0.2em] text-[#99A0F9]">Policy Engine</p>
-          <p className="text-[17px] font-black tracking-tight text-white">Live Enforcement</p>
+    <div className="flex h-full w-full flex-col gap-3 overflow-hidden rounded-2xl border border-white/10 bg-[#0a0d18] p-4 text-left">
+      <div className="flex shrink-0 items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div className="text-[9px] font-black uppercase leading-none tracking-[0.2em] text-[#99A0F9]">
+            Policy Engine
+          </div>
+          <div className="mt-1.5 text-[16px] font-black leading-tight tracking-tight text-white">
+            Live Enforcement
+          </div>
         </div>
         <motion.div
           animate={{ opacity: [1, 0.4, 1] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="h-2 w-2 rounded-full bg-emerald-400"
+          className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-400"
         />
       </div>
-      <div className="flex flex-1 flex-col justify-center gap-2">
+
+      <div className="flex min-h-0 flex-1 flex-col justify-start gap-2">
         {rules.map((rule, i) => (
           <motion.div
             key={rule}
@@ -102,11 +111,12 @@ function EnforcementPreview() {
             className="flex items-center gap-2 rounded-lg border border-white/5 bg-[#11152a] px-3 py-2"
           >
             <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
-            <span className="text-[11px] font-bold text-white/75">{rule}</span>
+            <span className="text-[11px] font-bold leading-none text-white/75">{rule}</span>
           </motion.div>
         ))}
       </div>
-      <div className="mt-4 border-t border-white/5 pt-3 text-[9px] font-black uppercase tracking-widest text-emerald-400">
+
+      <div className="shrink-0 border-t border-white/5 pt-2.5 text-[9px] font-black uppercase tracking-widest text-emerald-400">
         Zero human bottlenecks
       </div>
     </div>
@@ -120,11 +130,15 @@ function CompliancePreview() {
     { label: 'Immutable Logs', status: 'Active' },
   ];
   return (
-    <div className="flex h-full w-full flex-col rounded-2xl border border-white/10 bg-[#0a0d18] p-5">
+    <div className="box-copy flex h-full w-full flex-col rounded-2xl border border-white/10 bg-[#0a0d18] p-5 text-left">
       <div className="mb-4 flex items-center justify-between">
-        <div>
-          <p className="text-[9px] font-black uppercase tracking-[0.2em] text-[#99A0F9]">Audit Vault</p>
-          <p className="text-[17px] font-black tracking-tight text-white">Defensible</p>
+        <div className="min-w-0 text-left">
+          <p className="!mx-0 !max-w-none !text-left text-[9px] font-black uppercase tracking-[0.2em] text-[#99A0F9]">
+            Audit Vault
+          </p>
+          <p className="!mx-0 !max-w-none !text-left text-[17px] font-black tracking-tight text-white">
+            Defensible
+          </p>
         </div>
         <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#99A0F9]/30 bg-[#99A0F9]/10">
           <FileText className="h-5 w-5 text-[#99A0F9]" />
@@ -214,7 +228,7 @@ const MandateCard = ({ mandate, index }) => {
         {mandate.title}
       </h3>
 
-      <div className="relative min-h-[200px] flex-1 overflow-hidden">
+      <div className="relative min-h-[240px] flex-1 overflow-hidden">
         <AnimatePresence mode="wait">
           {!isHovered ? (
             <motion.p
