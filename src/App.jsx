@@ -25,10 +25,10 @@ function App() {
   return (
     <Router>
       <ScrollToHash />
-      <div className="min-h-screen flex flex-col bg-white text-gray-900 selection:bg-blue-100 selection:text-blue-900">
+      <div className="min-h-screen flex w-full min-w-0 flex-col overflow-x-clip bg-white text-gray-900 selection:bg-blue-100 selection:text-blue-900">
         <Header />
         
-        <main className="flex-1 flex flex-col">
+        <main className="flex w-full min-w-0 flex-1 flex-col overflow-x-clip">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/torro-onedata" element={<TorroOneData />} />

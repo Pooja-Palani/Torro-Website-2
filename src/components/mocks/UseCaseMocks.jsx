@@ -23,7 +23,7 @@ const Shell = ({ children, className = '' }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: '-40px' }}
     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-    className={`pointer-events-none relative h-[280px] overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_22px_50px_-28px_rgba(15,23,42,0.55)] ring-1 ring-black/[0.03] md:h-[340px] ${className}`}
+    className={`pointer-events-none relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_22px_50px_-28px_rgba(15,23,42,0.55)] ring-1 ring-black/[0.03] md:h-[340px] ${className}`}
   >
     {children}
   </motion.div>
@@ -60,31 +60,31 @@ const useCycle = (length, intervalMs = 1600) => {
 /** Visibility — estate map */
 export const VisibilityMock = () => {
   const domains = [
-    { label: 'Lake', count: '1.2M', x: '10%', y: '20%' },
-    { label: 'Warehouse', count: '840K', x: '55%', y: '18%' },
-    { label: 'SaaS', count: '210K', x: '18%', y: '55%' },
-    { label: 'Legacy', count: '95K', x: '58%', y: '58%' },
+    { label: 'Lake', count: '1.2M', x: '8%', y: '18%' },
+    { label: 'Warehouse', count: '840K', x: '52%', y: '16%' },
+    { label: 'SaaS', count: '210K', x: '14%', y: '52%' },
+    { label: 'Legacy', count: '95K', x: '52%', y: '54%' },
   ];
   const active = useCycle(domains.length, 1500);
 
   return (
     <Shell className="bg-[#eef2ff]">
       <Header eyebrow="Use Case" title="Enterprise Data Visibility" />
-      <div className="relative h-[calc(100%-44px)]">
+      <div className="relative min-h-[220px] flex-1 sm:min-h-[236px] md:min-h-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(153,160,249,0.15),transparent_55%)]" />
         {domains.map((d, i) => (
           <motion.div
             key={d.label}
             animate={{
-              scale: i === active ? 1.08 : 1,
-              y: i === active ? -4 : 0,
+              scale: i === active ? 1.06 : 1,
+              y: i === active ? -3 : 0,
               boxShadow:
                 i === active
                   ? '0 12px 28px -12px rgba(91,108,250,0.45)'
                   : '0 6px 16px -10px rgba(15,23,42,0.25)',
             }}
             transition={{ duration: 0.4 }}
-            className="absolute w-[88px] rounded-xl border border-white bg-white/95 px-2.5 py-2 text-center"
+            className="absolute w-[72px] rounded-xl border border-white bg-white/95 px-2 py-1.5 text-center sm:w-[88px] sm:px-2.5 sm:py-2"
             style={{ left: d.x, top: d.y }}
           >
             <motion.div
@@ -122,7 +122,7 @@ export const CrossBorderMock = () => {
   return (
     <Shell className="bg-white">
       <Header eyebrow="Use Case" title="Cross-Border Governance" />
-      <div className="grid h-[calc(100%-44px)] grid-cols-2 gap-2 p-3">
+      <div className="grid min-h-[236px] flex-1 grid-cols-2 gap-2 p-3 md:min-h-0">
         {regions.map((r, i) => (
           <motion.div
             key={r.code}
@@ -164,7 +164,7 @@ export const AccessProvisioningMock = () => {
   return (
     <Shell className="bg-[#f6f7fb]">
       <Header eyebrow="Use Case" title="Automated Access Provisioning" />
-      <div className="flex h-[calc(100%-44px)] flex-col justify-center gap-4 p-3.5">
+      <div className="flex min-h-[236px] flex-1 flex-col justify-center gap-3 p-3 sm:gap-4 sm:p-3.5 md:min-h-0">
         <div className="flex items-center gap-1">
           {steps.map((label, i) => {
             const done = i < active;
@@ -178,7 +178,7 @@ export const AccessProvisioningMock = () => {
                     backgroundColor: done ? '#ecfdf5' : current ? '#eef0ff' : '#ffffff',
                   }}
                   transition={{ duration: 0.35 }}
-                  className="flex flex-1 flex-col items-center rounded-xl border px-2 py-2"
+                  className="flex min-w-0 flex-1 flex-col items-center rounded-lg border px-1 py-2 sm:rounded-xl sm:px-2"
                 >
                   {done ? (
                     <CheckCircle2 className="mb-1 h-3.5 w-3.5 text-emerald-500" />
@@ -190,7 +190,7 @@ export const AccessProvisioningMock = () => {
                       <Users className={`mb-1 h-3.5 w-3.5 ${current ? 'text-[#5b6cfa]' : 'text-slate-400'}`} />
                     </motion.div>
                   )}
-                  <span className="text-[7px] font-black text-slate-700">{label}</span>
+                  <span className="truncate text-[6px] font-black text-slate-700 sm:text-[7px]">{label}</span>
                 </motion.div>
                 {i < steps.length - 1 ? (
                   <motion.div
@@ -245,7 +245,7 @@ export const ConsentPiiMock = () => {
   return (
     <Shell className="bg-white">
       <Header eyebrow="Use Case" title="Consent & PII Management" />
-      <div className="grid h-[calc(100%-44px)] grid-cols-[1fr_1fr] gap-2 p-3">
+      <div className="grid min-h-[236px] flex-1 grid-cols-1 gap-2 p-3 sm:grid-cols-2 md:min-h-0">
         <div className="space-y-1.5">
           {prefs.map((p, i) => {
             const on = i === activePref ? !p.on : p.on;
@@ -322,7 +322,7 @@ export const AuditReadinessMock = () => {
   return (
     <Shell className="bg-[#f8f9fc]">
       <Header eyebrow="Use Case" title="Audit Readiness Console" />
-      <div className="flex h-[calc(100%-44px)] flex-col gap-2 p-3">
+      <div className="flex min-h-[236px] flex-1 flex-col gap-2 p-3 md:min-h-0">
         <motion.div
           animate={{ y: [0, -2, 0] }}
           transition={{ repeat: Infinity, duration: 2.8, ease: 'easeInOut' }}
@@ -400,97 +400,67 @@ export const OsiSemanticMock = () => {
   return (
     <Shell className="bg-[#f7f8fc]">
       <Header eyebrow="Use Case · OSI" title="Open Semantic Interchange" />
-      <div className="relative h-[calc(100%-44px)] overflow-hidden px-3 py-2 sm:px-4">
-        {/* Soft grid like the sketch paper */}
+      <div className="relative flex flex-1 flex-col justify-center gap-1.5 overflow-hidden px-2 py-2 sm:gap-2 sm:px-4 sm:py-2.5">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:14px_14px]" />
 
-        {/* Top consumers — dashboards | AI | notebooks */}
-        <div className="relative z-10 grid grid-cols-3 items-start gap-2">
-          {/* Dashboards / viz */}
-          <motion.div
-            animate={{ y: pulse === 0 ? -2 : 0 }}
-            className="flex flex-col items-center gap-1"
-          >
-            <div className="flex gap-1">
-              <div className="h-10 w-11 rounded-md border border-slate-300 bg-white p-1 shadow-sm">
-                <div className="mb-0.5 h-1 w-6 rounded bg-slate-200" />
-                <svg viewBox="0 0 40 20" className="h-5 w-full">
-                  <polyline
-                    fill="none"
-                    stroke="#5b6cfa"
-                    strokeWidth="1.5"
-                    points="2,14 10,10 18,12 26,6 34,8 38,4"
-                  />
+        {/* Top consumers */}
+        <div className="relative z-10 grid shrink-0 grid-cols-3 items-start gap-1 sm:gap-2">
+          <motion.div animate={{ y: pulse === 0 ? -2 : 0 }} className="flex flex-col items-center gap-0.5">
+            <div className="flex gap-0.5 sm:gap-1">
+              <div className="h-8 w-9 rounded-md border border-slate-300 bg-white p-0.5 shadow-sm sm:h-10 sm:w-11 sm:p-1">
+                <div className="mb-0.5 h-0.5 w-5 rounded bg-slate-200 sm:h-1 sm:w-6" />
+                <svg viewBox="0 0 40 20" className="h-4 w-full sm:h-5">
+                  <polyline fill="none" stroke="#5b6cfa" strokeWidth="1.5" points="2,14 10,10 18,12 26,6 34,8 38,4" />
                 </svg>
               </div>
-              <div className="h-10 w-11 rounded-md border border-slate-300 bg-white p-1 shadow-sm">
+              <div className="hidden h-10 w-11 rounded-md border border-slate-300 bg-white p-1 shadow-sm sm:block">
                 <div className="mb-0.5 h-1 w-5 rounded bg-slate-200" />
                 <div className="flex h-5 items-end gap-0.5">
                   {[40, 70, 45, 85, 55].map((h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 rounded-sm bg-[#99A0F9]/70"
-                      style={{ height: `${h}%` }}
-                    />
+                    <div key={i} className="flex-1 rounded-sm bg-[#99A0F9]/70" style={{ height: `${h}%` }} />
                   ))}
                 </div>
               </div>
             </div>
-            <div className="text-[6px] font-bold uppercase tracking-wider text-slate-400">Analytics</div>
+            <div className="text-[5px] font-bold uppercase tracking-wider text-slate-400 sm:text-[6px]">Analytics</div>
           </motion.div>
 
-          {/* AI brain */}
-          <motion.div
-            animate={{ scale: pulse === 1 ? 1.06 : 1 }}
-            className="flex flex-col items-center gap-1"
-          >
-            <div className="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-slate-700 bg-white shadow-md">
-              <Brain className="h-6 w-6 text-slate-700" />
-              <span className="absolute -bottom-0.5 rounded bg-slate-800 px-1 text-[6px] font-black text-white">
-                AI
-              </span>
+          <motion.div animate={{ scale: pulse === 1 ? 1.05 : 1 }} className="flex flex-col items-center gap-0.5">
+            <div className="relative flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-700 bg-white shadow-md sm:h-12 sm:w-12">
+              <Brain className="h-4 w-4 text-slate-700 sm:h-6 sm:w-6" />
+              <span className="absolute -bottom-0.5 rounded bg-slate-800 px-1 text-[5px] font-black text-white sm:text-[6px]">AI</span>
             </div>
             <motion.div
               animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ repeat: Infinity, duration: 1.4 }}
-              className="h-4 w-px bg-slate-500"
+              className="hidden h-3 w-px bg-slate-500 sm:block sm:h-4"
             />
           </motion.div>
 
-          {/* Notebooks / reports */}
-          <motion.div
-            animate={{ y: pulse === 2 ? -2 : 0 }}
-            className="flex flex-col items-center gap-1"
-          >
-            <div className="flex gap-1">
+          <motion.div animate={{ y: pulse === 2 ? -2 : 0 }} className="flex flex-col items-center gap-0.5">
+            <div className="flex gap-0.5 sm:gap-1">
               {[0, 1].map((n) => (
-                <div
-                  key={n}
-                  className="flex h-10 w-8 flex-col rounded-md border border-slate-300 bg-white p-1 shadow-sm"
-                >
-                  <div className="mb-1 h-1 w-full rounded bg-[#E06365]/50" />
+                <div key={n} className="flex h-8 w-6 flex-col rounded-md border border-slate-300 bg-white p-0.5 shadow-sm sm:h-10 sm:w-8 sm:p-1">
+                  <div className="mb-0.5 h-0.5 w-full rounded bg-[#E06365]/50 sm:mb-1 sm:h-1" />
                   <div className="space-y-0.5">
                     <div className="h-0.5 w-full rounded bg-slate-200" />
                     <div className="h-0.5 w-[80%] rounded bg-slate-200" />
-                    <div className="h-0.5 w-full rounded bg-slate-200" />
                   </div>
                 </div>
               ))}
             </div>
-            <div className="text-[6px] font-bold uppercase tracking-wider text-slate-400">Reporting</div>
+            <div className="text-[5px] font-bold uppercase tracking-wider text-slate-400 sm:text-[6px]">Reporting</div>
           </motion.div>
         </div>
 
-        {/* Side arrows into hub */}
-        <div className="relative z-10 my-1 flex items-center justify-between px-6">
+        {/* Side flow lines */}
+        <div className="relative z-10 my-0.5 flex shrink-0 items-center justify-between px-2 sm:px-6">
           <motion.div
             animate={{ x: [0, 3, 0], opacity: [0.5, 1, 0.5] }}
             transition={{ repeat: Infinity, duration: 1.6 }}
             className="h-px flex-1 bg-[#5b6cfa]"
           />
-          <span className="mx-2 text-[8px] text-[#5b6cfa]">◀</span>
-          <div className="w-16" />
-          <span className="mx-2 text-[8px] text-[#5b6cfa]">▶</span>
+          <div className="mx-1 w-10 shrink-0 sm:mx-2 sm:w-16" />
           <motion.div
             animate={{ x: [0, -3, 0], opacity: [0.5, 1, 0.5] }}
             transition={{ repeat: Infinity, duration: 1.6 }}
@@ -498,14 +468,13 @@ export const OsiSemanticMock = () => {
           />
         </div>
 
-        {/* Central OSI SEMANTIC LAYER pill */}
-        <div className="relative z-20 mx-auto w-full max-w-[300px]">
-          {/* Yellow glow rays */}
-          <div className="pointer-events-none absolute -inset-x-2 -top-2 flex justify-center gap-1.5">
+        {/* Central hub */}
+        <div className="relative z-20 mx-auto w-full max-w-[280px] shrink-0 px-1">
+          <div className="pointer-events-none absolute -inset-x-1 -top-1.5 hidden justify-center gap-1 sm:flex">
             {[0, 1, 2, 3, 4, 5, 6].map((n) => (
               <motion.span
                 key={n}
-                animate={{ opacity: [0.45, 1, 0.45], height: [6, 10, 6] }}
+                animate={{ opacity: [0.45, 1, 0.45], height: [5, 9, 5] }}
                 transition={{ repeat: Infinity, duration: 1.8, delay: n * 0.08 }}
                 className="w-0.5 rounded-full bg-[#F8BD64]"
                 style={{ transform: `rotate(${-24 + n * 8}deg)` }}
@@ -516,45 +485,44 @@ export const OsiSemanticMock = () => {
             animate={{
               boxShadow: [
                 '0 0 0 0 rgba(248,189,100,0)',
-                '0 0 0 5px rgba(248,189,100,0.2)',
+                '0 0 0 4px rgba(248,189,100,0.2)',
                 '0 0 0 0 rgba(248,189,100,0)',
               ],
             }}
             transition={{ repeat: Infinity, duration: 2.2 }}
-            className="rounded-full border-2 border-slate-700 bg-white px-3 py-2 text-center shadow-md"
+            className="rounded-full border-2 border-slate-700 bg-white px-2.5 py-1.5 text-center shadow-md sm:px-3 sm:py-2"
           >
-            <div className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-800 sm:text-[10px]">
+            <div className="text-[8px] font-black uppercase tracking-[0.1em] text-slate-800 sm:text-[10px]">
               OSI Semantic Layer
             </div>
-            <div className="text-[6px] font-bold text-[#5b6cfa]">Open Semantic Interchange</div>
+            <div className="text-[5px] font-bold text-[#5b6cfa] sm:text-[6px]">Open Semantic Interchange</div>
           </motion.div>
         </div>
 
-        {/* Arrow up from sources */}
-        <div className="relative z-10 flex justify-center py-1.5">
+        {/* Arrow up */}
+        <div className="relative z-10 flex shrink-0 justify-center py-0.5">
           <motion.div
-            animate={{ y: [3, 0, 3], opacity: [0.45, 1, 0.45] }}
+            animate={{ y: [2, 0, 2], opacity: [0.45, 1, 0.45] }}
             transition={{ repeat: Infinity, duration: 1.3 }}
             className="flex flex-col items-center"
           >
-            <ArrowUp className="h-3.5 w-3.5 text-[#5b6cfa]" strokeWidth={2.5} />
-            <div className="h-2 w-0.5 bg-[#5b6cfa]" />
+            <ArrowUp className="h-3 w-3 text-[#5b6cfa] sm:h-3.5 sm:w-3.5" strokeWidth={2.5} />
           </motion.div>
         </div>
 
         {/* Data sources */}
-        <div className="relative z-10 mt-auto pb-1">
-          <div className="mb-1.5 text-center text-[6px] font-black uppercase tracking-[0.18em] text-slate-500">
+        <div className="relative z-10 shrink-0 pb-0.5">
+          <div className="mb-1 text-center text-[5px] font-black uppercase tracking-[0.16em] text-slate-500 sm:mb-1.5 sm:text-[6px]">
             Data Sources
           </div>
-          <div className="flex items-end justify-center gap-1.5 sm:gap-2">
+          <div className="flex items-end justify-center gap-1 sm:gap-2">
             {[
-              { type: 'db', h: 22 },
-              { type: 'db', h: 30 },
-              { type: 'file', h: 20 },
+              { type: 'db', h: 18 },
               { type: 'db', h: 26 },
-              { type: 'file', h: 20 },
-              { type: 'db', h: 24 },
+              { type: 'file', h: 16 },
+              { type: 'db', h: 22 },
+              { type: 'file', h: 16 },
+              { type: 'db', h: 20 },
             ].map((src, i) => (
               <motion.div
                 key={i}
@@ -563,18 +531,15 @@ export const OsiSemanticMock = () => {
                   borderColor: pulse === i % 4 ? '#99A0F9' : '#cbd5e1',
                 }}
                 className="flex items-center justify-center rounded border bg-white shadow-sm"
-                style={{ width: src.type === 'file' ? 18 : 20, height: src.h }}
+                style={{ width: src.type === 'file' ? 16 : 18, height: src.h }}
               >
                 {src.type === 'db' ? (
-                  <Database className="h-3 w-3 text-slate-600" />
+                  <Database className="h-2.5 w-2.5 text-slate-600 sm:h-3 sm:w-3" />
                 ) : (
-                  <FileText className="h-3 w-3 text-slate-600" />
+                  <FileText className="h-2.5 w-2.5 text-slate-600 sm:h-3 sm:w-3" />
                 )}
               </motion.div>
             ))}
-          </div>
-          <div className="mt-1 text-center text-[6px] font-black uppercase tracking-[0.16em] text-slate-400">
-            Data Sources
           </div>
         </div>
       </div>

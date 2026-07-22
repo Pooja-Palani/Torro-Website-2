@@ -153,15 +153,15 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: idx * 0.04 }}
                 viewport={{ once: true }}
-                className="scroll-mt-28 rounded-2xl border border-[#1e2343]/50 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-8 md:p-10"
+                className="scroll-mt-28 rounded-2xl border border-[#1e2343]/50 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-5 sm:p-7 tablet:p-6 lg:p-10"
               >
                 <div
-                  className={`grid items-center gap-10 lg:grid-cols-2 ${
+                  className={`grid min-w-0 items-center gap-8 lg:grid-cols-2 lg:gap-10 ${
                     isReversed ? 'lg:[&>*:first-child]:order-2' : ''
                   }`}
                 >
                   <div className="box-copy text-left">
-                    <h3 className="mb-3 text-2xl font-black tracking-tight text-white md:text-3xl">{svc.title}</h3>
+                    <h3 className="mb-3 min-w-0 text-xl font-black tracking-tight text-white sm:text-2xl tablet:text-[1.75rem] lg:text-3xl">{svc.title}</h3>
                     <p className="mb-6 font-medium leading-relaxed text-white/55">{svc.description}</p>
 
                     <div className="space-y-5">

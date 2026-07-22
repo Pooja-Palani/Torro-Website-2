@@ -597,10 +597,10 @@ const PlatformShowcase = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative border-t border-white/5 bg-[#0c0e1a] text-white lg:h-[500vh]"
+            className="relative w-full overflow-x-clip border-t border-white/5 bg-[#0c0e1a] text-white lg:h-[500vh]"
             id="showcase"
         >
-            <div className="relative flex w-full flex-col justify-center overflow-visible py-12 sm:py-14 lg:sticky lg:top-[var(--header-height)] lg:h-[calc(100dvh-var(--header-height))] lg:overflow-hidden lg:py-5 xl:py-6">
+            <div className="relative flex w-full flex-col justify-center overflow-x-clip py-12 sm:py-14 lg:sticky lg:top-[var(--header-height)] lg:h-[calc(100dvh-var(--header-height))] lg:overflow-hidden lg:py-5 xl:py-6">
                 <div className="container relative z-10 mx-auto min-h-0 w-full px-4 sm:px-6">
                     <div className="mx-auto mb-6 max-w-4xl space-y-3 text-center md:mb-7 lg:mb-6">
                         <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#99A0F9] drop-shadow-[0_0_15px_rgba(140,158,255,0.3)] sm:text-[12px] sm:tracking-[0.3em]">
@@ -612,22 +612,22 @@ const PlatformShowcase = () => {
                         </h2>
                     </div>
 
-                    <div className="flex min-h-0 flex-col gap-5 lg:flex-row lg:items-center lg:gap-6 xl:gap-8">
+                    <div className="flex min-h-0 flex-col gap-5 tablet:flex-row tablet:items-center tablet:gap-6 xl:gap-8">
                         {/* Mobile/tablet: horizontal snap tabs · Desktop: vertical rail */}
-                        <div className="-mx-4 flex w-[calc(100%+2rem)] shrink-0 gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:thin] sm:-mx-0 sm:w-full sm:px-0 lg:w-[260px] lg:flex-col lg:overflow-visible xl:w-[280px]">
+                        <div className="-mx-4 flex w-[calc(100%+2rem)] shrink-0 gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:thin] sm:-mx-0 sm:w-full sm:px-0 tablet:w-[220px] tablet:flex-col tablet:overflow-visible lg:w-[260px] xl:w-[280px]">
                             {features.map((feature, idx) => (
                                 <button
                                     key={feature.id}
                                     type="button"
                                     onClick={() => handleTabClick(idx)}
-                                    className={`relative flex min-w-[min(78vw,280px)] shrink-0 snap-start items-center gap-3 rounded-2xl border px-3.5 py-3 text-left transition-all duration-300 sm:min-w-[240px] lg:min-w-0 lg:w-full lg:px-4 lg:py-2.5 xl:py-3.5 ${
+                                    className={`relative flex min-w-[min(78vw,280px)] shrink-0 snap-start items-center gap-3 rounded-2xl border px-3.5 py-3 text-left transition-all duration-300 sm:min-w-[240px] tablet:min-w-0 tablet:w-full tablet:px-3 tablet:py-2.5 lg:px-4 lg:py-2.5 xl:py-3.5 ${
                                         activeTab === idx
                                             ? 'border-[#99A0F9]/40 bg-gradient-to-r from-[#1e2343] to-[#151930] shadow-[0_0_20px_rgba(140,158,255,0.1)]'
                                             : 'border-transparent bg-[#0f1225] hover:border-[#1e2343] hover:bg-[#151930]'
                                     }`}
                                 >
                                     <div
-                                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-all duration-300 lg:h-10 lg:w-10 ${
+                                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-all duration-300 tablet:h-9 tablet:w-9 lg:h-10 lg:w-10 ${
                                             activeTab === idx
                                                 ? 'scale-105 bg-gradient-to-br from-[#99A0F9] to-indigo-400 text-white shadow-[0_0_15px_rgba(140,158,255,0.4)] lg:scale-110'
                                                 : 'border border-white/5 bg-[#1e2343] text-slate-400'
@@ -643,7 +643,7 @@ const PlatformShowcase = () => {
                                         {feature.label}
                                     </div>
                                     {activeTab === idx && (
-                                        <motion.div layoutId="active-pill" className="absolute right-3 hidden h-1.5 w-1.5 rounded-full bg-[#99A0F9] lg:block" />
+                                        <motion.div layoutId="active-pill" className="absolute right-3 hidden h-1.5 w-1.5 rounded-full bg-[#99A0F9] tablet:block" />
                                     )}
                                 </button>
                             ))}

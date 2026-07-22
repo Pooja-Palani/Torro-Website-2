@@ -33,7 +33,7 @@ const Shell = ({ children, className = '' }) => (
   <motion.div
     {...fadeUp}
     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-    className={`pointer-events-none relative h-[280px] overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_22px_50px_-28px_rgba(15,23,42,0.55)] ring-1 ring-black/[0.03] md:h-[340px] ${className}`}
+    className={`pointer-events-none relative min-h-[260px] overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_22px_50px_-28px_rgba(15,23,42,0.55)] ring-1 ring-black/[0.03] sm:h-[280px] md:h-[340px] ${className}`}
   >
     {children}
   </motion.div>

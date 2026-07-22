@@ -3,6 +3,10 @@
 
 @theme {
   --font-sans: 'Comfortaa', ui-sans-serif, system-ui, sans-serif;
+  /* iPad Mini portrait (~744) */
+  --breakpoint-tablet: 744px;
+  /* Surface Pro / large tablets — side-by-side hero */
+  --breakpoint-desk: 900px;
 }
 
 @layer base {
@@ -63,6 +67,13 @@
   .font-extrabold,
   .font-black {
     font-weight: 700;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
   }
 
   body {

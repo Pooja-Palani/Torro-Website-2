@@ -119,10 +119,10 @@ const Industries = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: idx * 0.04 }}
                 viewport={{ once: true }}
-                className="scroll-mt-28 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 md:p-10"
+                className="scroll-mt-28 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-5 sm:p-7 tablet:p-6 lg:p-10"
               >
                 <div
-                  className={`grid lg:grid-cols-2 gap-10 items-center ${
+                  className={`grid min-w-0 items-center gap-8 lg:grid-cols-2 lg:gap-10 ${
                     isReversed ? 'lg:[&>*:first-child]:order-2' : ''
                   }`}
                 >

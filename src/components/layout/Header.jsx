@@ -123,10 +123,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0c0e1a]/70 text-white backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 ${isScrolled ? 'py-2.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]' : 'py-3.5'
+      className={`fixed top-0 left-0 right-0 z-50 w-full border-b border-white/10 bg-[#0c0e1a]/70 text-white backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 ${isScrolled ? 'py-2.5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)]' : 'py-3.5'
         }`}
     >
-      <div className="container flex items-center justify-between px-6">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 lg:px-8">
 
           {/* Logo */}
           <Link to="/" className="flex shrink-0 items-center" aria-label="Torro home">

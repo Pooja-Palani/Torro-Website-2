@@ -166,13 +166,13 @@ const UseCases = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: idx * 0.04 }}
                 viewport={{ once: true }}
-                className="scroll-mt-28 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 md:p-10"
+                className="scroll-mt-28 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-5 sm:p-7 tablet:p-6 lg:p-10"
               >
-                <div className={`grid lg:grid-cols-2 gap-10 items-center ${isReversed ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-                  <div className="box-copy text-left">
-                    <div className="flex items-center gap-3 mb-4">
+                <div className={`grid min-w-0 items-center gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-10 ${isReversed ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+                  <div className="box-copy min-w-0 text-left">
+                    <div className="mb-4 flex items-start gap-3 sm:items-center">
                       <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
                         style={{
                           backgroundColor: 'rgba(153,160,249,0.12)',
                           border: '1px solid rgba(153,160,249,0.22)',
@@ -180,7 +180,7 @@ const UseCases = () => {
                       >
                         <Icon className="w-5 h-5" style={{ color: ACCENT }} />
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+                      <h3 className="min-w-0 text-xl font-black leading-tight tracking-tight text-white sm:text-2xl tablet:text-[1.75rem] lg:text-3xl">
                         {uc.title}
                       </h3>
                     </div>
@@ -226,16 +226,16 @@ const UseCases = () => {
           viewport={{ once: true }}
           className="mt-24 text-center"
         >
-          <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-12 md:p-16">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">
+          <div className="bg-gradient-to-b from-[#11152a] to-[#0a0d1a] border border-[#1e2343]/50 rounded-2xl p-8 sm:p-12 md:p-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">
               Ready to <span style={{ color: ACCENT }}>Solve</span> Your Top Use Case?
             </h2>
-            <p className="text-white/50 text-lg mb-8 max-w-2xl mx-auto font-medium">
+            <p className="text-white/50 text-base sm:text-lg mb-8 max-w-2xl mx-auto font-medium">
               See how Torro addresses enterprise data visibility, compliance, and access control in one platform.
             </p>
             <Link
               to="/book-demo"
-              className="inline-flex items-center gap-2 px-8 py-4 text-black font-black rounded-xl transition-all duration-300 uppercase text-sm tracking-[0.2em]"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-black font-black rounded-xl transition-all duration-300 uppercase text-xs sm:text-sm tracking-[0.2em]"
               style={{
                 backgroundColor: ACCENT,
                 boxShadow: '0 10px 30px rgba(153,160,249,0.25)',

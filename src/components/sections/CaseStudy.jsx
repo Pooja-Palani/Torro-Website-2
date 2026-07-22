@@ -7,7 +7,7 @@ const CaseStudy = () => {
         <section className="py-24" id="solutions">
             <div className="container">
                 <div className="pristine-card overflow-hidden">
-                    <div className="grid lg:grid-cols-2">
+                    <div className="grid tablet:grid-cols-2">
 
                         {/* Narrative Side (Left) */}
                         <div className="p-10 lg:p-16 flex flex-col justify-center bg-white border-b lg:border-b-0 lg:border-r border-gray-100">
