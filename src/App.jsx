@@ -12,6 +12,7 @@ import CompliancePage from './pages/Compliance';
 import UseCases from './pages/UseCases';
 import Resources from './pages/Resources';
 import Company from './pages/Company';
+import PartnersPage from './pages/PartnersPage';
 import TorroOneData from './pages/TorroOneData';
 import CaseStudyTelecomHK from './pages/CaseStudyTelecomHK';
 import CaseStudyBankIndia from './pages/CaseStudyBankIndia';
@@ -41,6 +42,7 @@ function App() {
             <Route path="/resources/:slug" element={<BlogPost />} />
             <Route path="/book-demo" element={<BookDemo />} />
             <Route path="/company" element={<Company />} />
+            <Route path="/partners" element={<PartnersPage />} />
           </Routes>
         </main>
 

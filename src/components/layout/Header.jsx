@@ -97,7 +97,7 @@ const Header = () => {
       href: '/company',
       submenu: [
         { label: 'About Us', href: '/company' },
-        { label: 'Partners', href: '/company' }
+        { label: 'Partners', href: '/partners' }
       ]
     }
   ];

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" role="img" aria-label="Capgemini">
+  <g fill="#0070AD">
+    <path d="M18 8c-1.2 2.4-2.8 4.2-4.8 5.4 2 .8 3.6 2.4 4.8 4.6 1.2-2.2 2.8-3.8 4.8-4.6-2-1.2-3.6-3-4.8-5.4zm0 24c1.2-2.4 2.8-4.2 4.8-5.4-2-.8-3.6-2.4-4.8-4.6-1.2 2.2-2.8 3.8-4.8 4.6 2 1.2 3.6 3 4.8 5.4z"/>
+    <circle cx="18" cy="20" r="2.2"/>
+  </g>
+  <text x="32" y="28" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#0070AD" letter-spacing="-0.3">Capgemini</text>
+</svg>
