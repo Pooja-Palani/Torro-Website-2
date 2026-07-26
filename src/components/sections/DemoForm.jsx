@@ -54,7 +54,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                             <div className="space-y-2">
                                                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest pl-1">Full Name *</label>
                                                 <div className="relative">
-                                                    <input type="text" required className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all shadow-sm" placeholder="e.g. Rajiv Nair" />
+                                                    <input type="text" required className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all shadow-sm" placeholder="Full Name" />
                                                 </div>
                                             </div>
                                             <div className="space-y-2">
@@ -66,7 +66,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                         <div className="grid md:grid-cols-2 gap-6">
                                             <div className="space-y-2">
                                                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest pl-1">Company *</label>
-                                                <input type="text" required className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all shadow-sm" placeholder="Largest Indian Private Bank Bank" />
+                                                <input type="text" required className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all shadow-sm" placeholder="e.g. Global Financial Group" />
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest pl-1">Your Role *</label>
@@ -82,7 +82,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
 
                                         <div className="space-y-2">
                                             <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest pl-1">What's your primary governance challenge? (Optional)</label>
-                                            <textarea className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all min-h-[120px] resize-none shadow-sm" placeholder="Describe your DPDP readiness concerns, regulatory pressures, or data discovery challenges..." />
+                                            <textarea className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all min-h-[120px] resize-none shadow-sm" placeholder="Privacy regulation readiness, lineage gaps, access control, or data discovery challenges..." />
                                         </div>
 
                                         <button type="submit" className="w-full group bg-indigo-500 hover:bg-indigo-600 text-white py-5 rounded-2xl font-black text-[13px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_12px_32px_rgba(37,99,235,0.25)] hover:shadow-[0_16px_40px_rgba(37,99,235,0.35)] active:scale-[0.98]">
@@ -119,7 +119,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                     { icon: Clock, label: 'Response in < 24 hours' },
                                     { icon: ShieldCheck, label: '30-minute governance gap assessment' },
                                     { icon: Play, label: 'Live platform walkthrough' },
-                                    { icon: Map, label: 'Custom DPDP readiness roadmap' }
+                                    { icon: Map, label: 'Leave with a clear governance path forward.' }
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-4 group">
                                         <div className="glass-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors group-hover:border-[#99A0F9]/40">
@@ -142,7 +142,7 @@ const DemoForm = ({ sectionClassName = '', title = 'Evaluate Your', titleAccent 
                                         <h4 className="text-[18px] font-black tracking-tight">Boardroom Headlines</h4>
                                     </div>
                                     <p className="text-white/40 text-[12px] font-medium leading-relaxed">
-                                        Weekly intelligence on DPDP, RBI guidelines, and AI governance for senior leaders.
+                                        Weekly intelligence on privacy regulation, global compliance, and AI governance for senior leaders.
                                     </p>
                                 </div>
 
