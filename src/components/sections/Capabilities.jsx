@@ -31,7 +31,7 @@ const CompliancePreview = () => (
             {[
                 { label: 'GDPR – Right to be Forgotten', pct: 100 },
                 { label: 'HIPAA Data Encapsulation', pct: 98 },
-                { label: 'SOC2 Type II Encryption', pct: 100 },
+                { label: 'SOX Compliance Controls', pct: 100 },
                 { label: 'ISO 27001 Audit Trail', pct: 95 },
             ].map((item, i) => (
                 <div key={item.label} className="flex items-center gap-3 group/row">

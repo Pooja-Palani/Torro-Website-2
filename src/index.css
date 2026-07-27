@@ -2,7 +2,7 @@
 @source "./";
 
 @theme {
-  --font-sans: 'Comfortaa', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
   /* iPad Mini portrait (~744) */
   --breakpoint-tablet: 744px;
   /* Surface Pro / large tablets — side-by-side hero */
@@ -30,7 +30,7 @@
     /* Soft, barely-there gray borders */
     --border-hover: #d1d5db;
 
-    --font-sans: 'Comfortaa', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
     /* Header height used to offset in-page anchor scrolling / sticky panels */
     --header-height: 76px;
   }
@@ -61,12 +61,6 @@
   textarea,
   select {
     font-family: var(--font-sans);
-  }
-
-  /* Comfortaa tops out at 700 — map heavier Tailwind weights */
-  .font-extrabold,
-  .font-black {
-    font-weight: 700;
   }
 
   html,

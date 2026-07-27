@@ -14,9 +14,6 @@ export default {
                 primary: "#94A4F4",
                 accent: "#F8BD64",
             },
-            fontFamily: {
-                sans: ['Comfortaa', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            },
         },
     },
     plugins: [],

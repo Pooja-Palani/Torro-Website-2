@@ -8,7 +8,7 @@ const PrivacyViz = () => {
     const globalPolicies = [
         { label: 'GDPR', color: 'bg-emerald-400' },
         { label: 'HIPAA', color: 'bg-sky-400' },
-        { label: 'SOC2', color: 'bg-violet-400' },
+        { label: 'SOX', color: 'bg-violet-400' },
         { label: 'DPDP', color: 'bg-amber-400' },
         { label: 'CCPA', color: 'bg-rose-400' },
         { label: 'PIPL', color: 'bg-red-400' },
@@ -18,7 +18,6 @@ const PrivacyViz = () => {
         { label: 'PCI-DSS', color: 'bg-orange-400' },
         { label: 'HKMA', color: 'bg-teal-400' },
         { label: 'MAS TRM', color: 'bg-cyan-400' },
-        { label: 'SOX', color: 'bg-fuchsia-400' },
         { label: 'Basel III', color: 'bg-yellow-400' },
         { label: 'GLBA', color: 'bg-lime-400' },
         { label: 'FFIEC', color: 'bg-pink-400' },
@@ -94,7 +93,7 @@ const AzureLogo = ({ className = 'h-3.5 w-3.5' }) => (
 const SqlLogo = ({ className = 'h-3.5 w-3.5' }) => (
     <svg viewBox="0 0 24 24" className={className} aria-hidden>
         <rect width="24" height="24" rx="5" fill="#CC2927" />
-        <text x="12" y="15.5" textAnchor="middle" fill="#fff" fontSize="7.5" fontWeight="700" fontFamily="Comfortaa, ui-sans-serif, system-ui, sans-serif" letterSpacing="-0.3">SQL</text>
+        <text x="12" y="15.5" textAnchor="middle" fill="#fff" fontSize="7.5" fontWeight="700" fontFamily="Geist, ui-sans-serif, system-ui, sans-serif" letterSpacing="-0.3">SQL</text>
     </svg>
 );
 
@@ -552,7 +551,7 @@ const PlatformShowcase = () => {
             icon: ShieldCheck,
             label: "Data Protection & Privacy",
             title: "Compliance by Architecture",
-            desc: "GDPR, HIPAA, DPDP, and SOC2 compliance is embedded directly into the data layer — not bolted on. Automated PII detection, consent tracking, and policy enforcement run at runtime with zero overhead.",
+            desc: "GDPR, HIPAA, DPDP, and SOX compliance is embedded directly into the data layer — not bolted on. Automated PII detection, consent tracking, and policy enforcement run at runtime with zero overhead.",
             metrics: ["GDPR / HIPAA", "Cell-Level Masking", "Consent Tracking", "Zero-Trust", "< 20ms Overhead"],
             viz: <PrivacyViz />
         },
@@ -589,7 +588,7 @@ const PlatformShowcase = () => {
             label: "Data Analytics",
             title: "Secure Intelligence Layer",
             desc: "privBox is Torro's foundational Secure Analytics Container — bridging raw storage to governed consumption. Run queries, build dashboards, and deploy models all within a documented, compliance-aware execution environment.",
-            metrics: ["4.2M Queries/Day", "28ms Avg Latency", "$1.4M Savings", "privBox Engine", "SOC2 Audit Trail"],
+            metrics: ["4.2M Queries/Day", "28ms Avg Latency", "$1.4M Savings", "privBox Engine", "SOX Audit Trail"],
             viz: <AnalyticsViz />
         }
     ];

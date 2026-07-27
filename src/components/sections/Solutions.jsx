@@ -29,7 +29,7 @@ const CISOPreview = () => {
                         <span className="text-[9px] font-black text-emerald-700 uppercase tracking-wider">All Systems Secure</span>
                     </div>
                     <div className="flex gap-1.5">
-                        {[{ l: 'GDPR', c: 'bg-green-100 text-green-700' }, { l: 'HIPAA', c: 'bg-indigo-100 text-indigo-600' }, { l: 'SOC2', c: 'bg-violet-100 text-violet-700' }].map(b => (
+                        {[{ l: 'GDPR', c: 'bg-green-100 text-green-700' }, { l: 'HIPAA', c: 'bg-indigo-100 text-indigo-600' }, { l: 'SOX', c: 'bg-violet-100 text-violet-700' }].map(b => (
                             <span key={b.l} className={`text-[7px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest ${b.c}`}>{b.l}</span>
                         ))}
                     </div>
