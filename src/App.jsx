@@ -14,6 +14,7 @@ import UseCases from './pages/UseCases';
 import Resources from './pages/Resources';
 import Company from './pages/Company';
 import TorroOneData from './pages/TorroOneData';
+import ConsentPlatform from './pages/ConsentPlatform';
 import CaseStudyTelecomHK from './pages/CaseStudyTelecomHK';
 import CaseStudyBankIndia from './pages/CaseStudyBankIndia';
 import CaseStudyESGBank from './pages/CaseStudyESGBank';
@@ -32,6 +33,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/torro-onedata" element={<TorroOneData />} />
+            <Route path="/consent-platform" element={<ConsentPlatform />} />
             <Route path="/offerings" element={<Offerings />} />
             <Route path="/services" element={<Services />} />
             <Route path="/industries" element={<Industries />} />

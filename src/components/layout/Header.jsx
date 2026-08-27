@@ -87,6 +87,10 @@ const Header = () => {
       href: '/torro-onedata'
     },
     {
+      label: 'Consent Platform',
+      href: '/consent-platform'
+    },
+    {
       label: 'Our Offerings',
       href: '/offerings',
       megaMenu: offeringsMegaMenu
