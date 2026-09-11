@@ -19,6 +19,13 @@ export const BLOG_POSTS = [
       'Stay tuned for Part 2: Re-architecting with Data at the Core.',
       "Torro.AI Tip: Audit one data flow this week—what's slipping your vertical grips?",
     ],
+    whitepaper: {
+      title: 'Torro × Starburst DPDP Whitepaper',
+      subtitle:
+        'Get practical guidance on governing cross-border data flows under India’s DPDP Act — download the full whitepaper.',
+      pdfUrl: '/resources/torro-starburst-dpdp-whitepaper.pdf',
+      fileName: 'Torro-Starburst-DPDP-WhitePaper.pdf',
+    },
   },
   {
     slug: 'data-centric-enterprises',
@@ -44,6 +51,13 @@ export const BLOG_POSTS = [
       'This data-centric pivot turns chaos into competitive moat—secure, observable, border-smart.',
       'Coming Next: AI-Specific Tactics and Case Studies.',
     ],
+    whitepaper: {
+      title: 'Torro × Starburst DPDP Whitepaper',
+      subtitle:
+        'Go deeper on DPDP-ready governance for multi-country data estates — download the full whitepaper.',
+      pdfUrl: '/resources/torro-starburst-dpdp-whitepaper.pdf',
+      fileName: 'Torro-Starburst-DPDP-WhitePaper.pdf',
+    },
   },
 ];
 

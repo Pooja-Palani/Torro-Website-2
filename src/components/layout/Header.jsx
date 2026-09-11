@@ -44,7 +44,8 @@ const Header = () => {
           { label: 'End-to-End Data Lineage', href: '/offerings#end-to-end-data-lineage' },
           { label: 'Continuous Data Quality & Trust', href: '/offerings#continuous-data-quality-and-trust' },
           { label: 'Automated Entitlements & Protection', href: '/offerings#automated-entitlements-and-protection' },
-          { label: 'Data Marketplace & PrivBox', href: '/offerings#data-marketplace-and-privbox' }
+          { label: 'Data Marketplace & PrivBox', href: '/offerings#data-marketplace-and-privbox' },
+          { label: 'Data Security Posture Management', href: '/dspm' }
         ]
       },
       {
@@ -192,8 +193,8 @@ const Header = () => {
                 {/* Mega Menu (Our Offerings) */}
                 {item.megaMenu && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <div className="w-[min(880px,calc(100vw-2rem))] max-w-[92vw] rounded-2xl border border-[#1e2343]/50 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-6 shadow-2xl backdrop-blur-xl sm:p-8">
-                      <div className="grid grid-cols-2 gap-6 xl:grid-cols-4 xl:gap-10">
+                    <div className="w-[min(1140px,calc(100vw-2rem))] max-w-[96vw] rounded-2xl border border-[#1e2343]/50 bg-gradient-to-b from-[#11152a] to-[#0a0d1a] p-6 shadow-2xl backdrop-blur-xl sm:p-8">
+                      <div className="grid grid-cols-2 gap-8 xl:grid-cols-4 xl:gap-8">
                         {item.megaMenu.sections.map((section) => (
                           <div key={section.title} className="min-w-0">
                             <Link
@@ -214,7 +215,7 @@ const Header = () => {
                                 <Link
                                   key={link.label}
                                   to={link.href}
-                                  className="block text-[13px] text-white/70 transition-all font-medium leading-snug hover:translate-x-0.5 duration-200"
+                                  className="block whitespace-nowrap text-[13px] text-white/70 transition-all font-medium leading-snug hover:translate-x-0.5 duration-200"
                                   onMouseEnter={(e) => {
                                     e.currentTarget.style.color = ACCENT;
                                   }}

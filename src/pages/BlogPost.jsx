@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { getBlogPostBySlug, getBlogTagsFromContent } from '../content/blogPosts';
+import WhitepaperSignup from '../components/WhitepaperSignup';
 
 const ACCENT = '#99A0F9';
 
@@ -235,6 +236,13 @@ const BlogPost = () => {
                 </div>
               )}
 
+              {/* Mobile / in-article whitepaper */}
+              {post.whitepaper ? (
+                <div className="mt-12 lg:hidden">
+                  <WhitepaperSignup whitepaper={post.whitepaper} />
+                </div>
+              ) : null}
+
               {/* CTA */}
               <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl backdrop-saturate-150 p-6 md:p-8">
                 <div className="text-[11px] font-black uppercase tracking-[0.35em] text-white/35">
@@ -264,7 +272,7 @@ const BlogPost = () => {
               </div>
             </article>
 
-            <aside className="hidden lg:block sticky top-28">
+            <aside className="hidden lg:block sticky top-28 space-y-5">
               <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl backdrop-saturate-150 p-6">
                 <div className="text-[11px] font-black uppercase tracking-[0.35em] text-white/35">
                   On this page
@@ -281,6 +289,8 @@ const BlogPost = () => {
                   ))}
                 </div>
               </div>
+
+              {post.whitepaper ? <WhitepaperSignup whitepaper={post.whitepaper} compact /> : null}
             </aside>
           </div>
         </div>
