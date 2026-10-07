@@ -1,28 +1,37 @@
 export const BLOG_POSTS = [
   {
     slug: 'data-chaos-trap',
-    title: "The Data Chaos Trap – Why Vertical Businesses Can't Tame Horizontal Data Flows",
+    title: 'The Data Chaos Trap – Escaping Horizontal Data Flows with Torro.ai + Starburst',
     date: '',
     image: '/resources/data-chaos.jpg',
-    imageAlt: 'Data center infrastructure representing complex enterprise data flows',
+    imageAlt: 'Torro.ai and Starburst partnership for governed data access across enterprise estates',
+    partnership: {
+      label: 'Torro.ai × Starburst Partnership',
+      partners: [
+        { name: 'Torro.ai', logo: '/partners/torro.png' },
+        { name: 'Starburst', logo: '/partners/starburst.png' },
+      ],
+    },
     content: [
-      "In today's enterprises, think of your organization as a towering skyscraper: departments stacked vertically like floors, each with its own elevators (silos) for internal movement. Teams work nimbly in agile pods—those cross-floor squads hustling on projects—but data? It's the rogue wind blowing through cracked windows, seeping everywhere horizontally, circularly, and beyond borders.",
-      'Vertical Structures Meet Multi-Dimensional Data Mayhem',
-      "Picture this: Your sales pod in Singapore pulls customer leads from a cloud CRM. Marketing in Mumbai remixes them into campaigns on a legacy server. Meanwhile, a Bangalore analytics team spins insights for a US subsidiary, all while freelancers in the Philippines access via shared drives. Customer data—names, preferences, transactions—zips multi-dimensionally, shattering silos. It's efficient until it's not: a GDPR fine hits because EU data trickled to an unregulated vendor, or a subsidiary's \"view-only\" access morphs into shadow exports.",
-      "This isn't fiction. In large organizations, we've seen vertically aligned teams (e.g., dev, ops, compliance) collaborate horizontally via tools like Slack, Jira, and Google Workspace. But data flows defy org charts—bouncing via APIs, email attachments, or VPN shares—leaving leaders blind to \"where is our critical data right now?\"",
-      'The Organizational Planning Paradox',
-      'How do you even plan at scale? Traditional top-down blueprints fail because data ignores hierarchies. Key decision makers grasp revenue dashboards but miss the undercurrents: Is PII crossing subsidiary lines? Where\'s that prototype dataset landing post-podcast?',
-      "Worse, regulation adds vertigo. Multi-country ops mean DPDP in India, GDPR in Europe, CCPA in California—each demanding \"data localization\" while teams crave frictionless access. Cloud or on-prem, legacy SQL dumps or modern lakes? Data flows constantly stress test every infrastructure map.",
-      'Control vs. Liberation: The Core Tension',
-      "We crave control: Isolate data across lines of business (e.g., banking arm from fintech experiments) to dodge compliance grenades. Yet innovation demands liberation—secure, democratic flows where cross-border teams chase shared objectives, like a global product launch.",
-      "Without systems today, you're prepping for AI's onslaught. LLMs gobble datasets indiscriminately; agentic AI will automate those rogue flows at warp speed. The future isn't coming—it's here, demanding we rethink from chaos to command.",
-      'Stay tuned for Part 2: Re-architecting with Data at the Core.',
-      "Torro.AI Tip: Audit one data flow this week—what's slipping your vertical grips?",
+      'Enterprises are still organised as vertical stacks—business units, regions, and systems of record—while data moves horizontally across clouds, subsidiaries, and partners. That mismatch is the Data Chaos Trap: teams ship faster than governance can see, and leaders lose the answer to a simple question: where is our critical data right now?',
+      'Why Vertical Businesses Fail at Horizontal Data',
+      'Picture a sales pod in Singapore pulling leads from a cloud CRM, marketing in Mumbai remixing them on a legacy server, and an analytics team in Bangalore querying a US subsidiary lake. Customer data—names, preferences, transactions—travels multi-dimensionally. It is efficient until a GDPR exposure appears because EU records landed with an unregulated vendor, or a “view-only” grant turns into shadow exports.',
+      'Org charts stay vertical. Data does not. APIs, shared drives, VPN copies, and BI extracts ignore floors and elevators. Without a federation layer and a governance control plane, every cross-border project adds another invisible path.',
+      'The Torro.ai + Starburst Partnership',
+      'Torro.ai and Starburst built a joint architecture for exactly this problem. Starburst provides the enterprise intelligence fabric: federated SQL across warehouses, lakes, and operational stores so teams query data where it lives—without forcing a rip-and-replace centralisation. Torro.ai provides the governance and privacy control plane: discovery, lineage, entitlements, consent and purpose enforcement, and audit-ready evidence.',
+      'Together they turn “find and move everything into one platform” into “query with policy.” Starburst opens the estate. Torro decides who may see what, for which purpose, under which regulation—and proves it.',
+      'Architecture for Escaping the Data Chaos Trap',
+      'In the Torro.ai + Starburst reference design, Starburst sits as the access and analytics fabric over hybrid sources—on-prem, cloud object storage, warehouses, and lakes. Torro overlays the same estate with a unified metadata foundation, end-to-end lineage, sensitivity classification, and automated entitlements (RBAC and ABAC, time-bound access, dynamic PII masking).',
+      'The result is one operating model: Starburst delivers governed answers and AI-ready context across distributed systems; Torro ensures every query path, marketplace share, and AI pipeline stays inside DPDP, GDPR, and regional residency rules. Cross-border teams keep velocity. Compliance teams keep evidence.',
+      'Control Without Locking Innovation',
+      'Isolation alone freezes products. Unrestricted federation alone creates regulatory risk. The partnership purpose is structured liberation: Starburst’s zero-copy, federated access so India, Singapore, and EU teams can work from shared objectives; Torro’s purpose, consent, and policy engine so PII and regulated fields never leave their lawful bounds.',
+      'That combination is what breaks the Data Chaos Trap—horizontal data flows with vertical accountability. Download the Torro.ai × Starburst whitepaper for the full architecture, DPDP-oriented controls, and how the two platforms connect in production estates.',
+      'Torro.AI Tip: Map one Starburst-accessible dataset this week, then ask Torro which identities, purposes, and jurisdictions currently touch it.',
     ],
     whitepaper: {
-      title: 'Torro × Starburst DPDP Whitepaper',
+      title: 'Torro.ai × Starburst Whitepaper',
       subtitle:
-        'Get practical guidance on governing cross-border data flows under India’s DPDP Act — download the full whitepaper.',
+        'Explore the Torro.ai + Starburst architecture for escaping the Data Chaos Trap. — Download the full whitepaper',
       pdfUrl: '/resources/torro-starburst-dpdp-whitepaper.pdf',
       fileName: 'Torro-Starburst-DPDP-WhitePaper.pdf',
     },
@@ -33,7 +42,8 @@ export const BLOG_POSTS = [
     date: '',
     image: '/resources/data-centric.jpg',
     imageAlt: 'Analytics dashboard visualizing governed enterprise data',
-    content: [      "If Blog 1 exposed the cracks, here's the blueprint: Flip the skyscraper. Put data at the center—a glowing core hub with governed elevators (flows), observability radars, and border controls. This isn't buzzword bingo; it's reimagining design for multi-reg compliance, team agility, and AI readiness. At Torro.AI, we live this in our startup stack—here's how any org can.",
+    content: [
+      "If Blog 1 exposed the cracks, here's the blueprint: Flip the skyscraper. Put data at the center—a glowing core hub with governed elevators (flows), observability radars, and border controls. This isn't buzzword bingo; it's reimagining design for multi-reg compliance, team agility, and AI readiness. At Torro.AI, we live this in our startup stack—here's how any org can.",
       'Streamline with Full Observability: See Every Data Packet',
       'Empower decisions by mapping data like air traffic control. Deploy agent-based monitoring (think lightweight ML sentinels) across cloud/on-prem hybrids. They tag flows in real-time: origin, destination, sensitivity (e.g., via RBI tokenization for Indian banks).',
       'Original twist: Use "data passports"—dynamic metadata stamps logging journey, regs compliance, and access proofs. Query: "Show all customer data paths from Q1." No more "where is it?" black holes. Tools like open-source Collibra forks or Torro.AI-inspired custom dashboards make this democratic—pods self-serve without anarchy.',
@@ -52,9 +62,9 @@ export const BLOG_POSTS = [
       'Coming Next: AI-Specific Tactics and Case Studies.',
     ],
     whitepaper: {
-      title: 'Torro × Starburst DPDP Whitepaper',
+      title: 'Torro.ai × Starburst Whitepaper',
       subtitle:
-        'Go deeper on DPDP-ready governance for multi-country data estates — download the full whitepaper.',
+        'Explore the Torro.ai + Starburst architecture for escaping the Data Chaos Trap. — Download the full whitepaper',
       pdfUrl: '/resources/torro-starburst-dpdp-whitepaper.pdf',
       fileName: 'Torro-Starburst-DPDP-WhitePaper.pdf',
     },
@@ -79,6 +89,8 @@ const TAG_ALLOWLIST = [
   'Zero Trust',
   'Zero-copy',
   'Data Mesh',
+  'Starburst',
+  'Partnership',
 ];
 
 export function getBlogPreview50Chars(content) {
@@ -111,6 +123,8 @@ export function getBlogTagsFromContent(content) {
     { tag: 'Zero Trust', match: ['zero-trust', 'zero trust'] },
     { tag: 'Zero-copy', match: ['zero-copy', 'zero copy'] },
     { tag: 'Data Mesh', match: ['data mesh', 'data meshes'] },
+    { tag: 'Starburst', match: ['starburst'] },
+    { tag: 'Partnership', match: ['partnership', 'torro.ai + starburst', 'torro.ai × starburst'] },
   ];
 
   const tags = rules
@@ -124,4 +138,3 @@ export function getBlogTagsFromContent(content) {
 export function getBlogPostBySlug(slug) {
   return BLOG_POSTS.find((p) => p.slug === slug) || null;
 }
-

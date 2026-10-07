@@ -5,13 +5,29 @@ import { submitDemoRequest, DEMO_INBOX } from '../lib/submitDemoRequest';
 const ACCENT = '#99A0F9';
 const STORAGE_PREFIX = 'torro-whitepaper-unlocked:';
 
+const PartnerLogos = ({ compact = false }) => (
+  <div className={`inline-flex items-center ${compact ? 'gap-2' : 'gap-2.5'}`}>
+    <img
+      src="/partners/torro.png"
+      alt="Torro.ai"
+      className={`${compact ? 'h-6' : 'h-7'} w-auto object-contain`}
+    />
+    <span className="text-[11px] font-semibold text-white/30">×</span>
+    <img
+      src="/partners/starburst.png"
+      alt="Starburst"
+      className={`${compact ? 'h-3.5' : 'h-4'} w-auto object-contain brightness-0 invert opacity-90`}
+    />
+  </div>
+);
+
 const WhitepaperSignup = ({ whitepaper, compact = false }) => {
   const pdfUrl = whitepaper?.pdfUrl || '/resources/torro-starburst-dpdp-whitepaper.pdf';
   const fileName = whitepaper?.fileName || 'Torro-Starburst-DPDP-WhitePaper.pdf';
-  const title = whitepaper?.title || 'DPDP Whitepaper';
+  const title = whitepaper?.title || 'Torro.ai × Starburst Whitepaper';
   const subtitle =
     whitepaper?.subtitle ||
-    'Enter your work email to download the Torro × Starburst DPDP whitepaper.';
+    'Explore the Torro.ai + Starburst architecture for escaping the Data Chaos Trap. — Download the full whitepaper';
 
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -77,7 +93,8 @@ const WhitepaperSignup = ({ whitepaper, compact = false }) => {
           compact ? 'p-5' : 'p-6'
         }`}
       >
-        <div className="flex items-start gap-3">
+        <PartnerLogos compact={compact} />
+        <div className="mt-4 flex items-start gap-3">
           <div
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
             style={{
@@ -116,7 +133,9 @@ const WhitepaperSignup = ({ whitepaper, compact = false }) => {
         compact ? 'p-5' : 'p-6'
       }`}
     >
-      <div className="flex items-start gap-3">
+      <PartnerLogos compact={compact} />
+
+      <div className="mt-4 flex items-start gap-3">
         <div
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
           style={{
@@ -128,7 +147,7 @@ const WhitepaperSignup = ({ whitepaper, compact = false }) => {
         </div>
         <div className="min-w-0">
           <div className="text-[11px] font-black uppercase tracking-[0.28em] text-white/35">
-            Free whitepaper
+            Whitepaper
           </div>
           <div className="mt-1.5 text-[15px] font-black tracking-tight text-white">{title}</div>
           <p className="!mx-0 mt-2 !max-w-none !text-left text-[13px] font-medium leading-relaxed text-white/55">

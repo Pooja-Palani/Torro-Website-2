@@ -4,6 +4,7 @@ import { BookOpen, ArrowRight, Mail, Shield, Scale, Brain } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BLOG_POSTS, getBlogPreview, getBlogTagsFromContent } from '../content/blogPosts';
 
+
 const ACCENT = '#99A0F9';
 const GOLD = '#F8BD64';
 
@@ -189,13 +190,39 @@ const Resources = () => {
                 className="overflow-hidden rounded-2xl border border-[#1e2343]/50 bg-gradient-to-b from-[#11152a] to-[#0a0d1a]"
               >
                 <div className="grid md:grid-cols-[minmax(0,280px)_1fr] lg:grid-cols-[minmax(0,340px)_1fr]">
-                  <div className="relative min-h-[200px] overflow-hidden border-b border-white/5 md:min-h-full md:border-b-0 md:border-r">
-                    <img
-                      src={post.image}
-                      alt={post.imageAlt}
-                      className="absolute inset-0 h-full w-full object-cover opacity-90"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0a0d1a]/40 max-md:bg-gradient-to-t max-md:from-[#0a0d1a]/50 max-md:to-transparent" />
+                  <div className="relative flex min-h-[200px] items-center justify-center overflow-hidden border-b border-white/5 bg-[#0c0e1a] md:min-h-full md:border-b-0 md:border-r">
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(153,160,249,0.12)_0%,transparent_65%)]" />
+                    {post.partnership ? (
+                      <div className="relative z-10 flex flex-col items-center gap-3 px-6 py-8">
+                        <div className="inline-flex items-center gap-3">
+                          {(post.partnership.partners || []).map((partner, pIdx) => (
+                            <React.Fragment key={partner.name}>
+                              {pIdx > 0 ? (
+                                <span className="text-[14px] font-semibold text-white/40">×</span>
+                              ) : null}
+                              <img
+                                src={partner.logo}
+                                alt={partner.name}
+                                className={
+                                  partner.name.toLowerCase().includes('starburst')
+                                    ? 'h-6 w-auto object-contain brightness-0 invert sm:h-7'
+                                    : 'h-9 w-auto object-contain sm:h-10'
+                                }
+                              />
+                            </React.Fragment>
+                          ))}
+                        </div>
+                        <div className="text-[10px] font-black uppercase tracking-[0.28em] text-white/35">
+                          Partnership
+                        </div>
+                      </div>
+                    ) : (
+                      <img
+                        src={post.image}
+                        alt={post.imageAlt}
+                        className="absolute inset-0 h-full w-full object-cover opacity-90"
+                      />
+                    )}
                   </div>
 
                   <div className="box-copy flex flex-col justify-center p-7 text-left md:p-9 lg:p-10">

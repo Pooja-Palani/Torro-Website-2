@@ -36,6 +36,12 @@ const BlogPost = () => {
 
   const highlightTokens = React.useMemo(
     () => [
+      'Torro.ai + Starburst',
+      'Torro.ai × Starburst',
+      'Starburst',
+      'Torro.ai',
+      'Partnership',
+      'Data Chaos Trap',
       'GDPR',
       'DPDP',
       'CCPA',
@@ -128,10 +134,31 @@ const BlogPost = () => {
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             className="mt-10"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-[11px] font-black uppercase tracking-[0.28em]">
-              <span style={{ color: ACCENT }}>Blog</span>
-              <span className="text-white/25">•</span>
-              <span className="text-white/55">Resources</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-[11px] font-black uppercase tracking-[0.28em]">
+                <span style={{ color: ACCENT }}>Blog</span>
+                <span className="text-white/25">•</span>
+                <span className="text-white/55">Resources</span>
+              </div>
+
+              {post.partnership ? (
+                <div className="inline-flex items-center gap-2.5">
+                  {(post.partnership.partners || []).map((partner, idx) => (
+                    <React.Fragment key={partner.name}>
+                      {idx > 0 ? <span className="text-[11px] font-semibold text-white/30">×</span> : null}
+                      <img
+                        src={partner.logo}
+                        alt={partner.name}
+                        className={
+                          partner.name.toLowerCase().includes('starburst')
+                            ? 'h-4 w-auto object-contain brightness-0 invert opacity-90 sm:h-[18px]'
+                            : 'h-6 w-auto object-contain sm:h-7'
+                        }
+                      />
+                    </React.Fragment>
+                  ))}
+                </div>
+              ) : null}
             </div>
 
             <h1 className="mt-6 text-left text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] max-w-5xl">
